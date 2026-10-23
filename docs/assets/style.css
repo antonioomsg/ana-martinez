@@ -325,6 +325,19 @@ html { scroll-behavior: smooth; }
 .buy-assure { margin: 16px 0 0; font-size: 12px; line-height: 1.7; color: #6b7878; text-align: center; }
 .buy-assure span { color: #9aa3a3; }
 
+/* Zoom del visor al estilo Hermès: barra fina con punto */
+.lb-zoom { width: 56px; padding: 10px 0; background: #fbf9f6; gap: 0; }
+.lb-zoom button { width: 56px; height: 48px; background: none; font: 300 30px var(--display); color: #111; -webkit-tap-highlight-color: transparent; }
+.lb-zoom button:focus, .lb-close:focus, .lb-nav:focus { outline: none; }
+.lb-zoom button:focus-visible, .lb-close:focus-visible, .lb-nav:focus-visible { outline: 1px solid #111; outline-offset: -6px; }
+.lb-range { -webkit-appearance: none; appearance: none; writing-mode: vertical-lr; direction: rtl; width: 20px; height: 300px; margin: 12px 0; background: transparent; cursor: pointer; }
+.lb-range:focus { outline: none; }
+.lb-range::-webkit-slider-runnable-track { width: 1px; background: #111; }
+.lb-range::-moz-range-track { width: 1px; background: #111; }
+.lb-range::-webkit-slider-thumb { -webkit-appearance: none; width: 9px; height: 9px; border-radius: 50%; background: #111; border: 0; margin-left: -4px; }
+.lb-range::-moz-range-thumb { width: 9px; height: 9px; border-radius: 50%; background: #111; border: 0; }
+.lb-range:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 3px rgba(17,17,17,.2); }
+
 /* Sobre mí (rediseño) */
 .bio2 { max-width: 1200px; margin: 0 auto; padding: 24px 24px 120px; }
 .bio2-title { text-align: center; font-family: var(--display); font-weight: 400; letter-spacing: var(--track); font-size: 34px; margin: 0 0 64px; }
