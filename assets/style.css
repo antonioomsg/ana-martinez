@@ -372,13 +372,17 @@ html { scroll-behavior: smooth; }
 .rail { display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 6px) / 4); gap: 2px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; text-align: left; }
 .rail::-webkit-scrollbar { display: none; }
 .rail > * { scroll-snap-align: start; }
-.rail-btn { position: absolute; top: calc(50% - 50px); z-index: 3; display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; padding: 0; border: 0; background: rgba(251,249,246,.92); color: #111; cursor: pointer; }
-.rail-btn::before { content: ""; position: absolute; inset: -6px; }
+.rail-wrap { padding-top: 48px; margin-top: 8px; }
+.rail-btn { position: absolute; top: 0; z-index: 3; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; padding: 0; border: 1px solid #d9d3cb; background: #fff; color: #111; cursor: pointer; transition: border-color .2s, opacity .2s; }
+.rail-btn::before { content: ""; position: absolute; inset: -4px; }
 .rail-btn svg { display: block; }
+.rail-btn:hover:not(:disabled) { border-color: #111; }
+.rail-btn:disabled { opacity: .35; cursor: default; }
 .rail-btn:focus { outline: none; }
-.rail-btn:focus-visible { outline: 1px solid #111; outline-offset: -5px; }
-.rail-prev { left: 16px; } .rail-next { right: 16px; }
-.rail-btn[hidden] { display: none; }
+.rail-btn:focus-visible { outline: 1px solid #111; outline-offset: 2px; }
+.rail-prev { right: 64px; left: auto; } .rail-next { right: 20px; }
+.rail-static { padding-top: 0; }
+.rail-static .rail-btn { display: none; }
 
 /* Enlace a la obra desde la ficha */
 .pdp-obra figure a { display: block; transition: transform .4s ease; }

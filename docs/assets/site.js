@@ -275,8 +275,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const prev = wrap.querySelector(".rail-prev");
     const next = wrap.querySelector(".rail-next");
     const update = () => {
-      prev.hidden = rail.scrollLeft <= 2;
-      next.hidden = rail.scrollLeft + rail.clientWidth >= rail.scrollWidth - 2;
+      prev.disabled = rail.scrollLeft <= 2;
+      next.disabled = rail.scrollLeft + rail.clientWidth >= rail.scrollWidth - 2;
+      wrap.classList.toggle("rail-static", prev.disabled && next.disabled);
     };
     prev.addEventListener("click", (ev) => { rail.scrollBy({ left: -rail.clientWidth * 0.75 }); if (ev.detail) prev.blur(); });
     next.addEventListener("click", (ev) => { rail.scrollBy({ left: rail.clientWidth * 0.75 }); if (ev.detail) next.blur(); });
