@@ -181,6 +181,7 @@ document.addEventListener("DOMContentLoaded", () => {
       thumbs.appendChild(b);
     });
     lb.showModal();
+    stage.focus({ preventScroll: true });
     go(n);
   }
 

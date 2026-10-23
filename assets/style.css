@@ -353,6 +353,11 @@ html { scroll-behavior: smooth; }
 .lb-close { top: 24px; right: 24px; }
 .lb-next { right: 24px; }
 
+/* Zoom con los mismos iconos finos que las flechas */
+.lb-zoom button { display: flex; align-items: center; justify-content: center; font-size: 0; }
+.lb-zoom svg { display: block; flex: none; }
+.lb-stage:focus { outline: none; }
+
 /* Sobre mí (rediseño) */
 .bio2 { max-width: 1200px; margin: 0 auto; padding: 24px 24px 120px; }
 .bio2-title { text-align: center; font-family: var(--display); font-weight: 400; letter-spacing: var(--track); font-size: 34px; margin: 0 0 64px; }
@@ -416,7 +421,9 @@ html { scroll-behavior: smooth; }
   .bio2-title { font-size: 26px; margin-bottom: 32px; }
   .car-btn { opacity: 1; }
   .bi-intro { grid-template-columns: 1fr; gap: 12px; }
-  .group-index a { font-size: 18px; padding: 0 12px; }
+  .group-index { gap: 0 18px; padding: 0 16px; }
+  .group-index a { font-size: 18px; padding: 0; }
+  .group-index a + a::before { content: none; }
   .inq-grid { grid-template-columns: 1fr; }
   .inq-img { padding: 20px; }
   .inq-img img { max-height: 32vh; }
