@@ -96,11 +96,12 @@ def listado(r, ed, productos, actual):
   {grupo_header(r, g, len(items))}
   {"".join(bloques)}
 </section>""")
+    intro = ed if actual == "ediciones" else ed["tipos"][actual]
     titulo = dict((k, es) for k, es, _ in FILTROS)[actual]
     titulo = "Ediciones" if actual == "ediciones" else titulo
     return f"""<section class="shop-intro">
   <h1>{e(titulo)}</h1>
-  <div class="bi bi-intro"><p lang="es">{e(ed["intro_es"])}</p><p lang="en">{e(ed["intro_en"])}</p></div>
+  <div class="bi bi-intro"><p lang="es">{e(intro["intro_es"])}</p><p lang="en">{e(intro["intro_en"])}</p></div>
   <nav class="group-index" aria-label="Proyectos">{"".join(indice)}</nav>
 </section>
 {"".join(grupos)}"""

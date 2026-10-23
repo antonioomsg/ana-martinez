@@ -56,7 +56,9 @@
     "titulo_en": "How to wear it",
     "es": "Doblado en triángulo sobre los hombros, plegado en cinta y anudado al cuello o en la cabeza, el carré se mueve con quien lo lleva, como el agua.",
     "en": "Folded into a triangle over the shoulders, rolled into a ribbon and knotted at the neck or worn on the head, the carré moves with whoever wears it, like water."
-   }
+   },
+   "intro_es": "Carrés de seda twill con bordes cosidos a mano, nacidos de sus cuadros y agrupados por proyecto.",
+   "intro_en": "Silk twill carrés with hand-stitched hems, born from her paintings and grouped by project."
   },
   "laminas": {
    "nombre": "Láminas",
@@ -116,7 +118,9 @@
     "titulo_en": "How to hang it",
     "es": "Un marco fino de madera clara y un paspartú blanco dejan respirar la obra. A la altura de la mirada, con luz natural lateral, el color cambia a lo largo del día, como en el agua.",
     "en": "A thin pale wood frame and a white mount let the work breathe. Hung at eye level, in soft side light, its colour shifts through the day, like water."
-   }
+   },
+   "intro_es": "Láminas giclée sobre papel de algodón, firmadas a mano, nacidas de sus cuadros y agrupadas por proyecto.",
+   "intro_en": "Giclée prints on cotton paper, hand-signed, born from her paintings and grouped by project."
   }
  },
  "grupos": [
