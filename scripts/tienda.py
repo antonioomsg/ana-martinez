@@ -166,12 +166,29 @@ def ficha(r, p, ed, productos):
   <cite>{e(g["fuente"])}</cite>
   {enlace}
 </section>"""
+    serie = sorted((q for q in productos if q["grupo"] == p["grupo"]),
+                   key=lambda q: list(ed["tipos"]).index(q["tipo"]))
+    i = next(k for k, q in enumerate(serie) if q["slug"] == p["slug"])
+
+    def enlace_pieza(q, flecha_izq):
+        tq = ed["tipos"][q["tipo"]]
+        txt = f"‹ {e(nombre(q, tq))}" if flecha_izq else f"{e(nombre(q, tq))} ›"
+        return f'<a href="{r}{tq["dir"]}/{q["slug"]}/">{txt}</a>'
+    pager = ""
+    if len(serie) > 1:
+        ant = enlace_pieza(serie[i - 1], True) if i > 0 else "<span></span>"
+        sig = enlace_pieza(serie[i + 1], False) if i < len(serie) - 1 else "<span></span>"
+        pager = (f'<nav class="piece-nav" aria-label="Piezas del proyecto">{ant}'
+                 f'<span class="piece-count">{i + 1} / {len(serie)}</span>{sig}</nav>')
     hermanos = [q for q in productos if q["grupo"] == p["grupo"] and q["slug"] != p["slug"]]
     otros = [q for q in productos if q["grupo"] != p["grupo"]][: max(0, 4 - len(hermanos))]
     mas = "\n".join(card(r, q, ed) for q in hermanos + otros)
     acordeon = "".join(f"<details><summary>{e(a)}</summary><p>{e(b)}</p></details>" for a, b in tipo["acordeon"])
     return f"""<article class="pdp" data-slug="{p["slug"]}">
-  <nav class="crumbs" aria-label="Migas de pan"><a href="{r}ediciones/">Ediciones</a> › <a href="{r}ediciones/#{g["id"]}">{e(g["titulo"])}</a> › <span aria-current="page">{e(nombre(p, tipo))}</span></nav>
+  <div class="pdp-top">
+    <nav class="crumbs" aria-label="Migas de pan"><a href="{r}ediciones/">Ediciones</a> › <a href="{r}ediciones/#{g["id"]}">{e(g["titulo"])}</a> › <span aria-current="page">{e(nombre(p, tipo))}</span></nav>
+    {pager}
+  </div>
   <div class="pdp-strip">
     <div class="pdp-photos" data-gallery>
     <figure class="pdp-flat"><button type="button" class="zoomable" data-index="0" aria-label="Ampliar foto"><img data-flat-img src="{r}{foto(tipo, f["plano"])}" alt="{e(nombre(p, tipo))}, {vistas["plano"]}"></button></figure>
