@@ -8,7 +8,7 @@
 <link rel="icon" href="assets/firma.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Cormorant+Garamond:ital,wght@1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body class="home">
@@ -21,11 +21,29 @@
     <ul class="nav-menu" id="nav-menu">
       <li class="has-sub"><button class="sub-toggle" aria-expanded="false">COLECCIONES</button>
         <div class="sub"><a href="proyectos/">Proyectos</a><a href="murales/">Murales</a><a href="talleres/">Talleres</a></div></li>
+      <li><a href="panuelos/">PAÑUELOS</a></li>
       <li><a href="sobre-mi/">SOBRE MÍ</a></li>
       <li><a href="contacto/">CONTACTO</a></li>
     </ul>
+    <button class="cart-open" type="button" aria-label="Abrir la cesta">CESTA <span data-cart-count>0</span></button>
   </nav>
 </header>
+<aside class="cart" aria-label="Cesta" hidden>
+  <div class="cart-panel">
+    <header><h2>CESTA</h2><button class="cart-close" type="button" aria-label="Cerrar">×</button></header>
+    <div class="cart-items" data-cart-items></div>
+    <footer>
+      <p class="cart-total">Total <span data-cart-total>0 €</span></p>
+      <button class="btn-dark cart-checkout" type="button">FINALIZAR COMPRA</button>
+    </footer>
+  </div>
+</aside>
+<dialog class="demo-note">
+  <h2>Tienda en preparación</h2>
+  <p>Gracias por tu interés. La tienda online de pañuelos todavía no acepta pedidos: esta es una vista previa.</p>
+  <p>Si quieres uno, escríbenos a <a href="mailto:ana@ana-martinez.com?subject=Pa%C3%B1uelos">ana@ana-martinez.com</a> y te contamos.</p>
+  <form method="dialog"><button class="btn-dark">CERRAR</button></form>
+</dialog>
 <main id="main">
 <section class="hero">
   <img src="assets/hero.png" alt="Acuarela de Ana Martínez: dos figuras de niñas en azul turquesa, una con gorro rojo">
@@ -46,6 +64,8 @@
   </div>
   <p class="copy">© 2026 ANA MARTINEZ</p>
 </footer>
+<script>window.AM_ROOT = "";</script>
+<script src="assets/products.js" defer></script>
 <script src="assets/site.js" defer></script>
 </body>
 </html>

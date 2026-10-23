@@ -1,0 +1,75 @@
+{
+ "_nota": "TIENDA DE DEMOSTRACIÓN. Ficha y medidas según los correos de Ana (06/12/2024 y 08/01/2025). Fotos: planchado = foto real mejorada con IA; modelo y detalle = generadas con IA a partir del pañuelo real. Siamés y Ballena son diseños propuestos a partir de sus cuadros.",
+ "precio": 100,
+ "medida": "90 × 90 cm",
+ "ficha": "Seda twill 100 %, bordes cosidos a mano. Medida 90 × 90 cm; al estar el dobladillo hecho a mano, las dimensiones pueden variar ligeramente.",
+ "productos": [
+  {
+   "slug": "kelp-forest",
+   "nombre": "Kelp Forest",
+   "lema": "Era aquel el reino de la verticalidad.",
+   "descripcion": "Un bosque de algas visto desde dentro del agua: frondas doradas que suben hacia la luz entre azules turquesa y ultramar. El pañuelo nace de su pintura sobre los bosques de kelp, donde la luz, el agua y la vida participan de una misma danza.",
+   "colores": [{"id": "turquesa", "label": "Turquesa / Ultramar / Oro", "fotos": {"plano": "kelp_plano", "modelo": "kelp_modelo", "zoom": "kelp_zoom"}}],
+   "obra": {"titulo": "Bosque de kelp / Kelp forest", "tecnica": "Óleo sobre lienzo · 84 × 105 cm",
+            "img": "https://www.ana-martinez.com/wp-content/uploads/2024/03/Kelp-forest_www.jpg"},
+   "proyecto": {"titulo": "Kelp forest", "slug": "kelp-forest", "fecha": "2026",
+                "texto": ["Al sumergirnos en estos misteriosos paisajes marinos, descubrimos que nuestra manera de relacionarnos con el espacio externo cambia. Dejamos de caminar para flotar, dejamos de avanzar en línea recta para desplazarnos siguiendo las corrientes marinas, dejamos de ser espectadores para convertirnos en parte de la escena.",
+                          "La pintura que presento nace de esta observación de la luz y de la oscuridad, del movimiento, que es constante y armónico, y es lo que transforma el paisaje a cada batida de las ondas marinas. Cada corriente modifica la posición de las algas; cada cambio de luz transforma el color; todo está conectado."],
+                "fuente": "Ana Martínez, hoja de sala de «Kelp forest»"}
+  },
+  {
+   "slug": "siames",
+   "nombre": "Siamés",
+   "lema": "Un movimiento suave y armónico.",
+   "descripcion": "El pez siamés luchador suspendido en el agua, con sus aletas rojas abiertas como un abanico de seda. Un pañuelo para llevar el gesto pictórico de Ana sobre la piel.",
+   "colores": [{"id": "rojo", "label": "Rojo coral / Gris perla", "fotos": {"plano": "siames_plano", "modelo": "siames_modelo", "zoom": "siames_zoom"}}],
+   "obra": {"titulo": "Pez siamés luchador / Siamese fighting fish", "tecnica": "Óleo sobre lienzo · 113 × 147 cm",
+            "img": "https://www.ana-martinez.com/wp-content/uploads/2024/03/Pez-Siamés-luchador.jpg"},
+   "proyecto": {"titulo": "Flotabilidad neutra", "slug": "flotabilidad-neutra", "fecha": "Sevilla, del 12 de marzo al 12 de abril de 2024",
+                "texto": ["El estado de ingravidez que sucede cuando se adquiere la destreza de la flotabilidad neutra no es un estado estático: existe el movimiento, pero es un movimiento suave y armónico. Es ese estar en un limbo donde nada y todo ocurre a la vez, lo que resulta sobrecogedor.",
+                          "Esta exposición de cuadros al óleo bebe de todas estas experiencias y reflexiones sobre el universo que existe oculto bajo el mar y su comportamiento. Todo está en una perfecta comunión donde la luz actúa como aglutinante de esta enorme variedad de elementos."],
+                "fuente": "Ana Martínez, catálogo de «Ebria de carne azul», enero de 2025"}
+  },
+  {
+   "slug": "ballena",
+   "nombre": "Ballena",
+   "lema": "Una tregua de paz.",
+   "descripcion": "Una yubarta flotando en el azul profundo, en ese silencio obligado que solo existe bajo el agua. El cuadro se convierte en carré para envolver los hombros o anudarse al cuello.",
+   "colores": [{"id": "azul", "label": "Azul profundo / Blanco", "fotos": {"plano": "ballena_plano", "modelo": "ballena_modelo", "zoom": "ballena_zoom"}}],
+   "obra": {"titulo": "Humpback", "tecnica": "Óleo · serie de yubartas de «Flotabilidad neutra»",
+            "img": "https://www.ana-martinez.com/wp-content/uploads/2024/03/floating-humpback.jpg"},
+   "proyecto": {"titulo": "Flotabilidad neutra", "slug": "flotabilidad-neutra", "fecha": "Sevilla, del 12 de marzo al 12 de abril de 2024",
+                "texto": ["El silencio obligado, la imposibilidad de hablar dentro del agua, se sustituye por el lenguaje de signos. La respiración submarina, profunda, serena y continua, es una plataforma ideal para descubrir otras maneras de estar y de ser.",
+                          "Un salirse del mapa de complejidades del mundo en que vivimos, ebrios de carne azul, por un rato al menos. Un estado parecido a lo que sucede cuando meditamos. Un reseteo necesario. Una tregua de paz."],
+                "fuente": "Ana Martínez, catálogo de «Ebria de carne azul», enero de 2025"}
+  },
+  {
+   "slug": "viana",
+   "nombre": "Viana",
+   "lema": "Las plantas de los patios.",
+   "descripcion": "Hojas redondas y flores amarillas dibujadas con el detalle de una lámina botánica, enmarcadas por un ribete de damero verde. Un jardín de patio cordobés para llevar puesto.",
+   "colores": [{"id": "verde", "label": "Verde / Amarillo / Rosa pálido", "fotos": {"plano": "viana_plano", "modelo": "viana_modelo", "zoom": "viana_zoom"}}],
+   "obra": {"titulo": "Láminas botánicas", "tecnica": "Dibujo y acuarela",
+            "img": "assets/panuelos/viana_diseno.jpg"},
+   "proyecto": {"titulo": "Plantas de los patios", "slug": null, "fecha": "",
+                "texto": ["Ana lleva años dibujando las plantas de los patios de Andalucía: una de sus series de pañuelos artísticos, «Plantas de los patios de Andalucía», forma parte de la colección de Iberdrola, y ha trabajado para el Palacio de Viana de Córdoba.",
+                          "Este pañuelo nace de sus láminas botánicas: un dibujo minucioso, casi científico, convertido en estampado."],
+                "fuente": "CV de Ana Martínez"}
+  },
+  {
+   "slug": "ondas",
+   "nombre": "Ondas",
+   "lema": "Una suave onda expansiva.",
+   "descripcion": "Un dibujo de líneas que se ondulan como el agua al moverse. Disponible en varios colores, con la firma de Ana en una esquina.",
+   "colores": [
+    {"id": "magenta", "label": "Magenta / Blanco", "fotos": {"plano": "ondas_plano_magenta", "modelo": "ondas_modelo", "zoom": "ondas_zoom"}},
+    {"id": "azul", "label": "Azul / Blanco", "fotos": {"plano": "ondas_plano_azul", "modelo": "ondas_modelo", "zoom": "ondas_zoom"}},
+    {"id": "naranja", "label": "Naranja / Blanco", "fotos": {"plano": "ondas_plano_naranja", "modelo": "ondas_modelo", "zoom": "ondas_zoom"}}
+   ],
+   "obra": null,
+   "proyecto": {"titulo": "El movimiento del agua", "slug": "ebria-de-carne-azul", "fecha": "",
+                "texto": ["Los miembros, al moverse, ejercen su presión sobre el agua, que al ser desplazada traslada su masa a nuestro alrededor, creando una suave onda expansiva que provoca que continúe el movimiento por el resto del cuerpo. De esta manera fluyen los seres acuáticos dentro del agua."],
+                "fuente": "Ana Martínez, catálogo de «Ebria de carne azul», enero de 2025"}
+  }
+ ]
+}

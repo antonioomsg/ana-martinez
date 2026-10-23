@@ -9,6 +9,9 @@ import shutil
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).parent))
+import tienda  # noqa: E402
+
 ROOT = Path(sys.argv[1] if len(sys.argv) > 1 else ".")
 OUT = ROOT / "docs"
 MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio",
@@ -46,11 +49,29 @@ def nav(r, current=""):
     <ul class="nav-menu" id="nav-menu">
       <li class="has-sub"><button class="sub-toggle" aria-expanded="false">COLECCIONES</button>
         <div class="sub">{sub}</div></li>
+      <li>{item("panuelos/", "PAÑUELOS", "panuelos")}</li>
       <li>{item("sobre-mi/", "SOBRE MÍ", "sobre-mi")}</li>
       <li>{item("contacto/", "CONTACTO", "contacto")}</li>
     </ul>
+    <button class="cart-open" type="button" aria-label="Abrir la cesta">CESTA <span data-cart-count>0</span></button>
   </nav>
-</header>"""
+</header>
+<aside class="cart" aria-label="Cesta" hidden>
+  <div class="cart-panel">
+    <header><h2>CESTA</h2><button class="cart-close" type="button" aria-label="Cerrar">×</button></header>
+    <div class="cart-items" data-cart-items></div>
+    <footer>
+      <p class="cart-total">Total <span data-cart-total>0 €</span></p>
+      <button class="btn-dark cart-checkout" type="button">FINALIZAR COMPRA</button>
+    </footer>
+  </div>
+</aside>
+<dialog class="demo-note">
+  <h2>Tienda en preparación</h2>
+  <p>Gracias por tu interés. La tienda online de pañuelos todavía no acepta pedidos: esta es una vista previa.</p>
+  <p>Si quieres uno, escríbenos a <a href="mailto:{EMAIL}?subject=Pa%C3%B1uelos">{EMAIL}</a> y te contamos.</p>
+  <form method="dialog"><button class="btn-dark">CERRAR</button></form>
+</dialog>"""
 
 
 def footer(r):
@@ -82,7 +103,7 @@ def page(r, title, body, current="", desc="Ana Martínez, artista. Pintura, mura
 <link rel="icon" href="{r}assets/firma.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Cormorant+Garamond:ital,wght@1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{r}assets/style.css">
 </head>
 <body class="{cls}">
@@ -91,6 +112,8 @@ def page(r, title, body, current="", desc="Ana Martínez, artista. Pintura, mura
 {body}
 </main>
 {footer(r)}
+<script>window.AM_ROOT = "{r}";</script>
+<script src="{r}assets/products.js" defer></script>
 <script src="{r}assets/site.js" defer></script>
 </body>
 </html>
@@ -197,7 +220,19 @@ def build():
   <p class="contacto-redes"><a href="{INSTAGRAM}" rel="noopener">Instagram</a> · <a href="{YOUTUBE}" rel="noopener">YouTube</a></p>
 </section>""", current="contacto"))
 
+    build_tienda()
     print(f"OK docs/: {len(posts)} fichas + portada, 3 secciones, sobre mí, contacto")
+
+
+def build_tienda():
+    data = json.loads((ROOT / "data" / "panuelos.json").read_text())
+    (OUT / "assets" / "products.js").write_text(tienda.products_js(data))
+    write("panuelos/index.html", page("../", "Pañuelos", tienda.listado("../", data), current="panuelos",
+                                      desc="Carrés de seda de Ana Martínez, nacidos de su pintura."))
+    for p in data["productos"]:
+        write(f"panuelos/{p['slug']}/index.html",
+              page("../../", f"Carré {p['nombre']}", tienda.ficha("../../", p, data), current="panuelos",
+                   desc=p["descripcion"][:155], cls="pdp-page"))
 
 
 if __name__ == "__main__":

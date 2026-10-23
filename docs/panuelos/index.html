@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pañuelos · Ana Martínez</title>
+<meta name="description" content="Carrés de seda de Ana Martínez, nacidos de su pintura.">
+<link rel="icon" href="../assets/firma.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Cormorant+Garamond:ital,wght@1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="">
+<header class="site-header">
+  <nav class="nav" aria-label="Principal">
+    <a class="nav-brand" href="../index.html">ANA MARTINEZ</a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-menu" id="nav-menu">
+      <li class="has-sub"><button class="sub-toggle" aria-expanded="false">COLECCIONES</button>
+        <div class="sub"><a href="../proyectos/">Proyectos</a><a href="../murales/">Murales</a><a href="../talleres/">Talleres</a></div></li>
+      <li><a href="../panuelos/" aria-current="page">PAÑUELOS</a></li>
+      <li><a href="../sobre-mi/">SOBRE MÍ</a></li>
+      <li><a href="../contacto/">CONTACTO</a></li>
+    </ul>
+    <button class="cart-open" type="button" aria-label="Abrir la cesta">CESTA <span data-cart-count>0</span></button>
+  </nav>
+</header>
+<aside class="cart" aria-label="Cesta" hidden>
+  <div class="cart-panel">
+    <header><h2>CESTA</h2><button class="cart-close" type="button" aria-label="Cerrar">×</button></header>
+    <div class="cart-items" data-cart-items></div>
+    <footer>
+      <p class="cart-total">Total <span data-cart-total>0 €</span></p>
+      <button class="btn-dark cart-checkout" type="button">FINALIZAR COMPRA</button>
+    </footer>
+  </div>
+</aside>
+<dialog class="demo-note">
+  <h2>Tienda en preparación</h2>
+  <p>Gracias por tu interés. La tienda online de pañuelos todavía no acepta pedidos: esta es una vista previa.</p>
+  <p>Si quieres uno, escríbenos a <a href="mailto:ana@ana-martinez.com?subject=Pa%C3%B1uelos">ana@ana-martinez.com</a> y te contamos.</p>
+  <form method="dialog"><button class="btn-dark">CERRAR</button></form>
+</dialog>
+<main id="main">
+<section class="shop-intro">
+  <h1>PAÑUELOS</h1>
+  <p>Carrés de seda twill con bordes cosidos a mano, nacidos de la obra de Ana Martínez.</p>
+</section>
+<div class="shop-grid">
+<a class="shop-card" href="../panuelos/kelp-forest/">
+  <span class="shop-media">
+    <img class="shop-flat" src="../assets/panuelos/kelp_plano.jpg" alt="Pañuelo Kelp Forest extendido" loading="lazy">
+    <img class="shop-worn" src="../assets/panuelos/kelp_modelo.jpg" alt="Pañuelo Kelp Forest llevado" loading="lazy">
+  </span>
+  <span class="shop-name">Carré Kelp Forest</span>
+  <span class="shop-price">100 €</span>
+</a>
+<a class="shop-card" href="../panuelos/siames/">
+  <span class="shop-media">
+    <img class="shop-flat" src="../assets/panuelos/siames_plano.jpg" alt="Pañuelo Siamés extendido" loading="lazy">
+    <img class="shop-worn" src="../assets/panuelos/siames_modelo.jpg" alt="Pañuelo Siamés llevado" loading="lazy">
+  </span>
+  <span class="shop-name">Carré Siamés</span>
+  <span class="shop-price">100 €</span>
+</a>
+<a class="shop-card" href="../panuelos/ballena/">
+  <span class="shop-media">
+    <img class="shop-flat" src="../assets/panuelos/ballena_plano.jpg" alt="Pañuelo Ballena extendido" loading="lazy">
+    <img class="shop-worn" src="../assets/panuelos/ballena_modelo.jpg" alt="Pañuelo Ballena llevado" loading="lazy">
+  </span>
+  <span class="shop-name">Carré Ballena</span>
+  <span class="shop-price">100 €</span>
+</a>
+<a class="shop-card" href="../panuelos/viana/">
+  <span class="shop-media">
+    <img class="shop-flat" src="../assets/panuelos/viana_plano.jpg" alt="Pañuelo Viana extendido" loading="lazy">
+    <img class="shop-worn" src="../assets/panuelos/viana_modelo.jpg" alt="Pañuelo Viana llevado" loading="lazy">
+  </span>
+  <span class="shop-name">Carré Viana</span>
+  <span class="shop-price">100 €</span>
+</a>
+<a class="shop-card" href="../panuelos/ondas/">
+  <span class="shop-media">
+    <img class="shop-flat" src="../assets/panuelos/ondas_plano_magenta.jpg" alt="Pañuelo Ondas extendido" loading="lazy">
+    <img class="shop-worn" src="../assets/panuelos/ondas_modelo.jpg" alt="Pañuelo Ondas llevado" loading="lazy">
+  </span>
+  <span class="shop-name">Carré Ondas</span>
+  <span class="shop-price">100 €</span>
+</a>
+</div>
+</main>
+<footer class="site-footer">
+  <img class="firma" src="../assets/firma.png" alt="Ana Martínez" width="325" height="89">
+  <p class="footer-lead">Cada pieza es única. Para recibir más información déjanos tu email y nos pondremos en contacto contigo</p>
+  <form class="footer-form" action="mailto:ana@ana-martinez.com" method="post" enctype="text/plain">
+    <label class="sr-only" for="f-email">Email</label>
+    <input id="f-email" name="email" type="email" placeholder="Email" required>
+    <button type="submit">ENVIAR</button>
+  </form>
+  <div class="footer-links">
+    <div><a href="../sobre-mi/">SOBRE MÍ</a><a href="../contacto/">CONTACTO</a></div>
+    <div><a href="https://www.instagram.com/anamartinez_studio/" rel="noopener">INSTAGRAM</a><a href="https://www.youtube.com/user/aninanona" rel="noopener">YOUTUBE</a></div>
+  </div>
+  <p class="copy">© 2026 ANA MARTINEZ</p>
+</footer>
+<script>window.AM_ROOT = "../";</script>
+<script src="../assets/products.js" defer></script>
+<script src="../assets/site.js" defer></script>
+</body>
+</html>
