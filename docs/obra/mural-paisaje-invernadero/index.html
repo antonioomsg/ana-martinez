@@ -51,15 +51,27 @@
     <p class="obra-date">junio, 2019</p>
   </header>
   <div class="obra-text"></div>
-  <div class="obra-gallery"><figure><img src="https://www.ana-martinez.com/wp-content/uploads/2019/06/Mexico-SMALL-021.jpg" alt="" loading="lazy"></figure>
-<figure><img src="https://www.ana-martinez.com/wp-content/uploads/2019/06/Mexico-SMALL-011.jpg" alt="Mexico SMALL 011" loading="lazy"></figure>
-<figure><img src="https://www.ana-martinez.com/wp-content/uploads/2019/06/Mexico-SMALL-009.jpg" alt="" loading="lazy"></figure>
-<figure><img src="https://www.ana-martinez.com/wp-content/uploads/2019/06/Mexico-SMALL-018.jpg" alt="" loading="lazy"></figure>
-<figure><img src="https://www.ana-martinez.com/wp-content/uploads/2019/06/Mexico-SMALL-014.jpg" alt="" loading="lazy"></figure>
-<figure><img src="https://www.ana-martinez.com/wp-content/uploads/2019/06/Mexico-SMALL-016.jpg" alt="" loading="lazy"></figure>
-<figure><img src="https://www.ana-martinez.com/wp-content/uploads/2019/06/Mexico-SMALL-019.jpg" alt="" loading="lazy"></figure></div>
+  <div class="obra-gallery" data-gallery><figure><button type="button" class="zoomable" data-index="0" aria-label="Ampliar foto"><img src="https://www.ana-martinez.com/wp-content/uploads/2019/06/Mexico-SMALL-021.jpg" alt="" loading="lazy"></button></figure>
+<figure><button type="button" class="zoomable" data-index="1" aria-label="Ampliar foto"><img src="https://www.ana-martinez.com/wp-content/uploads/2019/06/Mexico-SMALL-011.jpg" alt="Mexico SMALL 011" loading="lazy"></button></figure>
+<figure><button type="button" class="zoomable" data-index="2" aria-label="Ampliar foto"><img src="https://www.ana-martinez.com/wp-content/uploads/2019/06/Mexico-SMALL-009.jpg" alt="" loading="lazy"></button></figure>
+<figure><button type="button" class="zoomable" data-index="3" aria-label="Ampliar foto"><img src="https://www.ana-martinez.com/wp-content/uploads/2019/06/Mexico-SMALL-018.jpg" alt="" loading="lazy"></button></figure>
+<figure><button type="button" class="zoomable" data-index="4" aria-label="Ampliar foto"><img src="https://www.ana-martinez.com/wp-content/uploads/2019/06/Mexico-SMALL-014.jpg" alt="" loading="lazy"></button></figure>
+<figure><button type="button" class="zoomable" data-index="5" aria-label="Ampliar foto"><img src="https://www.ana-martinez.com/wp-content/uploads/2019/06/Mexico-SMALL-016.jpg" alt="" loading="lazy"></button></figure>
+<figure><button type="button" class="zoomable" data-index="6" aria-label="Ampliar foto"><img src="https://www.ana-martinez.com/wp-content/uploads/2019/06/Mexico-SMALL-019.jpg" alt="" loading="lazy"></button></figure></div>
   <nav class="pager"><a href="../mural-en-la-caja-rural-de-baena/">← Mural en la Caja Rural de Baena</a><a href="../../murales/">MURALES</a><a href="../mural-en-escalera/">MURAL EN ESCALERA →</a></nav>
 </article>
+<dialog class="lightbox" aria-label="Foto ampliada">
+  <div class="lb-stage"><img class="lb-img" alt=""></div>
+  <div class="lb-zoom">
+    <button type="button" class="lb-in" aria-label="Acercar">+</button>
+    <input type="range" class="lb-range" min="1" max="4" step="0.1" value="1" aria-label="Zoom" orient="vertical">
+    <button type="button" class="lb-out" aria-label="Alejar">−</button>
+  </div>
+  <div class="lb-thumbs"></div>
+  <button type="button" class="lb-nav lb-prev" aria-label="Foto anterior">‹</button>
+  <button type="button" class="lb-nav lb-next" aria-label="Foto siguiente">›</button>
+  <button type="button" class="lb-close" aria-label="Cerrar">×</button>
+</dialog>
 </main>
 <footer class="site-footer">
   <img class="firma" src="../../assets/firma.png" alt="Ana Martínez" width="325" height="89">

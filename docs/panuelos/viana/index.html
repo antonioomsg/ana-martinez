@@ -47,15 +47,15 @@
 <main id="main">
 <article class="pdp" data-slug="viana">
   <div class="pdp-strip">
-    <div class="pdp-photos">
+    <div class="pdp-photos" data-gallery>
     <figure class="pdp-flat"><button type="button" class="zoomable" data-index="0" aria-label="Ampliar foto"><img data-flat-img src="../../assets/panuelos/viana_plano.jpg" alt="Carré Viana extendido"></button></figure>
-    <figure><button type="button" class="zoomable" data-index="1" aria-label="Ampliar foto"><img src="../../assets/panuelos/viana_modelo.jpg" alt="Carré Viana llevado al cuello"></button></figure>
-    <figure><button type="button" class="zoomable" data-index="2" aria-label="Ampliar foto"><img src="../../assets/panuelos/viana_zoom.jpg" alt="Detalle de la seda del carré Viana"></button></figure>
+    <figure><button type="button" class="zoomable" data-index="1" aria-label="Ampliar foto"><img data-worn-img src="../../assets/panuelos/viana_modelo.jpg" alt="Carré Viana llevado al cuello"></button></figure>
+    <figure><button type="button" class="zoomable" data-index="2" aria-label="Ampliar foto"><img data-zoom-img src="../../assets/panuelos/viana_zoom.jpg" alt="Detalle de la seda del carré Viana"></button></figure>
     </div>
     <div class="buy-card">
       <h1>Carré Viana</h1>
       <div class="buy-color"><span>COLOR</span><span data-color-label>Verde / Amarillo / Rosa pálido</span></div>
-      <div class="swatches"><button type="button" class="swatch is-active" data-color="verde" data-label="Verde / Amarillo / Rosa pálido" data-flat="../../assets/panuelos/viana_plano.jpg" aria-label="Verde / Amarillo / Rosa pálido"><img src="../../assets/panuelos/viana_plano.jpg" alt=""></button></div>
+      <div class="swatches"><button type="button" class="swatch is-active" data-color="verde" data-label="Verde / Amarillo / Rosa pálido" data-flat="../../assets/panuelos/viana_plano.jpg" data-worn="../../assets/panuelos/viana_modelo.jpg" data-zoom="../../assets/panuelos/viana_zoom.jpg" aria-label="Verde / Amarillo / Rosa pálido"><img src="../../assets/panuelos/viana_plano.jpg" alt=""></button></div>
       <p class="buy-price">100 €</p>
       <button class="btn-dark add-to-cart" type="button" data-color="verde">AÑADIR A MI CESTA</button>
     </div>
@@ -147,6 +147,8 @@
     <button type="button" class="lb-out" aria-label="Alejar">−</button>
   </div>
   <div class="lb-thumbs"></div>
+  <button type="button" class="lb-nav lb-prev" aria-label="Foto anterior">‹</button>
+  <button type="button" class="lb-nav lb-next" aria-label="Foto siguiente">›</button>
   <button type="button" class="lb-close" aria-label="Cerrar">×</button>
 </dialog>
 </main>

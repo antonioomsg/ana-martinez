@@ -163,7 +163,11 @@ a { color: inherit; }
 .lb-zoom button, .lb-close { border: 0; background: #fff; width: 42px; height: 42px; font-size: 22px; cursor: pointer; color: var(--ink); }
 .lb-range { writing-mode: vertical-lr; direction: rtl; height: 320px; width: 20px; margin: 8px 0; accent-color: var(--ink); }
 .lb-close { position: absolute; top: 28px; right: 28px; font-size: 28px; }
-.lb-thumbs { position: absolute; left: 32px; bottom: 32px; display: flex; gap: 6px; background: #fff; padding: 6px; }
+.lb-thumbs { display: none !important; position: absolute; left: 32px; bottom: 32px; display: flex; gap: 6px; background: #fff; padding: 6px; max-width: calc(100vw - 64px); overflow-x: auto; }
+.lb-thumbs button { flex: 0 0 auto; }
+.lb-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; border: 0; background: rgba(255,255,255,.9); font-size: 28px; color: var(--ink); cursor: pointer; z-index: 2; }
+.lb-prev { left: 96px; } .lb-next { right: 28px; }
+.obra-gallery .zoomable { height: auto; }
 .lb-thumbs button { width: 52px; height: 60px; padding: 0; border: 0; border-bottom: 2px solid transparent; background: var(--sand); cursor: pointer; }
 .lb-thumbs button.is-active { border-bottom-color: #000; }
 .lb-thumbs img { width: 100%; height: 100%; object-fit: cover; }
@@ -227,6 +231,7 @@ a { color: inherit; }
   .accordions { grid-template-columns: 1fr; }
   .car-btn { opacity: 1; width: 34px; height: 34px; font-size: 20px; }
   .lb-zoom { display: none; }
+  .lb-prev { left: 12px; } .lb-next { right: 12px; }
   .lb-thumbs { left: 50%; transform: translateX(-50%); }
   .pdp-obra figure { padding: 24px; }
   .pdp-wear h2, .pdp-proyecto h2, .pdp-more h2, .pdp-obra h2 { font-size: 30px; }

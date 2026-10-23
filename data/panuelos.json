@@ -156,8 +156,8 @@
      "label": "Azul / Blanco",
      "fotos": {
       "plano": "ondas_plano_azul",
-      "modelo": "ondas_modelo",
-      "zoom": "ondas_zoom"
+      "modelo": "ondas_modelo_azul",
+      "zoom": "ondas_zoom_azul"
      }
     },
     {
@@ -165,8 +165,8 @@
      "label": "Naranja / Blanco",
      "fotos": {
       "plano": "ondas_plano_naranja",
-      "modelo": "ondas_modelo",
-      "zoom": "ondas_zoom"
+      "modelo": "ondas_modelo_naranja",
+      "zoom": "ondas_zoom_naranja"
      }
     }
    ],

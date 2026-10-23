@@ -51,12 +51,24 @@
     <p class="obra-date">agosto, 2017</p>
   </header>
   <div class="obra-text"></div>
-  <div class="obra-gallery"><figure><img src="https://www.ana-martinez.com/wp-content/uploads/2017/08/www_NY_OK_01.jpg" alt="www_NY_OK_01" loading="lazy"></figure>
-<figure><img src="https://www.ana-martinez.com/wp-content/uploads/2017/08/www_NY_OK_02.jpg" alt="www_NY_OK_02" loading="lazy"></figure>
-<figure><img src="https://www.ana-martinez.com/wp-content/uploads/2017/08/www_NY_OK_03.jpg" alt="www_NY_OK_03" loading="lazy"></figure>
-<figure><img src="https://www.ana-martinez.com/wp-content/uploads/2017/08/www_NY_OK_04.jpg" alt="www_NY_OK_04" loading="lazy"></figure></div>
+  <div class="obra-gallery" data-gallery><figure><button type="button" class="zoomable" data-index="0" aria-label="Ampliar foto"><img src="https://www.ana-martinez.com/wp-content/uploads/2017/08/www_NY_OK_01.jpg" alt="www_NY_OK_01" loading="lazy"></button></figure>
+<figure><button type="button" class="zoomable" data-index="1" aria-label="Ampliar foto"><img src="https://www.ana-martinez.com/wp-content/uploads/2017/08/www_NY_OK_02.jpg" alt="www_NY_OK_02" loading="lazy"></button></figure>
+<figure><button type="button" class="zoomable" data-index="2" aria-label="Ampliar foto"><img src="https://www.ana-martinez.com/wp-content/uploads/2017/08/www_NY_OK_03.jpg" alt="www_NY_OK_03" loading="lazy"></button></figure>
+<figure><button type="button" class="zoomable" data-index="3" aria-label="Ampliar foto"><img src="https://www.ana-martinez.com/wp-content/uploads/2017/08/www_NY_OK_04.jpg" alt="www_NY_OK_04" loading="lazy"></button></figure></div>
   <nav class="pager"><a href="../mural-en-un-patio-infantil-madrid/">← Mural en un patio infantil. Madrid.</a><a href="../../murales/">MURALES</a><a href="../mural-en-el-espacio-gastronomico-agora-cordoba/">Mural en el espacio gastronómico Ágora. Córdoba →</a></nav>
 </article>
+<dialog class="lightbox" aria-label="Foto ampliada">
+  <div class="lb-stage"><img class="lb-img" alt=""></div>
+  <div class="lb-zoom">
+    <button type="button" class="lb-in" aria-label="Acercar">+</button>
+    <input type="range" class="lb-range" min="1" max="4" step="0.1" value="1" aria-label="Zoom" orient="vertical">
+    <button type="button" class="lb-out" aria-label="Alejar">−</button>
+  </div>
+  <div class="lb-thumbs"></div>
+  <button type="button" class="lb-nav lb-prev" aria-label="Foto anterior">‹</button>
+  <button type="button" class="lb-nav lb-next" aria-label="Foto siguiente">›</button>
+  <button type="button" class="lb-close" aria-label="Cerrar">×</button>
+</dialog>
 </main>
 <footer class="site-footer">
   <img class="firma" src="../../assets/firma.png" alt="Ana Martínez" width="325" height="89">

@@ -182,7 +182,9 @@ def build():
         prev_ = sib[i - 1] if i > 0 else None
         next_ = sib[i + 1] if 0 <= i < len(sib) - 1 else None
         imgs = "\n".join(
-            f'<figure><img src="{e(im["src"])}" alt="{e(im["alt"])}" loading="lazy"></figure>' for im in p["images"])
+            f'<figure><button type="button" class="zoomable" data-index="{k}" aria-label="Ampliar foto">'
+            f'<img src="{e(im["src"])}" alt="{e(im["alt"])}" loading="lazy"></button></figure>'
+            for k, im in enumerate(p["images"]))
         pager = '<nav class="pager">'
         pager += f'<a href="../{prev_["slug"]}/">← {e(prev_["title"])}</a>' if prev_ else "<span></span>"
         pager += f'<a href="../../{folder}/">{sec_title.upper()}</a>'
@@ -194,9 +196,10 @@ def build():
     <p class="obra-date">{fecha(p["date"])}</p>
   </header>
   <div class="obra-text">{render_text(p["text"])}</div>
-  <div class="obra-gallery">{imgs}</div>
+  <div class="obra-gallery" data-gallery>{imgs}</div>
   {pager}
-</article>"""
+</article>
+{tienda.LIGHTBOX}"""
         first = next((t for t in p["text"] if isinstance(t, str) and len(t) > 40), p["title"])
         write(f"obra/{p['slug']}/index.html", page("../../", p["title"], body, current=folder, desc=first[:155]))
 

@@ -47,15 +47,15 @@
 <main id="main">
 <article class="pdp" data-slug="ondas">
   <div class="pdp-strip">
-    <div class="pdp-photos">
+    <div class="pdp-photos" data-gallery>
     <figure class="pdp-flat"><button type="button" class="zoomable" data-index="0" aria-label="Ampliar foto"><img data-flat-img src="../../assets/panuelos/ondas_plano_magenta.jpg" alt="Carré Ondas extendido"></button></figure>
-    <figure><button type="button" class="zoomable" data-index="1" aria-label="Ampliar foto"><img src="../../assets/panuelos/ondas_modelo.jpg" alt="Carré Ondas llevado al cuello"></button></figure>
-    <figure><button type="button" class="zoomable" data-index="2" aria-label="Ampliar foto"><img src="../../assets/panuelos/ondas_zoom.jpg" alt="Detalle de la seda del carré Ondas"></button></figure>
+    <figure><button type="button" class="zoomable" data-index="1" aria-label="Ampliar foto"><img data-worn-img src="../../assets/panuelos/ondas_modelo.jpg" alt="Carré Ondas llevado al cuello"></button></figure>
+    <figure><button type="button" class="zoomable" data-index="2" aria-label="Ampliar foto"><img data-zoom-img src="../../assets/panuelos/ondas_zoom.jpg" alt="Detalle de la seda del carré Ondas"></button></figure>
     </div>
     <div class="buy-card">
       <h1>Carré Ondas</h1>
       <div class="buy-color"><span>COLOR</span><span data-color-label>Magenta / Blanco</span></div>
-      <div class="swatches"><button type="button" class="swatch is-active" data-color="magenta" data-label="Magenta / Blanco" data-flat="../../assets/panuelos/ondas_plano_magenta.jpg" aria-label="Magenta / Blanco"><img src="../../assets/panuelos/ondas_plano_magenta.jpg" alt=""></button><button type="button" class="swatch" data-color="azul" data-label="Azul / Blanco" data-flat="../../assets/panuelos/ondas_plano_azul.jpg" aria-label="Azul / Blanco"><img src="../../assets/panuelos/ondas_plano_azul.jpg" alt=""></button><button type="button" class="swatch" data-color="naranja" data-label="Naranja / Blanco" data-flat="../../assets/panuelos/ondas_plano_naranja.jpg" aria-label="Naranja / Blanco"><img src="../../assets/panuelos/ondas_plano_naranja.jpg" alt=""></button></div>
+      <div class="swatches"><button type="button" class="swatch is-active" data-color="magenta" data-label="Magenta / Blanco" data-flat="../../assets/panuelos/ondas_plano_magenta.jpg" data-worn="../../assets/panuelos/ondas_modelo.jpg" data-zoom="../../assets/panuelos/ondas_zoom.jpg" aria-label="Magenta / Blanco"><img src="../../assets/panuelos/ondas_plano_magenta.jpg" alt=""></button><button type="button" class="swatch" data-color="azul" data-label="Azul / Blanco" data-flat="../../assets/panuelos/ondas_plano_azul.jpg" data-worn="../../assets/panuelos/ondas_modelo_azul.jpg" data-zoom="../../assets/panuelos/ondas_zoom_azul.jpg" aria-label="Azul / Blanco"><img src="../../assets/panuelos/ondas_plano_azul.jpg" alt=""></button><button type="button" class="swatch" data-color="naranja" data-label="Naranja / Blanco" data-flat="../../assets/panuelos/ondas_plano_naranja.jpg" data-worn="../../assets/panuelos/ondas_modelo_naranja.jpg" data-zoom="../../assets/panuelos/ondas_zoom_naranja.jpg" aria-label="Naranja / Blanco"><img src="../../assets/panuelos/ondas_plano_naranja.jpg" alt=""></button></div>
       <p class="buy-price">100 €</p>
       <button class="btn-dark add-to-cart" type="button" data-color="magenta">AÑADIR A MI CESTA</button>
     </div>
@@ -139,6 +139,8 @@
     <button type="button" class="lb-out" aria-label="Alejar">−</button>
   </div>
   <div class="lb-thumbs"></div>
+  <button type="button" class="lb-nav lb-prev" aria-label="Foto anterior">‹</button>
+  <button type="button" class="lb-nav lb-next" aria-label="Foto siguiente">›</button>
   <button type="button" class="lb-close" aria-label="Cerrar">×</button>
 </dialog>
 </main>

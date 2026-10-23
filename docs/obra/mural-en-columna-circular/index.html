@@ -51,11 +51,23 @@
     <p class="obra-date">julio, 2020</p>
   </header>
   <div class="obra-text"></div>
-  <div class="obra-gallery"><figure><img src="https://www.ana-martinez.com/wp-content/uploads/2020/07/www_2.jpg" alt="www_2" loading="lazy"></figure>
-<figure><img src="https://www.ana-martinez.com/wp-content/uploads/2020/07/www_3.jpg" alt="www_3" loading="lazy"></figure>
-<figure><img src="https://www.ana-martinez.com/wp-content/uploads/2020/07/www_1.jpg" alt="www_1" loading="lazy"></figure></div>
+  <div class="obra-gallery" data-gallery><figure><button type="button" class="zoomable" data-index="0" aria-label="Ampliar foto"><img src="https://www.ana-martinez.com/wp-content/uploads/2020/07/www_2.jpg" alt="www_2" loading="lazy"></button></figure>
+<figure><button type="button" class="zoomable" data-index="1" aria-label="Ampliar foto"><img src="https://www.ana-martinez.com/wp-content/uploads/2020/07/www_3.jpg" alt="www_3" loading="lazy"></button></figure>
+<figure><button type="button" class="zoomable" data-index="2" aria-label="Ampliar foto"><img src="https://www.ana-martinez.com/wp-content/uploads/2020/07/www_1.jpg" alt="www_1" loading="lazy"></button></figure></div>
   <nav class="pager"><a href="../mural-en-grisalla-cordoba/">← Mural en grisalla. Córdoba</a><a href="../../murales/">MURALES</a><a href="../mural-en-escalera-de-hotel-cordoba/">Mural en escalera de Hotel. Córdoba →</a></nav>
 </article>
+<dialog class="lightbox" aria-label="Foto ampliada">
+  <div class="lb-stage"><img class="lb-img" alt=""></div>
+  <div class="lb-zoom">
+    <button type="button" class="lb-in" aria-label="Acercar">+</button>
+    <input type="range" class="lb-range" min="1" max="4" step="0.1" value="1" aria-label="Zoom" orient="vertical">
+    <button type="button" class="lb-out" aria-label="Alejar">−</button>
+  </div>
+  <div class="lb-thumbs"></div>
+  <button type="button" class="lb-nav lb-prev" aria-label="Foto anterior">‹</button>
+  <button type="button" class="lb-nav lb-next" aria-label="Foto siguiente">›</button>
+  <button type="button" class="lb-close" aria-label="Cerrar">×</button>
+</dialog>
 </main>
 <footer class="site-footer">
   <img class="firma" src="../../assets/firma.png" alt="Ana Martínez" width="325" height="89">

@@ -7,6 +7,19 @@ import json
 
 e = html.escape
 
+LIGHTBOX = """<dialog class="lightbox" aria-label="Foto ampliada">
+  <div class="lb-stage"><img class="lb-img" alt=""></div>
+  <div class="lb-zoom">
+    <button type="button" class="lb-in" aria-label="Acercar">+</button>
+    <input type="range" class="lb-range" min="1" max="4" step="0.1" value="1" aria-label="Zoom" orient="vertical">
+    <button type="button" class="lb-out" aria-label="Alejar">−</button>
+  </div>
+  <div class="lb-thumbs"></div>
+  <button type="button" class="lb-nav lb-prev" aria-label="Foto anterior">‹</button>
+  <button type="button" class="lb-nav lb-next" aria-label="Foto siguiente">›</button>
+  <button type="button" class="lb-close" aria-label="Cerrar">×</button>
+</dialog>"""
+
 
 def foto(name):
     return f"assets/panuelos/{name}.jpg"
@@ -50,7 +63,8 @@ def ficha(r, p, data):
     f = col["fotos"]
     swatches = "".join(
         f'<button type="button" class="swatch{" is-active" if i == 0 else ""}" data-color="{c["id"]}" '
-        f'data-label="{e(c["label"])}" data-flat="{r}{foto(c["fotos"]["plano"])}" aria-label="{e(c["label"])}">'
+        f'data-label="{e(c["label"])}" data-flat="{r}{foto(c["fotos"]["plano"])}" '
+        f'data-worn="{r}{foto(c["fotos"]["modelo"])}" data-zoom="{r}{foto(c["fotos"]["zoom"])}" aria-label="{e(c["label"])}">'
         f'<img src="{r}{foto(c["fotos"]["plano"])}" alt=""></button>'
         for i, c in enumerate(p["colores"]))
     obra = ""
@@ -80,10 +94,10 @@ def ficha(r, p, data):
     otros = "\n".join(card(r, q, data) for q in data["productos"] if q["slug"] != p["slug"])
     return f"""<article class="pdp" data-slug="{p["slug"]}">
   <div class="pdp-strip">
-    <div class="pdp-photos">
+    <div class="pdp-photos" data-gallery>
     <figure class="pdp-flat"><button type="button" class="zoomable" data-index="0" aria-label="Ampliar foto"><img data-flat-img src="{r}{foto(f["plano"])}" alt="Carré {e(p["nombre"])} extendido"></button></figure>
-    <figure><button type="button" class="zoomable" data-index="1" aria-label="Ampliar foto"><img src="{r}{foto(f["modelo"])}" alt="Carré {e(p["nombre"])} llevado al cuello"></button></figure>
-    <figure><button type="button" class="zoomable" data-index="2" aria-label="Ampliar foto"><img src="{r}{foto(f["zoom"])}" alt="Detalle de la seda del carré {e(p["nombre"])}"></button></figure>
+    <figure><button type="button" class="zoomable" data-index="1" aria-label="Ampliar foto"><img data-worn-img src="{r}{foto(f["modelo"])}" alt="Carré {e(p["nombre"])} llevado al cuello"></button></figure>
+    <figure><button type="button" class="zoomable" data-index="2" aria-label="Ampliar foto"><img data-zoom-img src="{r}{foto(f["zoom"])}" alt="Detalle de la seda del carré {e(p["nombre"])}"></button></figure>
     </div>
     <div class="buy-card">
       <h1>Carré {e(p["nombre"])}</h1>
@@ -123,16 +137,7 @@ def ficha(r, p, data):
     <div class="shop-grid">{otros}</div>
   </section>
 </article>
-<dialog class="lightbox" aria-label="Foto ampliada">
-  <div class="lb-stage"><img class="lb-img" alt=""></div>
-  <div class="lb-zoom">
-    <button type="button" class="lb-in" aria-label="Acercar">+</button>
-    <input type="range" class="lb-range" min="1" max="4" step="0.1" value="1" aria-label="Zoom" orient="vertical">
-    <button type="button" class="lb-out" aria-label="Alejar">−</button>
-  </div>
-  <div class="lb-thumbs"></div>
-  <button type="button" class="lb-close" aria-label="Cerrar">×</button>
-</dialog>"""
+{LIGHTBOX}"""
 
 
 def products_js(data):

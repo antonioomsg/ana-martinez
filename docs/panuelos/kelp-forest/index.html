@@ -47,15 +47,15 @@
 <main id="main">
 <article class="pdp" data-slug="kelp-forest">
   <div class="pdp-strip">
-    <div class="pdp-photos">
+    <div class="pdp-photos" data-gallery>
     <figure class="pdp-flat"><button type="button" class="zoomable" data-index="0" aria-label="Ampliar foto"><img data-flat-img src="../../assets/panuelos/kelp_plano.jpg" alt="Carré Kelp Forest extendido"></button></figure>
-    <figure><button type="button" class="zoomable" data-index="1" aria-label="Ampliar foto"><img src="../../assets/panuelos/kelp_modelo.jpg" alt="Carré Kelp Forest llevado al cuello"></button></figure>
-    <figure><button type="button" class="zoomable" data-index="2" aria-label="Ampliar foto"><img src="../../assets/panuelos/kelp_zoom.jpg" alt="Detalle de la seda del carré Kelp Forest"></button></figure>
+    <figure><button type="button" class="zoomable" data-index="1" aria-label="Ampliar foto"><img data-worn-img src="../../assets/panuelos/kelp_modelo.jpg" alt="Carré Kelp Forest llevado al cuello"></button></figure>
+    <figure><button type="button" class="zoomable" data-index="2" aria-label="Ampliar foto"><img data-zoom-img src="../../assets/panuelos/kelp_zoom.jpg" alt="Detalle de la seda del carré Kelp Forest"></button></figure>
     </div>
     <div class="buy-card">
       <h1>Carré Kelp Forest</h1>
       <div class="buy-color"><span>COLOR</span><span data-color-label>Turquesa / Ultramar / Oro</span></div>
-      <div class="swatches"><button type="button" class="swatch is-active" data-color="turquesa" data-label="Turquesa / Ultramar / Oro" data-flat="../../assets/panuelos/kelp_plano.jpg" aria-label="Turquesa / Ultramar / Oro"><img src="../../assets/panuelos/kelp_plano.jpg" alt=""></button></div>
+      <div class="swatches"><button type="button" class="swatch is-active" data-color="turquesa" data-label="Turquesa / Ultramar / Oro" data-flat="../../assets/panuelos/kelp_plano.jpg" data-worn="../../assets/panuelos/kelp_modelo.jpg" data-zoom="../../assets/panuelos/kelp_zoom.jpg" aria-label="Turquesa / Ultramar / Oro"><img src="../../assets/panuelos/kelp_plano.jpg" alt=""></button></div>
       <p class="buy-price">100 €</p>
       <button class="btn-dark add-to-cart" type="button" data-color="turquesa">AÑADIR A MI CESTA</button>
     </div>
@@ -147,6 +147,8 @@
     <button type="button" class="lb-out" aria-label="Alejar">−</button>
   </div>
   <div class="lb-thumbs"></div>
+  <button type="button" class="lb-nav lb-prev" aria-label="Foto anterior">‹</button>
+  <button type="button" class="lb-nav lb-next" aria-label="Foto siguiente">›</button>
   <button type="button" class="lb-close" aria-label="Cerrar">×</button>
 </dialog>
 </main>

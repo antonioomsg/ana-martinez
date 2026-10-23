@@ -55,12 +55,24 @@
 <p><a class="btn-link" href="https://vimeo.com/317450681" rel="noopener">Ver documentación ↗</a></p>
 <p><a class="btn-link" href="https://www.youtube.com/watch?v=Gzvi6KAKL_I" rel="noopener">Ver documentación ↗</a></p>
 <p>Vídeo realizado por «Los olvidados»</p></div>
-  <div class="obra-gallery"><figure><img src="https://www.ana-martinez.com/wp-content/uploads/2019/02/www_detalle_1.jpg" alt="www_detalle_1" loading="lazy"></figure>
-<figure><img src="https://www.ana-martinez.com/wp-content/uploads/2019/02/www_detalle_2.jpg" alt="www_detalle_2" loading="lazy"></figure>
-<figure><img src="https://www.ana-martinez.com/wp-content/uploads/2019/02/www_detalle_3.jpg" alt="www_detalle_3" loading="lazy"></figure>
-<figure><img src="https://www.ana-martinez.com/wp-content/uploads/2019/02/www_detalle_4.jpg" alt="www_detalle_4" loading="lazy"></figure></div>
+  <div class="obra-gallery" data-gallery><figure><button type="button" class="zoomable" data-index="0" aria-label="Ampliar foto"><img src="https://www.ana-martinez.com/wp-content/uploads/2019/02/www_detalle_1.jpg" alt="www_detalle_1" loading="lazy"></button></figure>
+<figure><button type="button" class="zoomable" data-index="1" aria-label="Ampliar foto"><img src="https://www.ana-martinez.com/wp-content/uploads/2019/02/www_detalle_2.jpg" alt="www_detalle_2" loading="lazy"></button></figure>
+<figure><button type="button" class="zoomable" data-index="2" aria-label="Ampliar foto"><img src="https://www.ana-martinez.com/wp-content/uploads/2019/02/www_detalle_3.jpg" alt="www_detalle_3" loading="lazy"></button></figure>
+<figure><button type="button" class="zoomable" data-index="3" aria-label="Ampliar foto"><img src="https://www.ana-martinez.com/wp-content/uploads/2019/02/www_detalle_4.jpg" alt="www_detalle_4" loading="lazy"></button></figure></div>
   <nav class="pager"><a href="../mural-dibujo-a-lapiz/">← Mural dibujado.</a><a href="../../murales/">MURALES</a><a href="../mural-en-azotea-madrid/">Mural en azotea. Madrid. →</a></nav>
 </article>
+<dialog class="lightbox" aria-label="Foto ampliada">
+  <div class="lb-stage"><img class="lb-img" alt=""></div>
+  <div class="lb-zoom">
+    <button type="button" class="lb-in" aria-label="Acercar">+</button>
+    <input type="range" class="lb-range" min="1" max="4" step="0.1" value="1" aria-label="Zoom" orient="vertical">
+    <button type="button" class="lb-out" aria-label="Alejar">−</button>
+  </div>
+  <div class="lb-thumbs"></div>
+  <button type="button" class="lb-nav lb-prev" aria-label="Foto anterior">‹</button>
+  <button type="button" class="lb-nav lb-next" aria-label="Foto siguiente">›</button>
+  <button type="button" class="lb-close" aria-label="Cerrar">×</button>
+</dialog>
 </main>
 <footer class="site-footer">
   <img class="firma" src="../../assets/firma.png" alt="Ana Martínez" width="325" height="89">

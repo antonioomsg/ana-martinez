@@ -88,6 +88,8 @@ document.addEventListener("DOMContentLoaded", () => {
           sw.classList.add("is-active");
           pdp.querySelector("[data-color-label]").textContent = sw.dataset.label;
           pdp.querySelector("[data-flat-img]").src = sw.dataset.flat;
+          pdp.querySelector("[data-worn-img]").src = sw.dataset.worn;
+          pdp.querySelector("[data-zoom-img]").src = sw.dataset.zoom;
           addBtn.dataset.color = sw.dataset.color;
         });
       });
@@ -132,7 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const img = lb.querySelector(".lb-img");
   const range = lb.querySelector(".lb-range");
   const thumbs = lb.querySelector(".lb-thumbs");
-  const sources = () => [...document.querySelectorAll(".pdp-photos .zoomable img")];
+  const sources = () => [...document.querySelectorAll("[data-gallery] .zoomable img")];
   let idx = 0, scale = 1, px = 0.5, py = 0.5;
 
   function apply() {
@@ -151,6 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
     img.src = list[idx].src;
     img.alt = list[idx].alt;
     thumbs.querySelectorAll("button").forEach((b, k) => b.classList.toggle("is-active", k === idx));
+    thumbs.querySelector(".is-active")?.scrollIntoView({ block: "nearest", inline: "center" });
     scale = 1; px = py = 0.5;
     img.onload = apply;
     apply();
@@ -171,6 +174,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelectorAll(".zoomable").forEach((b) => b.addEventListener("click", () => open(Number(b.dataset.index))));
   lb.querySelector(".lb-close").addEventListener("click", () => lb.close());
+  lb.querySelector(".lb-prev").addEventListener("click", () => go(idx - 1));
+  lb.querySelector(".lb-next").addEventListener("click", () => go(idx + 1));
   lb.querySelector(".lb-in").addEventListener("click", () => setScale(scale + 0.5));
   lb.querySelector(".lb-out").addEventListener("click", () => setScale(scale - 0.5));
   range.addEventListener("input", () => setScale(Number(range.value)));
