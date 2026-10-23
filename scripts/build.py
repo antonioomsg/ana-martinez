@@ -5,6 +5,7 @@ FLOTABILIDAD NEUTRA). Las páginas usan rutas relativas para funcionar en GitHub
 """
 import html
 import json
+import re
 import shutil
 import sys
 from pathlib import Path
@@ -77,7 +78,10 @@ def nav(r, current=""):
 def footer(r):
     return f"""<footer class="site-footer">
   <img class="firma" src="{r}assets/firma.png" alt="Ana Martínez" width="325" height="89">
-  <p class="footer-lead">Cada pieza es única. Para recibir más información déjanos tu email y nos pondremos en contacto contigo</p>
+  <div class="footer-lead bi">
+    <p lang="es">Cada pieza es única. Para recibir más información déjanos tu email y nos pondremos en contacto contigo.</p>
+    <p lang="en">Every piece is unique. Leave us your email for more information and we will get in touch.</p>
+  </div>
   <form class="footer-form" action="mailto:{EMAIL}" method="post" enctype="text/plain">
     <label class="sr-only" for="f-email">Email</label>
     <input id="f-email" name="email" type="email" placeholder="Email" required>
@@ -135,6 +139,30 @@ def card(r, p):
 </a>"""
 
 
+def video_embed(url):
+    m = re.search(r"(?:youtube\.com/watch\?v=|youtu\.be/)([\w-]{11})", url)
+    if m:
+        return f"https://www.youtube-nocookie.com/embed/{m.group(1)}"
+    m = re.search(r"vimeo\.com/(\d+)", url)
+    return f"https://player.vimeo.com/video/{m.group(1)}" if m else None
+
+
+def documento(doc):
+    """Hoja de sala / catálogo integrado en la ficha (en vez del enlace al PDF)."""
+    partes = []
+    if doc.get("lugar_fechas"):
+        partes.append(f'<p class="doc-lugar">{e(doc["lugar_fechas"])}</p>')
+    es = render_text(doc.get("es", []))
+    if doc.get("firma"):
+        es += f'<p class="doc-firma">{e(doc["firma"])}</p>'
+    partes.append(bilingue(es, render_text(doc.get("en", []))))
+    if doc.get("obras"):
+        filas = "".join(f'<tr><td>{e(o.get("titulo", ""))}</td><td>{e(o.get("tecnica", ""))}</td>'
+                        f'<td>{e(o.get("medidas", ""))}</td></tr>' for o in doc["obras"])
+        partes.append(f'<div class="doc-obras"><p class="lang-tag">OBRAS · WORKS</p><table>{filas}</table></div>')
+    return f'<section class="doc">{"".join(partes)}</section>'
+
+
 def render_text(items):
     out = []
     for t in items:
@@ -143,6 +171,8 @@ def render_text(items):
         elif isinstance(t, dict) and "youtube" in t:
             out.append(f'<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/{e(t["youtube"])}" '
                        'title="Vídeo" loading="lazy" allowfullscreen></iframe></div>')
+        elif t.startswith("http") and (vid := video_embed(t)):
+            out.append(f'<div class="video"><iframe src="{e(vid)}" title="Vídeo" loading="lazy" allowfullscreen></iframe></div>')
         elif t.startswith("http"):
             out.append(f'<p><a class="btn-link" href="{e(t)}" rel="noopener">Ver documentación ↗</a></p>')
         else:
@@ -189,6 +219,11 @@ def build():
     order = {cat: [p for p in posts if p["category"] == cat] for cat, *_ in SECCIONES}
     tr_path = ROOT / "data" / "translations_en.json"
     traducciones = json.loads(tr_path.read_text()) if tr_path.exists() else {}
+    doc_path = ROOT / "data" / "documentos.json"
+    documentos = json.loads(doc_path.read_text()) if doc_path.exists() else {}
+    curador = {}
+    for f in sorted((ROOT / "data" / "textos_curador").glob("*.json")):
+        curador.update(json.loads(f.read_text()))
     for p in posts:
         folder, sec_title = next(((f, t) for c, f, t, _ in SECCIONES if c == p["category"]), ("proyectos", "Proyectos"))
         sib = order.get(p["category"], [])
@@ -209,6 +244,11 @@ def build():
         en = tr.get("text_en") or [t for t in p.get("text_en") or [] if es_texto(t)]
         es = [t for t in p["text"] if es_texto(t)]
         media = [t for t in p["text"] if not es_texto(t)]
+        doc = documentos.get(p["slug"])
+        if doc:  # el PDF se integra en la página: fuera el botón de enlace
+            media = [t for t in media if not (isinstance(t, dict) and "pdf" in t)]
+        if not es and p["slug"] in curador:
+            es, en = curador[p["slug"]]["es"], curador[p["slug"]]["en"]
         sub = (f'<p class="obra-en">{e(title_en)}</p>'
                if title_en and title_en.strip().lower() != p["title"].strip().lower() else "")
         texto = bilingue(render_text(es), render_text(en)) if es else ""
@@ -218,7 +258,7 @@ def build():
     {sub}
     <p class="obra-date">{fecha(p["date"])}</p>
   </header>
-  <div class="obra-text">{texto}{render_text(media)}</div>
+  <div class="obra-text">{texto}{documento(doc) if doc else ""}{render_text(media)}</div>
   <div class="obra-gallery" data-gallery>{imgs}</div>
   {pager}
 </article>

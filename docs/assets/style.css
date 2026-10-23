@@ -203,6 +203,19 @@ a { color: inherit; }
 .pdp-quote blockquote .lang-tag, .pdp-quote blockquote .muted { font-family: var(--display); font-size: 12px; }
 .pdp-proyecto cite { display: block; font-style: normal; font-size: 13px; color: #777; margin: 20px 0; }
 
+/* Documentos integrados (hojas de sala y catálogos) */
+.doc { margin-top: 8px; }
+.doc-lugar { text-align: center; font-family: var(--display); letter-spacing: 2px; color: var(--accent); margin: 0 0 32px; }
+.doc-firma { font-style: italic; color: #777; }
+.doc-obras { max-width: 1056px; margin: 56px auto 0; }
+.doc-obras table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.doc-obras td { padding: 10px 12px 10px 0; border-bottom: 1px solid #e6e2dc; vertical-align: top; }
+.doc-obras td:first-child { font-family: var(--serif); font-style: italic; font-size: 18px; }
+.doc-obras td:last-child { white-space: nowrap; color: #777; }
+
+.footer-lead.bi { text-align: center; gap: 48px; }
+.footer-lead.bi [lang="en"] { color: #bbb; }
+
 /* Sobre mí (rediseño) */
 .bio2 { max-width: 1200px; margin: 0 auto; padding: 24px 24px 120px; }
 .bio2-title { text-align: center; font-family: var(--display); font-weight: 400; letter-spacing: var(--track); font-size: 34px; margin: 0 0 64px; }
@@ -257,6 +270,7 @@ a { color: inherit; }
   .pdp-info, .pdp-obra { grid-template-columns: 1fr; gap: 32px; padding: 40px 16px; }
   .accordions { grid-template-columns: 1fr; }
   .bi { grid-template-columns: 1fr; gap: 24px; }
+  .doc-obras td:last-child { white-space: normal; }
   .bio2-hero { grid-template-columns: 1fr; gap: 32px; margin-bottom: 48px; }
   .bio2-title { font-size: 26px; margin-bottom: 32px; }
   .car-btn { opacity: 1; width: 34px; height: 34px; font-size: 20px; }
