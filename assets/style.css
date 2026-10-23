@@ -168,7 +168,7 @@ a { color: inherit; }
 .lb-thumbs { display: none !important; position: absolute; left: 32px; bottom: 32px; display: flex; gap: 6px; background: #fff; padding: 6px; max-width: calc(100vw - 64px); overflow-x: auto; }
 .lb-thumbs button { flex: 0 0 auto; }
 .lb-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; border: 0; background: rgba(255,255,255,.9); font-size: 28px; color: var(--ink); cursor: pointer; z-index: 2; }
-.lb-prev { left: 96px; } .lb-next { right: 28px; }
+.lb-prev { left: 80px; } .lb-next { right: 28px; }
 .obra-gallery .zoomable { height: auto; }
 .lb-thumbs button { width: 52px; height: 60px; padding: 0; border: 0; border-bottom: 2px solid transparent; background: var(--sand); cursor: pointer; }
 .lb-thumbs button.is-active { border-bottom-color: #000; }
@@ -326,16 +326,16 @@ html { scroll-behavior: smooth; }
 .buy-assure span { color: #9aa3a3; }
 
 /* Zoom del visor al estilo Hermès: barra fina con punto */
-.lb-zoom { width: 56px; padding: 10px 0; background: #fbf9f6; gap: 0; }
-.lb-zoom button { width: 56px; height: 48px; background: none; font: 300 30px var(--display); color: #111; -webkit-tap-highlight-color: transparent; }
+.lb-zoom { width: 36px; padding: 6px 0; background: #fbf9f6; gap: 0; left: 28px; }
+.lb-zoom button { width: 36px; height: 34px; background: none; font: 300 20px var(--display); color: #111; -webkit-tap-highlight-color: transparent; }
 .lb-zoom button:focus, .lb-close:focus, .lb-nav:focus { outline: none; }
 .lb-zoom button:focus-visible, .lb-close:focus-visible, .lb-nav:focus-visible { outline: 1px solid #111; outline-offset: -6px; }
-.lb-range { -webkit-appearance: none; appearance: none; writing-mode: vertical-lr; direction: rtl; width: 20px; height: 300px; margin: 12px 0; background: transparent; cursor: pointer; }
+.lb-range { -webkit-appearance: none; appearance: none; writing-mode: vertical-lr; direction: rtl; width: 16px; height: 200px; margin: 6px 0; background: transparent; cursor: pointer; }
 .lb-range:focus { outline: none; }
 .lb-range::-webkit-slider-runnable-track { width: 1px; background: #111; }
 .lb-range::-moz-range-track { width: 1px; background: #111; }
-.lb-range::-webkit-slider-thumb { -webkit-appearance: none; width: 9px; height: 9px; border-radius: 50%; background: #111; border: 0; margin-left: -4px; }
-.lb-range::-moz-range-thumb { width: 9px; height: 9px; border-radius: 50%; background: #111; border: 0; }
+.lb-range::-webkit-slider-thumb { -webkit-appearance: none; width: 7px; height: 7px; border-radius: 50%; background: #111; border: 0; margin-left: -3px; }
+.lb-range::-moz-range-thumb { width: 7px; height: 7px; border-radius: 50%; background: #111; border: 0; }
 .lb-range:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 3px rgba(17,17,17,.2); }
 
 /* Botones de icono finos (línea de 1 px) */

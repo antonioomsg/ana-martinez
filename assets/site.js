@@ -188,8 +188,8 @@ document.addEventListener("DOMContentLoaded", () => {
   lb.querySelector(".lb-close").addEventListener("click", () => lb.close());
   lb.querySelector(".lb-prev").addEventListener("click", () => go(idx - 1));
   lb.querySelector(".lb-next").addEventListener("click", () => go(idx + 1));
-  lb.querySelector(".lb-in").addEventListener("click", () => setScale(scale + 0.5));
-  lb.querySelector(".lb-out").addEventListener("click", () => setScale(scale - 0.5));
+  lb.querySelector(".lb-in").addEventListener("click", (ev) => { setScale(scale + 0.5); if (ev.detail) ev.currentTarget.blur(); });
+  lb.querySelector(".lb-out").addEventListener("click", (ev) => { setScale(scale - 0.5); if (ev.detail) ev.currentTarget.blur(); });
   range.addEventListener("input", () => setScale(Number(range.value)));
   stage.addEventListener("click", (ev) => {
     if (scale === 1) {
