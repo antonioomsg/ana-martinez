@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
           pdp.querySelectorAll(".size-opt").forEach((o) => { o.classList.remove("is-active"); o.setAttribute("aria-pressed", "false"); });
           opt.classList.add("is-active");
           opt.setAttribute("aria-pressed", "true");
-          pdp.querySelector(".buy-price [aria-live]").textContent = `${opt.dataset.price} €`;
+          pdp.querySelector(".buy-price").textContent = `${opt.dataset.price} €`;
           addBtn.dataset.size = opt.dataset.size;
         });
       });

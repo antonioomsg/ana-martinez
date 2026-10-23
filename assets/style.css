@@ -299,29 +299,30 @@ html { scroll-behavior: smooth; }
 .inq-close-form { position: absolute; top: 8px; right: 8px; margin: 0; }
 .inq-close { width: 44px; height: 44px; border: 0; background: none; font-size: 28px; cursor: pointer; color: var(--ink); }
 
-/* Tarjeta de compra según HIG: jerarquía nombre > precio > opciones > acción, controles coherentes, objetivos de 44 px */
-.buy-card { padding: 32px; border-radius: 14px; width: 440px; }
-.buy-kind { font: 13px var(--text); letter-spacing: 0; color: #5f6f6f; margin: 0 0 6px; }
-.buy-card h1 { font-family: var(--display); font-weight: 400; font-size: 28px; letter-spacing: .5px; margin: 0 0 6px; line-height: 1.2; }
-.buy-price { display: flex; align-items: baseline; gap: 10px; font-size: 20px; margin: 0 0 22px; text-align: left; }
-.buy-tax { font-size: 12px; color: #5f6f6f; }
-.buy-field { margin: 0 0 20px; }
-.buy-label { font: 14px var(--text); color: #5f6f6f; margin: 0 0 10px; }
-.buy-label span { color: var(--ink); }
-.buy-static { margin: -8px 0 20px; }
-.swatches { margin: 0; }
-.swatch { width: 64px; height: 80px; }
-.sizes { display: grid; grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); gap: 0; margin: 0; padding: 3px; background: #efece7; border-radius: 10px; }
-.size-opt { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; min-height: 52px; border: 0; background: transparent; border-radius: 8px; padding: 6px 8px; box-shadow: none; }
-.size-opt.is-active { background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.14); border: 0; }
-.size-label { font-size: 14px; color: var(--ink); }
-.size-price { font-size: 12px; color: #5f6f6f; }
-.btn-buy { width: 100%; min-height: 50px; border: 0; border-radius: 12px; background: var(--ink); color: #fff; font: 500 16px var(--text); letter-spacing: 0; cursor: pointer; }
-.btn-buy:hover { background: #0f1f1f; }
+/* Tarjeta de compra: editorial y contenida (HIG: jerarquía clara, pocos elementos, controles inequívocos) */
+.buy-card { width: 420px; padding: 40px 40px 32px; border-radius: 0; background: #fbf9f6; box-shadow: 0 1px 2px rgba(0,0,0,.04); }
+.buy-kind { font: 11px var(--display); letter-spacing: 2.5px; text-transform: uppercase; color: #6b7878; margin: 0 0 14px; }
+.buy-kind a { text-decoration: none; }
+.buy-kind a:hover { color: var(--ink); }
+.buy-card h1 { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 38px; line-height: 1.1; letter-spacing: 0; margin: 0 0 10px; }
+.buy-price { font: 300 19px var(--display); letter-spacing: 1px; margin: 0 0 28px; text-align: left; }
+.buy-field { margin: 0 0 26px; padding-top: 22px; border-top: 1px solid #e4dfd8; }
+.buy-label { font: 11px var(--display); letter-spacing: 2.5px; text-transform: uppercase; color: #6b7878; margin: 0 0 12px; }
+.buy-label span { color: var(--ink); text-transform: none; letter-spacing: .5px; font-size: 13px; }
+.buy-static { padding-top: 22px; border-top: 1px solid #e4dfd8; margin: 0 0 22px; }
+.swatches { display: flex; gap: 10px; margin: 0; }
+.swatch { width: 58px; height: 72px; padding: 4px; border: 1px solid transparent; border-radius: 0; background: var(--sand); box-shadow: none; }
+.swatch.is-active { border-color: var(--ink); box-shadow: none; }
+.sizes { display: flex; gap: 0; padding: 0; background: none; border-radius: 0; }
+.size-opt { flex: 1; min-height: 44px; padding: 0 4px; border: 0; border-radius: 0; background: none; box-shadow: none; font: 14px var(--display); letter-spacing: .5px; color: #6b7878; border-bottom: 1px solid #e4dfd8; }
+.size-opt + .size-opt { border-left: 1px solid #e4dfd8; }
+.size-opt:hover { color: var(--ink); }
+.size-opt.is-active { color: var(--ink); background: none; box-shadow: none; border-bottom: 2px solid var(--ink); }
+.btn-buy { width: 100%; min-height: 52px; border: 0; border-radius: 0; background: #111; color: #fff; font: 400 13px var(--display); letter-spacing: 3px; text-transform: uppercase; cursor: pointer; }
+.btn-buy:hover { background: var(--ink); }
 .btn-buy:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-.buy-assure { list-style: none; padding: 0; margin: 18px 0 0; display: flex; flex-direction: column; gap: 10px; }
-.buy-assure li { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; font-size: 12px; color: #5f6f6f; }
-.buy-assure li span:first-child { color: var(--ink); }
+.buy-assure { margin: 16px 0 0; font-size: 12px; line-height: 1.7; color: #6b7878; text-align: center; }
+.buy-assure span { color: #9aa3a3; }
 
 /* Sobre mí (rediseño) */
 .bio2 { max-width: 1200px; margin: 0 auto; padding: 24px 24px 120px; }

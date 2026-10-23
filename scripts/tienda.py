@@ -130,7 +130,7 @@ def ficha(r, p, ed, productos):
     tallas = "".join(
         f'<button type="button" class="size-opt{" is-active" if i == 0 else ""}" data-size="{t["id"]}" '
         f'data-price="{t["precio"]}" aria-pressed="{"true" if i == 0 else "false"}">'
-        f'<span class="size-label">{e(t["label"])}</span><span class="size-price">{precio(t["precio"])}</span></button>'
+        f'{e(t["label"])}</button>'
         for i, t in enumerate(tipo["tamanos"]))
     vistas = dict(tipo["vistas"])
     obra = ""
@@ -174,18 +174,14 @@ def ficha(r, p, ed, productos):
     <div class="pdp-dots" aria-hidden="true"><span class="is-on"></span><span></span><span></span></div>
     <div class="buy-card">
       <p class="buy-kind"><a href="{r}{tipo["dir"]}/">{e(tipo["nombre"])}</a> · <a href="{r}ediciones/#{g["id"]}">{e(g["titulo"])}</a></p>
-      <h1>{e(nombre(p, tipo))}</h1>
-      <p class="buy-price"><span aria-live="polite">{precio(t0["precio"])}</span> <span class="buy-tax">IVA incluido · VAT included</span></p>
+      <h1>{e(p["nombre"])}</h1>
+      <p class="buy-price" aria-live="polite">{precio(t0["precio"])}</p>
       {variantes}
       <div class="buy-field">
         <p class="buy-label">Tamaño · Size</p>
         <div class="sizes" role="group" aria-label="Tamaño">{tallas}</div>
       </div>
       <button class="btn-buy add-to-cart" type="button" data-color="{col["id"]}" data-size="{t0["id"]}">Añadir a la cesta</button>
-      <ul class="buy-assure">
-        <li><span>Envío en 3 a 5 días laborables</span><span lang="en">Ships in 3 to 5 working days</span></li>
-        <li><span>Devoluciones gratuitas en 30 días</span><span lang="en">Free returns within 30 days</span></li>
-      </ul>
     </div>
   </div>
   <section class="pdp-info">
