@@ -1,0 +1,418 @@
+{
+  "https://www.ana-martinez.com/wp-content/uploads/2011/10/DERBY-ELAND.jpg": {
+    "slug": "dibujo",
+    "es_obra": true,
+    "titulo": "Eland de Derby / Derby Eland",
+    "tecnica": "Grafito sobre papel / Graphite on paper",
+    "medidas": "50 x 70 cm",
+    "fuente": "web"
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/2011/10/SABLE-copia.jpg": {
+    "slug": "dibujo",
+    "es_obra": true,
+    "titulo": "Antílope sable / Sable Antelope",
+    "tecnica": "Grafito sobre papel / Graphite on paper",
+    "medidas": "30 x 21 cm",
+    "fuente": "web"
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/2011/10/MANATEE-copia.jpg": {
+    "slug": "dibujo",
+    "es_obra": true,
+    "titulo": "Manatí / Manatee",
+    "tecnica": "Grafito sobre papel / Graphite on paper",
+    "medidas": "50 x 70 cm",
+    "fuente": "web"
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/2011/10/GIRAFAS-copia.jpg": {
+    "slug": "dibujo",
+    "es_obra": true,
+    "titulo": "Jirafas / Giraffes",
+    "tecnica": "Grafito sobre papel / Graphite on paper",
+    "medidas": "70 x 50 cm",
+    "fuente": "web"
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/2011/10/QUETZAL.jpg": {
+    "slug": "dibujo",
+    "es_obra": true,
+    "titulo": "Quetzal",
+    "tecnica": "Grafito sobre papel / Graphite on paper",
+    "medidas": "50 x 70 cm",
+    "fuente": "web"
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/2011/10/SIAMES-FIGHTER.jpg": {
+    "slug": "dibujo",
+    "es_obra": true,
+    "titulo": "Luchador de Siam / Siamese Fighter",
+    "tecnica": "Grafito sobre papel / Graphite on paper",
+    "medidas": "70 x 50 cm",
+    "fuente": "web"
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/2011/10/CIGÜEÑAS-copia.jpg": {
+    "slug": "dibujo",
+    "es_obra": true,
+    "titulo": "Cigüeñas / Storks",
+    "tecnica": "Grafito sobre papel / Graphite on paper",
+    "medidas": "50 x 70 cm",
+    "fuente": "web"
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/2011/10/FLAMINOS-copia.jpg": {
+    "slug": "dibujo",
+    "es_obra": true,
+    "titulo": "Flamencos / Flamingos",
+    "tecnica": "Grafito sobre papel / Graphite on paper",
+    "medidas": "50 x 70 cm",
+    "fuente": "web"
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/2011/10/GAMOS-copia.jpg": {
+    "slug": "dibujo",
+    "es_obra": true,
+    "titulo": "Gamos / Fallow Deer",
+    "tecnica": "Grafito sobre papel / Graphite on paper",
+    "medidas": "50 x 70 cm",
+    "fuente": "web"
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/2011/10/WOLF-HOWLING-copia.jpg": {
+    "slug": "dibujo",
+    "es_obra": true,
+    "titulo": "Lobo aullando / Wolf Howling",
+    "tecnica": "Grafito sobre papel / Graphite on paper",
+    "medidas": "50 x 70 cm",
+    "fuente": "web"
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/2011/10/BULL-copia.jpg": {
+    "slug": "dibujo",
+    "es_obra": true,
+    "titulo": "Toro / Bull",
+    "tecnica": "Grafito sobre papel / Graphite on paper",
+    "medidas": "50 x 70 cm",
+    "fuente": "web"
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/2011/10/ZEBRA-copia.jpg": {
+    "slug": "dibujo",
+    "es_obra": true,
+    "titulo": "Cebra / Zebra",
+    "tecnica": "Grafito sobre papel / Graphite on paper",
+    "medidas": "50 x 70 cm",
+    "fuente": "web"
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/2011/10/CHEETAH-copia.jpg": {
+    "slug": "dibujo",
+    "es_obra": true,
+    "titulo": "Guepardo / Cheetah",
+    "tecnica": "Grafito sobre papel / Graphite on paper",
+    "medidas": "50 x 70 cm",
+    "fuente": "web"
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/2011/10/CIERVAS-copia.jpg": {
+    "slug": "dibujo",
+    "es_obra": true,
+    "titulo": "Ciervas / Hinds",
+    "tecnica": "Grafito sobre papel / Graphite on paper",
+    "medidas": "50 x 70 cm",
+    "fuente": "web"
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/2011/10/DEER-copia.jpg": {
+    "slug": "dibujo",
+    "es_obra": true,
+    "titulo": "Ciervo / Deer",
+    "tecnica": "Grafito sobre papel / Graphite on paper",
+    "medidas": "50 x 70 cm",
+    "fuente": "web"
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/2011/10/HIPPO-copia.jpg": {
+    "slug": "dibujo",
+    "es_obra": true,
+    "titulo": "Hipopótamo / Hippo",
+    "tecnica": "Grafito sobre papel / Graphite on paper",
+    "medidas": "50 x 70 cm",
+    "fuente": "web"
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/2011/10/IMPALA-copia.jpg": {
+    "slug": "dibujo",
+    "es_obra": true,
+    "titulo": "Impala",
+    "tecnica": "Grafito sobre papel / Graphite on paper",
+    "medidas": "50 x 70 cm",
+    "fuente": "web"
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/2011/10/JABALÍ-copia.jpg": {
+    "slug": "dibujo",
+    "es_obra": true,
+    "titulo": "Jabalí / Wild Boar",
+    "tecnica": "Grafito sobre papel / Graphite on paper",
+    "medidas": "50 x 70 cm",
+    "fuente": "web"
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/2011/10/LEON-copia.jpg": {
+    "slug": "dibujo",
+    "es_obra": true,
+    "titulo": "León / Lion",
+    "tecnica": "Grafito sobre papel / Graphite on paper",
+    "medidas": "50 x 70 cm",
+    "fuente": "web"
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/2011/10/LEOPARDO-copia.jpg": {
+    "slug": "dibujo",
+    "es_obra": true,
+    "titulo": "Leopardo / Leopard",
+    "tecnica": "Grafito sobre papel / Graphite on paper",
+    "medidas": "50 x 70 cm",
+    "fuente": "web"
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/2011/10/LINCE-copia.jpg": {
+    "slug": "dibujo",
+    "es_obra": true,
+    "titulo": "Lince / Lynx",
+    "tecnica": "Grafito sobre papel / Graphite on paper",
+    "medidas": "50 x 70 cm",
+    "fuente": "web"
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/2011/10/ORIBI-copia.jpg": {
+    "slug": "dibujo",
+    "es_obra": true,
+    "titulo": "Oribi",
+    "tecnica": "Grafito sobre papel / Graphite on paper",
+    "medidas": "50 x 70 cm",
+    "fuente": "web"
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/2011/10/ORIX-copia.jpg": {
+    "slug": "dibujo",
+    "es_obra": true,
+    "titulo": "Órix / Oryx",
+    "tecnica": "Grafito sobre papel / Graphite on paper",
+    "medidas": "50 x 70 cm",
+    "fuente": "web"
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/2011/10/RHINO-copia.jpg": {
+    "slug": "dibujo",
+    "es_obra": true,
+    "titulo": "Rinoceronte / Rhino",
+    "tecnica": "Grafito sobre papel / Graphite on paper",
+    "medidas": "50 x 70 cm",
+    "fuente": "web"
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/2011/10/WILDEBEEST-copia.jpg": {
+    "slug": "dibujo",
+    "es_obra": true,
+    "titulo": "Ñu / Wildebeest",
+    "tecnica": "Grafito sobre papel / Graphite on paper",
+    "medidas": "50 x 70 cm",
+    "fuente": "web"
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/2014/08/foto_cuna.jpg": {
+    "slug": "cunas",
+    "es_obra": true,
+    "titulo": "Cunas",
+    "tecnica": "Cuna de hospital, caja de luz y fotografía cibachrome / Hospital cot, light box and Cibachrome photograph",
+    "medidas": "95 x 70 x 45 cm",
+    "fuente": "web"
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/2014/08/foto_cuna3.jpg": {
+    "slug": "cunas",
+    "es_obra": false,
+    "titulo": null,
+    "tecnica": null,
+    "medidas": null,
+    "fuente": null
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/2014/08/foto_cuna2.jpg": {
+    "slug": "cunas",
+    "es_obra": false,
+    "titulo": null,
+    "tecnica": null,
+    "medidas": null,
+    "fuente": null
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/2014/08/cuna-a-fragmentos-2.jpg": {
+    "slug": "cunas",
+    "es_obra": true,
+    "titulo": "Cuna a fragmentos / Cot in Fragments",
+    "tecnica": "Collage fotográfico / Photographic collage",
+    "medidas": "45 x 30 cm",
+    "fuente": "web"
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/2014/08/DIBUJO-CUNA-1-copia.jpg": {
+    "slug": "cunas",
+    "es_obra": true,
+    "titulo": "Dibujo para Cunas I / Drawing for Cunas I",
+    "tecnica": "Rotulador sobre papel / Marker on paper",
+    "medidas": "21 x 29,7 cm",
+    "fuente": "web"
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/2014/08/dibuji-cun-2_1432.jpg": {
+    "slug": "cunas",
+    "es_obra": true,
+    "titulo": "Dibujo para Cunas II / Drawing for Cunas II",
+    "tecnica": "Lápiz sobre papel / Pencil on paper",
+    "medidas": "21 x 29,7 cm",
+    "fuente": "web"
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/2014/08/dibujo-cuna-3-copia.jpg": {
+    "slug": "cunas",
+    "es_obra": true,
+    "titulo": "Dibujo para Cunas III / Drawing for Cunas III",
+    "tecnica": "Rotulador sobre papel / Marker on paper",
+    "medidas": "21 x 29,7 cm",
+    "fuente": "web"
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/2014/08/amalia-cunas.jpg": {
+    "slug": "cunas",
+    "es_obra": false,
+    "titulo": null,
+    "tecnica": null,
+    "medidas": null,
+    "fuente": null
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/2014/08/patricia-cunas.jpg": {
+    "slug": "cunas",
+    "es_obra": false,
+    "titulo": null,
+    "tecnica": null,
+    "medidas": null,
+    "fuente": null
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/2014/08/rosa-cunas.jpg": {
+    "slug": "cunas",
+    "es_obra": false,
+    "titulo": null,
+    "tecnica": null,
+    "medidas": null,
+    "fuente": null
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/2014/08/rosario-cunas.jpg": {
+    "slug": "cunas",
+    "es_obra": false,
+    "titulo": null,
+    "tecnica": null,
+    "medidas": null,
+    "fuente": null
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/2014/08/1_ventanas-privadas.jpg": {
+    "slug": "ventanas-publicas",
+    "es_obra": false,
+    "titulo": null,
+    "tecnica": null,
+    "medidas": null,
+    "fuente": null
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/1998/08/IMG_7390.jpg": {
+    "slug": "ventanas-publicas",
+    "es_obra": true,
+    "titulo": "Ventanas públicas I / Public Windows I",
+    "tecnica": "Grafito y fotografía sobre madera / Graphite and photograph on wood",
+    "medidas": "20 x 30 cm",
+    "fuente": "inferido"
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/2014/08/IMG_7380.jpg": {
+    "slug": "ventanas-publicas",
+    "es_obra": true,
+    "titulo": "Ventanas públicas II / Public Windows II",
+    "tecnica": "Grafito y fotografía sobre madera / Graphite and photograph on wood",
+    "medidas": "20 x 30 cm",
+    "fuente": "inferido"
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/2014/08/IMG_7381-copia.jpg": {
+    "slug": "ventanas-publicas",
+    "es_obra": true,
+    "titulo": "Ventanas públicas III / Public Windows III",
+    "tecnica": "Grafito y fotografía sobre madera / Graphite and photograph on wood",
+    "medidas": "20 x 30 cm",
+    "fuente": "inferido"
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/2014/08/IMG_7384-copia.jpg": {
+    "slug": "ventanas-publicas",
+    "es_obra": true,
+    "titulo": "Ventanas públicas IV / Public Windows IV",
+    "tecnica": "Grafito y fotografía sobre madera / Graphite and photograph on wood",
+    "medidas": "20 x 30 cm",
+    "fuente": "inferido"
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/2014/08/IMG_7383-copia.jpg": {
+    "slug": "ventanas-publicas",
+    "es_obra": true,
+    "titulo": "Ventanas públicas V / Public Windows V",
+    "tecnica": "Grafito y fotografía sobre madera / Graphite and photograph on wood",
+    "medidas": "20 x 30 cm",
+    "fuente": "inferido"
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/2014/08/IMG_7382-copia.jpg": {
+    "slug": "ventanas-publicas",
+    "es_obra": true,
+    "titulo": "Ventanas públicas VI / Public Windows VI",
+    "tecnica": "Grafito y fotografía sobre madera / Graphite and photograph on wood",
+    "medidas": "20 x 30 cm",
+    "fuente": "inferido"
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/2014/08/IMG_7387-copia.jpg": {
+    "slug": "ventanas-publicas",
+    "es_obra": true,
+    "titulo": "Ventanas públicas VII / Public Windows VII",
+    "tecnica": "Grafito y fotografía sobre madera / Graphite and photograph on wood",
+    "medidas": "20 x 30 cm",
+    "fuente": "inferido"
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/2014/08/IMG_7386-copia.jpg": {
+    "slug": "ventanas-publicas",
+    "es_obra": true,
+    "titulo": "Ventanas públicas VIII / Public Windows VIII",
+    "tecnica": "Grafito y fotografía sobre madera / Graphite and photograph on wood",
+    "medidas": "20 x 30 cm",
+    "fuente": "inferido"
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/2014/08/IMG_7385-copia.jpg": {
+    "slug": "ventanas-publicas",
+    "es_obra": true,
+    "titulo": "Ventanas públicas IX / Public Windows IX",
+    "tecnica": "Grafito y fotografía sobre madera / Graphite and photograph on wood",
+    "medidas": "20 x 30 cm",
+    "fuente": "inferido"
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/1998/08/ventanas-de-pié.jpg": {
+    "slug": "ventanas-publicas",
+    "es_obra": false,
+    "titulo": null,
+    "tecnica": null,
+    "medidas": null,
+    "fuente": null
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/1998/08/ventanas-circuitos.jpg": {
+    "slug": "ventanas-publicas",
+    "es_obra": false,
+    "titulo": null,
+    "tecnica": null,
+    "medidas": null,
+    "fuente": null
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/2014/08/cama-nupcial.jpg": {
+    "slug": "king-size-bed",
+    "es_obra": true,
+    "titulo": "King size bed",
+    "tecnica": "Tela, relleno, hilo y rotulador / Fabric, stuffing, thread and marker",
+    "medidas": "35 x 40 x 8 cm",
+    "fuente": "web"
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/2014/08/dibujo-camas.jpg": {
+    "slug": "king-size-bed",
+    "es_obra": true,
+    "titulo": "Dibujo para King size bed I / Drawing for King size bed I",
+    "tecnica": "Rotulador sobre papel / Marker on paper",
+    "medidas": "29,7 x 21 cm",
+    "fuente": "web"
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/2014/08/dibujo-2.jpg": {
+    "slug": "king-size-bed",
+    "es_obra": true,
+    "titulo": "Dibujo para King size bed II / Drawing for King size bed II",
+    "tecnica": "Rotulador sobre papel / Marker on paper",
+    "medidas": "29,7 x 21 cm",
+    "fuente": "web"
+  },
+  "https://www.ana-martinez.com/wp-content/uploads/1998/02/2-kates.buena_.jpg": {
+    "slug": "2-kates",
+    "es_obra": true,
+    "titulo": "2 Kates",
+    "tecnica": "Fotografía intervenida con lápiz / Photograph worked with pencil",
+    "medidas": "40 x 20 cm",
+    "fuente": "web"
+  }
+}

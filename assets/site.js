@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
           pdp.querySelectorAll(".size-opt").forEach((o) => { o.classList.remove("is-active"); o.setAttribute("aria-pressed", "false"); });
           opt.classList.add("is-active");
           opt.setAttribute("aria-pressed", "true");
-          pdp.querySelector(".buy-price").textContent = `${opt.dataset.price} €`;
+          pdp.querySelector(".buy-price [aria-live]").textContent = `${opt.dataset.price} €`;
           addBtn.dataset.size = opt.dataset.size;
         });
       });
@@ -210,4 +210,49 @@ document.addEventListener("DOMContentLoaded", () => {
     if (ev.key === "ArrowLeft") go(idx - 1);
   });
   window.addEventListener("resize", () => { if (lb.open) apply(); });
+});
+
+// Ficha en móvil: puntos que indican qué foto se ve
+document.addEventListener("DOMContentLoaded", () => {
+  const strip = document.querySelector(".pdp-photos");
+  const dots = [...document.querySelectorAll(".pdp-dots span")];
+  if (!strip || !dots.length || !("IntersectionObserver" in window)) return;
+  const figs = [...strip.querySelectorAll("figure")];
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((en) => {
+      if (en.isIntersecting && en.intersectionRatio > 0.6) {
+        const k = figs.indexOf(en.target);
+        dots.forEach((d, i) => d.classList.toggle("is-on", i === k));
+      }
+    });
+  }, { root: strip, threshold: [0.6] });
+  figs.forEach((f) => io.observe(f));
+});
+
+// Punto verde: consulta por un cuadro disponible (abre el correo con el mensaje editable)
+document.addEventListener("DOMContentLoaded", () => {
+  const dlg = document.querySelector(".inquiry");
+  if (!dlg) return;
+  const form = dlg.querySelector(".inq-form");
+  document.querySelectorAll("[data-inquiry]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const { img, titulo, datos, proyecto } = btn.dataset;
+      dlg.querySelector(".inq-img img").src = img;
+      dlg.querySelector(".inq-img img").alt = titulo;
+      dlg.querySelector("#inq-title").textContent = titulo;
+      dlg.querySelector(".inq-datos").textContent = `${datos}${datos ? " · " : ""}${proyecto}`;
+      form.mensaje.value = `Hola Ana,\n\nHe visto en tu web el cuadro «${titulo}»${datos ? ` (${datos})` : ""}, del proyecto ${proyecto}, y estoy interesado en él.\n\n¿Podrías contarme si sigue disponible, su precio y cómo sería el envío?\n\nMuchas gracias,\n`;
+      dlg.showModal();
+      form.mensaje.scrollTop = 0;
+      form.nombre.focus();
+    });
+  });
+  form.addEventListener("submit", (ev) => {
+    ev.preventDefault();
+    const firma = [form.nombre.value, form.email.value].filter(Boolean).join("\n");
+    const asunto = `Consulta: ${dlg.querySelector("#inq-title").textContent}`;
+    const cuerpo = form.mensaje.value + (firma ? `\n${firma}` : "");
+    window.location.href = `mailto:${form.dataset.email}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
+    dlg.close();
+  });
 });

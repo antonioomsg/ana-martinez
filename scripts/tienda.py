@@ -78,15 +78,23 @@ def listado(r, ed, productos, actual):
         f'<a class="seg{" is-active" if k == actual else ""}" href="{r}{k}/"'
         f'{" aria-current=page" if k == actual else ""}>{es}<span lang="en">{en}</span></a>'
         for k, es, en in FILTROS)
-    grupos = []
+    grupos, indice = [], []
     for g in ed["grupos"]:
         items = [p for p in filtrados if p["grupo"] == g["id"]]
         if not items:
             continue
-        cards = "\n".join(card(r, p, ed) for p in items)
+        indice.append(f'<a href="#{g["id"]}">{e(g["titulo"])}</a>')
+        bloques = []
+        for clave, tipo in ed["tipos"].items():
+            sub = [p for p in items if p["tipo"] == clave]
+            if not sub:
+                continue
+            titulo_sub = (f'<h3 class="group-sub">{e(tipo["nombre"])} <span lang="en">· {e(tipo["nombre_en"])}</span></h3>'
+                          if actual == "ediciones" else "")
+            bloques.append(f'{titulo_sub}<div class="shop-grid">{"".join(card(r, p, ed) for p in sub)}</div>')
         grupos.append(f"""<section class="group" id="{g["id"]}">
   {grupo_header(r, g, len(items))}
-  <div class="shop-grid">{cards}</div>
+  {"".join(bloques)}
 </section>""")
     titulo = dict((k, es) for k, es, _ in FILTROS)[actual]
     titulo = "Ediciones" if actual == "ediciones" else titulo
@@ -94,6 +102,7 @@ def listado(r, ed, productos, actual):
   <h1>{e(titulo)}</h1>
   <div class="bi bi-intro"><p lang="es">{e(ed["intro_es"])}</p><p lang="en">{e(ed["intro_en"])}</p></div>
   <nav class="segmented" aria-label="Filtrar ediciones">{seg}</nav>
+  <nav class="group-index" aria-label="Proyectos">{"".join(indice)}</nav>
 </section>
 {"".join(grupos)}"""
 
@@ -104,20 +113,24 @@ def ficha(r, p, ed, productos):
     col = p["colores"][0]
     f = col["fotos"]
     variantes = ""
+    etiqueta = tipo["variante"]
     if len(p["colores"]) > 1:
         sw = "".join(
             f'<button type="button" class="swatch{" is-active" if i == 0 else ""}" data-color="{c["id"]}" '
             f'data-label="{e(c["label"])}" data-flat="{r}{foto(tipo, c["fotos"]["plano"])}" '
             f'data-worn="{r}{foto(tipo, c["fotos"]["modelo"])}" data-zoom="{r}{foto(tipo, c["fotos"]["zoom"])}" '
-            f'aria-label="{e(c["label"])}" aria-pressed="{"true" if i == 0 else "false"}">'
+            f'aria-label="{e(c["label"])}" title="{e(c["label"])}" aria-pressed="{"true" if i == 0 else "false"}">'
             f'<img src="{r}{foto(tipo, c["fotos"]["plano"])}" alt=""></button>'
             for i, c in enumerate(p["colores"]))
-        variantes = (f'<div class="buy-row"><span>{tipo["variante"]}</span><span data-color-label>{e(col["label"])}</span></div>'
-                     f'<div class="swatches">{sw}</div>')
+        variantes = (f'<div class="buy-field"><p class="buy-label">{etiqueta}: <span data-color-label>{e(col["label"])}</span></p>'
+                     f'<div class="swatches">{sw}</div></div>')
+    elif p["tipo"] == "panuelos":
+        variantes = f'<p class="buy-label buy-static">{etiqueta}: <span>{e(col["label"])}</span></p>'
     t0 = tipo["tamanos"][0]
     tallas = "".join(
         f'<button type="button" class="size-opt{" is-active" if i == 0 else ""}" data-size="{t["id"]}" '
-        f'data-price="{t["precio"]}" aria-pressed="{"true" if i == 0 else "false"}">{e(t["label"])}</button>'
+        f'data-price="{t["precio"]}" aria-pressed="{"true" if i == 0 else "false"}">'
+        f'<span class="size-label">{e(t["label"])}</span><span class="size-price">{precio(t["precio"])}</span></button>'
         for i, t in enumerate(tipo["tamanos"]))
     vistas = dict(tipo["vistas"])
     obra = ""
@@ -151,20 +164,28 @@ def ficha(r, p, ed, productos):
     mas = "\n".join(card(r, q, ed) for q in hermanos + otros)
     acordeon = "".join(f"<details><summary>{e(a)}</summary><p>{e(b)}</p></details>" for a, b in tipo["acordeon"])
     return f"""<article class="pdp" data-slug="{p["slug"]}">
+  <nav class="crumbs" aria-label="Migas de pan"><a href="{r}ediciones/">Ediciones</a> › <a href="{r}ediciones/#{g["id"]}">{e(g["titulo"])}</a> › <span aria-current="page">{e(nombre(p, tipo))}</span></nav>
   <div class="pdp-strip">
     <div class="pdp-photos" data-gallery>
     <figure class="pdp-flat"><button type="button" class="zoomable" data-index="0" aria-label="Ampliar foto"><img data-flat-img src="{r}{foto(tipo, f["plano"])}" alt="{e(nombre(p, tipo))}, {vistas["plano"]}"></button></figure>
     <figure><button type="button" class="zoomable" data-index="1" aria-label="Ampliar foto"><img data-worn-img src="{r}{foto(tipo, f["modelo"])}" alt="{e(nombre(p, tipo))}, {vistas["modelo"]}"></button></figure>
     <figure><button type="button" class="zoomable" data-index="2" aria-label="Ampliar foto"><img data-zoom-img src="{r}{foto(tipo, f["zoom"])}" alt="{e(nombre(p, tipo))}, {vistas["zoom"]}"></button></figure>
     </div>
+    <div class="pdp-dots" aria-hidden="true"><span class="is-on"></span><span></span><span></span></div>
     <div class="buy-card">
-      <p class="buy-kind"><a href="{r}{tipo["dir"]}/">{e(tipo["nombre"].upper())}</a> · <a href="{r}ediciones/#{g["id"]}">{e(g["titulo"])}</a></p>
+      <p class="buy-kind"><a href="{r}{tipo["dir"]}/">{e(tipo["nombre"])}</a> · <a href="{r}ediciones/#{g["id"]}">{e(g["titulo"])}</a></p>
       <h1>{e(nombre(p, tipo))}</h1>
+      <p class="buy-price"><span aria-live="polite">{precio(t0["precio"])}</span> <span class="buy-tax">IVA incluido · VAT included</span></p>
       {variantes}
-      <div class="buy-row"><span>TAMAÑO · SIZE</span></div>
-      <div class="sizes" role="group" aria-label="Tamaño">{tallas}</div>
-      <p class="buy-price" data-price>{precio(t0["precio"])}</p>
-      <button class="btn-dark add-to-cart" type="button" data-color="{col["id"]}" data-size="{t0["id"]}">AÑADIR A MI CESTA</button>
+      <div class="buy-field">
+        <p class="buy-label">Tamaño · Size</p>
+        <div class="sizes" role="group" aria-label="Tamaño">{tallas}</div>
+      </div>
+      <button class="btn-buy add-to-cart" type="button" data-color="{col["id"]}" data-size="{t0["id"]}">Añadir a la cesta</button>
+      <ul class="buy-assure">
+        <li><span>Envío en 3 a 5 días laborables</span><span lang="en">Ships in 3 to 5 working days</span></li>
+        <li><span>Devoluciones gratuitas en 30 días</span><span lang="en">Free returns within 30 days</span></li>
+      </ul>
     </div>
   </div>
   <section class="pdp-info">
@@ -172,13 +193,13 @@ def ficha(r, p, ed, productos):
       <p class="lang-tag">ES</p>
       <p>{e(tipo["ficha"])}</p>
       <p>{e(p["descripcion"])}</p>
-      <p class="muted">Diseñado por Ana Martínez · {" / ".join(e(t["label"]) for t in tipo["tamanos"])}</p>
+      <p class="muted">Diseñado por Ana Martínez</p>
     </div>
     <div lang="en">
       <p class="lang-tag">EN</p>
       <p>{e(tipo["ficha_en"])}</p>
       <p>{e(p["descripcion_en"])}</p>
-      <p class="muted">Designed by Ana Martínez · {" / ".join(e(t["label"]) for t in tipo["tamanos"])}</p>
+      <p class="muted">Designed by Ana Martínez</p>
     </div>
     <div class="accordions">{acordeon}</div>
   </section>

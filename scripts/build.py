@@ -3,6 +3,7 @@
 Diseño: Figma "Dream-Team" › página "Pg web ANA" (HOME PAGE, PROYECTOS, MURALES,
 FLOTABILIDAD NEUTRA). Las páginas usan rutas relativas para funcionar en GitHub Pages.
 """
+import hashlib
 import html
 import json
 import re
@@ -148,6 +149,46 @@ def video_embed(url):
     return f"https://player.vimeo.com/video/{m.group(1)}" if m else None
 
 
+def vendido(src):
+    """Estado de concepto: ~1 de cada 3 cuadros aparece vendido (fijo por imagen)."""
+    return int(hashlib.md5(src.encode()).hexdigest(), 16) % 100 < 35
+
+
+def figura(k, im, c, proyecto):
+    img = (f'<button type="button" class="zoomable" data-index="{k}" aria-label="Ampliar foto">'
+           f'<img src="{e(im["src"])}" alt="{e((c or {}).get("titulo") or im["alt"])}" loading="lazy"></button>')
+    if not c or not c.get("es_obra") or not c.get("titulo"):
+        return f"<figure>{img}</figure>"
+    datos = " · ".join(x for x in (c.get("tecnica"), c.get("medidas")) if x)
+    if vendido(im["src"]):
+        punto = '<span class="dot dot-sold" title="Vendido · Sold"><span class="sr-only">Vendido</span></span>'
+    else:
+        punto = (f'<button type="button" class="dot dot-free" title="Disponible · Available" aria-label="Disponible: consultar a la artista" '
+                 f'data-inquiry data-img="{e(im["src"])}" data-titulo="{e(c["titulo"])}" data-datos="{e(datos)}" '
+                 f'data-proyecto="{e(proyecto)}"></button>')
+    return (f'<figure>{img}<figcaption class="cartela">{punto}<span class="cartela-text">'
+            f'<span class="cartela-titulo">{e(c["titulo"])}</span><span class="cartela-datos">{e(datos)}</span></span>'
+            f'</figcaption></figure>')
+
+
+INQUIRY = """<dialog class="inquiry" aria-labelledby="inq-title">
+  <form method="dialog" class="inq-close-form"><button class="inq-close" aria-label="Cerrar">×</button></form>
+  <div class="inq-grid">
+    <figure class="inq-img"><img alt=""></figure>
+    <form class="inq-form" data-email="ana@ana-martinez.com">
+      <p class="eyebrow">CONSULTAR OBRA · ENQUIRE</p>
+      <h2 id="inq-title"></h2>
+      <p class="inq-datos muted"></p>
+      <label>Nombre · Name<input name="nombre" autocomplete="name"></label>
+      <label>Email<input name="email" type="email" autocomplete="email"></label>
+      <label>Mensaje · Message<textarea name="mensaje" rows="9"></textarea></label>
+      <button class="btn-buy" type="submit">Enviar · Send</button>
+      <p class="muted inq-note">Se abrirá tu programa de correo con el mensaje listo para enviar a Ana.</p>
+    </form>
+  </div>
+</dialog>"""
+
+
 def documento(doc):
     """Hoja de sala / catálogo integrado en la ficha (en vez del enlace al PDF)."""
     partes = []
@@ -157,10 +198,6 @@ def documento(doc):
     if doc.get("firma"):
         es += f'<p class="doc-firma">{e(doc["firma"])}</p>'
     partes.append(bilingue(es, render_text(doc.get("en", []))))
-    if doc.get("obras"):
-        filas = "".join(f'<tr><td>{e(o.get("titulo", ""))}</td><td>{e(o.get("tecnica", ""))}</td>'
-                        f'<td>{e(o.get("medidas", ""))}</td></tr>' for o in doc["obras"])
-        partes.append(f'<div class="doc-obras"><p class="lang-tag">OBRAS · WORKS</p><table>{filas}</table></div>')
     return f'<section class="doc">{"".join(partes)}</section>'
 
 
@@ -222,6 +259,9 @@ def build():
     traducciones = json.loads(tr_path.read_text()) if tr_path.exists() else {}
     doc_path = ROOT / "data" / "documentos.json"
     documentos = json.loads(doc_path.read_text()) if doc_path.exists() else {}
+    cuadros = {}
+    for f in sorted((ROOT / "data" / "cuadros").glob("*.json")):
+        cuadros.update(json.loads(f.read_text()))
     curador = {}
     for f in sorted((ROOT / "data" / "textos_curador").glob("*.json")):
         curador.update(json.loads(f.read_text()))
@@ -231,10 +271,7 @@ def build():
         i = sib.index(p) if p in sib else -1
         prev_ = sib[i - 1] if i > 0 else None
         next_ = sib[i + 1] if 0 <= i < len(sib) - 1 else None
-        imgs = "\n".join(
-            f'<figure><button type="button" class="zoomable" data-index="{k}" aria-label="Ampliar foto">'
-            f'<img src="{e(im["src"])}" alt="{e(im["alt"])}" loading="lazy"></button></figure>'
-            for k, im in enumerate(p["images"]))
+        imgs = "\n".join(figura(k, im, cuadros.get(im["src"]), p["title"].capitalize()) for k, im in enumerate(p["images"]))
         pager = '<nav class="pager">'
         pager += f'<a href="../{prev_["slug"]}/">← {e(prev_["title"])}</a>' if prev_ else "<span></span>"
         pager += f'<a href="../../{folder}/">{sec_title.upper()}</a>'
@@ -263,7 +300,8 @@ def build():
   <div class="obra-gallery" data-gallery>{imgs}</div>
   {pager}
 </article>
-{tienda.LIGHTBOX}"""
+{tienda.LIGHTBOX}
+{INQUIRY}"""
         first = next((t for t in p["text"] if isinstance(t, str) and len(t) > 40), p["title"])
         write(f"obra/{p['slug']}/index.html", page("../../", p["title"], body, current=folder, desc=first[:155]))
 
