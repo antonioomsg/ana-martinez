@@ -520,3 +520,8 @@ html { scroll-behavior: smooth; }
   .pdp-wear h2, .pdp-proyecto h2, .pdp-more h2, .pdp-obra h2 { font-size: 30px; }
   .pager a:last-child { text-align: center; }
 }
+
+/* Listado: flechas sin recuadro, solo el trazo fino, para no tapar la foto */
+.car-btn, .car-btn:hover { background: none; }
+.car-btn svg { filter: drop-shadow(0 0 2px rgba(251,249,246,.9)); }
+.car-prev { left: 6px; } .car-next { right: 6px; }
