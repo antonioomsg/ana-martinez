@@ -50,7 +50,8 @@ def nav(r, current=""):
     <ul class="nav-menu" id="nav-menu">
       <li class="has-sub"><button class="sub-toggle" aria-expanded="false">COLECCIONES</button>
         <div class="sub">{sub}</div></li>
-      <li>{item("panuelos/", "PAÑUELOS", "panuelos")}</li>
+      <li class="has-sub"><button class="sub-toggle" aria-expanded="false"{' aria-current="page"' if current == "ediciones" else ""}>EDICIONES</button>
+        <div class="sub">{item("ediciones/", "Todas", "")}{item("panuelos/", "Pañuelos", "")}{item("laminas/", "Láminas", "")}</div></li>
       <li>{item("sobre-mi/", "SOBRE MÍ", "sobre-mi")}</li>
       <li>{item("contacto/", "CONTACTO", "contacto")}</li>
     </ul>
@@ -298,15 +299,19 @@ def build():
 
 
 def build_tienda():
-    data = json.loads((ROOT / "data" / "panuelos.json").read_text())
-    (OUT / "assets" / "products.js").write_text(tienda.products_js(data))
-    write("panuelos/index.html", page("../", "Pañuelos", tienda.listado("../", data), current="panuelos",
-                                      desc="Carrés de seda de Ana Martínez, nacidos de su pintura."))
-    for p in data["productos"]:
-        write(f"panuelos/{p['slug']}/index.html",
-              page("../../", f"Carré {p['nombre']}", tienda.ficha("../../", p, data), current="panuelos",
+    ed = json.loads((ROOT / "data" / "ediciones.json").read_text())
+    productos = (json.loads((ROOT / "data" / "panuelos.json").read_text())["productos"]
+                 + json.loads((ROOT / "data" / "laminas.json").read_text())["productos"])
+    (OUT / "assets" / "products.js").write_text(tienda.products_js(ed, productos))
+    for clave, titulo, _ in tienda.FILTROS:
+        write(f"{clave}/index.html", page("../", "Ediciones" if clave == "ediciones" else titulo,
+                                          tienda.listado("../", ed, productos, clave), current="ediciones",
+                                          desc="Pañuelos de seda y láminas de Ana Martínez, nacidos de su pintura."))
+    for p in productos:
+        tipo = ed["tipos"][p["tipo"]]
+        write(f"{tipo['dir']}/{p['slug']}/index.html",
+              page("../../", tienda.nombre(p, tipo), tienda.ficha("../../", p, ed, productos), current="ediciones",
                    desc=p["descripcion"][:155], cls="pdp-page"))
-
 
 if __name__ == "__main__":
     build()

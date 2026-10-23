@@ -40,7 +40,9 @@
     ]
    },
    "descripcion_en": "A kelp forest seen from inside the water: golden fronds rising towards the light among turquoise and ultramarine blues. The scarf is born from Ana's painting of kelp forests, where light, water and life share the same dance.",
-   "lema_en": "It was the kingdom of verticality."
+   "lema_en": "It was the kingdom of verticality.",
+   "tipo": "panuelos",
+   "grupo": "flotabilidad-neutra"
   },
   {
    "slug": "siames",
@@ -78,7 +80,9 @@
     ]
    },
    "descripcion_en": "The Siamese fighting fish suspended in the water, its red fins spread like a silk fan. A scarf that carries Ana's painterly gesture onto the skin.",
-   "lema_en": "A gentle, harmonious movement."
+   "lema_en": "A gentle, harmonious movement.",
+   "tipo": "panuelos",
+   "grupo": "flotabilidad-neutra"
   },
   {
    "slug": "ballena",
@@ -116,7 +120,9 @@
     ]
    },
    "descripcion_en": "A humpback whale floating in deep blue, in the enforced silence that only exists underwater. The painting becomes a carré to wrap around the shoulders or tie at the neck.",
-   "lema_en": "A truce of peace."
+   "lema_en": "A truce of peace.",
+   "tipo": "panuelos",
+   "grupo": "flotabilidad-neutra"
   },
   {
    "slug": "viana",
@@ -154,7 +160,9 @@
     ]
    },
    "descripcion_en": "Round leaves and yellow flowers drawn with the detail of a botanical plate, framed by a green chequered border. A Cordoban courtyard garden to wear.",
-   "lema_en": "The plants of the courtyards."
+   "lema_en": "The plants of the courtyards.",
+   "tipo": "panuelos",
+   "grupo": "plantas-de-los-patios"
   },
   {
    "slug": "ondas",
@@ -204,7 +212,9 @@
     ]
    },
    "descripcion_en": "Lines that ripple like water in motion. Available in several colours, with Ana's signature in one corner.",
-   "lema_en": "A gentle expanding wave."
+   "lema_en": "A gentle expanding wave.",
+   "tipo": "panuelos",
+   "grupo": "ebria-de-carne-azul"
   }
  ],
  "ficha_en": "100% silk twill, hand-rolled and hand-stitched hem. 90 × 90 cm; as the hem is finished by hand, dimensions may vary slightly."

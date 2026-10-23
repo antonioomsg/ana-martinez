@@ -1,0 +1,193 @@
+{
+ "_nota": "CONCEPTO. Tamaños y precios de láminas y el carré 65 cm son propuestos; el carré 90×90 a 100 € es el dato real de Ana.",
+ "intro_es": "Ediciones de Ana Martínez: carrés de seda y láminas que nacen de sus cuadros, agrupados por el proyecto al que pertenecen.",
+ "intro_en": "Editions by Ana Martínez: silk carrés and art prints born from her paintings, grouped by the project they belong to.",
+ "tipos": {
+  "panuelos": {
+   "nombre": "Pañuelos",
+   "nombre_en": "Silk carrés",
+   "prefijo": "Carré",
+   "dir": "panuelos",
+   "vistas": [
+    [
+     "plano",
+     "extendido"
+    ],
+    [
+     "modelo",
+     "llevado"
+    ],
+    [
+     "zoom",
+     "detalle de la seda"
+    ]
+   ],
+   "variante": "COLOR",
+   "ficha": "Seda twill 100 %, bordes cosidos a mano. Medida 90 × 90 cm; al estar el dobladillo hecho a mano, las dimensiones pueden variar ligeramente.",
+   "ficha_en": "100% silk twill, hand-rolled and hand-stitched hem. 90 × 90 cm; as the hem is finished by hand, dimensions may vary slightly.",
+   "tamanos": [
+    {
+     "id": "90",
+     "label": "90 × 90 cm",
+     "precio": 100
+    },
+    {
+     "id": "65",
+     "label": "65 × 65 cm",
+     "precio": 75
+    }
+   ],
+   "acordeon": [
+    [
+     "MANTENIMIENTO",
+     "Lavar en seco o a mano en agua fría con jabón neutro. Planchar a temperatura baja por el revés."
+    ],
+    [
+     "ENVÍO Y DEVOLUCIONES",
+     "Envío en su caja, listo para regalar. Devoluciones en un plazo de 30 días."
+    ],
+    [
+     "HACER UN REGALO",
+     "Podemos incluir una tarjeta escrita a mano por la artista."
+    ]
+   ],
+   "uso": {
+    "titulo": "Cómo llevar tu carré",
+    "titulo_en": "How to wear it",
+    "es": "Doblado en triángulo sobre los hombros, plegado en cinta y anudado al cuello o en la cabeza, el carré se mueve con quien lo lleva, como el agua.",
+    "en": "Folded into a triangle over the shoulders, rolled into a ribbon and knotted at the neck or worn on the head, the carré moves with whoever wears it, like water."
+   }
+  },
+  "laminas": {
+   "nombre": "Láminas",
+   "nombre_en": "Art prints",
+   "prefijo": "Lámina",
+   "dir": "laminas",
+   "vistas": [
+    [
+     "plano",
+     "centrada"
+    ],
+    [
+     "modelo",
+     "en casa"
+    ],
+    [
+     "zoom",
+     "detalle del papel"
+    ]
+   ],
+   "variante": "MODELO",
+   "ficha": "Impresión giclée con tintas pigmentadas sobre papel de algodón mate de 300 g, con margen blanco. Firmada a lápiz por la artista. Se envía sin marco, protegida en tubo o carpeta rígida.",
+   "ficha_en": "Giclée print with pigment inks on 300 g matte cotton paper, with a white border. Hand-signed in pencil by the artist. Shipped unframed in a tube or rigid folder.",
+   "tamanos": [
+    {
+     "id": "30x40",
+     "label": "30 × 40 cm",
+     "precio": 45
+    },
+    {
+     "id": "50x70",
+     "label": "50 × 70 cm",
+     "precio": 85
+    },
+    {
+     "id": "70x100",
+     "label": "70 × 100 cm",
+     "precio": 140
+    }
+   ],
+   "acordeon": [
+    [
+     "CUIDADOS",
+     "Enmarcar con cristal y evitar la luz solar directa para conservar los colores."
+    ],
+    [
+     "ENVÍO Y DEVOLUCIONES",
+     "Envío protegido en tubo o carpeta rígida. Devoluciones en un plazo de 30 días."
+    ],
+    [
+     "HACER UN REGALO",
+     "Podemos incluir una tarjeta escrita a mano por la artista."
+    ]
+   ],
+   "uso": {
+    "titulo": "Cómo colgarla",
+    "titulo_en": "How to hang it",
+    "es": "Un marco fino de madera clara y un paspartú blanco dejan respirar la obra. A la altura de la mirada, con luz natural lateral, el color cambia a lo largo del día, como en el agua.",
+    "en": "A thin pale wood frame and a white mount let the work breathe. Hung at eye level, in soft side light, its colour shifts through the day, like water."
+   }
+  }
+ },
+ "grupos": [
+  {
+   "id": "flotabilidad-neutra",
+   "titulo": "Flotabilidad neutra",
+   "fecha": "2024",
+   "obra_slug": "flotabilidad-neutra",
+   "texto": [
+    "El estado de ingravidez que sucede cuando se adquiere la destreza de la flotabilidad neutra no es un estado estático: existe el movimiento, pero es un movimiento suave y armónico. Es ese estar en un limbo donde nada y todo ocurre a la vez, lo que resulta sobrecogedor.",
+    "Esta exposición de cuadros al óleo bebe de todas estas experiencias y reflexiones sobre el universo que existe oculto bajo el mar y su comportamiento. Todo está en una perfecta comunión donde la luz actúa como aglutinante de esta enorme variedad de elementos."
+   ],
+   "texto_en": [
+    "The weightlessness that comes with mastering neutral buoyancy is not a static state: there is movement, but it is gentle and harmonious. It is being in a limbo where nothing and everything happens at once, and that is overwhelming.",
+    "This exhibition of oil paintings draws on all these experiences and reflections on the universe hidden beneath the sea and its behaviour. Everything is in perfect communion, with light binding together this vast variety of elements."
+   ],
+   "fuente": "Ana Martínez, catálogo de «Ebria de carne azul», enero de 2025"
+  },
+  {
+   "id": "ebria-de-carne-azul",
+   "titulo": "Ebria de carne azul",
+   "fecha": "2025",
+   "obra_slug": "ebria-de-carne-azul",
+   "texto": [
+    "Los miembros, al moverse, ejercen su presión sobre el agua, que al ser desplazada traslada su masa a nuestro alrededor, creando una suave onda expansiva que provoca que continúe el movimiento por el resto del cuerpo. De esta manera fluyen los seres acuáticos dentro del agua."
+   ],
+   "texto_en": [
+    "As the limbs move they press against the water, which, displaced, carries its mass around us, creating a gentle expanding wave that keeps the movement flowing through the rest of the body. This is how aquatic beings flow through the water."
+   ],
+   "fuente": "Ana Martínez, catálogo de «Ebria de carne azul», enero de 2025"
+  },
+  {
+   "id": "asuntos-internos",
+   "titulo": "Asuntos internos",
+   "fecha": "2026",
+   "obra_slug": "asuntos-internos",
+   "texto": [
+    "Una serie de óleos de formato cuadrado que funcionan como páginas de un diario visual: escenas recogidas en lugares y momentos distintos, unidas por una misma manera de mirar la luz."
+   ],
+   "texto_en": [
+    "A series of square oil paintings that work like pages of a visual diary: scenes gathered in different places and moments, held together by the same way of looking at light."
+   ],
+   "fuente": "Texto de la web"
+  },
+  {
+   "id": "plantas-de-los-patios",
+   "titulo": "Plantas de los patios",
+   "fecha": "",
+   "obra_slug": null,
+   "texto": [
+    "Ana lleva años dibujando las plantas de los patios de Andalucía: una de sus series de pañuelos artísticos, «Plantas de los patios de Andalucía», forma parte de la colección de Iberdrola, y ha trabajado para el Palacio de Viana de Córdoba.",
+    "Este pañuelo nace de sus láminas botánicas: un dibujo minucioso, casi científico, convertido en estampado."
+   ],
+   "texto_en": [
+    "Ana has spent years drawing the plants of Andalusian courtyards: one of her series of art scarves, “Plantas de los patios de Andalucía”, is part of the Iberdrola collection, and she has worked for the Palacio de Viana in Córdoba.",
+    "This scarf grows out of her botanical plates: a meticulous, almost scientific drawing turned into a print."
+   ],
+   "fuente": "CV de Ana Martínez"
+  },
+  {
+   "id": "bestiario",
+   "titulo": "Bestiario",
+   "fecha": "",
+   "obra_slug": null,
+   "texto": [
+    "Perros y peces dibujados con la misma atención que Ana dedica a sus cuadros: el gesto de un dachshund, el giro de unas carpas en el agua."
+   ],
+   "texto_en": [
+    "Dogs and fish drawn with the same attention Ana gives to her paintings: the gesture of a dachshund, the turn of carp in the water."
+   ],
+   "fuente": "Texto de la web"
+  }
+ ]
+}

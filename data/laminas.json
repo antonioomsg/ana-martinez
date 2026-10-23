@@ -1,0 +1,222 @@
+{
+ "productos": [
+  {
+   "slug": "pez-siames",
+   "tipo": "laminas",
+   "grupo": "flotabilidad-neutra",
+   "nombre": "Pez siamés luchador",
+   "descripcion": "El pez siamés luchador suspendido en un azul pálido, con sus aletas rojas abiertas como un abanico. Reproducción fiel del óleo de Flotabilidad neutra.",
+   "descripcion_en": "The Siamese fighting fish suspended in pale blue, its red fins spread like a fan. A faithful reproduction of the oil painting from Neutral Buoyancy.",
+   "lema": "Un movimiento suave y armónico.",
+   "lema_en": "A gentle, harmonious movement.",
+   "obra": {
+    "titulo": "Pez siamés luchador / Siamese fighting fish",
+    "tecnica": "Óleo sobre lienzo · 113 × 147 cm",
+    "img": "https://www.ana-martinez.com/wp-content/uploads/2024/03/Pez-Siamés-luchador.jpg"
+   },
+   "colores": [
+    {
+     "id": "unica",
+     "label": "Pez siamés luchador",
+     "fotos": {
+      "plano": "lam_siames_centrada",
+      "modelo": "lam_siames_casa",
+      "zoom": "lam_siames_zoom"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "frailecillo",
+   "tipo": "laminas",
+   "grupo": "flotabilidad-neutra",
+   "nombre": "Frailecillo",
+   "descripcion": "Retrato de un frailecillo atlántico, con su pico de colores y la mirada atenta. Una de las aves que Ana pintó al llevar la flotabilidad al mundo del aire.",
+   "descripcion_en": "Portrait of an Atlantic puffin, with its colourful beak and watchful eye. One of the birds Ana painted when she carried buoyancy into the world of the air.",
+   "lema": "Se atreven, y lo consiguen.",
+   "lema_en": "They dare, and they succeed.",
+   "obra": {
+    "titulo": "Frailecillo / Puffin",
+    "tecnica": "Óleo sobre lienzo · 36 × 39 cm",
+    "img": "https://www.ana-martinez.com/wp-content/uploads/2024/03/Puffin_portrait.jpg"
+   },
+   "colores": [
+    {
+     "id": "unica",
+     "label": "Frailecillo",
+     "fotos": {
+      "plano": "lam_frailecillo_centrada",
+      "modelo": "lam_frailecillo_casa",
+      "zoom": "lam_frailecillo_zoom"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "ibis-escarlatas",
+   "tipo": "laminas",
+   "grupo": "flotabilidad-neutra",
+   "nombre": "Ibis escarlatas",
+   "descripcion": "Ibis escarlatas en pleno planeo, una mancha de rojo intenso sobre el cielo. Del capítulo aéreo de Flotabilidad neutra.",
+   "descripcion_en": "Scarlet ibises gliding, a stroke of intense red against the sky. From the airborne chapter of Neutral Buoyancy.",
+   "lema": "Planear.",
+   "lema_en": "To glide.",
+   "obra": {
+    "titulo": "Ibis escarlatas / Scarlet ibis",
+    "tecnica": "Óleo sobre lienzo · 154 × 90 cm",
+    "img": "https://www.ana-martinez.com/wp-content/uploads/2024/03/flyiing-scarlet-ibis.jpg"
+   },
+   "colores": [
+    {
+     "id": "unica",
+     "label": "Ibis escarlatas",
+     "fotos": {
+      "plano": "lam_ibis_centrada",
+      "modelo": "lam_ibis_casa",
+      "zoom": "lam_ibis_zoom"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "medusa",
+   "tipo": "laminas",
+   "grupo": "ebria-de-carne-azul",
+   "nombre": "Medusa",
+   "descripcion": "Una medusa que flota entre frondas de kelp en la penumbra azul. Del universo submarino de Ebria de carne azul.",
+   "descripcion_en": "A jellyfish drifting among kelp fronds in the blue half-light. From the underwater world of Drunk on Blue Flesh.",
+   "lema": "Una tregua de paz.",
+   "lema_en": "A truce of peace.",
+   "obra": {
+    "titulo": "Medusa",
+    "tecnica": "Óleo sobre lienzo · Ebria de carne azul, 2025",
+    "img": "https://www.ana-martinez.com/wp-content/uploads/2025/02/MEDUSA-KELP.jpg"
+   },
+   "colores": [
+    {
+     "id": "unica",
+     "label": "Medusa",
+     "fotos": {
+      "plano": "lam_medusa_centrada",
+      "modelo": "lam_medusa_casa",
+      "zoom": "lam_medusa_zoom"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "levante",
+   "tipo": "laminas",
+   "grupo": "asuntos-internos",
+   "nombre": "Levante",
+   "descripcion": "Palmeras que se doblan bajo el viento de levante. Una de las páginas del diario visual de Asuntos internos.",
+   "descripcion_en": "Palm trees bending under the easterly wind. One of the pages of the visual diary Asuntos internos.",
+   "lema": "El viento.",
+   "lema_en": "The wind.",
+   "obra": {
+    "titulo": "Levante",
+    "tecnica": "Óleo · Asuntos internos, 2026",
+    "img": "https://www.ana-martinez.com/wp-content/uploads/2026/02/LEVANTE-copia.jpg"
+   },
+   "colores": [
+    {
+     "id": "unica",
+     "label": "Levante",
+     "fotos": {
+      "plano": "lam_levante_centrada",
+      "modelo": "lam_levante_casa",
+      "zoom": "lam_levante_zoom"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "greenland",
+   "tipo": "laminas",
+   "grupo": "asuntos-internos",
+   "nombre": "Greenland",
+   "descripcion": "Un iceberg solo en el mar bajo nubes teñidas de rosa. La luz como protagonista, en el formato cuadrado de Asuntos internos.",
+   "descripcion_en": "A lone iceberg at sea beneath pink-tinged clouds. Light as the protagonist, in the square format of Asuntos internos.",
+   "lema": "Lo que se guarda.",
+   "lema_en": "What is kept inside.",
+   "obra": {
+    "titulo": "Greenland",
+    "tecnica": "Óleo · Asuntos internos, 2026",
+    "img": "https://www.ana-martinez.com/wp-content/uploads/2026/02/GREENLAND-copia.jpg"
+   },
+   "colores": [
+    {
+     "id": "unica",
+     "label": "Greenland",
+     "fotos": {
+      "plano": "lam_greenland_centrada",
+      "modelo": "lam_greenland_casa",
+      "zoom": "lam_greenland_zoom"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "carpas",
+   "tipo": "laminas",
+   "grupo": "bestiario",
+   "nombre": "Carpas",
+   "descripcion": "Carpas que giran en el agua, dibujadas con precisión y movimiento. Una de las láminas originales de Ana.",
+   "descripcion_en": "Carp turning in the water, drawn with precision and movement. One of Ana's original prints.",
+   "lema": "El giro en el agua.",
+   "lema_en": "A turn in the water.",
+   "obra": null,
+   "colores": [
+    {
+     "id": "unica",
+     "label": "Carpas",
+     "fotos": {
+      "plano": "lam_carpas_centrada",
+      "modelo": "lam_carpas_casa",
+      "zoom": "lam_carpas_zoom"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "dachshund",
+   "tipo": "laminas",
+   "grupo": "bestiario",
+   "nombre": "Dachshund",
+   "descripcion": "Tres retratos de dachshund, cada uno con su carácter. Láminas originales de Ana Martínez; elige tu favorito.",
+   "descripcion_en": "Three dachshund portraits, each with its own character. Original prints by Ana Martínez; choose your favourite.",
+   "lema": "Un gesto.",
+   "lema_en": "A gesture.",
+   "obra": null,
+   "colores": [
+    {
+     "id": "d1",
+     "label": "Dachshund I",
+     "fotos": {
+      "plano": "lam_dachshund_1_centrada",
+      "modelo": "lam_dachshund_1_casa",
+      "zoom": "lam_dachshund_1_zoom"
+     }
+    },
+    {
+     "id": "d2",
+     "label": "Dachshund II",
+     "fotos": {
+      "plano": "lam_dachshund_2_centrada",
+      "modelo": "lam_dachshund_2_casa",
+      "zoom": "lam_dachshund_2_zoom"
+     }
+    },
+    {
+     "id": "d3",
+     "label": "Dachshund III",
+     "fotos": {
+      "plano": "lam_dachshund_3_centrada",
+      "modelo": "lam_dachshund_3_casa",
+      "zoom": "lam_dachshund_3_zoom"
+     }
+    }
+   ]
+  }
+ ]
+}

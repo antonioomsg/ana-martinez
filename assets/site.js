@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Cesta de demostración (se guarda en el navegador; no acepta pedidos)
 (() => {
-  const KEY = "am_cart";
+  const KEY = "am_cart_v2";
   const ROOT = window.AM_ROOT || "";
   const load = () => { try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch { return []; } };
   const save = (items) => { try { localStorage.setItem(KEY, JSON.stringify(items)); } catch {} };
@@ -43,11 +43,13 @@ document.addEventListener("DOMContentLoaded", () => {
       const p = products[it.slug];
       if (!p) return;
       const c = p.colores[it.color] || Object.values(p.colores)[0];
-      total += p.precio * it.qty;
+      const t = p.tamanos[it.size] || Object.values(p.tamanos)[0];
+      total += t.precio * it.qty;
+      const variante = Object.keys(p.colores).length > 1 ? `${c.label} · ` : "";
       const row = document.createElement("div");
       row.className = "cart-line";
-      row.innerHTML = `<img src="${ROOT}${c.img}" alt=""><div>Carré ${p.nombre}<small>${c.label} · ${it.qty} ud.</small></div>
-        <div>${p.precio * it.qty} €<br><button type="button" data-remove="${i}">Quitar</button></div>`;
+      row.innerHTML = `<img src="${ROOT}${c.img}" alt=""><div>${p.nombre}<small>${variante}${t.label} · ${it.qty} ud.</small></div>
+        <div>${t.precio * it.qty} €<br><button type="button" data-remove="${i}">Quitar</button></div>`;
       list.appendChild(row);
     });
     document.querySelector("[data-cart-total]").textContent = `${total} €`;
@@ -84,8 +86,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const addBtn = pdp.querySelector(".add-to-cart");
       pdp.querySelectorAll(".swatch").forEach((sw) => {
         sw.addEventListener("click", () => {
-          pdp.querySelectorAll(".swatch").forEach((s) => s.classList.remove("is-active"));
+          pdp.querySelectorAll(".swatch").forEach((s) => { s.classList.remove("is-active"); s.setAttribute("aria-pressed", "false"); });
           sw.classList.add("is-active");
+          sw.setAttribute("aria-pressed", "true");
           pdp.querySelector("[data-color-label]").textContent = sw.dataset.label;
           pdp.querySelector("[data-flat-img]").src = sw.dataset.flat;
           pdp.querySelector("[data-worn-img]").src = sw.dataset.worn;
@@ -93,11 +96,20 @@ document.addEventListener("DOMContentLoaded", () => {
           addBtn.dataset.color = sw.dataset.color;
         });
       });
+      pdp.querySelectorAll(".size-opt").forEach((opt) => {
+        opt.addEventListener("click", () => {
+          pdp.querySelectorAll(".size-opt").forEach((o) => { o.classList.remove("is-active"); o.setAttribute("aria-pressed", "false"); });
+          opt.classList.add("is-active");
+          opt.setAttribute("aria-pressed", "true");
+          pdp.querySelector(".buy-price").textContent = `${opt.dataset.price} €`;
+          addBtn.dataset.size = opt.dataset.size;
+        });
+      });
       addBtn.addEventListener("click", () => {
         const items = load();
-        const slug = pdp.dataset.slug, color = addBtn.dataset.color;
-        const found = items.find((it) => it.slug === slug && it.color === color);
-        if (found) found.qty += 1; else items.push({ slug, color, qty: 1 });
+        const slug = pdp.dataset.slug, color = addBtn.dataset.color, size = addBtn.dataset.size;
+        const found = items.find((it) => it.slug === slug && it.color === color && it.size === size);
+        if (found) found.qty += 1; else items.push({ slug, color, size, qty: 1 });
         save(items);
         render();
         toast("AÑADIDO A TU CESTA");

@@ -216,6 +216,32 @@ a { color: inherit; }
 .footer-lead.bi { text-align: center; gap: 48px; }
 .footer-lead.bi [lang="en"] { color: #bbb; }
 
+/* Ediciones: agrupación por proyecto y controles (criterios HIG de Apple: jerarquía clara, controles segmentados, objetivos táctiles de 44 px) */
+.segmented { display: inline-flex; gap: 2px; padding: 3px; background: #efece7; border-radius: 10px; margin-top: 24px; }
+.seg { display: flex; flex-direction: column; align-items: center; min-width: 120px; min-height: 44px; justify-content: center; padding: 6px 18px; border-radius: 8px; text-decoration: none; font-family: var(--display); letter-spacing: 1px; font-size: 15px; color: var(--ink); }
+.seg span { font-size: 11px; color: #7a8585; letter-spacing: .5px; }
+.seg.is-active { background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+.bi-intro { max-width: 900px; margin: 12px auto 0; text-align: center; }
+.group { padding: 56px 0 24px; }
+.group-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; max-width: 1392px; margin: 0 auto 20px; padding: 0 24px; }
+.group-head h2 { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 38px; margin: 0; }
+.group-date { font-family: var(--display); font-style: normal; font-size: 15px; letter-spacing: 2px; color: var(--accent); margin-left: 10px; }
+.group-count { margin: 4px 0 0; font-size: 13px; color: #7a8585; }
+.group-link { font-size: 15px; text-decoration: none; color: var(--ink); white-space: nowrap; min-height: 44px; display: inline-flex; align-items: center; }
+.group-link:hover { color: var(--accent); }
+.shop-kind { padding: 16px 20px 0; font-family: var(--display); letter-spacing: 2px; font-size: 11px; color: var(--accent); }
+.shop-kind + .shop-name { padding-top: 4px; }
+.buy-kind { font-family: var(--display); letter-spacing: 1.5px; font-size: 12px; margin: 0 0 8px; color: #7a8585; }
+.buy-kind a { text-decoration: none; }
+.buy-kind a:hover { color: var(--accent); }
+.buy-row { display: flex; justify-content: space-between; font-size: 14px; margin-top: 4px; }
+.buy-row span:first-child { font-family: ui-monospace, Menlo, monospace; letter-spacing: 1px; }
+.sizes { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 18px; }
+.size-opt { min-height: 44px; padding: 0 16px; border: 1px solid #cfcac2; background: #fff; border-radius: 8px; font: 14px var(--text); color: var(--ink); cursor: pointer; }
+.size-opt.is-active { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
+.size-opt:focus-visible, .swatch:focus-visible, .seg:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.pdp-more h2 span { color: var(--accent); }
+
 /* Sobre mí (rediseño) */
 .bio2 { max-width: 1200px; margin: 0 auto; padding: 24px 24px 120px; }
 .bio2-title { text-align: center; font-family: var(--display); font-weight: 400; letter-spacing: var(--track); font-size: 34px; margin: 0 0 64px; }
@@ -270,6 +296,10 @@ a { color: inherit; }
   .pdp-info, .pdp-obra { grid-template-columns: 1fr; gap: 32px; padding: 40px 16px; }
   .accordions { grid-template-columns: 1fr; }
   .bi { grid-template-columns: 1fr; gap: 24px; }
+  .segmented { display: flex; }
+  .seg { min-width: 0; flex: 1; padding: 6px 8px; }
+  .group-head { flex-direction: column; align-items: flex-start; padding: 0 16px; }
+  .group-head h2 { font-size: 30px; }
   .doc-obras td:last-child { white-space: normal; }
   .bio2-hero { grid-template-columns: 1fr; gap: 32px; margin-bottom: 48px; }
   .bio2-title { font-size: 26px; margin-bottom: 32px; }
