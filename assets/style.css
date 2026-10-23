@@ -248,13 +248,14 @@ a { color: inherit; }
 html { scroll-behavior: smooth; }
 .shop-intro { padding-bottom: 16px; }
 .group { scroll-margin-top: 24px; }
-.group-index { display: flex; gap: 8px; overflow-x: auto; justify-content: center; margin-top: 16px; scrollbar-width: none; }
-.group-index a { white-space: nowrap; min-height: 44px; display: inline-flex; align-items: center; padding: 0 16px; border: 1px solid #cfcac2; border-radius: 22px; font: 14px var(--text); text-decoration: none; }
-.group-index a:hover { border-color: var(--ink); }
+.group-index { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0; margin: 28px auto 0; max-width: 900px; }
+.group-index a { position: relative; display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; font-family: var(--serif); font-style: italic; font-size: 21px; color: var(--ink); text-decoration: none; }
+.group-index a + a::before { content: "·"; position: absolute; left: -3px; color: #b5aea4; font-style: normal; }
+.group-index a:hover { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1px; }
 .group-sub { max-width: 1392px; margin: 24px auto 12px; padding: 0 24px; font: 12px var(--display); letter-spacing: 2px; text-transform: uppercase; color: #5f6f6f; font-weight: 400; }
 .group-sub span { text-transform: none; letter-spacing: 1px; }
 .shop-kind { color: #5f6f6f; font-size: 12px; }
-.bi-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; max-width: 900px; text-align: left; align-items: start; }
+.bi-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; max-width: 900px; text-align: center; align-items: start; }
 .bi-intro p { margin: 0; font-size: 15px; color: var(--ink); }
 .bi-intro p[lang="en"] { opacity: .8; }
 .group-head { align-items: baseline; }
@@ -387,6 +388,7 @@ html { scroll-behavior: smooth; }
   .bio2-title { font-size: 26px; margin-bottom: 32px; }
   .car-btn { opacity: 1; width: 44px; height: 44px; font-size: 22px; }
   .bi-intro { grid-template-columns: 1fr; gap: 12px; }
+  .group-index a { font-size: 18px; padding: 0 12px; }
   .inq-grid { grid-template-columns: 1fr; }
   .inq-img { padding: 20px; }
   .inq-img img { max-height: 32vh; }
