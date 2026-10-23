@@ -338,6 +338,13 @@ html { scroll-behavior: smooth; }
 .lb-range::-moz-range-thumb { width: 9px; height: 9px; border-radius: 50%; background: #111; border: 0; }
 .lb-range:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 3px rgba(17,17,17,.2); }
 
+/* Botones de icono finos (línea de 1 px) */
+.lb-close, .lb-nav, .car-btn, .inq-close, .cart-close { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 0; background: rgba(251,249,246,.92); color: #111; font-size: 0; cursor: pointer; -webkit-tap-highlight-color: transparent; transition: background .2s; }
+.lb-close:hover, .lb-nav:hover, .car-btn:hover { background: #fff; }
+.inq-close, .cart-close { background: none; }
+.lb-close:focus, .lb-nav:focus, .car-btn:focus, .inq-close:focus, .cart-close:focus { outline: none; }
+.lb-close:focus-visible, .lb-nav:focus-visible, .car-btn:focus-visible, .inq-close:focus-visible, .cart-close:focus-visible { outline: 1px solid #111; outline-offset: -5px; }
+
 /* Sobre mí (rediseño) */
 .bio2 { max-width: 1200px; margin: 0 auto; padding: 24px 24px 120px; }
 .bio2-title { text-align: center; font-family: var(--display); font-weight: 400; letter-spacing: var(--track); font-size: 34px; margin: 0 0 64px; }
@@ -399,7 +406,7 @@ html { scroll-behavior: smooth; }
   .doc-obras td:last-child { white-space: normal; }
   .bio2-hero { grid-template-columns: 1fr; gap: 32px; margin-bottom: 48px; }
   .bio2-title { font-size: 26px; margin-bottom: 32px; }
-  .car-btn { opacity: 1; width: 44px; height: 44px; font-size: 22px; }
+  .car-btn { opacity: 1; }
   .bi-intro { grid-template-columns: 1fr; gap: 12px; }
   .group-index a { font-size: 18px; padding: 0 12px; }
   .inq-grid { grid-template-columns: 1fr; }

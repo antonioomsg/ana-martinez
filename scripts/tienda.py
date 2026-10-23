@@ -18,9 +18,9 @@ LIGHTBOX = """<dialog class="lightbox" aria-label="Foto ampliada">
     <button type="button" class="lb-out" aria-label="Alejar">−</button>
   </div>
   <div class="lb-thumbs"></div>
-  <button type="button" class="lb-nav lb-prev" aria-label="Foto anterior">‹</button>
-  <button type="button" class="lb-nav lb-next" aria-label="Foto siguiente">›</button>
-  <button type="button" class="lb-close" aria-label="Cerrar">×</button>
+  <button type="button" class="lb-nav lb-prev" aria-label="Foto anterior"><svg width="10" height="20" viewBox="0 0 10 20" aria-hidden="true"><path d="M9 1L1 10l8 9" stroke="currentColor" stroke-width="1" fill="none"/></svg></button>
+  <button type="button" class="lb-nav lb-next" aria-label="Foto siguiente"><svg width="10" height="20" viewBox="0 0 10 20" aria-hidden="true"><path d="M1 1l8 9-8 9" stroke="currentColor" stroke-width="1" fill="none"/></svg></button>
+  <button type="button" class="lb-close" aria-label="Cerrar"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M1.5 1.5l13 13M14.5 1.5l-13 13" stroke="currentColor" stroke-width="1" fill="none"/></svg></button>
 </dialog>"""
 
 FILTROS = [("ediciones", "Todo", "All"), ("panuelos", "Pañuelos", "Silk carrés"), ("laminas", "Láminas", "Art prints")]
@@ -52,8 +52,8 @@ def card(r, p, ed):
     return f"""<div class="shop-card">
   <div class="shop-media" data-carousel>
     <a href="{href}" tabindex="-1" aria-hidden="true">{imgs}</a>
-    <button class="car-btn car-prev" type="button" aria-label="Foto anterior">‹</button>
-    <button class="car-btn car-next" type="button" aria-label="Foto siguiente">›</button>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="10" height="20" viewBox="0 0 10 20" aria-hidden="true"><path d="M9 1L1 10l8 9" stroke="currentColor" stroke-width="1" fill="none"/></svg></button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="10" height="20" viewBox="0 0 10 20" aria-hidden="true"><path d="M1 1l8 9-8 9" stroke="currentColor" stroke-width="1" fill="none"/></svg></button>
   </div>
   <a class="shop-meta" href="{href}"><span class="shop-kind">{e(tipo["nombre"].upper())}</span>
   <span class="shop-name">{e(nombre(p, tipo))}</span>

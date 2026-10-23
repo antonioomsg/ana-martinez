@@ -61,7 +61,7 @@ def nav(r, current=""):
 </header>
 <aside class="cart" aria-label="Cesta" hidden>
   <div class="cart-panel">
-    <header><h2>CESTA</h2><button class="cart-close" type="button" aria-label="Cerrar">×</button></header>
+    <header><h2>CESTA</h2><button class="cart-close" type="button" aria-label="Cerrar"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M1.5 1.5l13 13M14.5 1.5l-13 13" stroke="currentColor" stroke-width="1" fill="none"/></svg></button></header>
     <div class="cart-items" data-cart-items></div>
     <footer>
       <p class="cart-total">Total <span data-cart-total>0 €</span></p>
@@ -172,7 +172,7 @@ def figura(k, im, c, proyecto):
 
 
 INQUIRY = """<dialog class="inquiry" aria-labelledby="inq-title">
-  <form method="dialog" class="inq-close-form"><button class="inq-close" aria-label="Cerrar">×</button></form>
+  <form method="dialog" class="inq-close-form"><button class="inq-close" aria-label="Cerrar"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M1.5 1.5l13 13M14.5 1.5l-13 13" stroke="currentColor" stroke-width="1" fill="none"/></svg></button></form>
   <div class="inq-grid">
     <figure class="inq-img"><img alt=""></figure>
     <form class="inq-form" data-email="ana@ana-martinez.com">
