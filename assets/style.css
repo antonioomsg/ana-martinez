@@ -35,6 +35,7 @@ a { color: inherit; }
 .sub::before { content: ""; position: absolute; left: 0; right: 0; top: -16px; height: 16px; } /* puente para no perder el hover */
 .sub a { display: block; font-size: 18px; padding: 6px 0; }
 .has-sub:hover .sub, .has-sub.open .sub { display: block; }
+.nav:has(.has-sub:hover) .has-sub.open:not(:hover) .sub { display: none; }
 .nav-toggle { display: none; }
 
 /* Portada */

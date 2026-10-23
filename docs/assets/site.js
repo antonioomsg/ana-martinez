@@ -6,13 +6,23 @@ document.addEventListener("DOMContentLoaded", () => {
     const open = menu.classList.toggle("open");
     toggle.setAttribute("aria-expanded", String(open));
   });
+  const subs = [...document.querySelectorAll(".has-sub")];
+  const closeOthers = (keep) => subs.forEach((li) => {
+    if (li !== keep) {
+      li.classList.remove("open");
+      li.querySelector(".sub-toggle").setAttribute("aria-expanded", "false");
+    }
+  });
   document.querySelectorAll(".sub-toggle").forEach((btn) => {
     btn.addEventListener("click", () => {
       const li = btn.closest(".has-sub");
+      closeOthers(li);
       const open = li.classList.toggle("open");
       btn.setAttribute("aria-expanded", String(open));
     });
   });
+  // Solo un desplegable a la vez: al pasar a otro, se cierra el que estaba abierto
+  subs.forEach((li) => li.addEventListener("mouseenter", () => closeOthers(li)));
   document.addEventListener("click", (ev) => {
     document.querySelectorAll(".has-sub.open").forEach((li) => {
       if (!li.contains(ev.target)) {

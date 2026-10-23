@@ -52,7 +52,7 @@ def nav(r, current=""):
       <li class="has-sub"><button class="sub-toggle" aria-expanded="false">COLECCIONES</button>
         <div class="sub">{sub}</div></li>
       <li class="has-sub"><button class="sub-toggle" aria-expanded="false"{' aria-current="page"' if current == "ediciones" else ""}>EDICIONES</button>
-        <div class="sub">{item("ediciones/", "Todas", "")}{item("panuelos/", "Pañuelos", "")}{item("laminas/", "Láminas", "")}</div></li>
+        <div class="sub">{item("ediciones/", "Todas", "sub-ediciones")}{item("panuelos/", "Pañuelos", "sub-panuelos")}{item("laminas/", "Láminas", "sub-laminas")}</div></li>
       <li>{item("sobre-mi/", "SOBRE MÍ", "sobre-mi")}</li>
       <li>{item("contacto/", "CONTACTO", "contacto")}</li>
     </ul>
