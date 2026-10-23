@@ -158,7 +158,7 @@ def figura(k, im, c, proyecto):
     img = (f'<button type="button" class="zoomable" data-index="{k}" aria-label="Ampliar foto">'
            f'<img src="{e(im["src"])}" alt="{e((c or {}).get("titulo") or im["alt"])}" loading="lazy"></button>')
     if not c or not c.get("es_obra") or not c.get("titulo"):
-        return f"<figure>{img}</figure>"
+        return f'<figure id="img-{k}">{img}</figure>'
     datos = " · ".join(x for x in (c.get("tecnica"), c.get("medidas")) if x)
     if vendido(im["src"]):
         punto = '<span class="dot dot-sold" title="Vendido · Sold"><span class="sr-only">Vendido</span></span>'
@@ -166,7 +166,7 @@ def figura(k, im, c, proyecto):
         punto = (f'<button type="button" class="dot dot-free" title="Disponible · Available" aria-label="Disponible: consultar a la artista" '
                  f'data-inquiry data-img="{e(im["src"])}" data-titulo="{e(c["titulo"])}" data-datos="{e(datos)}" '
                  f'data-proyecto="{e(proyecto)}"></button>')
-    return (f'<figure>{img}<figcaption class="cartela">{punto}<span class="cartela-text">'
+    return (f'<figure id="img-{k}">{img}<figcaption class="cartela">{punto}<span class="cartela-text">'
             f'<span class="cartela-titulo">{e(c["titulo"])}</span><span class="cartela-datos">{e(datos)}</span></span>'
             f'</figcaption></figure>')
 
@@ -339,6 +339,25 @@ def build_tienda():
     ed = json.loads((ROOT / "data" / "ediciones.json").read_text())
     productos = (json.loads((ROOT / "data" / "panuelos.json").read_text())["productos"]
                  + json.loads((ROOT / "data" / "laminas.json").read_text())["productos"])
+    posts = json.loads((ROOT / "data" / "content.json").read_text())["posts"]
+    donde = {}  # imagen -> [(proyecto, posición)]
+    for post in posts:
+        for k, im in enumerate(post["images"]):
+            donde.setdefault(im["src"], []).append((post["slug"], k))
+    proyecto_de = {g["id"]: g.get("obra_slug") for g in ed["grupos"]}
+    for p in productos:
+        sitios = donde.get((p.get("obra") or {}).get("img"), [])
+        if sitios:  # preferimos el proyecto al que pertenece la pieza
+            slug, k = next((x for x in sitios if x[0] == proyecto_de.get(p["grupo"])), sitios[0])
+            p["obra"]["href"] = f"obra/{slug}/#img-{k}"
+    cartelas = {}
+    for f in sorted((ROOT / "data" / "cuadros").glob("*.json")):
+        cartelas.update(json.loads(f.read_text()))
+    for p in productos:  # misma ficha que la cartela del cuadro
+        c = cartelas.get((p.get("obra") or {}).get("img"))
+        if c and c.get("es_obra") and c.get("titulo"):
+            p["obra"]["titulo"] = c["titulo"]
+            p["obra"]["tecnica"] = " · ".join(x for x in (c.get("tecnica"), c.get("medidas")) if x)
     (OUT / "assets" / "products.js").write_text(tienda.products_js(ed, productos))
     for clave, titulo, _ in tienda.FILTROS:
         write(f"{clave}/index.html", page("../", "Ediciones" if clave == "ediciones" else titulo,

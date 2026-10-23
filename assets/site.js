@@ -267,3 +267,37 @@ document.addEventListener("DOMContentLoaded", () => {
     dlg.close();
   });
 });
+
+// Carrusel «Del mismo proyecto»: flechas que se ocultan cuando no hay más
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("[data-rail]").forEach((wrap) => {
+    const rail = wrap.querySelector(".rail");
+    const prev = wrap.querySelector(".rail-prev");
+    const next = wrap.querySelector(".rail-next");
+    const update = () => {
+      prev.hidden = rail.scrollLeft <= 2;
+      next.hidden = rail.scrollLeft + rail.clientWidth >= rail.scrollWidth - 2;
+    };
+    prev.addEventListener("click", (ev) => { rail.scrollBy({ left: -rail.clientWidth * 0.75 }); if (ev.detail) prev.blur(); });
+    next.addEventListener("click", (ev) => { rail.scrollBy({ left: rail.clientWidth * 0.75 }); if (ev.detail) next.blur(); });
+    rail.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    update();
+  });
+});
+
+// Llegar a un cuadro concreto (#img-N): cargar antes las imágenes de arriba y bajar hasta él
+document.addEventListener("DOMContentLoaded", () => {
+  const id = decodeURIComponent(location.hash.slice(1));
+  if (!id.startsWith("img-")) return;
+  const target = document.getElementById(id);
+  if (!target) return;
+  const figs = [...document.querySelectorAll(".obra-gallery figure")];
+  const idx = figs.indexOf(target);
+  const previas = figs.slice(0, idx + 1).map((f) => f.querySelector("img")).filter(Boolean);
+  previas.forEach((im) => { im.loading = "eager"; });
+  const ir = () => target.scrollIntoView({ block: "start" });
+  Promise.all(previas.map((im) => im.complete ? null : new Promise((ok) => { im.addEventListener("load", ok, { once: true }); im.addEventListener("error", ok, { once: true }); })))
+    .then(() => requestAnimationFrame(ir));
+  ir();
+});

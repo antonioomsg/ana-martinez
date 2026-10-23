@@ -137,14 +137,21 @@ def ficha(r, p, ed, productos):
     if p.get("obra"):
         o = p["obra"]
         img = o["img"] if o["img"].startswith("http") else r + o["img"]
+        href = f'{r}{o["href"]}' if o.get("href") else None
+        foto_obra = f'<img src="{e(img)}" alt="{e(o["titulo"])}, obra de Ana Martínez" loading="lazy">'
+        if href:
+            foto_obra = f'<a href="{href}" aria-label="Ver la obra {e(o["titulo"])}">{foto_obra}</a>'
+        titulo_obra = f'<a href="{href}">{e(o["titulo"])}</a>' if href else e(o["titulo"])
+        ver = f'<p><a class="link-arrow" href="{href}">Ver la obra en su proyecto ›</a></p>' if href else ""
         obra = f"""<section class="pdp-obra">
-  <figure><img src="{e(img)}" alt="{e(o["titulo"])}, obra de Ana Martínez" loading="lazy"></figure>
+  <figure>{foto_obra}</figure>
   <div>
     <p class="eyebrow">LA OBRA · THE WORK</p>
-    <h2>{e(o["titulo"])}</h2>
+    <h2>{titulo_obra}</h2>
     <p class="muted">{e(o["tecnica"])}</p>
     <p>{e(nombre(p, tipo))} nace de esta obra de Ana Martínez.</p>
     <p lang="en" class="muted">{e(tipo["prefijo"])} {e(p["nombre"])} is born from this work by Ana Martínez.</p>
+    {ver}
   </div>
 </section>"""
     parrafos = "".join(f"<p>{e(t)}</p>" for t in g["texto"])
@@ -210,7 +217,11 @@ def ficha(r, p, ed, productos):
   {proyecto}
   <section class="pdp-more">
     <h2>Del mismo proyecto <span class="en-sub" lang="en">From the same project</span></h2>
-    <div class="shop-grid">{mas}</div>
+    <div class="rail-wrap" data-rail>
+      <button type="button" class="rail-btn rail-prev" aria-label="Anteriores"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+      <div class="rail">{mas}</div>
+      <button type="button" class="rail-btn rail-next" aria-label="Siguientes"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+    </div>
   </section>
 </article>
 {LIGHTBOX}"""

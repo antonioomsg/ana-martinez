@@ -367,6 +367,27 @@ html { scroll-behavior: smooth; }
 .bi.bi-intro p { font-size: 15px; }
 .bi.bi-intro p[lang="en"] { font-size: 14px; color: #7f8f8f; opacity: 1; }
 
+/* Carrusel «Del mismo proyecto»: una sola fila deslizante */
+.rail-wrap { position: relative; margin-top: 32px; }
+.rail { display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 6px) / 4); gap: 2px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; text-align: left; }
+.rail::-webkit-scrollbar { display: none; }
+.rail > * { scroll-snap-align: start; }
+.rail-btn { position: absolute; top: calc(50% - 50px); z-index: 3; display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; padding: 0; border: 0; background: rgba(251,249,246,.92); color: #111; cursor: pointer; }
+.rail-btn::before { content: ""; position: absolute; inset: -6px; }
+.rail-btn svg { display: block; }
+.rail-btn:focus { outline: none; }
+.rail-btn:focus-visible { outline: 1px solid #111; outline-offset: -5px; }
+.rail-prev { left: 16px; } .rail-next { right: 16px; }
+.rail-btn[hidden] { display: none; }
+
+/* Enlace a la obra desde la ficha */
+.pdp-obra figure a { display: block; transition: transform .4s ease; }
+.pdp-obra figure a:hover { transform: scale(1.015); }
+.pdp-obra h2 a { text-decoration: none; }
+.pdp-obra h2 a:hover { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1px; }
+.link-arrow { font-size: 15px; color: var(--ink); text-decoration: underline; text-underline-offset: 4px; display: inline-flex; min-height: 44px; align-items: center; }
+.obra-gallery figure { scroll-margin-top: 24px; }
+
 /* Sobre mí (rediseño) */
 .bio2 { max-width: 1200px; margin: 0 auto; padding: 24px 24px 120px; }
 .bio2-title { text-align: center; font-family: var(--display); font-weight: 400; letter-spacing: var(--track); font-size: 34px; margin: 0 0 64px; }
@@ -414,6 +435,7 @@ html { scroll-behavior: smooth; }
   .nav .cart-open { position: static; font-size: 13px; letter-spacing: 1px; }
   .nav-toggle { order: 3; }
   .shop-grid, .pdp-more .shop-grid { grid-template-columns: 1fr 1fr; }
+  .rail { grid-auto-columns: 66%; }
   .shop-name, .shop-price { font-size: 14px; padding-left: 12px; padding-right: 12px; }
   .pdp-photos { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; height: auto; min-height: 0; }
   .pdp-strip figure { flex: 0 0 100%; aspect-ratio: 4 / 5; scroll-snap-align: start; }
