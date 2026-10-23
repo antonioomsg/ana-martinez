@@ -101,7 +101,6 @@ def listado(r, ed, productos, actual):
     return f"""<section class="shop-intro">
   <h1>{e(titulo)}</h1>
   <div class="bi bi-intro"><p lang="es">{e(ed["intro_es"])}</p><p lang="en">{e(ed["intro_en"])}</p></div>
-  <nav class="segmented" aria-label="Filtrar ediciones">{seg}</nav>
   <nav class="group-index" aria-label="Proyectos">{"".join(indice)}</nav>
 </section>
 {"".join(grupos)}"""
