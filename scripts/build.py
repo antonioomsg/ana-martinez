@@ -326,8 +326,7 @@ def build():
     # Contacto
     write("contacto/index.html", page("../", "Contacto", f"""<section class="contacto">
   <h1>CONTACTO</h1>
-  {bilingue("<p>Murales por encargo, proyectos, talleres y obra disponible.</p>",
-            "<p>Commissioned murals, projects, workshops and available work.</p>")}
+  <div class="bi bi-intro"><p lang="es">Murales por encargo, proyectos, talleres y obra disponible.</p><p lang="en">Commissioned murals, projects, workshops and available work.</p></div>
   <p class="contacto-mail"><a href="mailto:{EMAIL}">{EMAIL}</a></p>
   <p class="contacto-redes"><a href="{INSTAGRAM}" rel="noopener">Instagram</a> · <a href="{YOUTUBE}" rel="noopener">YouTube</a></p>
 </section>""", current="contacto"))

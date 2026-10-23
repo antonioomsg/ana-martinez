@@ -362,6 +362,11 @@ html { scroll-behavior: smooth; }
 /* Títulos bilingües: español arriba, inglés debajo más pequeño */
 .en-sub { display: block; font-size: .6em; line-height: 1.2; color: #7f8f8f; margin-top: 2px; letter-spacing: inherit; }
 
+/* Introducciones cortas: español arriba, inglés debajo, centrados */
+.bi.bi-intro { grid-template-columns: 1fr; gap: 4px; max-width: 680px; margin: 14px auto 0; text-align: center; }
+.bi.bi-intro p { font-size: 15px; }
+.bi.bi-intro p[lang="en"] { font-size: 14px; color: #7f8f8f; opacity: 1; }
+
 /* Sobre mí (rediseño) */
 .bio2 { max-width: 1200px; margin: 0 auto; padding: 24px 24px 120px; }
 .bio2-title { text-align: center; font-family: var(--display); font-weight: 400; letter-spacing: var(--track); font-size: 34px; margin: 0 0 64px; }
