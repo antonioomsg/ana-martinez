@@ -345,6 +345,15 @@ html { scroll-behavior: smooth; }
 .lb-close:focus, .lb-nav:focus, .car-btn:focus, .inq-close:focus, .cart-close:focus { outline: none; }
 .lb-close:focus-visible, .lb-nav:focus-visible, .car-btn:focus-visible, .inq-close:focus-visible, .cart-close:focus-visible { outline: 1px solid #111; outline-offset: -5px; }
 
+/* Botones de icono más pequeños y finos; la zona táctil se mantiene en 44 px */
+.lb-close, .lb-nav, .car-btn { width: 32px; height: 32px; position: absolute; }
+.lb-close::before, .lb-nav::before, .car-btn::before { content: ""; position: absolute; inset: -6px; }
+.lb-close svg { width: 10px; height: 10px; }
+.lb-nav svg, .car-btn svg { width: 6px; height: 13px; }
+.inq-close svg, .cart-close svg { width: 12px; height: 12px; }
+.lb-close { top: 24px; right: 24px; }
+.lb-next { right: 24px; }
+
 /* Sobre mí (rediseño) */
 .bio2 { max-width: 1200px; margin: 0 auto; padding: 24px 24px 120px; }
 .bio2-title { text-align: center; font-family: var(--display); font-weight: 400; letter-spacing: var(--track); font-size: 34px; margin: 0 0 64px; }
