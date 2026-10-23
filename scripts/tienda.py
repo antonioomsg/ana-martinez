@@ -52,6 +52,7 @@ def listado(r, data):
     return f"""<section class="shop-intro">
   <h1>PAÑUELOS</h1>
   <p>Carrés de seda twill con bordes cosidos a mano, nacidos de la obra de Ana Martínez.</p>
+  <p lang="en" class="muted">Silk twill carrés with hand-stitched hems, born from the work of Ana Martínez.</p>
 </section>
 <div class="shop-grid">
 {cards}
@@ -78,17 +79,20 @@ def ficha(r, p, data):
     <h2>{e(o["titulo"])}</h2>
     <p class="muted">{e(o["tecnica"])}</p>
     <p>El estampado del carré {e(p["nombre"])} nace de esta obra de Ana Martínez.</p>
+    <p lang="en" class="muted">The print of the {e(p["nombre"])} carré is born from this work by Ana Martínez.</p>
   </div>
 </section>"""
     pr = p["proyecto"]
     enlace = (f'<p><a class="btn-link" href="{r}obra/{pr["slug"]}/">VER EL PROYECTO</a></p>'
               if pr.get("slug") else "")
     parrafos = "".join(f"<p>{e(t)}</p>" for t in pr["texto"])
+    parrafos_en = "".join(f"<p>{e(t)}</p>" for t in pr.get("texto_en", []))
     proyecto = f"""<section class="pdp-proyecto">
   <p class="eyebrow">EL PROYECTO</p>
   <h2>{e(pr["titulo"])}</h2>
   {f'<p class="muted">{e(pr["fecha"])}</p>' if pr.get("fecha") else ""}
-  <blockquote>{parrafos}<cite>{e(pr["fuente"])}</cite></blockquote>
+  <div class="bi pdp-quote"><blockquote lang="es"><p class="lang-tag">ES</p>{parrafos}</blockquote><blockquote lang="en"><p class="lang-tag">EN</p>{parrafos_en}<p class="muted">English translation</p></blockquote></div>
+  <cite>{e(pr["fuente"])}</cite>
   {enlace}
 </section>"""
     otros = "\n".join(card(r, q, data) for q in data["productos"] if q["slug"] != p["slug"])
@@ -127,8 +131,11 @@ def ficha(r, p, data):
     </div>
   </section>
   <section class="pdp-wear">
-    <h2>Cómo llevar tu carré</h2>
-    <p>{e(p["lema"])} Doblado en triángulo sobre los hombros, plegado en cinta y anudado al cuello o en la cabeza, el carré se mueve con quien lo lleva, como el agua.</p>
+    <h2>Cómo llevar tu carré <span>· How to wear it</span></h2>
+    <div class="bi">
+      <p lang="es">{e(p["lema"])} Doblado en triángulo sobre los hombros, plegado en cinta y anudado al cuello o en la cabeza, el carré se mueve con quien lo lleva, como el agua.</p>
+      <p lang="en">{e(p["lema_en"])} Folded into a triangle over the shoulders, rolled into a ribbon and knotted at the neck or worn on the head, the carré moves with whoever wears it, like water.</p>
+    </div>
   </section>
   {obra}
   {proyecto}

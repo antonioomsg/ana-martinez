@@ -150,6 +150,18 @@ def render_text(items):
     return "\n".join(out)
 
 
+def bilingue(es, en):
+    """Bloque de texto con español a la izquierda e inglés a la derecha (como en el Figma)."""
+    if not en:
+        return f'<div class="bi bi-one"><div lang="es">{es}</div></div>'
+    return (f'<div class="bi"><div lang="es"><p class="lang-tag">ES</p>{es}</div>'
+            f'<div lang="en"><p class="lang-tag">EN</p>{en}</div></div>')
+
+
+def es_texto(t):
+    return isinstance(t, str) and not t.startswith("http")
+
+
 def build():
     data = json.loads((ROOT / "data" / "content.json").read_text())
     posts = data["posts"]
@@ -175,6 +187,8 @@ def build():
 
     # Fichas de obra
     order = {cat: [p for p in posts if p["category"] == cat] for cat, *_ in SECCIONES}
+    tr_path = ROOT / "data" / "translations_en.json"
+    traducciones = json.loads(tr_path.read_text()) if tr_path.exists() else {}
     for p in posts:
         folder, sec_title = next(((f, t) for c, f, t, _ in SECCIONES if c == p["category"]), ("proyectos", "Proyectos"))
         sib = order.get(p["category"], [])
@@ -190,12 +204,21 @@ def build():
         pager += f'<a href="../../{folder}/">{sec_title.upper()}</a>'
         pager += f'<a href="../{next_["slug"]}/">{e(next_["title"])} →</a>' if next_ else "<span></span>"
         pager += "</nav>"
+        tr = traducciones.get(p["slug"], {})
+        title_en = tr.get("title_en") or p.get("title_en")
+        en = tr.get("text_en") or [t for t in p.get("text_en") or [] if es_texto(t)]
+        es = [t for t in p["text"] if es_texto(t)]
+        media = [t for t in p["text"] if not es_texto(t)]
+        sub = (f'<p class="obra-en">{e(title_en)}</p>'
+               if title_en and title_en.strip().lower() != p["title"].strip().lower() else "")
+        texto = bilingue(render_text(es), render_text(en)) if es else ""
         body = f"""<article class="obra">
   <header class="obra-head">
     <h1>{e(p["title"].upper())}</h1>
+    {sub}
     <p class="obra-date">{fecha(p["date"])}</p>
   </header>
-  <div class="obra-text">{render_text(p["text"])}</div>
+  <div class="obra-text">{texto}{render_text(media)}</div>
   <div class="obra-gallery" data-gallery>{imgs}</div>
   {pager}
 </article>
@@ -203,22 +226,29 @@ def build():
         first = next((t for t in p["text"] if isinstance(t, str) and len(t) > 40), p["title"])
         write(f"obra/{p['slug']}/index.html", page("../../", p["title"], body, current=folder, desc=first[:155]))
 
-    # Sobre mí
-    bio = data["pages"]["bio"]
-    texto = [t for t in bio["text"] if not (isinstance(t, str) and t in ("BIO", "CV"))]
-    foto = bio["images"][0]["src"] if bio["images"] else ""
-    write("sobre-mi/index.html", page("../", "Sobre mí", f"""<article class="bio">
-  <figure class="bio-photo"><img src="{e(foto)}" alt="Retrato de Ana Martínez"></figure>
-  <div class="bio-text">
-    <h1>SOBRE MÍ</h1>
-    {render_text(texto)}
+    # Sobre mí: foto con marco en L a la izquierda, texto a la derecha; debajo ES | EN
+    bio = json.loads((ROOT / "data" / "bio.json").read_text())
+    cv = next((t["pdf"] for t in data["pages"]["bio"]["text"] if isinstance(t, dict) and "pdf" in t), None)
+    cv_btn = f'<a class="btn-link" href="{e(cv)}" rel="noopener">CV ↗</a>' if cv else ""
+    write("sobre-mi/index.html", page("../", "Sobre mí", f"""<article class="bio2">
+  <h1 class="bio2-title">Sobre mí <span>· About</span></h1>
+  <div class="bio2-hero">
+    <figure class="bio2-photo"><img src="../assets/ana-martinez.jpg" alt="Retrato de Ana Martínez"></figure>
+    <div class="bio2-intro">
+      <h2>Biografía <span>· Biography</span></h2>
+      <p class="bio2-lead"><strong>{e(bio["lead_es"])}</strong></p>
+      <p class="bio2-lead-en" lang="en">{e(bio["lead_en"])}</p>
+      {cv_btn}
+    </div>
   </div>
+  {bilingue(render_text(bio["es"]), render_text(bio["en"]))}
 </article>""", current="sobre-mi"))
 
     # Contacto
     write("contacto/index.html", page("../", "Contacto", f"""<section class="contacto">
   <h1>CONTACTO</h1>
-  <p>Murales por encargo, proyectos, talleres y obra disponible.</p>
+  {bilingue("<p>Murales por encargo, proyectos, talleres y obra disponible.</p>",
+            "<p>Commissioned murals, projects, workshops and available work.</p>")}
   <p class="contacto-mail"><a href="mailto:{EMAIL}">{EMAIL}</a></p>
   <p class="contacto-redes"><a href="{INSTAGRAM}" rel="noopener">Instagram</a> · <a href="{YOUTUBE}" rel="noopener">YouTube</a></p>
 </section>""", current="contacto"))

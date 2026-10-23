@@ -106,7 +106,9 @@ def scrape_posts(api_base, cats):
     meta = get_json(f"{api_base}/posts?per_page=100&_fields=id,slug,title,date,categories,featured_media,link")
     posts = []
     for p in meta:
-        body = entry_content(get(p["link"]))
+        page = get(p["link"])
+        body = entry_content(page)
+        title_en, text_en = english_version(page)
         feat = None
         if p.get("featured_media"):
             try:
@@ -123,10 +125,23 @@ def scrape_posts(api_base, cats):
             "cover": feat or (imgs[0]["src"] if imgs else None),
             "images": imgs,
             "text": extract_text(body),
+            "title_en": title_en,
+            "text_en": text_en,
             "old_url": p["link"],
         })
         print(f"  {p['slug']}: {len(imgs)} imgs", file=sys.stderr)
     return posts
+
+
+def english_version(page):
+    """Título y textos de la traducción inglesa enlazada con hreflang (plugin MSLS)."""
+    m = re.search(r'hreflang="en" href="([^"]+)"', page)
+    if not m:
+        return None, []
+    en = get(m.group(1))
+    t = re.search(r'<h1 class="entry-title">(.*?)</h1>', en, re.S)
+    title = html.unescape(re.sub(r"<[^>]+>", "", t.group(1))).strip() if t else None
+    return title, extract_text(entry_content(en))
 
 
 def scrape_page(url):
