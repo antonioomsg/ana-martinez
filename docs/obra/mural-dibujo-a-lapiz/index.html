@@ -52,7 +52,7 @@
     <p class="obra-en">Mural drawing.</p>
     <p class="obra-date">abril, 2019</p>
   </header>
-  <div class="obra-text"><div class="bi"><div lang="es"><p class="lang-tag">ES</p><p>Un mural resuelto únicamente con dibujo. Sobre una pared blanca, Ana Martínez traza a lápiz una sucesión de líneas que se ondulan y se pliegan unas dentro de otras, como las curvas de nivel de un mapa topográfico o los anillos de un tronco. En algunas zonas el grafito se difumina y rellena pequeñas superficies, que adquieren un volumen leve, casi de relieve; en el centro queda un claro abierto donde flota una forma aislada.</p>
+  <div class="obra-text" data-fold><div class="bi"><div lang="es"><p class="lang-tag">ES</p><p>Un mural resuelto únicamente con dibujo. Sobre una pared blanca, Ana Martínez traza a lápiz una sucesión de líneas que se ondulan y se pliegan unas dentro de otras, como las curvas de nivel de un mapa topográfico o los anillos de un tronco. En algunas zonas el grafito se difumina y rellena pequeñas superficies, que adquieren un volumen leve, casi de relieve; en el centro queda un claro abierto donde flota una forma aislada.</p>
 <p>La obra renuncia al color y confía en la constancia del trazo. En un interior sobrio, de madera clara y mobiliario gris, el dibujo ocupa el muro entero sin cargarlo y cambia con la luz y con la distancia desde la que se mira.</p></div><div lang="en"><p class="lang-tag">EN</p><p>A mural made of drawing alone. On a white wall, Ana Martínez traces in pencil a succession of lines that ripple and fold within one another, like the contour lines of a topographic map or the rings of a tree trunk. In places the graphite is blended to fill small areas, which take on a slight volume, almost a relief; at the centre an open clearing remains, where a single form floats.</p>
 <p>The work forgoes colour and relies on the steadiness of the line. In a restrained interior of pale wood and grey furniture, the drawing fills the entire wall without weighing it down, and it changes with the light and with the distance from which it is seen.</p></div></div></div>
   <div class="obra-gallery" data-gallery><figure id="img-0"><button type="button" class="zoomable" data-index="0" aria-label="Ampliar foto"><img src="https://www.ana-martinez.com/wp-content/uploads/2019/04/Fernan-Nuñez-1.jpg" alt="" loading="lazy"></button></figure>
@@ -75,16 +75,18 @@
   <button type="button" class="lb-close" aria-label="Cerrar"><svg width="11" height="11" viewBox="0 0 11 11" aria-hidden="true" focusable="false"><path d="M.5.5l10 10M10.5.5l-10 10" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
 </dialog>
 <dialog class="inquiry" aria-labelledby="inq-title">
-  <form method="dialog" class="inq-close-form"><button class="inq-close" aria-label="Cerrar"><svg width="11" height="11" viewBox="0 0 11 11" aria-hidden="true" focusable="false"><path d="M.5.5l10 10M10.5.5l-10 10" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button></form>
+  <div class="inq-bar">
+    <p class="eyebrow">CONSULTAR OBRA · ENQUIRE</p>
+    <form method="dialog"><button class="inq-close" aria-label="Cerrar"><svg width="11" height="11" viewBox="0 0 11 11" aria-hidden="true" focusable="false"><path d="M.5.5l10 10M10.5.5l-10 10" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button></form>
+  </div>
   <div class="inq-grid">
     <figure class="inq-img"><img alt=""></figure>
     <form class="inq-form" data-email="ana@ana-martinez.com">
-      <p class="eyebrow">CONSULTAR OBRA · ENQUIRE</p>
       <h2 id="inq-title"></h2>
       <p class="inq-datos muted"></p>
       <label>Nombre · Name<input name="nombre" autocomplete="name"></label>
       <label>Email<input name="email" type="email" autocomplete="email"></label>
-      <label>Mensaje · Message<textarea name="mensaje" rows="9"></textarea></label>
+      <label>Mensaje · Message<textarea name="mensaje" rows="8"></textarea></label>
       <button class="btn-buy" type="submit">Enviar · Send</button>
       <p class="muted inq-note">Se abrirá tu programa de correo con el mensaje listo para enviar a Ana.</p>
     </form>

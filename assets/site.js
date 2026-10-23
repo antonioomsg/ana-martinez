@@ -255,9 +255,12 @@ document.addEventListener("DOMContentLoaded", () => {
       form.mensaje.value = `Hola Ana,\n\nHe visto en tu web el cuadro «${titulo}»${datos ? ` (${datos})` : ""}, del proyecto ${proyecto}, y estoy interesado en él.\n\n¿Podrías contarme si sigue disponible, su precio y cómo sería el envío?\n\nMuchas gracias,\n`;
       dlg.showModal();
       form.mensaje.scrollTop = 0;
-      form.nombre.focus();
+      if (window.matchMedia("(hover: hover)").matches) form.nombre.focus();
+      else dlg.querySelector(".inq-grid").scrollTop = 0;
     });
   });
+  // cerrar pulsando fuera
+  dlg.addEventListener("click", (ev) => { if (ev.target === dlg) dlg.close(); });
   form.addEventListener("submit", (ev) => {
     ev.preventDefault();
     const firma = [form.nombre.value, form.email.value].filter(Boolean).join("\n");
@@ -301,4 +304,29 @@ document.addEventListener("DOMContentLoaded", () => {
   Promise.all(previas.map((im) => im.complete ? null : new Promise((ok) => { im.addEventListener("load", ok, { once: true }); im.addEventListener("error", ok, { once: true }); })))
     .then(() => requestAnimationFrame(ir));
   ir();
+});
+
+// Textos largos de proyectos: plegados con «Leer más · Read more»
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("[data-fold]").forEach((box) => {
+    const limite = window.matchMedia("(max-width: 820px)").matches ? 300 : 360;
+    if (box.scrollHeight < limite + 160) return;
+    box.classList.add("fold");
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "fold-btn";
+    btn.setAttribute("aria-expanded", "false");
+    const pon = (abierto) => {
+      btn.innerHTML = abierto ? "Leer menos <span>· Read less</span>" : "Leer más <span>· Read more</span>";
+      btn.setAttribute("aria-expanded", String(abierto));
+    };
+    pon(false);
+    btn.addEventListener("click", (ev) => {
+      const abierto = box.classList.toggle("fold");
+      pon(!abierto);
+      if (abierto) box.scrollIntoView({ block: "start", behavior: "smooth" });
+      if (ev.detail) btn.blur();
+    });
+    box.after(btn);
+  });
 });

@@ -392,6 +392,34 @@ html { scroll-behavior: smooth; }
 .link-arrow { font-size: 15px; color: var(--ink); text-decoration: underline; text-underline-offset: 4px; display: inline-flex; min-height: 44px; align-items: center; }
 .obra-gallery figure { scroll-margin-top: 24px; }
 
+/* Estado de la obra con texto visible (descubrible) */
+.cartela { align-items: flex-start; }
+.estado { display: inline-flex; align-items: center; gap: 8px; margin-top: 6px; min-height: 32px; font: 13px var(--text); color: var(--ink); background: none; border: 0; padding: 0; text-align: left; }
+.estado .dot { width: 10px; height: 10px; margin: 0; }
+.estado span[lang="en"] { color: #7f8f8f; }
+.estado-free { cursor: pointer; }
+.estado-free u { text-underline-offset: 3px; }
+.estado-free:hover u { text-decoration-thickness: 2px; }
+.estado-free:focus { outline: none; }
+.estado-free:focus-visible { outline: 1px solid #111; outline-offset: 4px; }
+.estado-sold { color: #5f6f6f; }
+.dot-free::after { content: none; }
+
+/* Hoja de consulta: barra superior fija con cerrar siempre visible */
+.inquiry { overflow: hidden; display: none; flex-direction: column; }
+.inquiry[open] { display: flex; }
+.inq-bar { display: flex; align-items: center; justify-content: space-between; padding: 6px 8px 6px 24px; border-bottom: 1px solid #e6e1da; background: #fbf9f6; flex: none; }
+.inq-bar .eyebrow { margin: 0; }
+.inq-close-form { display: none; }
+.inq-grid { overflow-y: auto; min-height: 0; }
+.inq-form h2 { margin-top: 0; }
+
+/* Textos largos de proyectos: plegados con fundido y «Leer más» */
+.fold { position: relative; max-height: 360px; overflow: hidden; -webkit-mask-image: linear-gradient(#000 60%, transparent); mask-image: linear-gradient(#000 60%, transparent); }
+.fold-btn { display: flex; margin: 8px auto 48px; align-items: center; gap: 10px; min-height: 44px; padding: 0 22px; border: 1px solid #d9d3cb; background: #fff; font: 13px var(--display); letter-spacing: 2px; text-transform: uppercase; color: var(--ink); cursor: pointer; }
+.fold-btn:hover { border-color: #111; }
+.fold-btn span { text-transform: none; letter-spacing: .5px; color: #7f8f8f; }
+
 /* Sobre mí (rediseño) */
 .bio2 { max-width: 1200px; margin: 0 auto; padding: 24px 24px 120px; }
 .bio2-title { text-align: center; font-family: var(--display); font-weight: 400; letter-spacing: var(--track); font-size: 34px; margin: 0 0 64px; }
@@ -459,10 +487,13 @@ html { scroll-behavior: smooth; }
   .group-index { gap: 0 18px; padding: 0 16px; }
   .group-index a { font-size: 18px; padding: 0; }
   .group-index a + a::before { content: none; }
-  .inq-grid { grid-template-columns: 1fr; }
-  .inq-img { padding: 20px; }
-  .inq-img img { max-height: 32vh; }
-  .inq-form { padding: 24px 20px; }
+  .inquiry { width: 100vw; max-width: 100vw; height: 100dvh; max-height: 100dvh; margin: 0; }
+  .inq-grid { grid-template-columns: 1fr; flex: 1; }
+  .inq-img { padding: 16px; justify-content: center; }
+  .inq-img img { max-height: 22vh; width: auto; }
+  .inq-form { padding: 20px 16px 32px; }
+  .inq-form h2 { font-size: 26px; }
+  .fold { max-height: 300px; }
   .group-head { gap: 0; }
   .pdp-photos { max-height: 72svh; }
   .pdp-strip figure { aspect-ratio: auto; height: 72svh; }

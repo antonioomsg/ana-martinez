@@ -161,27 +161,31 @@ def figura(k, im, c, proyecto):
         return f'<figure id="img-{k}">{img}</figure>'
     datos = " · ".join(x for x in (c.get("tecnica"), c.get("medidas")) if x)
     if vendido(im["src"]):
-        punto = '<span class="dot dot-sold" title="Vendido · Sold"><span class="sr-only">Vendido</span></span>'
+        estado = ('<span class="estado estado-sold"><span class="dot dot-sold" aria-hidden="true"></span>'
+                  'Vendido <span lang="en">· Sold</span></span>')
     else:
-        punto = (f'<button type="button" class="dot dot-free" title="Disponible · Available" aria-label="Disponible: consultar a la artista" '
-                 f'data-inquiry data-img="{e(im["src"])}" data-titulo="{e(c["titulo"])}" data-datos="{e(datos)}" '
-                 f'data-proyecto="{e(proyecto)}"></button>')
-    return (f'<figure id="img-{k}">{img}<figcaption class="cartela">{punto}<span class="cartela-text">'
-            f'<span class="cartela-titulo">{e(c["titulo"])}</span><span class="cartela-datos">{e(datos)}</span></span>'
-            f'</figcaption></figure>')
+        estado = (f'<button type="button" class="estado estado-free" data-inquiry data-img="{e(im["src"])}" '
+                  f'data-titulo="{e(c["titulo"])}" data-datos="{e(datos)}" data-proyecto="{e(proyecto)}">'
+                  f'<span class="dot dot-free" aria-hidden="true"></span>Disponible · <u>Consultar</u> '
+                  f'<span lang="en">· Enquire</span></button>')
+    return (f'<figure id="img-{k}">{img}<figcaption class="cartela"><span class="cartela-text">'
+            f'<span class="cartela-titulo">{e(c["titulo"])}</span><span class="cartela-datos">{e(datos)}</span>'
+            f'{estado}</span></figcaption></figure>')
 
 
 INQUIRY = """<dialog class="inquiry" aria-labelledby="inq-title">
-  <form method="dialog" class="inq-close-form"><button class="inq-close" aria-label="Cerrar"><svg width="11" height="11" viewBox="0 0 11 11" aria-hidden="true" focusable="false"><path d="M.5.5l10 10M10.5.5l-10 10" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button></form>
+  <div class="inq-bar">
+    <p class="eyebrow">CONSULTAR OBRA · ENQUIRE</p>
+    <form method="dialog"><button class="inq-close" aria-label="Cerrar"><svg width="11" height="11" viewBox="0 0 11 11" aria-hidden="true" focusable="false"><path d="M.5.5l10 10M10.5.5l-10 10" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button></form>
+  </div>
   <div class="inq-grid">
     <figure class="inq-img"><img alt=""></figure>
     <form class="inq-form" data-email="ana@ana-martinez.com">
-      <p class="eyebrow">CONSULTAR OBRA · ENQUIRE</p>
       <h2 id="inq-title"></h2>
       <p class="inq-datos muted"></p>
       <label>Nombre · Name<input name="nombre" autocomplete="name"></label>
       <label>Email<input name="email" type="email" autocomplete="email"></label>
-      <label>Mensaje · Message<textarea name="mensaje" rows="9"></textarea></label>
+      <label>Mensaje · Message<textarea name="mensaje" rows="8"></textarea></label>
       <button class="btn-buy" type="submit">Enviar · Send</button>
       <p class="muted inq-note">Se abrirá tu programa de correo con el mensaje listo para enviar a Ana.</p>
     </form>
@@ -296,7 +300,7 @@ def build():
     {sub}
     <p class="obra-date">{fecha(p["date"])}</p>
   </header>
-  <div class="obra-text">{texto}{documento(doc) if doc else ""}{render_text(media)}</div>
+  <div class="obra-text" data-fold>{texto}{documento(doc) if doc else ""}{render_text(media)}</div>
   <div class="obra-gallery" data-gallery>{imgs}</div>
   {pager}
 </article>
