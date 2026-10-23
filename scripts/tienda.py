@@ -18,9 +18,9 @@ LIGHTBOX = """<dialog class="lightbox" aria-label="Foto ampliada">
     <button type="button" class="lb-out" aria-label="Alejar">−</button>
   </div>
   <div class="lb-thumbs"></div>
-  <button type="button" class="lb-nav lb-prev" aria-label="Foto anterior"><svg width="10" height="20" viewBox="0 0 10 20" aria-hidden="true"><path d="M9 1L1 10l8 9" stroke="currentColor" stroke-width="1" fill="none"/></svg></button>
-  <button type="button" class="lb-nav lb-next" aria-label="Foto siguiente"><svg width="10" height="20" viewBox="0 0 10 20" aria-hidden="true"><path d="M1 1l8 9-8 9" stroke="currentColor" stroke-width="1" fill="none"/></svg></button>
-  <button type="button" class="lb-close" aria-label="Cerrar"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M1.5 1.5l13 13M14.5 1.5l-13 13" stroke="currentColor" stroke-width="1" fill="none"/></svg></button>
+  <button type="button" class="lb-nav lb-prev" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+  <button type="button" class="lb-nav lb-next" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+  <button type="button" class="lb-close" aria-label="Cerrar"><svg width="11" height="11" viewBox="0 0 11 11" aria-hidden="true" focusable="false"><path d="M.5.5l10 10M10.5.5l-10 10" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
 </dialog>"""
 
 FILTROS = [("ediciones", "Todo", "All"), ("panuelos", "Pañuelos", "Silk carrés"), ("laminas", "Láminas", "Art prints")]
@@ -52,8 +52,8 @@ def card(r, p, ed):
     return f"""<div class="shop-card">
   <div class="shop-media" data-carousel>
     <a href="{href}" tabindex="-1" aria-hidden="true">{imgs}</a>
-    <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="10" height="20" viewBox="0 0 10 20" aria-hidden="true"><path d="M9 1L1 10l8 9" stroke="currentColor" stroke-width="1" fill="none"/></svg></button>
-    <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="10" height="20" viewBox="0 0 10 20" aria-hidden="true"><path d="M1 1l8 9-8 9" stroke="currentColor" stroke-width="1" fill="none"/></svg></button>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
   </div>
   <a class="shop-meta" href="{href}"><span class="shop-kind">{e(tipo["nombre"].upper())}</span>
   <span class="shop-name">{e(nombre(p, tipo))}</span>
