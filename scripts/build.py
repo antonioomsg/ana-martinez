@@ -310,11 +310,11 @@ def build():
     cv = next((t["pdf"] for t in data["pages"]["bio"]["text"] if isinstance(t, dict) and "pdf" in t), None)
     cv_btn = f'<a class="btn-link" href="{e(cv)}" rel="noopener">CV ↗</a>' if cv else ""
     write("sobre-mi/index.html", page("../", "Sobre mí", f"""<article class="bio2">
-  <h1 class="bio2-title">Sobre mí <span>· About</span></h1>
+  <h1 class="bio2-title">Sobre mí <span class="en-sub" lang="en">About</span></h1>
   <div class="bio2-hero">
     <figure class="bio2-photo"><img src="../assets/ana-martinez.jpg" alt="Retrato de Ana Martínez"></figure>
     <div class="bio2-intro">
-      <h2>Biografía <span>· Biography</span></h2>
+      <h2>Biografía <span class="en-sub" lang="en">Biography</span></h2>
       <p class="bio2-lead"><strong>{e(bio["lead_es"])}</strong></p>
       <p class="bio2-lead-en" lang="en">{e(bio["lead_en"])}</p>
       {cv_btn}

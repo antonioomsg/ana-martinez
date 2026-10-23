@@ -200,7 +200,7 @@ def ficha(r, p, ed, productos):
     <div class="accordions">{acordeon}</div>
   </section>
   <section class="pdp-wear">
-    <h2>{e(tipo["uso"]["titulo"])} <span>· {e(tipo["uso"]["titulo_en"])}</span></h2>
+    <h2>{e(tipo["uso"]["titulo"])} <span class="en-sub" lang="en">{e(tipo["uso"]["titulo_en"])}</span></h2>
     <div class="bi">
       <p lang="es">{e(p["lema"])} {e(tipo["uso"]["es"])}</p>
       <p lang="en">{e(p["lema_en"])} {e(tipo["uso"]["en"])}</p>
@@ -209,7 +209,7 @@ def ficha(r, p, ed, productos):
   {obra}
   {proyecto}
   <section class="pdp-more">
-    <h2>Del mismo proyecto <span>· From the same project</span></h2>
+    <h2>Del mismo proyecto <span class="en-sub" lang="en">From the same project</span></h2>
     <div class="shop-grid">{mas}</div>
   </section>
 </article>
