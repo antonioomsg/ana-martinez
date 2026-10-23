@@ -124,11 +124,14 @@ a { color: inherit; }
 .shop-intro { text-align: center; padding: 24px 24px 48px; }
 .shop-intro h1 { font-family: var(--display); font-weight: 400; letter-spacing: var(--track); font-size: 32px; margin: 0 0 8px; }
 .shop-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-.shop-card { text-decoration: none; display: flex; flex-direction: column; background: #fbf9f6; }
+.shop-card { display: flex; flex-direction: column; background: #fbf9f6; }
 .shop-media { position: relative; aspect-ratio: 1; background: var(--sand); overflow: hidden; }
-.shop-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity .5s ease; }
-.shop-worn { opacity: 0; object-position: center 30%; }
-.shop-card:hover .shop-worn, .shop-card:focus-visible .shop-worn { opacity: 1; }
+.shop-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .45s ease; }
+.shop-media img.is-on { opacity: 1; }
+.car-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border: 0; background: rgba(255,255,255,.88); color: var(--ink); font-size: 26px; line-height: 1; cursor: pointer; opacity: 0; transition: opacity .25s; z-index: 2; }
+.car-prev { left: 14px; } .car-next { right: 14px; }
+.shop-media:hover .car-btn, .car-btn:focus-visible { opacity: 1; }
+.shop-meta { text-decoration: none; display: flex; flex-direction: column; }
 .shop-name { padding: 16px 20px 2px; font-size: 17px; }
 .shop-price { padding: 0 20px 20px; font-size: 17px; }
 
@@ -147,7 +150,23 @@ a { color: inherit; }
 .swatch img { width: 100%; height: 100%; object-fit: cover; }
 .swatch.is-active { border-bottom-color: #000; }
 .buy-price { text-align: right; font-size: 17px; margin: 0 0 16px; }
-.pdp-info { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; max-width: 1200px; margin: 0 auto; padding: 72px 24px; font-size: 15px; }
+.pdp-info { display: grid; grid-template-columns: 1fr 1fr; column-gap: 80px; row-gap: 24px; max-width: 1200px; margin: 0 auto; padding: 72px 24px; font-size: 15px; }
+.accordions { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 40px; }
+.lang-tag { font-family: var(--display); letter-spacing: var(--track); font-size: 12px; color: var(--accent); margin: 0 0 4px; }
+.zoomable { display: block; width: 100%; height: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; }
+.lightbox { width: 100vw; height: 100vh; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; background: var(--sand); overflow: hidden; }
+.lightbox::backdrop { background: var(--sand); }
+.lb-stage { position: absolute; inset: 0; overflow: hidden; cursor: grab; }
+.lb-stage.is-dragging { cursor: grabbing; }
+.lb-img { position: absolute; left: 50%; top: 50%; max-width: 100%; max-height: 100%; transform-origin: center; user-select: none; -webkit-user-drag: none; }
+.lb-zoom { position: absolute; left: 32px; top: 50%; transform: translateY(-50%); background: #fff; display: flex; flex-direction: column; align-items: center; padding: 8px 0; width: 42px; }
+.lb-zoom button, .lb-close { border: 0; background: #fff; width: 42px; height: 42px; font-size: 22px; cursor: pointer; color: var(--ink); }
+.lb-range { writing-mode: vertical-lr; direction: rtl; height: 320px; width: 20px; margin: 8px 0; accent-color: var(--ink); }
+.lb-close { position: absolute; top: 28px; right: 28px; font-size: 28px; }
+.lb-thumbs { position: absolute; left: 32px; bottom: 32px; display: flex; gap: 6px; background: #fff; padding: 6px; }
+.lb-thumbs button { width: 52px; height: 60px; padding: 0; border: 0; border-bottom: 2px solid transparent; background: var(--sand); cursor: pointer; }
+.lb-thumbs button.is-active { border-bottom-color: #000; }
+.lb-thumbs img { width: 100%; height: 100%; object-fit: cover; }
 .accordions details { border-bottom: 1px solid #ddd; padding: 16px 0; }
 .accordions summary { cursor: pointer; font-family: ui-monospace, Menlo, monospace; letter-spacing: 1px; font-size: 13px; list-style: none; display: flex; justify-content: space-between; }
 .accordions summary::after { content: "⌄"; }
@@ -205,6 +224,10 @@ a { color: inherit; }
   .pdp-strip figure { flex: 0 0 100%; aspect-ratio: 4 / 5; scroll-snap-align: start; }
   .buy-card { position: static; width: auto; box-shadow: none; padding: 24px 16px; }
   .pdp-info, .pdp-obra { grid-template-columns: 1fr; gap: 32px; padding: 40px 16px; }
+  .accordions { grid-template-columns: 1fr; }
+  .car-btn { opacity: 1; width: 34px; height: 34px; font-size: 20px; }
+  .lb-zoom { display: none; }
+  .lb-thumbs { left: 50%; transform: translateX(-50%); }
   .pdp-obra figure { padding: 24px; }
   .pdp-wear h2, .pdp-proyecto h2, .pdp-more h2, .pdp-obra h2 { font-size: 30px; }
   .pager a:last-child { text-align: center; }

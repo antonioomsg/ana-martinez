@@ -18,14 +18,20 @@ def precio(n):
 
 def card(r, p, data):
     c = p["colores"][0]["fotos"]
-    return f"""<a class="shop-card" href="{r}panuelos/{p["slug"]}/">
-  <span class="shop-media">
-    <img class="shop-flat" src="{r}{foto(c["plano"])}" alt="Pañuelo {e(p["nombre"])} extendido" loading="lazy">
-    <img class="shop-worn" src="{r}{foto(c["modelo"])}" alt="Pañuelo {e(p["nombre"])} llevado" loading="lazy">
-  </span>
-  <span class="shop-name">Carré {e(p["nombre"])}</span>
-  <span class="shop-price">{precio(data["precio"])}</span>
-</a>"""
+    href = f"{r}panuelos/{p['slug']}/"
+    vistas = [("plano", "extendido"), ("modelo", "llevado"), ("zoom", "detalle de la seda")]
+    imgs = "".join(
+        f'<img class="{"is-on" if i == 0 else ""}" src="{r}{foto(c[k])}" alt="Carré {e(p["nombre"])}, {alt}" loading="lazy">'
+        for i, (k, alt) in enumerate(vistas))
+    return f"""<div class="shop-card">
+  <div class="shop-media" data-carousel>
+    <a href="{href}" tabindex="-1" aria-hidden="true">{imgs}</a>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior">‹</button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente">›</button>
+  </div>
+  <a class="shop-meta" href="{href}"><span class="shop-name">Carré {e(p["nombre"])}</span>
+  <span class="shop-price">{precio(data["precio"])}</span></a>
+</div>"""
 
 
 def listado(r, data):
@@ -75,9 +81,9 @@ def ficha(r, p, data):
     return f"""<article class="pdp" data-slug="{p["slug"]}">
   <div class="pdp-strip">
     <div class="pdp-photos">
-    <figure class="pdp-flat"><img data-flat-img src="{r}{foto(f["plano"])}" alt="Carré {e(p["nombre"])} extendido"></figure>
-    <figure><img src="{r}{foto(f["modelo"])}" alt="Carré {e(p["nombre"])} llevado al cuello"></figure>
-    <figure><img src="{r}{foto(f["zoom"])}" alt="Detalle de la seda del carré {e(p["nombre"])}"></figure>
+    <figure class="pdp-flat"><button type="button" class="zoomable" data-index="0" aria-label="Ampliar foto"><img data-flat-img src="{r}{foto(f["plano"])}" alt="Carré {e(p["nombre"])} extendido"></button></figure>
+    <figure><button type="button" class="zoomable" data-index="1" aria-label="Ampliar foto"><img src="{r}{foto(f["modelo"])}" alt="Carré {e(p["nombre"])} llevado al cuello"></button></figure>
+    <figure><button type="button" class="zoomable" data-index="2" aria-label="Ampliar foto"><img src="{r}{foto(f["zoom"])}" alt="Detalle de la seda del carré {e(p["nombre"])}"></button></figure>
     </div>
     <div class="buy-card">
       <h1>Carré {e(p["nombre"])}</h1>
@@ -88,10 +94,17 @@ def ficha(r, p, data):
     </div>
   </div>
   <section class="pdp-info">
-    <div>
+    <div lang="es">
+      <p class="lang-tag">ES</p>
       <p>{e(data["ficha"])}</p>
       <p>{e(p["descripcion"])}</p>
       <p class="muted">Diseñado por Ana Martínez · {e(data["medida"])}</p>
+    </div>
+    <div lang="en">
+      <p class="lang-tag">EN</p>
+      <p>{e(data["ficha_en"])}</p>
+      <p>{e(p["descripcion_en"])}</p>
+      <p class="muted">Designed by Ana Martínez · {e(data["medida"])}</p>
     </div>
     <div class="accordions">
       <details><summary>MANTENIMIENTO</summary><p>Lavar en seco o a mano en agua fría con jabón neutro. Planchar a temperatura baja por el revés.</p></details>
@@ -109,7 +122,17 @@ def ficha(r, p, data):
     <h2>Otros carrés</h2>
     <div class="shop-grid">{otros}</div>
   </section>
-</article>"""
+</article>
+<dialog class="lightbox" aria-label="Foto ampliada">
+  <div class="lb-stage"><img class="lb-img" alt=""></div>
+  <div class="lb-zoom">
+    <button type="button" class="lb-in" aria-label="Acercar">+</button>
+    <input type="range" class="lb-range" min="1" max="4" step="0.1" value="1" aria-label="Zoom" orient="vertical">
+    <button type="button" class="lb-out" aria-label="Alejar">−</button>
+  </div>
+  <div class="lb-thumbs"></div>
+  <button type="button" class="lb-close" aria-label="Cerrar">×</button>
+</dialog>"""
 
 
 def products_js(data):

@@ -48,9 +48,9 @@
 <article class="pdp" data-slug="siames">
   <div class="pdp-strip">
     <div class="pdp-photos">
-    <figure class="pdp-flat"><img data-flat-img src="../../assets/panuelos/siames_plano.jpg" alt="Carré Siamés extendido"></figure>
-    <figure><img src="../../assets/panuelos/siames_modelo.jpg" alt="Carré Siamés llevado al cuello"></figure>
-    <figure><img src="../../assets/panuelos/siames_zoom.jpg" alt="Detalle de la seda del carré Siamés"></figure>
+    <figure class="pdp-flat"><button type="button" class="zoomable" data-index="0" aria-label="Ampliar foto"><img data-flat-img src="../../assets/panuelos/siames_plano.jpg" alt="Carré Siamés extendido"></button></figure>
+    <figure><button type="button" class="zoomable" data-index="1" aria-label="Ampliar foto"><img src="../../assets/panuelos/siames_modelo.jpg" alt="Carré Siamés llevado al cuello"></button></figure>
+    <figure><button type="button" class="zoomable" data-index="2" aria-label="Ampliar foto"><img src="../../assets/panuelos/siames_zoom.jpg" alt="Detalle de la seda del carré Siamés"></button></figure>
     </div>
     <div class="buy-card">
       <h1>Carré Siamés</h1>
@@ -61,10 +61,17 @@
     </div>
   </div>
   <section class="pdp-info">
-    <div>
+    <div lang="es">
+      <p class="lang-tag">ES</p>
       <p>Seda twill 100 %, bordes cosidos a mano. Medida 90 × 90 cm; al estar el dobladillo hecho a mano, las dimensiones pueden variar ligeramente.</p>
       <p>El pez siamés luchador suspendido en el agua, con sus aletas rojas abiertas como un abanico de seda. Un pañuelo para llevar el gesto pictórico de Ana sobre la piel.</p>
       <p class="muted">Diseñado por Ana Martínez · 90 × 90 cm</p>
+    </div>
+    <div lang="en">
+      <p class="lang-tag">EN</p>
+      <p>100% silk twill, hand-rolled and hand-stitched hem. 90 × 90 cm; as the hem is finished by hand, dimensions may vary slightly.</p>
+      <p>The Siamese fighting fish suspended in the water, its red fins spread like a silk fan. A scarf that carries Ana&#x27;s painterly gesture onto the skin.</p>
+      <p class="muted">Designed by Ana Martínez · 90 × 90 cm</p>
     </div>
     <div class="accordions">
       <details><summary>MANTENIMIENTO</summary><p>Lavar en seco o a mano en agua fría con jabón neutro. Planchar a temperatura baja por el revés.</p></details>
@@ -94,40 +101,54 @@
 </section>
   <section class="pdp-more">
     <h2>Otros carrés</h2>
-    <div class="shop-grid"><a class="shop-card" href="../../panuelos/kelp-forest/">
-  <span class="shop-media">
-    <img class="shop-flat" src="../../assets/panuelos/kelp_plano.jpg" alt="Pañuelo Kelp Forest extendido" loading="lazy">
-    <img class="shop-worn" src="../../assets/panuelos/kelp_modelo.jpg" alt="Pañuelo Kelp Forest llevado" loading="lazy">
-  </span>
-  <span class="shop-name">Carré Kelp Forest</span>
-  <span class="shop-price">100 €</span>
-</a>
-<a class="shop-card" href="../../panuelos/ballena/">
-  <span class="shop-media">
-    <img class="shop-flat" src="../../assets/panuelos/ballena_plano.jpg" alt="Pañuelo Ballena extendido" loading="lazy">
-    <img class="shop-worn" src="../../assets/panuelos/ballena_modelo.jpg" alt="Pañuelo Ballena llevado" loading="lazy">
-  </span>
-  <span class="shop-name">Carré Ballena</span>
-  <span class="shop-price">100 €</span>
-</a>
-<a class="shop-card" href="../../panuelos/viana/">
-  <span class="shop-media">
-    <img class="shop-flat" src="../../assets/panuelos/viana_plano.jpg" alt="Pañuelo Viana extendido" loading="lazy">
-    <img class="shop-worn" src="../../assets/panuelos/viana_modelo.jpg" alt="Pañuelo Viana llevado" loading="lazy">
-  </span>
-  <span class="shop-name">Carré Viana</span>
-  <span class="shop-price">100 €</span>
-</a>
-<a class="shop-card" href="../../panuelos/ondas/">
-  <span class="shop-media">
-    <img class="shop-flat" src="../../assets/panuelos/ondas_plano_magenta.jpg" alt="Pañuelo Ondas extendido" loading="lazy">
-    <img class="shop-worn" src="../../assets/panuelos/ondas_modelo.jpg" alt="Pañuelo Ondas llevado" loading="lazy">
-  </span>
-  <span class="shop-name">Carré Ondas</span>
-  <span class="shop-price">100 €</span>
-</a></div>
+    <div class="shop-grid"><div class="shop-card">
+  <div class="shop-media" data-carousel>
+    <a href="../../panuelos/kelp-forest/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../../assets/panuelos/kelp_plano.jpg" alt="Carré Kelp Forest, extendido" loading="lazy"><img class="" src="../../assets/panuelos/kelp_modelo.jpg" alt="Carré Kelp Forest, llevado" loading="lazy"><img class="" src="../../assets/panuelos/kelp_zoom.jpg" alt="Carré Kelp Forest, detalle de la seda" loading="lazy"></a>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior">‹</button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente">›</button>
+  </div>
+  <a class="shop-meta" href="../../panuelos/kelp-forest/"><span class="shop-name">Carré Kelp Forest</span>
+  <span class="shop-price">100 €</span></a>
+</div>
+<div class="shop-card">
+  <div class="shop-media" data-carousel>
+    <a href="../../panuelos/ballena/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../../assets/panuelos/ballena_plano.jpg" alt="Carré Ballena, extendido" loading="lazy"><img class="" src="../../assets/panuelos/ballena_modelo.jpg" alt="Carré Ballena, llevado" loading="lazy"><img class="" src="../../assets/panuelos/ballena_zoom.jpg" alt="Carré Ballena, detalle de la seda" loading="lazy"></a>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior">‹</button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente">›</button>
+  </div>
+  <a class="shop-meta" href="../../panuelos/ballena/"><span class="shop-name">Carré Ballena</span>
+  <span class="shop-price">100 €</span></a>
+</div>
+<div class="shop-card">
+  <div class="shop-media" data-carousel>
+    <a href="../../panuelos/viana/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../../assets/panuelos/viana_plano.jpg" alt="Carré Viana, extendido" loading="lazy"><img class="" src="../../assets/panuelos/viana_modelo.jpg" alt="Carré Viana, llevado" loading="lazy"><img class="" src="../../assets/panuelos/viana_zoom.jpg" alt="Carré Viana, detalle de la seda" loading="lazy"></a>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior">‹</button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente">›</button>
+  </div>
+  <a class="shop-meta" href="../../panuelos/viana/"><span class="shop-name">Carré Viana</span>
+  <span class="shop-price">100 €</span></a>
+</div>
+<div class="shop-card">
+  <div class="shop-media" data-carousel>
+    <a href="../../panuelos/ondas/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../../assets/panuelos/ondas_plano_magenta.jpg" alt="Carré Ondas, extendido" loading="lazy"><img class="" src="../../assets/panuelos/ondas_modelo.jpg" alt="Carré Ondas, llevado" loading="lazy"><img class="" src="../../assets/panuelos/ondas_zoom.jpg" alt="Carré Ondas, detalle de la seda" loading="lazy"></a>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior">‹</button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente">›</button>
+  </div>
+  <a class="shop-meta" href="../../panuelos/ondas/"><span class="shop-name">Carré Ondas</span>
+  <span class="shop-price">100 €</span></a>
+</div></div>
   </section>
 </article>
+<dialog class="lightbox" aria-label="Foto ampliada">
+  <div class="lb-stage"><img class="lb-img" alt=""></div>
+  <div class="lb-zoom">
+    <button type="button" class="lb-in" aria-label="Acercar">+</button>
+    <input type="range" class="lb-range" min="1" max="4" step="0.1" value="1" aria-label="Zoom" orient="vertical">
+    <button type="button" class="lb-out" aria-label="Alejar">−</button>
+  </div>
+  <div class="lb-thumbs"></div>
+  <button type="button" class="lb-close" aria-label="Cerrar">×</button>
+</dialog>
 </main>
 <footer class="site-footer">
   <img class="firma" src="../../assets/firma.png" alt="Ana Martínez" width="325" height="89">
