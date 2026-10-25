@@ -1,6 +1,29 @@
 {
  "posts": [
   {
+   "slug": "perro-salchicha",
+   "title": "PERRO SALCHICHA",
+   "date": "2026-10-25",
+   "category": "PROYECTOS",
+   "cover": "assets/obra/perro-salchicha/01.jpg",
+   "images": [
+    {
+     "src": "assets/obra/perro-salchicha/01.jpg",
+     "alt": "Perro salchicha 1"
+    },
+    {
+     "src": "assets/obra/perro-salchicha/02.jpg",
+     "alt": "Perro salchicha 2"
+    },
+    {
+     "src": "assets/obra/perro-salchicha/03.jpg",
+     "alt": "Perro salchicha 3"
+    }
+   ],
+   "text": [],
+   "title_en": "SAUSAGE DOG"
+  },
+  {
    "slug": "kelp-forest",
    "title": "KELP FOREST",
    "date": "2026-09-01",
