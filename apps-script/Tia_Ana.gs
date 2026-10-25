@@ -25,7 +25,7 @@ const RAMA = 'main';
 const WEB = 'https://antonioomsg.github.io/ana-martinez/';
 const DRIVE_POR_DEFECTO = '0ACbqrv17fXYDUk9PVA';
 const HORAS_SESION = 12;
-const VERSION = 5; // 2: fotos y párrafos · 3: comentarios · 4: huellas · 5: Drive distingue fotos sustituidas
+const VERSION = 6; // 2: fotos y párrafos · 3: comentarios · 4: huellas · 5: Drive distingue fotos sustituidas · 6: copia a prueba de cortes
 const MAX_FALLOS = 8; // intentos de contraseña fallidos antes de bloquear 15 minutos
 
 // Ficheros de data/ que el editor puede tocar
@@ -401,11 +401,13 @@ function listarRevision_() {
 
 // ---------- Archivo en Drive ----------
 
-const LIMITE_MS = 5 * 60 * 1000; // Apps Script corta a los 6 minutos: se sigue sola en otra ejecución
+const LIMITE_MS = 4 * 60 * 1000; // Apps Script corta a los 6 minutos: se sigue sola en otra ejecución
 
 function copiarADrive() {
   const inicio = Date.now();
   borrarDisparadores_('copiarADrive');
+  // La continuación se programa ya: si Google corta esta ejecución a los 6 minutos, la copia sigue igual
+  ScriptApp.newTrigger('copiarADrive').timeBased().after(8 * 60 * 1000).create();
   const indice = JSON.parse(UrlFetchApp.fetch(WEB + 'archivo_drive.json').getContentText('UTF-8'));
   const unidad = DriveApp.getFolderById(props().getProperty('DRIVE_CARPETA') || DRIVE_POR_DEFECTO);
   const raiz = carpetaHija_(unidad, indice.raiz);
@@ -481,6 +483,7 @@ function copiarADrive() {
     textos++;
   });
 
+  borrarDisparadores_('copiarADrive');
   if (pendientes) {
     ScriptApp.newTrigger('copiarADrive').timeBased().after(60 * 1000).create();
     console.log('Subidos ' + subidos + ' ficheros y ' + textos + ' textos. Quedan ' + pendientes + ': sigue sola en 1 minuto.');
