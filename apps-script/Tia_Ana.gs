@@ -25,7 +25,7 @@ const RAMA = 'main';
 const WEB = 'https://antonioomsg.github.io/ana-martinez/';
 const DRIVE_POR_DEFECTO = '0ACbqrv17fXYDUk9PVA';
 const HORAS_SESION = 12;
-const VERSION = 4; // 2: fotos y párrafos · 3: comentarios del modo revisión · 4: huellas
+const VERSION = 5; // 2: fotos y párrafos · 3: comentarios · 4: huellas · 5: Drive distingue fotos sustituidas
 const MAX_FALLOS = 8; // intentos de contraseña fallidos antes de bloquear 15 minutos
 
 // Ficheros de data/ que el editor puede tocar
@@ -416,13 +416,41 @@ function copiarADrive() {
   };
   let subidos = 0, textos = 0, pendientes = 0;
 
+  // Cada fichero del Drive guarda en su descripción de qué foto de la web viene: así una foto
+  // sustituida (mismo nombre, otra foto) se sube aparte, y la anterior se queda como archivo.
+  const contenido = {};
+  const ficherosDe = function (ruta) {
+    if (!contenido[ruta]) {
+      contenido[ruta] = [];
+      const it = carpeta(ruta).getFiles();
+      while (it.hasNext()) { const x = it.next(); contenido[ruta].push({ f: x, nombre: x.getName(), desc: x.getDescription() || '' }); }
+    }
+    return contenido[ruta];
+  };
+  const hoy = Utilities.formatDate(new Date(), 'Europe/Madrid', 'yyyy-MM-dd');
+
   indice.ficheros.forEach(function (f) {
     if (Date.now() - inicio > LIMITE_MS) { pendientes++; return; }
-    const c = carpeta(f.carpeta);
-    if (c.getFilesByName(f.nombre).hasNext()) return;
+    const lista = ficherosDe(f.carpeta);
+    if (lista.some(function (x) { return x.desc === f.fuente; })) return; // ya está
     const r = UrlFetchApp.fetch(WEB + f.fuente.split('/').map(encodeURIComponent).join('/'), { muteHttpExceptions: true });
     if (r.getResponseCode() !== 200) { console.warn('No se pudo bajar ' + f.fuente + ' (' + r.getResponseCode() + ')'); return; }
-    c.createFile(r.getBlob().setName(f.nombre));
+    const blob = r.getBlob();
+    let nombre = f.nombre;
+    const mismo = lista.filter(function (x) { return x.nombre === f.nombre; })[0];
+    if (mismo && !mismo.desc && mismo.f.getSize() === blob.getBytes().length) { // subido antes de guardar el origen
+      mismo.f.setDescription(f.fuente);
+      mismo.desc = f.fuente;
+      return;
+    }
+    if (mismo) { // en ese sitio había otra foto: se conserva y la nueva lleva la fecha
+      if (!mismo.desc) { mismo.f.setDescription('anterior'); mismo.desc = 'anterior'; }
+      const punto = f.nombre.lastIndexOf('.');
+      nombre = f.nombre.slice(0, punto) + ' (' + hoy + ')' + f.nombre.slice(punto);
+    }
+    const nuevo = carpeta(f.carpeta).createFile(blob.setName(nombre));
+    nuevo.setDescription(f.fuente);
+    lista.push({ f: nuevo, nombre: nombre, desc: f.fuente });
     subidos++;
   });
 

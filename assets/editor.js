@@ -204,7 +204,7 @@
       if (f.classList.contains("am-foto-quitada")) f.remove();
       f.querySelector?.(".am-fotobar")?.remove();
     });
-    pintarEstado(habiaFotos ? "Guardado ✓ Fotos y textos se publican en 1-2 minutos" : "Guardado ✓ Se publica en 1-2 minutos");
+    pintarEstado(habiaFotos ? "Guardado ✓ Se publica en 1-2 min" : "Guardado ✓ Se publica en 1-2 min");
   }
 
   // Datos que no son texto escrito encima (fecha, precios, colores): se cambian en un formulario
