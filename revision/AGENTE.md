@@ -10,8 +10,10 @@ Cada noche procesas lo que Ana (y Antonio) han dejado en el modo revisión de la
 | Adjuntos (fotos, PDF) | `revision/archivos/<id>/…` (rutas en `item.archivos`) |
 | Lo ya procesado + tus respuestas | `revision/historial.json` → `{ "items": [...] }` |
 | Contenido de la web | `data/` (`content.json` = proyectos/fichas, `cuadros/*.json` = cartelas, `bio.json`, etc.) |
-| Generador | `scripts/build.py` → escribe `docs/` (lo que publica GitHub Pages). **Nunca edites `docs/` a mano**: edita `data/`, `assets/` o `scripts/` y regenera. |
+| Generador | `scripts/build.py` → escribe `docs/` (la Action `publicar.yml` lo genera y publica en GitHub Pages en cada push). **Nunca edites `docs/` a mano**: edita `data/`, `assets/` o `scripts/` y regenera. |
 | Estilos | `assets/style.css` (tokens en `:root`) |
+| Fotos antiguas del WordPress | `assets/wp/AAAA/MM/…` (ya no se enlaza ana-martinez.com) |
+| Ediciones directas de Ana | Commits «Ana edita la web» que llegan del modo edición (`?editar`, `apps-script/Tia_Ana.gs`). Son definitivos: no los deshagas ni los reescribas; si un comentario contradice uno, manda el más reciente. |
 
 Tipos de petición:
 - `tipo: "comentario"` — sobre un elemento. `elemento` trae `pagina`, `selector`, `tipo` (cuadro, imagen, título, texto, cartela…), `texto`, `imagen` (URL) y `obra`. `alcance`: `"este"` (solo ese elemento) o `"todos"` (regla común: todos los elementos parecidos de la web).
