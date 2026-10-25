@@ -121,6 +121,7 @@ def page(r, title, body, current="", desc="Ana Martínez, artista. Pintura, mura
 <script>window.AM_ROOT = "{r}";</script>
 <script src="{r}assets/products.js" defer></script>
 <script src="{r}assets/site.js" defer></script>
+<script src="{r}assets/revision.js" defer></script>
 </body>
 </html>
 """
@@ -160,7 +161,8 @@ def figura(k, im, c, proyecto):
     if not c or not c.get("es_obra") or not c.get("titulo"):
         return f'<figure id="img-{k}">{img}</figure>'
     datos = " · ".join(x for x in (c.get("tecnica"), c.get("medidas")) if x)
-    if vendido(im["src"]):
+    estado_real = c.get("estado")  # "vendido" / "disponible" fijado a mano manda sobre el concepto
+    if (estado_real == "vendido") if estado_real in ("vendido", "disponible") else vendido(im["src"]):
         estado = ('<span class="estado estado-sold"><span class="dot dot-sold" aria-hidden="true"></span>'
                   'Vendido <span lang="en">· Sold</span></span>')
     else:
