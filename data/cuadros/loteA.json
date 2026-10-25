@@ -1,4 +1,12 @@
 {
+ "assets/wp/2026/09/KELP_IMAGEN_CARTEL_EXPO-copia.jpg": {
+  "slug": "kelp-forest",
+  "es_obra": true,
+  "titulo": "Bosque de kelp en la niebla / Kelp forest in the mist",
+  "tecnica": "Óleo sobre lienzo / Oil on canvas",
+  "medidas": "80 x 100 cm",
+  "fuente": "inventado"
+ },
  "assets/wp/2026/09/KELP-FOREST-4-copia-1.jpg": {
   "slug": "kelp-forest",
   "es_obra": true,
@@ -422,14 +430,5 @@
   "tecnica": "Óleo sobre lienzo / Oil on canvas",
   "medidas": "39 x 36 cm",
   "fuente": "catalogo"
- },
- "assets/subidas/kelp-forest/20261025215910-1-images-3.jpg": {
-  "slug": "kelp-forest",
-  "es_obra": true,
-  "titulo": "Bosque de kelp en la niebla / Kelp forest in the mist",
-  "tecnica": "Óleo sobre lienzo / Oil on canvas",
-  "medidas": "80 x 100 cm",
-  "fuente": "inventado",
-  "estado": "disponible"
  }
 }
