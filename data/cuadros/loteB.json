@@ -1,5 +1,5 @@
 {
- "https://www.ana-martinez.com/wp-content/uploads/2022/02/easy_www-1.jpg": {
+ "assets/wp/2022/02/easy_www-1.jpg": {
   "slug": "easy",
   "es_obra": true,
   "titulo": "Easy",
@@ -7,7 +7,7 @@
   "medidas": "18,5 cm (diámetro) x 5 cm (altura)",
   "fuente": "web"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2022/02/manatee1.jpg": {
+ "assets/wp/2022/02/manatee1.jpg": {
   "slug": "expo",
   "es_obra": true,
   "titulo": "Manatí / Manatee",
@@ -15,7 +15,7 @@
   "medidas": "150 x 150 cm",
   "fuente": "catalogo"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2022/02/manatee-island.jpg": {
+ "assets/wp/2022/02/manatee-island.jpg": {
   "slug": "expo",
   "es_obra": true,
   "titulo": "Isla de manatí / Manatee island",
@@ -23,7 +23,7 @@
   "medidas": "110 x 77 cm",
   "fuente": "web"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2022/02/aro.jpg": {
+ "assets/wp/2022/02/aro.jpg": {
   "slug": "expo",
   "es_obra": true,
   "titulo": "Aro O2 / O2 Hoop",
@@ -31,7 +31,7 @@
   "medidas": "70 x 50 cm",
   "fuente": "catalogo"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2022/02/Manatee-seascape.jpg": {
+ "assets/wp/2022/02/Manatee-seascape.jpg": {
   "slug": "expo",
   "es_obra": true,
   "titulo": "Azul iridiscente I / Iridescent blue I",
@@ -39,7 +39,7 @@
   "medidas": "110 x 77 cm",
   "fuente": "catalogo"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2022/02/Manatee-II.jpg": {
+ "assets/wp/2022/02/Manatee-II.jpg": {
   "slug": "expo",
   "es_obra": true,
   "titulo": "Manatí azul / Blue Manatee",
@@ -47,7 +47,7 @@
   "medidas": "110 x 77 cm",
   "fuente": "catalogo"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2022/02/el-oxigeno-es-mercurio-debajo-del-mar.jpg": {
+ "assets/wp/2022/02/el-oxigeno-es-mercurio-debajo-del-mar.jpg": {
   "slug": "expo",
   "es_obra": true,
   "titulo": "Azul iridiscente II / Iridescent blue II",
@@ -55,7 +55,7 @@
   "medidas": "110 x 77 cm",
   "fuente": "catalogo"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2022/02/Dos-azules.jpg": {
+ "assets/wp/2022/02/Dos-azules.jpg": {
   "slug": "expo",
   "es_obra": true,
   "titulo": "Dos azules / Two blues",
@@ -63,7 +63,7 @@
   "medidas": "50 x 50 cm",
   "fuente": "web"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2022/02/manati_Sketch.jpg": {
+ "assets/wp/2022/02/manati_Sketch.jpg": {
   "slug": "expo",
   "es_obra": true,
   "titulo": "Boceto de manatí / Manatee sketch",
@@ -71,7 +71,7 @@
   "medidas": "21 x 30 cm",
   "fuente": "web"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2022/02/seaweeds_clip-de-video.jpg": {
+ "assets/wp/2022/02/seaweeds_clip-de-video.jpg": {
   "slug": "expo",
   "es_obra": false,
   "titulo": null,
@@ -79,7 +79,7 @@
   "medidas": null,
   "fuente": "web"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2014/08/africa.jpg": {
+ "assets/wp/2014/08/africa.jpg": {
   "slug": "e-waste",
   "es_obra": true,
   "titulo": "E-waste",
@@ -87,7 +87,7 @@
   "medidas": "20 x 16 cm",
   "fuente": "web"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2014/08/Imagen-004.jpg.jpg": {
+ "assets/wp/2014/08/Imagen-004.jpg.jpg": {
   "slug": "si-pudiese-entrar-en-tu-cabeza-aunque-fuera-solo-por-5-minutos",
   "es_obra": true,
   "titulo": "Si pudiese entrar en tu cabeza aunque fuera solo por 5 minutos / If only I could get inside your head at least for 5 minutes",
@@ -95,7 +95,7 @@
   "medidas": "Medidas variables / Dimensions variable",
   "fuente": "web"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2014/08/Imagen-002.jpg.jpg": {
+ "assets/wp/2014/08/Imagen-002.jpg.jpg": {
   "slug": "si-pudiese-entrar-en-tu-cabeza-aunque-fuera-solo-por-5-minutos",
   "es_obra": false,
   "titulo": null,
@@ -103,7 +103,7 @@
   "medidas": null,
   "fuente": "web"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2014/08/Imagen-003.jpg.jpg": {
+ "assets/wp/2014/08/Imagen-003.jpg.jpg": {
   "slug": "si-pudiese-entrar-en-tu-cabeza-aunque-fuera-solo-por-5-minutos",
   "es_obra": false,
   "titulo": null,
@@ -111,7 +111,7 @@
   "medidas": null,
   "fuente": "web"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2014/08/Imagen-008.jpg.jpg": {
+ "assets/wp/2014/08/Imagen-008.jpg.jpg": {
   "slug": "si-pudiese-entrar-en-tu-cabeza-aunque-fuera-solo-por-5-minutos",
   "es_obra": false,
   "titulo": null,
@@ -119,7 +119,7 @@
   "medidas": null,
   "fuente": "web"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2014/08/Imagen-006.jpg.jpg": {
+ "assets/wp/2014/08/Imagen-006.jpg.jpg": {
   "slug": "si-pudiese-entrar-en-tu-cabeza-aunque-fuera-solo-por-5-minutos",
   "es_obra": false,
   "titulo": null,
@@ -127,7 +127,7 @@
   "medidas": null,
   "fuente": "web"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2014/08/Imagen-009.jpg.jpg": {
+ "assets/wp/2014/08/Imagen-009.jpg.jpg": {
   "slug": "si-pudiese-entrar-en-tu-cabeza-aunque-fuera-solo-por-5-minutos",
   "es_obra": false,
   "titulo": null,
@@ -135,7 +135,7 @@
   "medidas": null,
   "fuente": "web"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2014/08/Imagen-007.jpg.jpg": {
+ "assets/wp/2014/08/Imagen-007.jpg.jpg": {
   "slug": "si-pudiese-entrar-en-tu-cabeza-aunque-fuera-solo-por-5-minutos",
   "es_obra": false,
   "titulo": null,
@@ -143,7 +143,7 @@
   "medidas": null,
   "fuente": "web"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2014/08/Imagen-005.jpg.jpg": {
+ "assets/wp/2014/08/Imagen-005.jpg.jpg": {
   "slug": "si-pudiese-entrar-en-tu-cabeza-aunque-fuera-solo-por-5-minutos",
   "es_obra": false,
   "titulo": null,
@@ -151,7 +151,7 @@
   "medidas": null,
   "fuente": "web"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2017/03/Nuria.jpg": {
+ "assets/wp/2017/03/Nuria.jpg": {
   "slug": "manos-retratos",
   "es_obra": true,
   "titulo": "Nuria",
@@ -159,7 +159,7 @@
   "medidas": "42 x 29,7 cm",
   "fuente": "web"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2017/03/Gordo.jpg": {
+ "assets/wp/2017/03/Gordo.jpg": {
   "slug": "manos-retratos",
   "es_obra": true,
   "titulo": "Gordo",
@@ -167,7 +167,7 @@
   "medidas": "42 x 29,7 cm",
   "fuente": "web"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2017/03/Cala.jpg": {
+ "assets/wp/2017/03/Cala.jpg": {
   "slug": "manos-retratos",
   "es_obra": true,
   "titulo": "Cala",
@@ -175,7 +175,7 @@
   "medidas": "42 x 29,7 cm",
   "fuente": "web"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2017/03/Mike.jpg": {
+ "assets/wp/2017/03/Mike.jpg": {
   "slug": "manos-retratos",
   "es_obra": true,
   "titulo": "Mike",
@@ -183,7 +183,7 @@
   "medidas": "42 x 29,7 cm",
   "fuente": "web"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2017/03/Eva_Musa.jpg": {
+ "assets/wp/2017/03/Eva_Musa.jpg": {
   "slug": "manos-retratos",
   "es_obra": true,
   "titulo": "Eva Musa",
@@ -191,7 +191,7 @@
   "medidas": "42 x 29,7 cm",
   "fuente": "web"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2017/03/Estrella.jpg": {
+ "assets/wp/2017/03/Estrella.jpg": {
   "slug": "manos-retratos",
   "es_obra": true,
   "titulo": "Estrella",
@@ -199,7 +199,7 @@
   "medidas": "42 x 29,7 cm",
   "fuente": "web"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2017/03/Trini.jpg": {
+ "assets/wp/2017/03/Trini.jpg": {
   "slug": "manos-retratos",
   "es_obra": true,
   "titulo": "Trini",
@@ -207,7 +207,7 @@
   "medidas": "42 x 29,7 cm",
   "fuente": "web"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2017/03/Richard.jpg": {
+ "assets/wp/2017/03/Richard.jpg": {
   "slug": "manos-retratos",
   "es_obra": true,
   "titulo": "Richard",
@@ -215,7 +215,7 @@
   "medidas": "42 x 29,7 cm",
   "fuente": "web"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2017/03/Fran.jpg": {
+ "assets/wp/2017/03/Fran.jpg": {
   "slug": "manos-retratos",
   "es_obra": true,
   "titulo": "Fran",
@@ -223,7 +223,7 @@
   "medidas": "42 x 29,7 cm",
   "fuente": "web"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2017/03/Vicente_Amigo.jpg": {
+ "assets/wp/2017/03/Vicente_Amigo.jpg": {
   "slug": "manos-retratos",
   "es_obra": true,
   "titulo": "Vicente Amigo",
@@ -231,7 +231,7 @@
   "medidas": "42 x 29,7 cm",
   "fuente": "web"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2017/03/Fiddle_player.jpg": {
+ "assets/wp/2017/03/Fiddle_player.jpg": {
   "slug": "manos-retratos",
   "es_obra": true,
   "titulo": "Violinista / Fiddle player",
@@ -239,7 +239,7 @@
   "medidas": "42 x 29,7 cm",
   "fuente": "web"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2017/03/Pablo.jpg": {
+ "assets/wp/2017/03/Pablo.jpg": {
   "slug": "manos-retratos",
   "es_obra": true,
   "titulo": "Pablo",
@@ -247,7 +247,7 @@
   "medidas": "42 x 29,7 cm",
   "fuente": "web"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2017/03/Rafa_Leiva.jpg": {
+ "assets/wp/2017/03/Rafa_Leiva.jpg": {
   "slug": "manos-retratos",
   "es_obra": true,
   "titulo": "Rafa Leiva",
@@ -255,7 +255,7 @@
   "medidas": "42 x 29,7 cm",
   "fuente": "web"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2017/03/Curro.jpg": {
+ "assets/wp/2017/03/Curro.jpg": {
   "slug": "manos-retratos",
   "es_obra": true,
   "titulo": "Curro",
@@ -263,7 +263,7 @@
   "medidas": "42 x 29,7 cm",
   "fuente": "web"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2017/03/Paco.jpg": {
+ "assets/wp/2017/03/Paco.jpg": {
   "slug": "manos-retratos",
   "es_obra": true,
   "titulo": "Paco",
@@ -271,7 +271,7 @@
   "medidas": "42 x 29,7 cm",
   "fuente": "web"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2017/03/Rakel.jpg": {
+ "assets/wp/2017/03/Rakel.jpg": {
   "slug": "manos-retratos",
   "es_obra": true,
   "titulo": "Rakel",
@@ -279,7 +279,7 @@
   "medidas": "42 x 29,7 cm",
   "fuente": "web"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2017/03/Pacheco.jpg": {
+ "assets/wp/2017/03/Pacheco.jpg": {
   "slug": "manos-retratos",
   "es_obra": true,
   "titulo": "Pacheco",
@@ -287,7 +287,7 @@
   "medidas": "42 x 29,7 cm",
   "fuente": "web"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2017/03/Yo.jpg": {
+ "assets/wp/2017/03/Yo.jpg": {
   "slug": "manos-retratos",
   "es_obra": true,
   "titulo": "Yo / Me",
@@ -295,7 +295,7 @@
   "medidas": "42 x 29,7 cm",
   "fuente": "web"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2017/03/primaToya.jpg": {
+ "assets/wp/2017/03/primaToya.jpg": {
   "slug": "manos-retratos",
   "es_obra": true,
   "titulo": "Prima Toya",
@@ -303,7 +303,7 @@
   "medidas": "42 x 29,7 cm",
   "fuente": "web"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2014/08/Buscadoras-de-algas-marinas.jpg": {
+ "assets/wp/2014/08/Buscadoras-de-algas-marinas.jpg": {
   "slug": "blanco-sobre-todo",
   "es_obra": true,
   "titulo": "Buscadoras de algas marinas / Seaweed gatherers",
@@ -311,7 +311,7 @@
   "medidas": "100 x 100 cm",
   "fuente": "web"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2014/08/El-viento-sobre-todo.jpg": {
+ "assets/wp/2014/08/El-viento-sobre-todo.jpg": {
   "slug": "blanco-sobre-todo",
   "es_obra": true,
   "titulo": "El viento, sobre todo / The wind, above all",
@@ -319,7 +319,7 @@
   "medidas": "100 x 100 cm",
   "fuente": "web"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2014/08/sin-título-I.jpg": {
+ "assets/wp/2014/08/sin-titulo-I.jpg": {
   "slug": "blanco-sobre-todo",
   "es_obra": true,
   "titulo": "Sin título I / Untitled I",
@@ -327,7 +327,7 @@
   "medidas": "60 x 100 cm",
   "fuente": "web"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2014/08/Ramona-la-niña-gaviota.jpg": {
+ "assets/wp/2014/08/Ramona-la-nina-gaviota.jpg": {
   "slug": "blanco-sobre-todo",
   "es_obra": true,
   "titulo": "Ramona, la niña gaviota / Ramona, the seagull girl",
@@ -335,7 +335,7 @@
   "medidas": "60 x 100 cm",
   "fuente": "web"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2014/08/Sábana-para-tres.jpg": {
+ "assets/wp/2014/08/Sabana-para-tres.jpg": {
   "slug": "blanco-sobre-todo",
   "es_obra": true,
   "titulo": "Sábana para tres / A sheet for three",
@@ -343,7 +343,7 @@
   "medidas": "100 x 140 cm",
   "fuente": "web"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2014/08/Reculer-pour-sauter.jpg": {
+ "assets/wp/2014/08/Reculer-pour-sauter.jpg": {
   "slug": "blanco-sobre-todo",
   "es_obra": true,
   "titulo": "Reculer pour sauter",
@@ -351,7 +351,7 @@
   "medidas": "100 x 65 cm",
   "fuente": "web"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2014/08/Antílope-Kudu.jpg": {
+ "assets/wp/2014/08/Antilope-Kudu.jpg": {
   "slug": "blanco-sobre-todo",
   "es_obra": true,
   "titulo": "Antílope kudu / Kudu antelope",
@@ -359,7 +359,7 @@
   "medidas": "35 x 50 cm",
   "fuente": "web"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2014/08/palmeras-I.jpg": {
+ "assets/wp/2014/08/palmeras-I.jpg": {
   "slug": "blanco-sobre-todo",
   "es_obra": true,
   "titulo": "Palmeras I / Palm trees I",
@@ -367,7 +367,7 @@
   "medidas": "80 x 80 cm",
   "fuente": "web"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2014/08/palmeras-II.jpg": {
+ "assets/wp/2014/08/palmeras-II.jpg": {
   "slug": "blanco-sobre-todo",
   "es_obra": true,
   "titulo": "Palmeras II / Palm trees II",
@@ -375,7 +375,7 @@
   "medidas": "85 x 80 cm",
   "fuente": "web"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2014/08/Zimbabwe.jpg": {
+ "assets/wp/2014/08/Zimbabwe.jpg": {
   "slug": "blanco-sobre-todo",
   "es_obra": true,
   "titulo": "Zimbabwe",
@@ -383,7 +383,7 @@
   "medidas": "80 x 120 cm",
   "fuente": "web"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2014/08/cameroun.jpg": {
+ "assets/wp/2014/08/cameroun.jpg": {
   "slug": "blanco-sobre-todo",
   "es_obra": true,
   "titulo": "Cameroun",
@@ -391,7 +391,7 @@
   "medidas": "80 x 120 cm",
   "fuente": "web"
  },
- "https://www.ana-martinez.com/wp-content/uploads/2014/08/Moçambique.jpg": {
+ "assets/wp/2014/08/Mocambique.jpg": {
   "slug": "blanco-sobre-todo",
   "es_obra": true,
   "titulo": "Moçambique",
