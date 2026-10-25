@@ -349,8 +349,12 @@
       const inp = document.createElement("input");
       inp.type = "file";
       inp.accept = "image/*";
+      inp.hidden = true;
+      document.body.append(inp); // Safari no avisa de la foto elegida si el selector no está en la página
+      inp.addEventListener("cancel", () => { inp.remove(); ok(null); });
       inp.onchange = async () => {
         const f = inp.files[0];
+        inp.remove();
         if (!f) return ok(null);
         try {
           const bmp = await createImageBitmap(f);
