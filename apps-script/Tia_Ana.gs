@@ -4,7 +4,9 @@
  * 1. doPost: el modo edición de la web (?editar) entra con usuario y contraseña y guarda
  *    textos, datos y fotos en el repo de GitHub (data/*.json, assets/). GitHub Actions publica
  *    la web en 1-2 min.
- * 2. copiarADrive: sube al Drive compartido, ordenado por carpetas, las fotos, PDF y textos
+ * 2. Modo revisión (assets/revision.js): Ana deja comentarios e hilos con adjuntos en
+ *    revision/pendiente/ y un agente en la nube los aplica cada noche (revision/AGENTE.md).
+ * 3. copiarADrive: sube al Drive compartido, ordenado por carpetas, las fotos, PDF y textos
  *    de la web (según archivo_drive.json, que genera build.py). Se puede repetir: solo añade
  *    lo que falta y actualiza los documentos «Textos» que hayan cambiado.
  *
@@ -22,7 +24,7 @@ const RAMA = 'main';
 const WEB = 'https://antonioomsg.github.io/ana-martinez/';
 const DRIVE_POR_DEFECTO = '0ACbqrv17fXYDUk9PVA';
 const HORAS_SESION = 12;
-const VERSION = 2; // 2: fotos (subir, quitar, añadir) y párrafos (añadir, quitar)
+const VERSION = 3; // 2: fotos y párrafos · 3: comentarios del modo revisión
 const MAX_FALLOS = 8; // intentos de contraseña fallidos antes de bloquear 15 minutos
 
 // Ficheros de data/ que el editor puede tocar
@@ -49,6 +51,7 @@ function doPost(e) {
   try {
     if (datos.accion === 'entrar') return respuesta(entrar_(datos));
     if (datos.accion === 'guardar') return respuesta(guardar_(datos));
+    if (datos.action === 'listar' || datos.action === 'nuevo') return respuesta(revision_(datos));
     return respuesta({ ok: false, error: 'Acción desconocida.' });
   } catch (err) {
     console.error(err && err.stack || err);
@@ -295,6 +298,84 @@ function commitCambios_(cambios, archivos) {
   });
   github_('patch', '/git/refs/heads/' + RAMA, { sha: commit.sha });
   return commit.sha;
+}
+
+// ---------- Modo revisión: comentarios para el agente nocturno ----------
+
+const PEND = 'revision/pendiente';
+const HIST = 'revision/historial.json';
+const ADJ = 'revision/archivos';
+
+function revision_(datos) {
+  const clave = props().getProperty('CLAVE'); // opcional: enlace ?revisar=CLAVE sin usuario y contraseña
+  if (!sesionValida_(datos.token) && !(clave && datos.key && iguales_(datos.key, clave))) {
+    return { ok: false, error: 'Clave no válida: vuelve a entrar en el modo edición.' };
+  }
+  return datos.action === 'listar' ? listarRevision_() : nuevoComentario_(datos.item, datos.archivos || []);
+}
+
+function rutaUrl_(p) { return p.split('/').map(encodeURIComponent).join('/'); }
+
+function leerRepoJson_(path) {
+  try {
+    return JSON.parse(github_('get', '/contents/' + rutaUrl_(path) + '?ref=' + RAMA, null, true));
+  } catch (err) {
+    if (err.code === 404) return null;
+    throw err;
+  }
+}
+
+function subirRepo_(path, base64, mensaje) {
+  github_('put', '/contents/' + rutaUrl_(path), {
+    message: mensaje, content: base64, branch: RAMA,
+    committer: { name: 'Revisión web', email: 'revision@ana-martinez.com' },
+  });
+}
+
+function limpioNombre_(s) {
+  return String(s || 'archivo').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^\w.\-]+/g, '-').replace(/-+/g, '-').slice(0, 80);
+}
+
+function nuevoComentario_(item, archivos) {
+  if (!item || !item.id || !item.tipo) throw new Error('Datos incompletos');
+  if (!Array.isArray(archivos) || archivos.length > 30) throw new Error('Demasiados adjuntos');
+  item.id = limpioNombre_(item.id);
+  item.recibido = new Date().toISOString();
+  item.texto = String(item.texto || '').slice(0, 8000);
+  delete item.estado; delete item.respuesta; delete item.procesado; // eso lo escribe solo el agente
+  item.archivos = [];
+  archivos.forEach(function (a, i) {
+    if (!a || typeof a.base64 !== 'string' || a.base64.length > 15 * 1024 * 1024) throw new Error('Adjunto no válido');
+    const p = ADJ + '/' + item.id + '/' + (i + 1) + '-' + limpioNombre_(a.nombre);
+    subirRepo_(p, a.base64, 'Revisión: adjunto de ' + (item.autor || 'Ana'));
+    item.archivos.push(p);
+  });
+  const json = Utilities.base64Encode(JSON.stringify(item, null, 2), Utilities.Charset.UTF_8);
+  const resumen = item.tipo === 'mensaje' ? 'Hilo «' + (item.titulo_hilo || '') + '»' : 'Comentario';
+  subirRepo_(PEND + '/' + item.recibido.slice(0, 10) + '-' + item.id + '.json', json, 'Revisión: ' + resumen + ' de ' + (item.autor || 'Ana'));
+  CacheService.getScriptCache().remove('listado');
+  return { ok: true, id: item.id };
+}
+
+function listarRevision_() {
+  const cache = CacheService.getScriptCache();
+  const hit = cache.get('listado');
+  if (hit) return JSON.parse(hit);
+  let items = [];
+  let dir;
+  try { dir = github_('get', '/contents/' + PEND + '?ref=' + RAMA); } catch (err) { if (err.code !== 404) throw err; dir = []; }
+  (dir || []).forEach(function (f) {
+    if (f.type === 'file' && /\.json$/.test(f.name)) {
+      try { items.push(leerRepoJson_(f.path)); } catch (_) { /* uno roto no impide ver el resto */ }
+    }
+  });
+  const hist = leerRepoJson_(HIST);
+  if (hist && hist.items) items = items.concat(hist.items);
+  const out = { ok: true, items: items.filter(Boolean) };
+  const s = JSON.stringify(out);
+  if (s.length < 90000) cache.put('listado', s, 60);
+  return out;
 }
 
 // ---------- Archivo en Drive ----------

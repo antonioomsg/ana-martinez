@@ -111,6 +111,7 @@
           if (!r.ok) { err.textContent = r.error || "No se ha podido entrar."; return; }
           guardarLocal(K_TOKEN, { token: r.token, exp: r.exp, version: r.version || 1 });
           d.close();
+          window.dispatchEvent(new Event("am-editor-sesion")); // el modo revisión (comentarios) se activa con la misma sesión
           ok(true);
         } catch (_) {
           err.textContent = "Sin conexión con el editor. Inténtalo de nuevo.";

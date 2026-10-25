@@ -1,7 +1,7 @@
 /* Modo revisión de la web de Ana Martínez.
  *
- * Se activa abriendo cualquier página con ?revisar=CLAVE (la clave queda guardada en este
- * navegador). Permite:
+ * Se activa al entrar en el modo edición (?editar, con usuario y contraseña) o abriendo
+ * cualquier página con ?revisar=CLAVE (la clave queda guardada en este navegador). Permite:
  *   - Comentar un elemento concreto (imagen, texto, título…) con alcance "solo este" o
  *     "todos los parecidos".
  *   - Abrir hilos de conversación con adjuntos (fotos, PDF) para pedir cosas más grandes,
@@ -13,7 +13,7 @@
   "use strict";
 
   // URL del puente (Apps Script desplegado como aplicación web). Ver revision/PUENTE.md.
-  var ENDPOINT = window.AM_REVISION_ENDPOINT ||
+  var ENDPOINT = window.AM_REVISION_ENDPOINT || window.AM_EDITOR ||
     "https://script.google.com/macros/s/PENDIENTE/exec";
 
   var LS_KEY = "am-revision-key", LS_NAME = "am-revision-nombre";
@@ -33,7 +33,15 @@
     history.replaceState(null, "", location.pathname + (q ? "?" + q : "") + location.hash);
   }
   var KEY = store(LS_KEY);
-  if (!KEY) return;
+  // Sesión del modo edición (assets/editor.js): con ella no hace falta clave
+  function sesionEditor() {
+    try { var t = JSON.parse(localStorage.getItem("am-editor-token")); return t && t.exp > Date.now() ? t.token : null; }
+    catch (_) { return null; }
+  }
+  if (!KEY && !sesionEditor()) {
+    window.addEventListener("am-editor-sesion", function () { location.reload(); }, { once: true });
+    return;
+  }
 
   var ROOT = window.AM_ROOT || "";
   var PAGE = location.pathname.replace(/\/index\.html$/, "/");
@@ -43,6 +51,7 @@
   .rv, .rv * { box-sizing: border-box; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
   .rv { --rv-ink: #192e2e; --rv-accent: #8dadad; --rv-bg: #fff; --rv-soft: #f3f1ed; --rv-line: #e2ded7; color: var(--rv-ink); }
   .rv-dock { position: fixed; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom)); z-index: 2147483000; display: flex; gap: 8px; }
+  .am-editando .rv-dock { bottom: calc(96px + env(safe-area-inset-bottom)); }
   .rv-btn { appearance: none; border: 0; cursor: pointer; font-size: 15px; line-height: 1; padding: 13px 18px; border-radius: 999px;
     background: var(--rv-ink); color: #fff; box-shadow: 0 6px 20px rgba(0,0,0,.18); display: inline-flex; align-items: center; gap: 8px; min-height: 44px; }
   .rv-btn.ghost { background: var(--rv-bg); color: var(--rv-ink); box-shadow: 0 6px 20px rgba(0,0,0,.12), inset 0 0 0 1px var(--rv-line); }
@@ -129,7 +138,7 @@
   function api(payload) {
     // text/plain evita la petición previa CORS, que Apps Script no admite.
     return fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" },
-      body: JSON.stringify(Object.assign({ key: KEY }, payload)) })
+      body: JSON.stringify(Object.assign(KEY ? { key: KEY } : { token: sesionEditor() }, payload)) })
       .then(function (r) { return r.json(); })
       .then(function (j) { if (!j.ok) throw new Error(j.error || "Error"); return j; });
   }
