@@ -23,6 +23,9 @@
 .am-editando .fold { max-height: none; -webkit-mask-image: none; mask-image: none; }
 .am-editando .fold-btn { display: none; }
 .am-editando .card-veil { background: rgba(0,0,0,.45); }
+.am-editando [data-e-abre] { outline: 1px dashed rgba(0,120,140,.45); outline-offset: 3px; cursor: pointer; border-radius: 2px; }
+.am-editando [data-e-abre]:hover { outline-color: #00788c; background: rgba(0,120,140,.06); }
+.am-dlg .am-ayuda { margin: -6px 0 16px; color: #666; font-size: 13px; }
 .am-barra { position: fixed; z-index: 9999; left: 50%; bottom: 16px; transform: translateX(-50%); display: flex; flex-wrap: wrap; align-items: center; gap: 8px; max-width: calc(100vw - 32px); padding: 10px 12px; background: #111; color: #fff; font: 14px/1.3 Jost, system-ui, sans-serif; box-shadow: 0 6px 24px rgba(0,0,0,.25); }
 .am-barra b { font-weight: 500; letter-spacing: 1px; margin-right: 4px; }
 .am-barra .am-estado { color: #cfd8d8; margin-right: 6px; }
@@ -160,10 +163,18 @@
     pintarEstado("Guardado ✓ Se publica en 1-2 minutos");
   }
 
-  function otrosDatos() {
-    const campos = [...document.querySelectorAll("[data-e][hidden][data-e-etq]")];
+  // Datos que no son texto escrito encima (fecha, precios, colores): se cambian en un formulario
+  const GRUPOS = [[/^Fecha/, "Fecha"], [/^Título en inglés/, "Título en inglés"], [/^Tamaño/, "Precios y tamaños"], [/^Color/, "Colores"]];
+  const grupoDe = (etq) => (GRUPOS.find(([re]) => re.test(etq)) || [, "Más datos"])[1];
+  const camposOcultos = () => [...document.querySelectorAll("[data-e][hidden][data-e-etq]")];
+  const nombreOtros = () => [...new Set(camposOcultos().map((el) => grupoDe(el.dataset.eEtq)))].join(" · ");
+
+  function otrosDatos(enfocar) {
+    const campos = camposOcultos();
     if (!campos.length) return;
-    const d = dialogo(`<h2>OTROS DATOS</h2><form><div class="am-campos"></div>
+    const d = dialogo(`<h2>${nombreOtros().toUpperCase()}</h2>
+<p class="am-ayuda">Estos datos no se escriben encima de la página: cámbialos aquí y pulsa Aplicar y después Guardar.</p>
+<form><div class="am-campos"></div>
 <div class="am-acciones"><button type="button" class="am-cancelar">Cancelar</button><button class="am-principal">Aplicar</button></div></form>`);
     const caja = d.querySelector(".am-campos");
     campos.forEach((el, i) => {
@@ -173,10 +184,12 @@
       inp.name = `c${i}`;
       inp.value = el.dataset.v;
       if (el.dataset.eTipo === "num") { inp.type = "number"; inp.min = "0"; inp.step = "1"; inp.required = true; }
-      if (/AAAA-MM-DD/.test(el.dataset.eEtq)) { inp.pattern = "\\d{4}-\\d{2}-\\d{2}"; inp.required = true; }
+      if (/^Fecha/.test(el.dataset.eEtq)) { inp.type = "date"; inp.required = true; }
       l.append(inp);
       caja.append(l);
     });
+    const foco = campos.findIndex((el) => enfocar && el.dataset.eEtq.startsWith(enfocar));
+    if (foco >= 0) d.querySelector(`[name=c${foco}]`).focus();
     d.querySelector(".am-cancelar").onclick = () => d.close();
     d.querySelector("form").onsubmit = (ev) => {
       ev.preventDefault();
@@ -208,14 +221,15 @@
     barra = document.createElement("div");
     barra.className = "am-barra";
     barra.innerHTML = `<b>EDICIÓN</b><span class="am-estado"></span>
-<button type="button" class="am-otros" hidden>Otros datos</button>
+<button type="button" class="am-otros" hidden></button>
 <button type="button" class="am-guardar">Guardar</button><button type="button" class="am-salir">Salir</button>`;
     document.body.append(barra);
     estado = barra.querySelector(".am-estado");
     botonGuardar = barra.querySelector(".am-guardar");
     const otros = barra.querySelector(".am-otros");
-    otros.hidden = !document.querySelector("[data-e][hidden][data-e-etq]");
-    otros.onclick = otrosDatos;
+    otros.textContent = nombreOtros();
+    otros.hidden = !otros.textContent;
+    otros.onclick = () => otrosDatos();
     botonGuardar.onclick = guardar;
     barra.querySelector(".am-salir").onclick = salir;
     const publicando = aplicarRecientes();
@@ -226,6 +240,11 @@
       const el = ev.target.closest?.("[data-e]");
       if (!el || !pendientes.has(clave(el))) return;
       document.querySelectorAll(`[data-e="${CSS.escape(clave(el))}"]`).forEach((x) => { if (x !== el && !x.hidden) x.innerText = texto(el); });
+    });
+    // Pulsar la fecha o el precio abre su formulario
+    document.addEventListener("click", (ev) => {
+      const abre = ev.target.closest?.("[data-e-abre]");
+      if (abre && camposOcultos().length) { ev.preventDefault(); otrosDatos(abre.dataset.eAbre); }
     });
     // Dentro de enlaces y botones, pulsar sirve para escribir, no para navegar
     document.addEventListener("click", (ev) => {

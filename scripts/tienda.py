@@ -147,10 +147,10 @@ def ficha(r, p, ed_, productos):
             f'aria-label="{e(c["label"])}" title="{e(c["label"])}" aria-pressed="{"true" if i == 0 else "false"}">'
             f'<img src="{r}{foto(tipo, c["fotos"]["plano"])}" alt=""></button>'
             for i, c in enumerate(p["colores"]))
-        variantes = (f'<div class="buy-field"><p class="buy-label">{etiqueta}: <span data-color-label>{e(col["label"])}</span></p>'
+        variantes = (f'<div class="buy-field"><p class="buy-label">{etiqueta}: <span data-color-label data-e-abre="Color">{e(col["label"])}</span></p>'
                      f'<div class="swatches">{sw}</div></div>')
     elif p["tipo"] == "panuelos":
-        variantes = f'<p class="buy-label buy-static">{etiqueta}: <span>{e(col["label"])}</span></p>'
+        variantes = f'<p class="buy-label buy-static">{etiqueta}: <span data-e-abre="Color">{e(col["label"])}</span></p>'
     t0 = tipo["tamanos"][0]
     tallas = "".join(
         f'<button type="button" class="size-opt{" is-active" if i == 0 else ""}" data-size="{t["id"]}" '
@@ -230,7 +230,7 @@ def ficha(r, p, ed_, productos):
     <div class="buy-card">
       <p class="buy-kind"><a href="{r}{tipo["dir"]}/">{e(tipo["nombre"])}</a> · <a href="{r}ediciones/#{g["id"]}">{e(g["titulo"])}</a></p>
       <h1{ed(rp + ["nombre"])}>{e(p["nombre"])}</h1>{otros_datos}
-      <p class="buy-price" aria-live="polite">{precio(t0["precio"])}</p>
+      <p class="buy-price" aria-live="polite" data-e-abre="Tamaño 1 · precio">{precio(t0["precio"])}</p>
       {variantes}
       <div class="buy-field">
         <p class="buy-label">Tamaño · Size</p>

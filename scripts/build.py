@@ -334,7 +334,7 @@ def build():
   <header class="obra-head">
     <h1{ed(i_post + ["title"], raw=p["title"])}>{e(p["title"].upper())}</h1>
     {sub}
-    <p class="obra-date">{fecha(p["date"])}</p>{campo("Fecha (AAAA-MM-DD)", p["date"], i_post + ["date"])}
+    <p class="obra-date" data-e-abre="Fecha">{fecha(p["date"])}</p>{campo("Fecha", p["date"], i_post + ["date"])}
   </header>
   <div class="obra-text" data-fold>{texto}{documento(doc, p["slug"]) if doc else ""}{render_text(media, i_post + ["text"], "../../")}</div>
   <div class="obra-gallery" data-gallery>{imgs}</div>
