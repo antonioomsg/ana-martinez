@@ -168,14 +168,23 @@
     const cambios = [...pendientes.values()].sort((a, b) => (b.orden || 0) - (a.orden || 0)).map(({ orden: _, ...c }) => c);
     let r;
     try {
-      r = await llamar({ accion: "guardar", token: tokenValido(), cambios, archivos: [...archivos].map(([ruta, base64]) => ({ ruta, base64 })) });
+      const huellas = {};
+      cambios.forEach((c) => { if (window.AM_DATOS?.[c.ruta[0]]) huellas[c.ruta[0]] = window.AM_DATOS[c.ruta[0]]; });
+      r = await llamar({ accion: "guardar", token: tokenValido(), cambios, huellas, archivos: [...archivos].map(([ruta, base64]) => ({ ruta, base64 })) });
     } catch (_) {
       pintarEstado("No se ha podido guardar (sin conexión). Vuelve a pulsar Guardar.");
       botonGuardar.disabled = false;
       return;
     }
     if (!r.ok && r.caducada) { guardarLocal(K_TOKEN, null); if (await entrar()) return guardar(); }
+    if (!r.ok && r.desactualizada) {
+      pintarEstado("No guardado: la web ha cambiado desde que abriste la página");
+      alert("No se ha guardado: la web ha cambiado desde que abriste esta página (otro cambio se ha publicado entretanto).\n\nApunta lo que querías cambiar, recarga la página y vuelve a hacerlo.");
+      botonGuardar.disabled = false;
+      return;
+    }
     if (!r.ok) { pintarEstado(r.error || "No se ha podido guardar."); botonGuardar.disabled = false; return; }
+    if (r.huellas && window.AM_DATOS) Object.assign(window.AM_DATOS, r.huellas); // los siguientes guardados parten de lo recién guardado
     const rec = leer(K_RECIENTES) || {};
     const habiaFotos = archivos.size || [...pendientes.values()].some((c) => c.op);
     for (const [k, c] of pendientes) {

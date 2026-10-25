@@ -25,7 +25,7 @@ const RAMA = 'main';
 const WEB = 'https://antonioomsg.github.io/ana-martinez/';
 const DRIVE_POR_DEFECTO = '0ACbqrv17fXYDUk9PVA';
 const HORAS_SESION = 12;
-const VERSION = 3; // 2: fotos y párrafos · 3: comentarios del modo revisión
+const VERSION = 4; // 2: fotos y párrafos · 3: comentarios del modo revisión · 4: huellas
 const MAX_FALLOS = 8; // intentos de contraseña fallidos antes de bloquear 15 minutos
 
 // Ficheros de data/ que el editor puede tocar
@@ -255,10 +255,12 @@ function guardar_(datos) {
   try {
     for (let intento = 0; ; intento++) {
       try {
-        const commit = commitCambios_(cambios, archivos);
+        const huellas = {};
+        const commit = commitCambios_(cambios, archivos, datos.huellas || {}, huellas);
         if (archivos.length) copiaPronto_(); // las fotos nuevas también al Drive, en cuanto la web las publique
-        return { ok: true, commit: commit, n: cambios.length + archivos.length };
+        return { ok: true, commit: commit, n: cambios.length + archivos.length, huellas: huellas };
       } catch (err) {
+        if (err.desactualizada) return { ok: false, desactualizada: true, error: err.message };
         if (err.code === 422 && intento < 2) continue; // alguien ha publicado a la vez: se repite sobre lo último
         throw err;
       }
@@ -268,7 +270,17 @@ function guardar_(datos) {
   }
 }
 
-function commitCambios_(cambios, archivos) {
+function md5_(texto) {
+  return Utilities.computeDigest(Utilities.DigestAlgorithm.MD5, texto, Utilities.Charset.UTF_8)
+    .map(function (b) { return ('0' + (b & 0xff).toString(16)).slice(-2); }).join('');
+}
+
+/** `huellas`: md5 de cada fichero tal y como estaba cuando se generó la página que edita Ana.
+ *  Si ya no coincide (el agente nocturno u otro guardado lo ha cambiado), las posiciones de la
+ *  página pueden apuntar a otra entrada: no se guarda nada. `nuevas` recibe las huellas resultantes. */
+function commitCambios_(cambios, archivos, huellas, nuevas) {
+  huellas = huellas || {};
+  nuevas = nuevas || {};
   const ref = github_('get', '/git/ref/heads/' + RAMA);
   const base = ref.object.sha;
   const porFichero = {};
@@ -276,9 +288,15 @@ function commitCambios_(cambios, archivos) {
   const arbol = [];
   Object.keys(porFichero).forEach(function (f) {
     const texto = github_('get', '/contents/data/' + f + '?ref=' + base, null, true);
+    if (huellas[f] && huellas[f] !== md5_(texto)) {
+      const err = new Error('La web ha cambiado desde que abriste la página: recárgala y vuelve a hacer el cambio.');
+      err.desactualizada = true;
+      throw err;
+    }
     const obj = JSON.parse(texto);
     ordenar_(porFichero[f]).forEach(function (c) { operar_(obj, c); });
     const nuevo = JSON.stringify(obj, null, 1) + '\n';
+    nuevas[f] = md5_(nuevo);
     if (nuevo === texto) return;
     const blob = github_('post', '/git/blobs', { content: nuevo, encoding: 'utf-8' });
     arbol.push({ path: 'data/' + f, mode: '100644', type: 'blob', sha: blob.sha });

@@ -32,6 +32,10 @@ INSTAGRAM = "https://www.instagram.com/anamartinez_studio/"
 YOUTUBE = "https://www.youtube.com/user/aninanona"
 ORIGEN = json.loads((ROOT / "data" / "fotos_origen.json").read_text())
 SITIO = json.loads((ROOT / "data" / "sitio.json").read_text())
+# Huella de cada fichero de data/ con el que se genera la página: el editor la manda al guardar y
+# el Apps Script no guarda si los datos han cambiado desde entonces (evita escribir en otra entrada).
+HUELLAS = {str(f.relative_to(ROOT / "data")): hashlib.md5(f.read_bytes()).hexdigest()
+           for f in sorted((ROOT / "data").rglob("*.json"))}
 editable.TEXTOS.update(SITIO["textos"])
 
 e = html.escape
@@ -129,7 +133,7 @@ def page(r, title, body, current="", desc="Ana Martínez, artista. Pintura, mura
 {body}
 </main>
 {footer(r)}
-<script>window.AM_ROOT = "{r}"; window.AM_EDITOR = {json.dumps(SITIO.get("editor_url", ""))};</script>
+<script>window.AM_ROOT = "{r}"; window.AM_EDITOR = {json.dumps(SITIO.get("editor_url", ""))}; window.AM_DATOS = {json.dumps(HUELLAS)};</script>
 <script src="{r}assets/products.js" defer></script>
 <script src="{r}assets/site.js" defer></script>
 <script src="{r}assets/revision.js" defer></script>
