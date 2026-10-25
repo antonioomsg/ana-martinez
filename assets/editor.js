@@ -25,6 +25,12 @@
 .am-editando .card-veil { background: rgba(0,0,0,.45); }
 .am-editando [data-e-abre] { outline: 1px dashed rgba(0,120,140,.45); outline-offset: 3px; cursor: pointer; border-radius: 2px; }
 .am-editando [data-e-abre]:hover { outline-color: #00788c; background: rgba(0,120,140,.06); }
+.am-pop { position: absolute; z-index: 9998; display: flex; gap: 6px; align-items: center; padding: 8px; background: #fff; border: 1px solid #111; box-shadow: 0 6px 20px rgba(0,0,0,.18); font: 15px Jost, system-ui, sans-serif; }
+.am-pop input, .am-pop select { min-height: 40px; padding: 0 10px; border: 1px solid #bbb; font: inherit; font-size: 16px; }
+.am-pop input[type=number] { width: 7em; }
+.am-pop input:invalid { border-color: #b00020; background: #fff3f4; }
+.am-pop button { min-height: 40px; padding: 0 14px; border: 1px solid #111; background: #111; color: #fff; font: inherit; cursor: pointer; }
+.am-pop .am-pop-no { background: #fff; color: #111; }
 .am-dlg .am-ayuda { margin: -6px 0 16px; color: #666; font-size: 13px; }
 .am-barra { position: fixed; z-index: 9999; left: 50%; bottom: 16px; transform: translateX(-50%); display: flex; flex-wrap: wrap; align-items: center; gap: 8px; max-width: calc(100vw - 32px); padding: 10px 12px; background: #111; color: #fff; font: 14px/1.3 Jost, system-ui, sans-serif; box-shadow: 0 6px 24px rgba(0,0,0,.25); }
 .am-barra b { font-weight: 500; letter-spacing: 1px; margin-right: 4px; }
@@ -166,7 +172,8 @@
   // Datos que no son texto escrito encima (fecha, precios, colores): se cambian en un formulario
   const GRUPOS = [[/^Fecha/, "Fecha"], [/^Título en inglés/, "Título en inglés"], [/^Tamaño/, "Precios y tamaños"], [/^Color/, "Colores"]];
   const grupoDe = (etq) => (GRUPOS.find(([re]) => re.test(etq)) || [, "Más datos"])[1];
-  const camposOcultos = () => [...document.querySelectorAll("[data-e][hidden][data-e-etq]")];
+  // Los de opciones (Disponible/Vendido de cada cuadro) solo se cambian pulsando su elemento en la página
+  const camposOcultos = () => [...document.querySelectorAll("[data-e][hidden][data-e-etq]:not([data-e-opciones])")];
   const nombreOtros = () => [...new Set(camposOcultos().map((el) => grupoDe(el.dataset.eEtq)))].join(" · ");
 
   function otrosDatos(enfocar) {
@@ -196,6 +203,74 @@
       campos.forEach((el, i) => { el.dataset.v = d.querySelector(`[name=c${i}]`).value.trim(); marcar(el); });
       d.close();
     };
+  }
+
+  const MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
+
+  /** Campo oculto que corresponde a lo que se ve: el precio y el color dependen del tamaño y el color elegidos. */
+  function campoDe(abre) {
+    const pdp = abre.closest(".pdp");
+    const activo = (sel) => Math.max(0, [...(pdp?.querySelectorAll(sel) || [])].findIndex((x) => x.classList.contains("is-active")));
+    if (abre.dataset.eCampo) return document.querySelector(`[hidden][data-e="${CSS.escape(abre.dataset.eCampo)}"]`);
+    let etq = abre.dataset.eAbre;
+    if (/^Tamaño/.test(etq)) etq = `Tamaño ${activo(".size-opt") + 1} · precio`;
+    if (etq === "Color") etq = `Color ${activo(".swatch") + 1}`;
+    return camposOcultos().find((el) => el.dataset.eEtq.startsWith(etq));
+  }
+
+  function casillaEnSitio(abre) {
+    document.querySelector(".am-pop")?.remove();
+    const campo = campoDe(abre);
+    if (!campo) return otrosDatos(abre.dataset.eAbre);
+    const opciones = campo.dataset.eOpciones?.split("|");
+    const tipo = opciones ? "opciones" : /^Fecha/.test(campo.dataset.eEtq) ? "date" : campo.dataset.eTipo === "num" ? "number" : "text";
+    const pop = document.createElement("form");
+    pop.className = "am-pop";
+    const casilla = opciones
+      ? `<select aria-label="${campo.dataset.eEtq}">${opciones.map((o) => `<option value="${o}">${o[0].toUpperCase() + o.slice(1)}</option>`).join("")}</select>`
+      : `<input aria-label="${campo.dataset.eEtq}" required>`;
+    pop.innerHTML = `${casilla}<button>Aplicar</button><button type="button" class="am-pop-no">✕</button>`;
+    const inp = pop.querySelector("input, select");
+    if (!opciones) inp.type = tipo;
+    if (tipo === "number") { inp.min = "0"; inp.step = "1"; inp.inputMode = "numeric"; }
+    inp.value = campo.dataset.v;
+    const r = abre.getBoundingClientRect();
+    pop.style.left = `${Math.max(8, Math.min(r.left + scrollX, scrollX + document.documentElement.clientWidth - 300))}px`;
+    pop.style.top = `${r.bottom + scrollY + 8}px`;
+    document.body.append(pop);
+    inp.focus();
+    const cerrar = () => { pop.remove(); document.removeEventListener("mousedown", fuera, true); };
+    const fuera = (ev) => { if (!pop.contains(ev.target)) cerrar(); };
+    document.addEventListener("mousedown", fuera, true);
+    pop.querySelector(".am-pop-no").onclick = cerrar;
+    pop.addEventListener("keydown", (ev) => { if (ev.key === "Escape") cerrar(); });
+    pop.onsubmit = (ev) => {
+      ev.preventDefault();
+      if (!inp.checkValidity()) { inp.reportValidity(); return; }
+      const v = inp.value.trim();
+      campo.dataset.v = v;
+      marcar(campo);
+      // La página enseña ya el resultado, con el mismo formato que la web publicada
+      if (tipo === "opciones") pintarEstadoObra(abre, v);
+      else if (tipo === "date") { const [y, m] = v.split("-"); abre.textContent = `${MESES[Number(m) - 1]}, ${y}`; }
+      else if (tipo === "number") {
+        abre.textContent = `${Number(v)} €`;
+        const opt = abre.closest(".pdp")?.querySelector(".size-opt.is-active") || abre.closest(".pdp")?.querySelector(".size-opt");
+        if (opt) opt.dataset.price = String(Number(v));
+      } else abre.textContent = v;
+      abre.classList.toggle("am-cambiado", pendientes.has(clave(campo)));
+      cerrar();
+    };
+  }
+
+  /** Disponible / Vendido tal y como lo pinta build.py (el botón de consultar vuelve al publicar). */
+  function pintarEstadoObra(el, v) {
+    const vendido = v === "vendido";
+    el.classList.toggle("estado-sold", vendido);
+    el.classList.toggle("estado-free", !vendido);
+    el.innerHTML = vendido
+      ? '<span class="dot dot-sold" aria-hidden="true"></span>Vendido <span lang="en">· Sold</span>'
+      : '<span class="dot dot-free" aria-hidden="true"></span>Disponible · <u>Consultar</u> <span lang="en">· Enquire</span>';
   }
 
   function salir() {
@@ -241,11 +316,11 @@
       if (!el || !pendientes.has(clave(el))) return;
       document.querySelectorAll(`[data-e="${CSS.escape(clave(el))}"]`).forEach((x) => { if (x !== el && !x.hidden) x.innerText = texto(el); });
     });
-    // Pulsar la fecha o el precio abre su formulario
+    // Pulsar la fecha, el precio o el color abre en ese sitio una casilla que solo admite ese dato
     document.addEventListener("click", (ev) => {
       const abre = ev.target.closest?.("[data-e-abre]");
-      if (abre && camposOcultos().length) { ev.preventDefault(); otrosDatos(abre.dataset.eAbre); }
-    });
+      if (abre && !ev.target.closest(".am-pop")) { ev.preventDefault(); ev.stopPropagation(); casillaEnSitio(abre); }
+    }, true); // antes que la web: «Consultar» no abre su ventana en modo edición
     // Dentro de enlaces y botones, pulsar sirve para escribir, no para navegar
     document.addEventListener("click", (ev) => {
       if (ev.target.closest?.("[data-e]") && ev.target.closest("a, button, summary")) ev.preventDefault();

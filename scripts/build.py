@@ -173,18 +173,23 @@ def figura(r, k, im, c, proyecto):
         return f'<figure id="img-{k}">{img}</figure>'
     datos = " · ".join(x for x in (c.get("tecnica"), c.get("medidas")) if x)
     estado_real = c.get("estado")  # "vendido" / "disponible" fijado a mano manda sobre el concepto
-    if (estado_real == "vendido") if estado_real in ("vendido", "disponible") else vendido(im["src"]):
-        estado = ('<span class="estado estado-sold"><span class="dot dot-sold" aria-hidden="true"></span>'
+    es_vendido = (estado_real == "vendido") if estado_real in ("vendido", "disponible") else vendido(im["src"])
+    ruta_estado = [c["_f"], c["_k"], "estado"]
+    marca = f' data-e-abre="Estado"{ed(ruta_estado).replace("data-e=", "data-e-campo=")}'
+    estado_campo = campo("Estado de la obra", "vendido" if es_vendido else "disponible", ruta_estado,
+                         opciones=["disponible", "vendido"])
+    if es_vendido:
+        estado = (f'<span class="estado estado-sold"{marca}><span class="dot dot-sold" aria-hidden="true"></span>'
                   'Vendido <span lang="en">· Sold</span></span>')
     else:
-        estado = (f'<button type="button" class="estado estado-free" data-inquiry data-img="{e(src(r, im["src"]))}" '
+        estado = (f'<button type="button" class="estado estado-free"{marca} data-inquiry data-img="{e(src(r, im["src"]))}" '
                   f'data-titulo="{e(c["titulo"])}" data-datos="{e(datos)}" data-proyecto="{e(proyecto)}">'
                   f'<span class="dot dot-free" aria-hidden="true"></span>Disponible · <u>Consultar</u> '
                   f'<span lang="en">· Enquire</span></button>')
     return (f'<figure id="img-{k}">{img}<figcaption class="cartela"><span class="cartela-text">'
             f'<span class="cartela-titulo"{ed([c["_f"], c["_k"], "titulo"])}>{e(c["titulo"])}</span>'
             f'<span class="cartela-datos">{cartela_datos(c)}</span>'
-            f'{estado}</span></figcaption></figure>')
+            f'{estado}{estado_campo}</span></figcaption></figure>')
 
 
 def cartela_datos(c):

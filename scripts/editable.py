@@ -16,10 +16,12 @@ def ed(ruta, raw=None):
     return attr + (f' data-raw="{e(raw)}"' if raw is not None else "")
 
 
-def campo(etiqueta, valor, ruta):
-    """Dato sin texto propio en la página (fecha, precio…): sale en el panel «Otros datos» del modo edición."""
+def campo(etiqueta, valor, ruta, opciones=None):
+    """Dato sin texto propio en la página (fecha, precio…): se cambia con una casilla que solo admite ese dato.
+    Con `opciones` es un selector y solo se edita pulsando su elemento en la página (no sale en el formulario general)."""
     tipo = "num" if isinstance(valor, (int, float)) and not isinstance(valor, bool) else "txt"
-    return (f'<span hidden{ed(ruta)} data-e-etq="{e(etiqueta)}" data-e-tipo="{tipo}" '
+    extra = f' data-e-opciones="{e("|".join(opciones))}"' if opciones else ""
+    return (f'<span hidden{ed(ruta)} data-e-etq="{e(etiqueta)}" data-e-tipo="{tipo}"{extra} '
             f'data-v="{e(str(valor if valor is not None else ""))}"></span>')
 
 
