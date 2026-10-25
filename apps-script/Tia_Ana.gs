@@ -2,7 +2,8 @@
  * Editor de la web de Ana Martínez (https://antonioomsg.github.io/ana-martinez/).
  *
  * 1. doPost: el modo edición de la web (?editar) entra con usuario y contraseña y guarda
- *    los textos en data/*.json del repo de GitHub. GitHub Actions publica la web en 1-2 min.
+ *    textos, datos y fotos en el repo de GitHub (data/*.json, assets/). GitHub Actions publica
+ *    la web en 1-2 min.
  * 2. copiarADrive: sube al Drive compartido, ordenado por carpetas, las fotos, PDF y textos
  *    de la web (según archivo_drive.json, que genera build.py). Se puede repetir: solo añade
  *    lo que falta y actualiza los documentos «Textos» que hayan cambiado.
@@ -21,6 +22,7 @@ const RAMA = 'main';
 const WEB = 'https://antonioomsg.github.io/ana-martinez/';
 const DRIVE_POR_DEFECTO = '0ACbqrv17fXYDUk9PVA';
 const HORAS_SESION = 12;
+const VERSION = 2; // 2: fotos (subir, quitar, añadir) y párrafos (añadir, quitar)
 const MAX_FALLOS = 8; // intentos de contraseña fallidos antes de bloquear 15 minutos
 
 // Ficheros de data/ que el editor puede tocar
@@ -34,7 +36,7 @@ function respuesta(obj) {
 }
 
 function doGet() {
-  return respuesta({ ok: true, mensaje: 'Editor de la web de Ana Martínez: funcionando.' });
+  return respuesta({ ok: true, version: VERSION, mensaje: 'Editor de la web de Ana Martínez: funcionando.' });
 }
 
 function doPost(e) {
@@ -89,7 +91,7 @@ function entrar_(datos) {
     return { ok: false, error: 'Usuario o contraseña incorrectos.' };
   }
   const exp = Date.now() + HORAS_SESION * 3600 * 1000;
-  return { ok: true, token: exp + '.' + firma_(String(exp)), exp: exp };
+  return { ok: true, token: exp + '.' + firma_(String(exp)), exp: exp, version: VERSION };
 }
 
 function sesionValida_(token) {
@@ -125,31 +127,68 @@ function github_(metodo, ruta, cuerpo, crudo) {
   return crudo ? texto : JSON.parse(texto);
 }
 
+// Listas de párrafos: un texto con líneas en blanco se parte en varios párrafos y uno vacío se quita
+const LISTAS_PARRAFOS = ['text', 'text_en', 'es', 'en', 'texto', 'texto_en'];
+// Fotos que se pueden subir: carpetas de subidas y de las ediciones, más la portada y el retrato fijos
+const ARCHIVOS = /^assets\/(subidas\/[a-z0-9-]+|panuelos|laminas)\/[a-z0-9_.-]+\.(jpg|png)$|^assets\/(hero\.png|ana-martinez\.jpg|ana-martinez-roca\.jpg)$/;
+const FOTO = /^assets\/[A-Za-z0-9_.\/-]+\.(jpe?g|png|gif|webp)$/i;
+
 function validarCambio_(c) {
   if (!c || !Array.isArray(c.ruta) || c.ruta.length < 2 || c.ruta.length > 8) throw new Error('ruta no válida');
   if (!FICHEROS.test(c.ruta[0])) throw new Error('fichero no editable: ' + c.ruta[0]);
   c.ruta.slice(1).forEach(function (k) {
     if (!(typeof k === 'number' || typeof k === 'string') || CLAVES_PROHIBIDAS.indexOf(String(k)) >= 0) throw new Error('ruta no válida');
   });
-  if (typeof c.valor === 'string') {
-    if (c.valor.length > 20000) throw new Error('texto demasiado largo');
-  } else if (typeof c.valor !== 'number' || !isFinite(c.valor) || c.valor < 0) {
-    throw new Error('valor no válido');
+  const op = c.op || 'poner';
+  const ultimo = c.ruta[c.ruta.length - 1];
+  if (op === 'poner') {
+    if (typeof c.valor === 'string') {
+      if (c.valor.length > 20000) throw new Error('texto demasiado largo');
+    } else if (typeof c.valor !== 'number' || !isFinite(c.valor) || c.valor < 0) {
+      throw new Error('valor no válido');
+    }
+  } else if (op === 'insertar') { // después de la posición indicada (-1 = al principio)
+    if (typeof ultimo !== 'number' || ultimo < -1) throw new Error('posición no válida');
+    const v = c.valor;
+    const esFoto = v && typeof v === 'object' && typeof v.src === 'string' && FOTO.test(v.src) &&
+      typeof (v.alt || '') === 'string' && Object.keys(v).every(function (k) { return k === 'src' || k === 'alt'; });
+    if (!esFoto && !(typeof v === 'string' && v.length <= 20000)) throw new Error('elemento no válido');
+  } else if (op === 'quitar') {
+    if (typeof ultimo !== 'number' || ultimo < 0) throw new Error('posición no válida');
+  } else if (op === 'reclave') { // la cartela pasa a la foto nueva
+    if (!/^cuadros\//.test(c.ruta[0]) || c.ruta.length !== 2 || typeof c.valor !== 'string' || !FOTO.test(c.valor)) throw new Error('cartela no válida');
+  } else {
+    throw new Error('operación no válida');
   }
 }
 
-/** Pone `valor` en `ruta` dentro de `obj`. Solo cambia valores que ya existen (del mismo tipo)
- *  o añade un texto nuevo a un objeto existente; nunca cambia la estructura. */
-function aplicar_(obj, ruta, valor) {
+function validarArchivo_(a) {
+  if (!a || typeof a.ruta !== 'string' || !ARCHIVOS.test(a.ruta)) throw new Error('nombre de foto no válido');
+  if (typeof a.base64 !== 'string' || !a.base64.length || a.base64.length > 15 * 1024 * 1024) throw new Error('foto demasiado grande');
+}
+
+function padre_(obj, ruta) {
   let o = obj;
   for (let i = 0; i < ruta.length - 1; i++) {
     if (o === null || typeof o !== 'object' || !(ruta[i] in o)) throw new Error('no existe ' + ruta.slice(0, i + 1).join(' › '));
     o = o[ruta[i]];
   }
-  const k = ruta[ruta.length - 1];
   if (o === null || typeof o !== 'object') throw new Error('ruta no válida');
+  return o;
+}
+
+/** Pone `valor` en `ruta` dentro de `obj`. Solo cambia valores que ya existen (del mismo tipo)
+ *  o añade un texto nuevo a un objeto existente; nunca cambia la estructura. */
+function aplicar_(obj, ruta, valor) {
+  const o = padre_(obj, ruta);
+  const k = ruta[ruta.length - 1];
   if (Array.isArray(o)) {
     if (typeof k !== 'number' || k < 0 || k >= o.length) throw new Error('posición no válida');
+    if (typeof o[k] === 'string' && typeof valor === 'string' && LISTAS_PARRAFOS.indexOf(String(ruta[ruta.length - 2])) >= 0) {
+      const partes = valor.split(/\n\s*\n/).map(function (s) { return s.trim(); }).filter(Boolean);
+      o.splice.apply(o, [k, 1].concat(partes)); // vacío: se quita; con líneas en blanco: varios párrafos
+      return;
+    }
   } else if (!Object.prototype.hasOwnProperty.call(o, k)) {
     if (typeof valor !== 'string') throw new Error('no existe ' + ruta.join(' › '));
     o[k] = valor;
@@ -159,17 +198,60 @@ function aplicar_(obj, ruta, valor) {
   o[k] = valor;
 }
 
+function operar_(obj, c) {
+  const ruta = c.ruta.slice(1);
+  const op = c.op || 'poner';
+  if (op === 'poner') return aplicar_(obj, ruta, c.valor);
+  const o = padre_(obj, ruta);
+  const k = ruta[ruta.length - 1];
+  if (op === 'reclave') {
+    if (!Object.prototype.hasOwnProperty.call(o, k)) return; // ya no tenía cartela
+    if (Object.prototype.hasOwnProperty.call(o, c.valor)) throw new Error('esa foto ya tiene cartela');
+    o[c.valor] = o[k];
+    delete o[k];
+    return;
+  }
+  if (!Array.isArray(o)) throw new Error('no es una lista: ' + ruta.join(' › '));
+  const lista = String(ruta[ruta.length - 2]);
+  const esFoto = typeof c.valor === 'object';
+  if (op === 'insertar') {
+    if (k >= o.length) throw new Error('posición no válida');
+    if (esFoto ? lista !== 'images' : LISTAS_PARRAFOS.indexOf(lista) < 0) throw new Error('aquí no se puede añadir');
+    o.splice(k + 1, 0, esFoto ? { src: c.valor.src, alt: c.valor.alt || '' } : c.valor);
+  } else { // quitar
+    if (k >= o.length) throw new Error('posición no válida');
+    if (lista !== 'images' && LISTAS_PARRAFOS.indexOf(lista) < 0) throw new Error('aquí no se puede quitar');
+    o.splice(k, 1);
+  }
+}
+
+/** Orden para aplicar varios cambios de una misma lista con las posiciones de la página:
+ *  de la última posición a la primera, y en cada una primero lo que se añade detrás. */
+function ordenar_(cambios) {
+  const clave = function (c) { return JSON.stringify(c.ruta.slice(0, -1)); };
+  return cambios.slice().sort(function (a, b) {
+    const pa = clave(a), pb = clave(b);
+    if (pa !== pb) return pa < pb ? -1 : 1;
+    const ka = a.ruta[a.ruta.length - 1], kb = b.ruta[b.ruta.length - 1];
+    if (typeof ka === 'number' && typeof kb === 'number' && ka !== kb) return kb - ka;
+    return (a.op === 'insertar' ? 0 : 1) - (b.op === 'insertar' ? 0 : 1);
+  });
+}
+
 function guardar_(datos) {
   if (!sesionValida_(datos.token)) return { ok: false, caducada: true, error: 'La sesión ha caducado. Vuelve a entrar.' };
-  const cambios = datos.cambios;
-  if (!Array.isArray(cambios) || !cambios.length || cambios.length > 500) return { ok: false, error: 'No hay cambios que guardar.' };
+  const cambios = datos.cambios || [];
+  const archivos = datos.archivos || [];
+  if (!Array.isArray(cambios) || !Array.isArray(archivos) || (!cambios.length && !archivos.length) ||
+      cambios.length > 500 || archivos.length > 30) return { ok: false, error: 'No hay cambios que guardar.' };
   cambios.forEach(validarCambio_);
+  archivos.forEach(validarArchivo_);
   const lock = LockService.getScriptLock();
   lock.waitLock(30000);
   try {
     for (let intento = 0; ; intento++) {
       try {
-        return { ok: true, commit: commitCambios_(cambios), n: cambios.length };
+        return { ok: true, commit: commitCambios_(cambios, archivos), n: cambios.length + archivos.length };
       } catch (err) {
         if (err.code === 422 && intento < 2) continue; // alguien ha publicado a la vez: se repite sobre lo último
         throw err;
@@ -180,7 +262,7 @@ function guardar_(datos) {
   }
 }
 
-function commitCambios_(cambios) {
+function commitCambios_(cambios, archivos) {
   const ref = github_('get', '/git/ref/heads/' + RAMA);
   const base = ref.object.sha;
   const porFichero = {};
@@ -189,18 +271,24 @@ function commitCambios_(cambios) {
   Object.keys(porFichero).forEach(function (f) {
     const texto = github_('get', '/contents/data/' + f + '?ref=' + base, null, true);
     const obj = JSON.parse(texto);
-    porFichero[f].forEach(function (c) { aplicar_(obj, c.ruta.slice(1), c.valor); });
+    ordenar_(porFichero[f]).forEach(function (c) { operar_(obj, c); });
     const nuevo = JSON.stringify(obj, null, 1) + '\n';
     if (nuevo === texto) return;
     const blob = github_('post', '/git/blobs', { content: nuevo, encoding: 'utf-8' });
     arbol.push({ path: 'data/' + f, mode: '100644', type: 'blob', sha: blob.sha });
   });
+  archivos.forEach(function (a) {
+    const blob = github_('post', '/git/blobs', { content: a.base64, encoding: 'base64' });
+    arbol.push({ path: a.ruta, mode: '100644', type: 'blob', sha: blob.sha });
+  });
   if (!arbol.length) return base; // ya estaba así
   const commitBase = github_('get', '/git/commits/' + base);
   const tree = github_('post', '/git/trees', { base_tree: commitBase.tree.sha, tree: arbol });
-  const resumen = cambios.slice(0, 3).map(function (c) { return c.ruta.join(' › '); }).join('; ');
+  const n = cambios.length + archivos.length;
+  const resumen = cambios.slice(0, 3).map(function (c) { return (c.op && c.op !== 'poner' ? c.op + ' ' : '') + c.ruta.join(' › '); })
+    .concat(archivos.length ? [archivos.length + (archivos.length === 1 ? ' foto' : ' fotos')] : []).join('; ');
   const commit = github_('post', '/git/commits', {
-    message: 'Ana edita la web: ' + cambios.length + (cambios.length === 1 ? ' cambio' : ' cambios') + '\n\n' + resumen + (cambios.length > 3 ? '; …' : ''),
+    message: 'Ana edita la web: ' + n + (n === 1 ? ' cambio' : ' cambios') + '\n\n' + resumen + (cambios.length > 3 ? '; …' : ''),
     tree: tree.sha,
     parents: [base],
     author: { name: 'Ana Martínez (editor web)', email: 'ana@ana-martinez.com', date: new Date().toISOString() },

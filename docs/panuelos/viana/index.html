@@ -19,14 +19,14 @@
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-menu" id="nav-menu">
-      <li class="has-sub"><button class="sub-toggle" aria-expanded="false">COLECCIONES</button>
-        <div class="sub"><a href="../../proyectos/">Proyectos</a><a href="../../murales/">Murales</a><a href="../../talleres/">Talleres</a></div></li>
-      <li class="has-sub"><button class="sub-toggle" aria-expanded="false" aria-current="page">EDICIONES</button>
-        <div class="sub"><a href="../../ediciones/">Todas</a><a href="../../panuelos/">Pañuelos</a><a href="../../laminas/">Láminas</a></div></li>
-      <li><a href="../../sobre-mi/">SOBRE MÍ</a></li>
-      <li><a href="../../contacto/">CONTACTO</a></li>
+      <li class="has-sub"><button class="sub-toggle" aria-expanded="false"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;menu_colecciones&quot;]" data-e-lapiz>COLECCIONES</span></button>
+        <div class="sub"><a href="../../proyectos/"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;menu_proyectos&quot;]" data-e-lapiz>Proyectos</span></a><a href="../../murales/"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;menu_murales&quot;]" data-e-lapiz>Murales</span></a><a href="../../talleres/"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;menu_talleres&quot;]" data-e-lapiz>Talleres</span></a></div></li>
+      <li class="has-sub"><button class="sub-toggle" aria-expanded="false" aria-current="page"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;menu_ediciones&quot;]" data-e-lapiz>EDICIONES</span></button>
+        <div class="sub"><a href="../../ediciones/"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;menu_todas&quot;]" data-e-lapiz>Todas</span></a><a href="../../panuelos/"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;menu_panuelos&quot;]" data-e-lapiz>Pañuelos</span></a><a href="../../laminas/"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;menu_laminas&quot;]" data-e-lapiz>Láminas</span></a></div></li>
+      <li><a href="../../sobre-mi/"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;menu_sobre_mi&quot;]" data-e-lapiz>SOBRE MÍ</span></a></li>
+      <li><a href="../../contacto/"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;menu_contacto&quot;]" data-e-lapiz>CONTACTO</span></a></li>
     </ul>
-    <button class="cart-open" type="button" aria-label="Abrir la cesta">CESTA <span data-cart-count>0</span></button>
+    <button class="cart-open" type="button" aria-label="Abrir la cesta"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;menu_cesta&quot;]" data-e-lapiz>CESTA</span> <span data-cart-count>0</span></button>
   </nav>
 </header>
 <aside class="cart" aria-label="Cesta" hidden>
@@ -53,9 +53,9 @@
   </div>
   <div class="pdp-strip">
     <div class="pdp-photos" data-gallery>
-    <figure class="pdp-flat"><button type="button" class="zoomable" data-index="0" aria-label="Ampliar foto"><img data-flat-img src="../../assets/panuelos/viana_plano.jpg" alt="Carré Viana, extendido"></button></figure>
-    <figure><button type="button" class="zoomable" data-index="1" aria-label="Ampliar foto"><img data-worn-img src="../../assets/panuelos/viana_modelo.jpg" alt="Carré Viana, llevado"></button></figure>
-    <figure><button type="button" class="zoomable" data-index="2" aria-label="Ampliar foto"><img data-zoom-img src="../../assets/panuelos/viana_zoom.jpg" alt="Carré Viana, detalle de la seda"></button></figure>
+    <figure class="pdp-flat"><button type="button" class="zoomable" data-index="0" aria-label="Ampliar foto"><img data-flat-img data-e-producto="[&quot;panuelos.json&quot;, &quot;productos&quot;, 3]" data-e-vista="plano" data-e-dir="panuelos" src="../../assets/panuelos/viana_plano.jpg" alt="Carré Viana, extendido"></button></figure>
+    <figure><button type="button" class="zoomable" data-index="1" aria-label="Ampliar foto"><img data-worn-img data-e-producto="[&quot;panuelos.json&quot;, &quot;productos&quot;, 3]" data-e-vista="modelo" data-e-dir="panuelos" src="../../assets/panuelos/viana_modelo.jpg" alt="Carré Viana, llevado"></button></figure>
+    <figure><button type="button" class="zoomable" data-index="2" aria-label="Ampliar foto"><img data-zoom-img data-e-producto="[&quot;panuelos.json&quot;, &quot;productos&quot;, 3]" data-e-vista="zoom" data-e-dir="panuelos" src="../../assets/panuelos/viana_zoom.jpg" alt="Carré Viana, detalle de la seda"></button></figure>
     </div>
     <div class="pdp-dots" aria-hidden="true"><span class="is-on"></span><span></span><span></span></div>
     <div class="buy-card">
@@ -64,10 +64,10 @@
       <p class="buy-price" aria-live="polite" data-e-abre="Tamaño 1 · precio">100 €</p>
       <p class="buy-label buy-static">Color: <span data-e-abre="Color">Verde / Amarillo / Rosa pálido</span></p>
       <div class="buy-field">
-        <p class="buy-label">Tamaño · Size</p>
+        <p class="buy-label"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;tienda_tamano&quot;]">Tamaño · Size</span></p>
         <div class="sizes" role="group" aria-label="Tamaño"><button type="button" class="size-opt is-active" data-size="90" data-price="100" aria-pressed="true">90 × 90 cm</button><button type="button" class="size-opt" data-size="65" data-price="75" aria-pressed="false">65 × 65 cm</button></div>
       </div>
-      <button class="btn-buy add-to-cart" type="button" data-color="verde" data-size="90">Añadir a la cesta</button>
+      <button class="btn-buy add-to-cart" type="button" data-color="verde" data-size="90"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;tienda_anadir&quot;]" data-e-lapiz>Añadir a la cesta</span></button>
     </div>
   </div>
   <section class="pdp-info">
@@ -75,13 +75,13 @@
       <p class="lang-tag">ES</p>
       <p data-e="[&quot;ediciones.json&quot;, &quot;tipos&quot;, &quot;panuelos&quot;, &quot;ficha&quot;]">Seda twill 100 %, bordes cosidos a mano. Medida 90 × 90 cm; al estar el dobladillo hecho a mano, las dimensiones pueden variar ligeramente.</p>
       <p data-e="[&quot;panuelos.json&quot;, &quot;productos&quot;, 3, &quot;descripcion&quot;]">Hojas redondas y flores amarillas dibujadas con el detalle de una lámina botánica, enmarcadas por un ribete de damero verde. Un jardín de patio cordobés para llevar puesto.</p>
-      <p class="muted">Diseñado por Ana Martínez</p>
+      <p class="muted"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;tienda_disenado&quot;]">Diseñado por Ana Martínez</span></p>
     </div>
     <div lang="en">
       <p class="lang-tag">EN</p>
       <p data-e="[&quot;ediciones.json&quot;, &quot;tipos&quot;, &quot;panuelos&quot;, &quot;ficha_en&quot;]">100% silk twill, hand-rolled and hand-stitched hem. 90 × 90 cm; as the hem is finished by hand, dimensions may vary slightly.</p>
       <p data-e="[&quot;panuelos.json&quot;, &quot;productos&quot;, 3, &quot;descripcion_en&quot;]">Round leaves and yellow flowers drawn with the detail of a botanical plate, framed by a green chequered border. A Cordoban courtyard garden to wear.</p>
-      <p class="muted">Designed by Ana Martínez</p>
+      <p class="muted"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;tienda_disenado_en&quot;]">Designed by Ana Martínez</span></p>
     </div>
     <div class="accordions"><details><summary data-e="[&quot;ediciones.json&quot;, &quot;tipos&quot;, &quot;panuelos&quot;, &quot;acordeon&quot;, 0, 0]">MANTENIMIENTO</summary><p data-e="[&quot;ediciones.json&quot;, &quot;tipos&quot;, &quot;panuelos&quot;, &quot;acordeon&quot;, 0, 1]">Lavar en seco o a mano en agua fría con jabón neutro. Planchar a temperatura baja por el revés.</p></details><details><summary data-e="[&quot;ediciones.json&quot;, &quot;tipos&quot;, &quot;panuelos&quot;, &quot;acordeon&quot;, 1, 0]">ENVÍO Y DEVOLUCIONES</summary><p data-e="[&quot;ediciones.json&quot;, &quot;tipos&quot;, &quot;panuelos&quot;, &quot;acordeon&quot;, 1, 1]">Envío en su caja, listo para regalar. Devoluciones en un plazo de 30 días.</p></details><details><summary data-e="[&quot;ediciones.json&quot;, &quot;tipos&quot;, &quot;panuelos&quot;, &quot;acordeon&quot;, 2, 0]">HACER UN REGALO</summary><p data-e="[&quot;ediciones.json&quot;, &quot;tipos&quot;, &quot;panuelos&quot;, &quot;acordeon&quot;, 2, 1]">Podemos incluir una tarjeta escrita a mano por la artista.</p></details></div>
   </section>
@@ -95,7 +95,7 @@
   <section class="pdp-obra">
   <figure><img src="../../assets/panuelos/viana_diseno.jpg" alt="Láminas botánicas, obra de Ana Martínez" loading="lazy"></figure>
   <div>
-    <p class="eyebrow">LA OBRA · THE WORK</p>
+    <p class="eyebrow"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;tienda_la_obra&quot;]">LA OBRA · THE WORK</span></p>
     <h2><span data-e="[&quot;panuelos.json&quot;, &quot;productos&quot;, 3, &quot;obra&quot;, &quot;titulo&quot;]">Láminas botánicas</span></h2>
     <p class="muted"><span data-e="[&quot;panuelos.json&quot;, &quot;productos&quot;, 3, &quot;obra&quot;, &quot;tecnica&quot;]">Dibujo y acuarela</span></p>
     <p>Carré Viana nace de esta obra de Ana Martínez.</p>
@@ -104,7 +104,7 @@
   </div>
 </section>
   <section class="pdp-proyecto">
-  <p class="eyebrow">EL PROYECTO · THE PROJECT</p>
+  <p class="eyebrow"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;tienda_el_proyecto&quot;]">EL PROYECTO · THE PROJECT</span></p>
   <h2 data-e="[&quot;ediciones.json&quot;, &quot;grupos&quot;, 3, &quot;titulo&quot;]">Plantas de los patios</h2>
   
   <div class="bi pdp-quote"><blockquote lang="es"><p class="lang-tag">ES</p><p data-e="[&quot;ediciones.json&quot;, &quot;grupos&quot;, 3, &quot;texto&quot;, 0]">Ana lleva años dibujando las plantas de los patios de Andalucía: una de sus series de pañuelos artísticos, «Plantas de los patios de Andalucía», forma parte de la colección de Iberdrola, y ha trabajado para el Palacio de Viana de Córdoba.</p><p data-e="[&quot;ediciones.json&quot;, &quot;grupos&quot;, 3, &quot;texto&quot;, 1]">Este pañuelo nace de sus láminas botánicas: un dibujo minucioso, casi científico, convertido en estampado.</p></blockquote><blockquote lang="en"><p class="lang-tag">EN</p><p data-e="[&quot;ediciones.json&quot;, &quot;grupos&quot;, 3, &quot;texto_en&quot;, 0]">Ana has spent years drawing the plants of Andalusian courtyards: one of her series of art scarves, “Plantas de los patios de Andalucía”, is part of the Iberdrola collection, and she has worked for the Palacio de Viana in Córdoba.</p><p data-e="[&quot;ediciones.json&quot;, &quot;grupos&quot;, 3, &quot;texto_en&quot;, 1]">This scarf grows out of her botanical plates: a meticulous, almost scientific drawing turned into a print.</p></blockquote></div>
@@ -112,7 +112,7 @@
   
 </section>
   <section class="pdp-more">
-    <h2>Del mismo proyecto <span class="en-sub" lang="en">From the same project</span></h2>
+    <h2><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;tienda_mismo_proyecto&quot;]">Del mismo proyecto</span> <span class="en-sub" lang="en"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;tienda_mismo_proyecto_en&quot;]">From the same project</span></span></h2>
     <div class="rail-wrap" data-rail>
       <button type="button" class="rail-btn rail-prev" aria-label="Anteriores"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
       <div class="rail"><div class="shop-card">
@@ -123,7 +123,7 @@
   </div>
   <a class="shop-meta" href="../../panuelos/kelp-forest/"><span class="shop-kind" data-e="[&quot;ediciones.json&quot;, &quot;tipos&quot;, &quot;panuelos&quot;, &quot;nombre&quot;]" data-raw="Pañuelos">PAÑUELOS</span>
   <span class="shop-name">Carré <span data-e="[&quot;panuelos.json&quot;, &quot;productos&quot;, 0, &quot;nombre&quot;]">Kelp Forest</span></span>
-  <span class="shop-price">Desde 75 €</span></a>
+  <span class="shop-price"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;tienda_desde&quot;]" data-e-lapiz>Desde</span> 75 €</span></a>
 </div>
 <div class="shop-card">
   <div class="shop-media" data-carousel>
@@ -133,7 +133,7 @@
   </div>
   <a class="shop-meta" href="../../panuelos/siames/"><span class="shop-kind" data-e="[&quot;ediciones.json&quot;, &quot;tipos&quot;, &quot;panuelos&quot;, &quot;nombre&quot;]" data-raw="Pañuelos">PAÑUELOS</span>
   <span class="shop-name">Carré <span data-e="[&quot;panuelos.json&quot;, &quot;productos&quot;, 1, &quot;nombre&quot;]">Siamés</span></span>
-  <span class="shop-price">Desde 75 €</span></a>
+  <span class="shop-price"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;tienda_desde&quot;]" data-e-lapiz>Desde</span> 75 €</span></a>
 </div>
 <div class="shop-card">
   <div class="shop-media" data-carousel>
@@ -143,7 +143,7 @@
   </div>
   <a class="shop-meta" href="../../panuelos/ballena/"><span class="shop-kind" data-e="[&quot;ediciones.json&quot;, &quot;tipos&quot;, &quot;panuelos&quot;, &quot;nombre&quot;]" data-raw="Pañuelos">PAÑUELOS</span>
   <span class="shop-name">Carré <span data-e="[&quot;panuelos.json&quot;, &quot;productos&quot;, 2, &quot;nombre&quot;]">Ballena</span></span>
-  <span class="shop-price">Desde 75 €</span></a>
+  <span class="shop-price"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;tienda_desde&quot;]" data-e-lapiz>Desde</span> 75 €</span></a>
 </div>
 <div class="shop-card">
   <div class="shop-media" data-carousel>
@@ -153,7 +153,7 @@
   </div>
   <a class="shop-meta" href="../../panuelos/ondas/"><span class="shop-kind" data-e="[&quot;ediciones.json&quot;, &quot;tipos&quot;, &quot;panuelos&quot;, &quot;nombre&quot;]" data-raw="Pañuelos">PAÑUELOS</span>
   <span class="shop-name">Carré <span data-e="[&quot;panuelos.json&quot;, &quot;productos&quot;, 4, &quot;nombre&quot;]">Ondas</span></span>
-  <span class="shop-price">Desde 75 €</span></a>
+  <span class="shop-price"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;tienda_desde&quot;]" data-e-lapiz>Desde</span> 75 €</span></a>
 </div></div>
       <button type="button" class="rail-btn rail-next" aria-label="Siguientes"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
     </div>
@@ -181,13 +181,13 @@
   <form class="footer-form" action="mailto:ana@ana-martinez.com" method="post" enctype="text/plain">
     <label class="sr-only" for="f-email">Email</label>
     <input id="f-email" name="email" type="email" placeholder="Email" required>
-    <button type="submit">ENVIAR</button>
+    <button type="submit"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;pie_enviar&quot;]" data-e-lapiz>ENVIAR</span></button>
   </form>
   <div class="footer-links">
-    <div><a href="../../sobre-mi/">SOBRE MÍ</a><a href="../../contacto/">CONTACTO</a></div>
-    <div><a href="https://www.instagram.com/anamartinez_studio/" rel="noopener">INSTAGRAM</a><a href="https://www.youtube.com/user/aninanona" rel="noopener">YOUTUBE</a></div>
+    <div><a href="../../sobre-mi/"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;menu_sobre_mi&quot;]" data-e-lapiz>SOBRE MÍ</span></a><a href="../../contacto/"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;menu_contacto&quot;]" data-e-lapiz>CONTACTO</span></a></div>
+    <div><a href="https://www.instagram.com/anamartinez_studio/" rel="noopener"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;pie_instagram&quot;]" data-e-lapiz>INSTAGRAM</span></a><a href="https://www.youtube.com/user/aninanona" rel="noopener"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;pie_youtube&quot;]" data-e-lapiz>YOUTUBE</span></a></div>
   </div>
-  <p class="copy">© 2026 ANA MARTINEZ</p>
+  <p class="copy"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;pie_copyright&quot;]">© 2026 ANA MARTINEZ</span></p>
 </footer>
 <script>window.AM_ROOT = "../../"; window.AM_EDITOR = "https://script.google.com/macros/s/AKfycbztV7wefyJjiVhWpl19KTlLh5WG--1hV1pmZv6Fn-tAcA73BV9uy49k8zNC7yWOUD4wCg/exec";</script>
 <script src="../../assets/products.js" defer></script>

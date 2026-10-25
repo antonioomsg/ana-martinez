@@ -19,14 +19,14 @@
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-menu" id="nav-menu">
-      <li class="has-sub"><button class="sub-toggle" aria-expanded="false">COLECCIONES</button>
-        <div class="sub"><a href="../../proyectos/">Proyectos</a><a href="../../murales/">Murales</a><a href="../../talleres/">Talleres</a></div></li>
-      <li class="has-sub"><button class="sub-toggle" aria-expanded="false" aria-current="page">EDICIONES</button>
-        <div class="sub"><a href="../../ediciones/">Todas</a><a href="../../panuelos/">Pañuelos</a><a href="../../laminas/">Láminas</a></div></li>
-      <li><a href="../../sobre-mi/">SOBRE MÍ</a></li>
-      <li><a href="../../contacto/">CONTACTO</a></li>
+      <li class="has-sub"><button class="sub-toggle" aria-expanded="false"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;menu_colecciones&quot;]" data-e-lapiz>COLECCIONES</span></button>
+        <div class="sub"><a href="../../proyectos/"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;menu_proyectos&quot;]" data-e-lapiz>Proyectos</span></a><a href="../../murales/"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;menu_murales&quot;]" data-e-lapiz>Murales</span></a><a href="../../talleres/"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;menu_talleres&quot;]" data-e-lapiz>Talleres</span></a></div></li>
+      <li class="has-sub"><button class="sub-toggle" aria-expanded="false" aria-current="page"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;menu_ediciones&quot;]" data-e-lapiz>EDICIONES</span></button>
+        <div class="sub"><a href="../../ediciones/"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;menu_todas&quot;]" data-e-lapiz>Todas</span></a><a href="../../panuelos/"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;menu_panuelos&quot;]" data-e-lapiz>Pañuelos</span></a><a href="../../laminas/"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;menu_laminas&quot;]" data-e-lapiz>Láminas</span></a></div></li>
+      <li><a href="../../sobre-mi/"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;menu_sobre_mi&quot;]" data-e-lapiz>SOBRE MÍ</span></a></li>
+      <li><a href="../../contacto/"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;menu_contacto&quot;]" data-e-lapiz>CONTACTO</span></a></li>
     </ul>
-    <button class="cart-open" type="button" aria-label="Abrir la cesta">CESTA <span data-cart-count>0</span></button>
+    <button class="cart-open" type="button" aria-label="Abrir la cesta"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;menu_cesta&quot;]" data-e-lapiz>CESTA</span> <span data-cart-count>0</span></button>
   </nav>
 </header>
 <aside class="cart" aria-label="Cesta" hidden>
@@ -53,9 +53,9 @@
   </div>
   <div class="pdp-strip">
     <div class="pdp-photos" data-gallery>
-    <figure class="pdp-flat"><button type="button" class="zoomable" data-index="0" aria-label="Ampliar foto"><img data-flat-img src="../../assets/laminas/lam_greenland_centrada.jpg" alt="Lámina Greenland, centrada"></button></figure>
-    <figure><button type="button" class="zoomable" data-index="1" aria-label="Ampliar foto"><img data-worn-img src="../../assets/laminas/lam_greenland_casa.jpg" alt="Lámina Greenland, en casa"></button></figure>
-    <figure><button type="button" class="zoomable" data-index="2" aria-label="Ampliar foto"><img data-zoom-img src="../../assets/laminas/lam_greenland_zoom.jpg" alt="Lámina Greenland, detalle del papel"></button></figure>
+    <figure class="pdp-flat"><button type="button" class="zoomable" data-index="0" aria-label="Ampliar foto"><img data-flat-img data-e-producto="[&quot;laminas.json&quot;, &quot;productos&quot;, 5]" data-e-vista="plano" data-e-dir="laminas" src="../../assets/laminas/lam_greenland_centrada.jpg" alt="Lámina Greenland, centrada"></button></figure>
+    <figure><button type="button" class="zoomable" data-index="1" aria-label="Ampliar foto"><img data-worn-img data-e-producto="[&quot;laminas.json&quot;, &quot;productos&quot;, 5]" data-e-vista="modelo" data-e-dir="laminas" src="../../assets/laminas/lam_greenland_casa.jpg" alt="Lámina Greenland, en casa"></button></figure>
+    <figure><button type="button" class="zoomable" data-index="2" aria-label="Ampliar foto"><img data-zoom-img data-e-producto="[&quot;laminas.json&quot;, &quot;productos&quot;, 5]" data-e-vista="zoom" data-e-dir="laminas" src="../../assets/laminas/lam_greenland_zoom.jpg" alt="Lámina Greenland, detalle del papel"></button></figure>
     </div>
     <div class="pdp-dots" aria-hidden="true"><span class="is-on"></span><span></span><span></span></div>
     <div class="buy-card">
@@ -64,10 +64,10 @@
       <p class="buy-price" aria-live="polite" data-e-abre="Tamaño 1 · precio">45 €</p>
       
       <div class="buy-field">
-        <p class="buy-label">Tamaño · Size</p>
+        <p class="buy-label"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;tienda_tamano&quot;]">Tamaño · Size</span></p>
         <div class="sizes" role="group" aria-label="Tamaño"><button type="button" class="size-opt is-active" data-size="30x40" data-price="45" aria-pressed="true">30 × 40 cm</button><button type="button" class="size-opt" data-size="50x70" data-price="85" aria-pressed="false">50 × 70 cm</button><button type="button" class="size-opt" data-size="70x100" data-price="140" aria-pressed="false">70 × 100 cm</button></div>
       </div>
-      <button class="btn-buy add-to-cart" type="button" data-color="unica" data-size="30x40">Añadir a la cesta</button>
+      <button class="btn-buy add-to-cart" type="button" data-color="unica" data-size="30x40"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;tienda_anadir&quot;]" data-e-lapiz>Añadir a la cesta</span></button>
     </div>
   </div>
   <section class="pdp-info">
@@ -75,13 +75,13 @@
       <p class="lang-tag">ES</p>
       <p data-e="[&quot;ediciones.json&quot;, &quot;tipos&quot;, &quot;laminas&quot;, &quot;ficha&quot;]">Impresión giclée con tintas pigmentadas sobre papel de algodón mate de 300 g, con margen blanco. Firmada a lápiz por la artista. Se envía sin marco, protegida en tubo o carpeta rígida.</p>
       <p data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 5, &quot;descripcion&quot;]">Un iceberg solo en el mar bajo nubes teñidas de rosa. La luz como protagonista, en el formato cuadrado de Asuntos internos.</p>
-      <p class="muted">Diseñado por Ana Martínez</p>
+      <p class="muted"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;tienda_disenado&quot;]">Diseñado por Ana Martínez</span></p>
     </div>
     <div lang="en">
       <p class="lang-tag">EN</p>
       <p data-e="[&quot;ediciones.json&quot;, &quot;tipos&quot;, &quot;laminas&quot;, &quot;ficha_en&quot;]">Giclée print with pigment inks on 300 g matte cotton paper, with a white border. Hand-signed in pencil by the artist. Shipped unframed in a tube or rigid folder.</p>
       <p data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 5, &quot;descripcion_en&quot;]">A lone iceberg at sea beneath pink-tinged clouds. Light as the protagonist, in the square format of Asuntos internos.</p>
-      <p class="muted">Designed by Ana Martínez</p>
+      <p class="muted"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;tienda_disenado_en&quot;]">Designed by Ana Martínez</span></p>
     </div>
     <div class="accordions"><details><summary data-e="[&quot;ediciones.json&quot;, &quot;tipos&quot;, &quot;laminas&quot;, &quot;acordeon&quot;, 0, 0]">CUIDADOS</summary><p data-e="[&quot;ediciones.json&quot;, &quot;tipos&quot;, &quot;laminas&quot;, &quot;acordeon&quot;, 0, 1]">Enmarcar con cristal y evitar la luz solar directa para conservar los colores.</p></details><details><summary data-e="[&quot;ediciones.json&quot;, &quot;tipos&quot;, &quot;laminas&quot;, &quot;acordeon&quot;, 1, 0]">ENVÍO Y DEVOLUCIONES</summary><p data-e="[&quot;ediciones.json&quot;, &quot;tipos&quot;, &quot;laminas&quot;, &quot;acordeon&quot;, 1, 1]">Envío protegido en tubo o carpeta rígida. Devoluciones en un plazo de 30 días.</p></details><details><summary data-e="[&quot;ediciones.json&quot;, &quot;tipos&quot;, &quot;laminas&quot;, &quot;acordeon&quot;, 2, 0]">HACER UN REGALO</summary><p data-e="[&quot;ediciones.json&quot;, &quot;tipos&quot;, &quot;laminas&quot;, &quot;acordeon&quot;, 2, 1]">Podemos incluir una tarjeta escrita a mano por la artista.</p></details></div>
   </section>
@@ -95,24 +95,24 @@
   <section class="pdp-obra">
   <figure><a href="../../obra/asuntos-internos/#img-3" aria-label="Ver la obra Greenland"><img src="../../assets/wp/2026/02/GREENLAND-copia.jpg" alt="Greenland, obra de Ana Martínez" loading="lazy"></a></figure>
   <div>
-    <p class="eyebrow">LA OBRA · THE WORK</p>
+    <p class="eyebrow"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;tienda_la_obra&quot;]">LA OBRA · THE WORK</span></p>
     <h2><a href="../../obra/asuntos-internos/#img-3"><span data-e="[&quot;cuadros/loteA.json&quot;, &quot;assets/wp/2026/02/GREENLAND-copia.jpg&quot;, &quot;titulo&quot;]">Greenland</span></a></h2>
     <p class="muted"><span data-e="[&quot;cuadros/loteA.json&quot;, &quot;assets/wp/2026/02/GREENLAND-copia.jpg&quot;, &quot;tecnica&quot;]">Óleo sobre lienzo / Oil on canvas</span> · <span data-e="[&quot;cuadros/loteA.json&quot;, &quot;assets/wp/2026/02/GREENLAND-copia.jpg&quot;, &quot;medidas&quot;]">30 x 30 cm</span></p>
     <p>Lámina Greenland nace de esta obra de Ana Martínez.</p>
     <p lang="en" class="muted">Lámina Greenland is born from this work by Ana Martínez.</p>
-    <p><a class="link-arrow" href="../../obra/asuntos-internos/#img-3">Ver la obra en su proyecto ›</a></p>
+    <p><a class="link-arrow" href="../../obra/asuntos-internos/#img-3"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;tienda_ver_obra&quot;]" data-e-lapiz>Ver la obra en su proyecto ›</span></a></p>
   </div>
 </section>
   <section class="pdp-proyecto">
-  <p class="eyebrow">EL PROYECTO · THE PROJECT</p>
+  <p class="eyebrow"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;tienda_el_proyecto&quot;]">EL PROYECTO · THE PROJECT</span></p>
   <h2 data-e="[&quot;ediciones.json&quot;, &quot;grupos&quot;, 2, &quot;titulo&quot;]">Asuntos internos</h2>
   <p class="muted" data-e="[&quot;ediciones.json&quot;, &quot;grupos&quot;, 2, &quot;fecha&quot;]">2026</p>
   <div class="bi pdp-quote"><blockquote lang="es"><p class="lang-tag">ES</p><p data-e="[&quot;ediciones.json&quot;, &quot;grupos&quot;, 2, &quot;texto&quot;, 0]">Una serie de óleos de formato cuadrado que funcionan como páginas de un diario visual: escenas recogidas en lugares y momentos distintos, unidas por una misma manera de mirar la luz.</p></blockquote><blockquote lang="en"><p class="lang-tag">EN</p><p data-e="[&quot;ediciones.json&quot;, &quot;grupos&quot;, 2, &quot;texto_en&quot;, 0]">A series of square oil paintings that work like pages of a visual diary: scenes gathered in different places and moments, held together by the same way of looking at light.</p></blockquote></div>
   <cite data-e="[&quot;ediciones.json&quot;, &quot;grupos&quot;, 2, &quot;fuente&quot;]">Texto de la web</cite>
-  <p><a class="btn-link" href="../../obra/asuntos-internos/">VER EL PROYECTO</a></p>
+  <p><a class="btn-link" href="../../obra/asuntos-internos/"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;tienda_ver_el_proyecto&quot;]" data-e-lapiz>VER EL PROYECTO</span></a></p>
 </section>
   <section class="pdp-more">
-    <h2>Del mismo proyecto <span class="en-sub" lang="en">From the same project</span></h2>
+    <h2><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;tienda_mismo_proyecto&quot;]">Del mismo proyecto</span> <span class="en-sub" lang="en"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;tienda_mismo_proyecto_en&quot;]">From the same project</span></span></h2>
     <div class="rail-wrap" data-rail>
       <button type="button" class="rail-btn rail-prev" aria-label="Anteriores"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
       <div class="rail"><div class="shop-card">
@@ -123,7 +123,7 @@
   </div>
   <a class="shop-meta" href="../../laminas/levante/"><span class="shop-kind" data-e="[&quot;ediciones.json&quot;, &quot;tipos&quot;, &quot;laminas&quot;, &quot;nombre&quot;]" data-raw="Láminas">LÁMINAS</span>
   <span class="shop-name">Lámina <span data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 4, &quot;nombre&quot;]">Levante</span></span>
-  <span class="shop-price">Desde 45 €</span></a>
+  <span class="shop-price"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;tienda_desde&quot;]" data-e-lapiz>Desde</span> 45 €</span></a>
 </div>
 <div class="shop-card">
   <div class="shop-media" data-carousel>
@@ -133,7 +133,7 @@
   </div>
   <a class="shop-meta" href="../../panuelos/kelp-forest/"><span class="shop-kind" data-e="[&quot;ediciones.json&quot;, &quot;tipos&quot;, &quot;panuelos&quot;, &quot;nombre&quot;]" data-raw="Pañuelos">PAÑUELOS</span>
   <span class="shop-name">Carré <span data-e="[&quot;panuelos.json&quot;, &quot;productos&quot;, 0, &quot;nombre&quot;]">Kelp Forest</span></span>
-  <span class="shop-price">Desde 75 €</span></a>
+  <span class="shop-price"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;tienda_desde&quot;]" data-e-lapiz>Desde</span> 75 €</span></a>
 </div>
 <div class="shop-card">
   <div class="shop-media" data-carousel>
@@ -143,7 +143,7 @@
   </div>
   <a class="shop-meta" href="../../panuelos/siames/"><span class="shop-kind" data-e="[&quot;ediciones.json&quot;, &quot;tipos&quot;, &quot;panuelos&quot;, &quot;nombre&quot;]" data-raw="Pañuelos">PAÑUELOS</span>
   <span class="shop-name">Carré <span data-e="[&quot;panuelos.json&quot;, &quot;productos&quot;, 1, &quot;nombre&quot;]">Siamés</span></span>
-  <span class="shop-price">Desde 75 €</span></a>
+  <span class="shop-price"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;tienda_desde&quot;]" data-e-lapiz>Desde</span> 75 €</span></a>
 </div>
 <div class="shop-card">
   <div class="shop-media" data-carousel>
@@ -153,7 +153,7 @@
   </div>
   <a class="shop-meta" href="../../panuelos/ballena/"><span class="shop-kind" data-e="[&quot;ediciones.json&quot;, &quot;tipos&quot;, &quot;panuelos&quot;, &quot;nombre&quot;]" data-raw="Pañuelos">PAÑUELOS</span>
   <span class="shop-name">Carré <span data-e="[&quot;panuelos.json&quot;, &quot;productos&quot;, 2, &quot;nombre&quot;]">Ballena</span></span>
-  <span class="shop-price">Desde 75 €</span></a>
+  <span class="shop-price"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;tienda_desde&quot;]" data-e-lapiz>Desde</span> 75 €</span></a>
 </div></div>
       <button type="button" class="rail-btn rail-next" aria-label="Siguientes"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
     </div>
@@ -181,13 +181,13 @@
   <form class="footer-form" action="mailto:ana@ana-martinez.com" method="post" enctype="text/plain">
     <label class="sr-only" for="f-email">Email</label>
     <input id="f-email" name="email" type="email" placeholder="Email" required>
-    <button type="submit">ENVIAR</button>
+    <button type="submit"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;pie_enviar&quot;]" data-e-lapiz>ENVIAR</span></button>
   </form>
   <div class="footer-links">
-    <div><a href="../../sobre-mi/">SOBRE MÍ</a><a href="../../contacto/">CONTACTO</a></div>
-    <div><a href="https://www.instagram.com/anamartinez_studio/" rel="noopener">INSTAGRAM</a><a href="https://www.youtube.com/user/aninanona" rel="noopener">YOUTUBE</a></div>
+    <div><a href="../../sobre-mi/"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;menu_sobre_mi&quot;]" data-e-lapiz>SOBRE MÍ</span></a><a href="../../contacto/"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;menu_contacto&quot;]" data-e-lapiz>CONTACTO</span></a></div>
+    <div><a href="https://www.instagram.com/anamartinez_studio/" rel="noopener"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;pie_instagram&quot;]" data-e-lapiz>INSTAGRAM</span></a><a href="https://www.youtube.com/user/aninanona" rel="noopener"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;pie_youtube&quot;]" data-e-lapiz>YOUTUBE</span></a></div>
   </div>
-  <p class="copy">© 2026 ANA MARTINEZ</p>
+  <p class="copy"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;pie_copyright&quot;]">© 2026 ANA MARTINEZ</span></p>
 </footer>
 <script>window.AM_ROOT = "../../"; window.AM_EDITOR = "https://script.google.com/macros/s/AKfycbztV7wefyJjiVhWpl19KTlLh5WG--1hV1pmZv6Fn-tAcA73BV9uy49k8zNC7yWOUD4wCg/exec";</script>
 <script src="../../assets/products.js" defer></script>

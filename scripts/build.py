@@ -14,23 +14,25 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 import archivo_drive  # noqa: E402
 import tienda  # noqa: E402
-from editable import cargar_lotes, campo, ed  # noqa: E402
+import editable  # noqa: E402
+from editable import cargar_lotes, campo, ed, foto, t, tx  # noqa: E402
 
 ROOT = Path(sys.argv[1] if len(sys.argv) > 1 else ".")
 OUT = ROOT / "docs"
 MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio",
          "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
 SECCIONES = [
-    # (categoría WP, carpeta, título, columnas de la rejilla)
-    ("PROYECTOS", "proyectos", "Proyectos", 3),
-    ("PINTAMENTO", "murales", "Murales", 2),
-    ("TALLERES", "talleres", "Talleres", 3),
+    # (categoría WP, carpeta, clave del título en sitio.json › textos, columnas de la rejilla)
+    ("PROYECTOS", "proyectos", "menu_proyectos", 3),
+    ("PINTAMENTO", "murales", "menu_murales", 2),
+    ("TALLERES", "talleres", "menu_talleres", 3),
 ]
 EMAIL = "ana@ana-martinez.com"
 INSTAGRAM = "https://www.instagram.com/anamartinez_studio/"
 YOUTUBE = "https://www.youtube.com/user/aninanona"
 ORIGEN = json.loads((ROOT / "data" / "fotos_origen.json").read_text())
 SITIO = json.loads((ROOT / "data" / "sitio.json").read_text())
+editable.TEXTOS.update(SITIO["textos"])
 
 e = html.escape
 
@@ -50,7 +52,7 @@ def nav(r, current=""):
         cls = ' aria-current="page"' if key == current else ""
         return f'<a href="{r}{href}"{cls}>{label}</a>'
 
-    sub = "".join(item(f"{f}/", t, f) for _, f, t, _ in SECCIONES)
+    sub = "".join(item(f"{f}/", t(k, lapiz=True), f) for _, f, k, _ in SECCIONES)
     return f"""<header class="site-header">
   <nav class="nav" aria-label="Principal">
     <a class="nav-brand" href="{r}index.html">ANA MARTINEZ</a>
@@ -58,14 +60,14 @@ def nav(r, current=""):
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-menu" id="nav-menu">
-      <li class="has-sub"><button class="sub-toggle" aria-expanded="false">COLECCIONES</button>
+      <li class="has-sub"><button class="sub-toggle" aria-expanded="false">{t("menu_colecciones", lapiz=True)}</button>
         <div class="sub">{sub}</div></li>
-      <li class="has-sub"><button class="sub-toggle" aria-expanded="false"{' aria-current="page"' if current == "ediciones" else ""}>EDICIONES</button>
-        <div class="sub">{item("ediciones/", "Todas", "sub-ediciones")}{item("panuelos/", "Pañuelos", "sub-panuelos")}{item("laminas/", "Láminas", "sub-laminas")}</div></li>
-      <li>{item("sobre-mi/", "SOBRE MÍ", "sobre-mi")}</li>
-      <li>{item("contacto/", "CONTACTO", "contacto")}</li>
+      <li class="has-sub"><button class="sub-toggle" aria-expanded="false"{' aria-current="page"' if current == "ediciones" else ""}>{t("menu_ediciones", lapiz=True)}</button>
+        <div class="sub">{item("ediciones/", t("menu_todas", lapiz=True), "sub-ediciones")}{item("panuelos/", t("menu_panuelos", lapiz=True), "sub-panuelos")}{item("laminas/", t("menu_laminas", lapiz=True), "sub-laminas")}</div></li>
+      <li>{item("sobre-mi/", t("menu_sobre_mi", lapiz=True), "sobre-mi")}</li>
+      <li>{item("contacto/", t("menu_contacto", lapiz=True), "contacto")}</li>
     </ul>
-    <button class="cart-open" type="button" aria-label="Abrir la cesta">CESTA <span data-cart-count>0</span></button>
+    <button class="cart-open" type="button" aria-label="Abrir la cesta">{t("menu_cesta", lapiz=True)} <span data-cart-count>0</span></button>
   </nav>
 </header>
 <aside class="cart" aria-label="Cesta" hidden>
@@ -96,13 +98,13 @@ def footer(r):
   <form class="footer-form" action="mailto:{EMAIL}" method="post" enctype="text/plain">
     <label class="sr-only" for="f-email">Email</label>
     <input id="f-email" name="email" type="email" placeholder="Email" required>
-    <button type="submit">ENVIAR</button>
+    <button type="submit">{t("pie_enviar", lapiz=True)}</button>
   </form>
   <div class="footer-links">
-    <div><a href="{r}sobre-mi/">SOBRE MÍ</a><a href="{r}contacto/">CONTACTO</a></div>
-    <div><a href="{INSTAGRAM}" rel="noopener">INSTAGRAM</a><a href="{YOUTUBE}" rel="noopener">YOUTUBE</a></div>
+    <div><a href="{r}sobre-mi/">{t("menu_sobre_mi", lapiz=True)}</a><a href="{r}contacto/">{t("menu_contacto", lapiz=True)}</a></div>
+    <div><a href="{INSTAGRAM}" rel="noopener">{t("pie_instagram", lapiz=True)}</a><a href="{YOUTUBE}" rel="noopener">{t("pie_youtube", lapiz=True)}</a></div>
   </div>
-  <p class="copy">© 2026 ANA MARTINEZ</p>
+  <p class="copy">{t("pie_copyright")}</p>
 </footer>"""
 
 
@@ -144,7 +146,8 @@ def write(rel, content):
 
 
 def card(r, p):
-    img = f'<img src="{e(src(r, p["cover"]))}" alt="" loading="lazy">' if p["cover"] else ""
+    marca = foto(foto=["content.json", "posts", p["_i"], "cover"], slug=p["slug"])
+    img = f'<img src="{e(src(r, p["cover"]))}" alt="" loading="lazy"{marca}>' if p["cover"] else ""
     return f"""<a class="card" href="{r}obra/{p["slug"]}/">
   {img}<span class="card-veil"></span>
   <span class="card-text"><span class="card-title"{ed(["content.json", "posts", p["_i"], "title"], raw=p["title"])}>{e(p["title"].upper())}</span>
@@ -166,27 +169,29 @@ def vendido(src):
     return int(hashlib.md5(src.encode()).hexdigest(), 16) % 100 < 35
 
 
-def figura(r, k, im, c, proyecto):
+def figura(r, k, im, c, proyecto, ruta=None, slug=None):
     img = (f'<button type="button" class="zoomable" data-index="{k}" aria-label="Ampliar foto">'
            f'<img src="{e(src(r, im["src"]))}" alt="{e((c or {}).get("titulo") or im["alt"])}" loading="lazy"></button>')
+    marca = foto(galeria=ruta, slug=slug, cartela=[c["_f"], c["_k"]] if c and c.get("_f") else None,
+                 estado=None if not c or c.get("estado") or not c.get("es_obra") else ("vendido" if vendido(im["src"]) else "disponible"))
     if not c or not c.get("es_obra") or not c.get("titulo"):
-        return f'<figure id="img-{k}">{img}</figure>'
+        return f'<figure id="img-{k}"{marca}>{img}</figure>'
     datos = " · ".join(x for x in (c.get("tecnica"), c.get("medidas")) if x)
     estado_real = c.get("estado")  # "vendido" / "disponible" fijado a mano manda sobre el concepto
     es_vendido = (estado_real == "vendido") if estado_real in ("vendido", "disponible") else vendido(im["src"])
     ruta_estado = [c["_f"], c["_k"], "estado"]
-    marca = f' data-e-abre="Estado"{ed(ruta_estado).replace("data-e=", "data-e-campo=")}'
+    marca_estado = f' data-e-abre="Estado"{ed(ruta_estado).replace("data-e=", "data-e-campo=")}'
     estado_campo = campo("Estado de la obra", "vendido" if es_vendido else "disponible", ruta_estado,
                          opciones=["disponible", "vendido"])
     if es_vendido:
-        estado = (f'<span class="estado estado-sold"{marca}><span class="dot dot-sold" aria-hidden="true"></span>'
+        estado = (f'<span class="estado estado-sold"{marca_estado}><span class="dot dot-sold" aria-hidden="true"></span>'
                   'Vendido <span lang="en">· Sold</span></span>')
     else:
-        estado = (f'<button type="button" class="estado estado-free"{marca} data-inquiry data-img="{e(src(r, im["src"]))}" '
+        estado = (f'<button type="button" class="estado estado-free"{marca_estado} data-inquiry data-img="{e(src(r, im["src"]))}" '
                   f'data-titulo="{e(c["titulo"])}" data-datos="{e(datos)}" data-proyecto="{e(proyecto)}">'
                   f'<span class="dot dot-free" aria-hidden="true"></span>Disponible · <u>Consultar</u> '
                   f'<span lang="en">· Enquire</span></button>')
-    return (f'<figure id="img-{k}">{img}<figcaption class="cartela"><span class="cartela-text">'
+    return (f'<figure id="img-{k}"{marca}>{img}<figcaption class="cartela"><span class="cartela-text">'
             f'<span class="cartela-titulo"{ed([c["_f"], c["_k"], "titulo"])}>{e(c["titulo"])}</span>'
             f'<span class="cartela-datos">{cartela_datos(c)}</span>'
             f'{estado}{estado_campo}</span></figcaption></figure>')
@@ -279,12 +284,13 @@ def build():
 
     # Portada
     write("index.html", page("", "Ana Martínez", f"""<section class="hero">
-  <img src="assets/hero.png" alt="Acuarela de Ana Martínez: dos figuras de niñas en azul turquesa, una con gorro rojo">
+  <img src="assets/hero.png"{foto(fijo="assets/hero.png")} alt="Acuarela de Ana Martínez: dos figuras de niñas en azul turquesa, una con gorro rojo">
   <a class="hero-ig" href="{INSTAGRAM}" rel="noopener" aria-label="Instagram"><img src="assets/instagram.svg" alt="" width="48" height="48"></a>
 </section>""", cls="home"))
 
     # Rejillas por sección
-    for cat, folder, title, cols in SECCIONES:
+    for cat, folder, clave, cols in SECCIONES:
+        title = tx(clave)
         items = [p for p in posts if p["category"] == cat]
         grid = "\n".join(card("../", p) for p in items)
         write(f"{folder}/index.html", page("../", title, f"""<h1 class="sr-only">{title}</h1>
@@ -302,12 +308,13 @@ def build():
     curador = cargar_lotes(ROOT / "data" / "textos_curador")
     for p in posts:
         i_post = ["content.json", "posts", p["_i"]]
-        folder, sec_title = next(((f, t) for c, f, t, _ in SECCIONES if c == p["category"]), ("proyectos", "Proyectos"))
+        folder, sec_title = next(((f, tx(k)) for c, f, k, _ in SECCIONES if c == p["category"]), ("proyectos", tx("menu_proyectos")))
         sib = order.get(p["category"], [])
         i = sib.index(p) if p in sib else -1
         prev_ = sib[i - 1] if i > 0 else None
         next_ = sib[i + 1] if 0 <= i < len(sib) - 1 else None
-        imgs = "\n".join(figura("../../", k, im, cuadros.get(im["src"]), p["title"].capitalize()) for k, im in enumerate(p["images"]))
+        imgs = "\n".join(figura("../../", k, im, cuadros.get(im["src"]), p["title"].capitalize(),
+                                 i_post + ["images", k], p["slug"]) for k, im in enumerate(p["images"]))
         pager = '<nav class="pager">'
         pager += f'<a href="../{prev_["slug"]}/">← {e(prev_["title"])}</a>' if prev_ else "<span></span>"
         pager += f'<a href="../../{folder}/">{sec_title.upper()}</a>'
@@ -354,12 +361,12 @@ def build():
     bio = json.loads((ROOT / "data" / "bio.json").read_text())
     cv = next((t["pdf"] for t in data["pages"]["bio"]["text"] if isinstance(t, dict) and "pdf" in t), None)
     cv_btn = f'<a class="btn-link" href="{e(src("../", cv))}" rel="noopener">CV ↗</a>' if cv else ""
-    write("sobre-mi/index.html", page("../", "Sobre mí", f"""<article class="bio2">
-  <h1 class="bio2-title">Sobre mí <span class="en-sub" lang="en">About</span></h1>
+    write("sobre-mi/index.html", page("../", tx("sobre_titulo"), f"""<article class="bio2">
+  <h1 class="bio2-title">{t("sobre_titulo")} <span class="en-sub" lang="en">{t("sobre_titulo_en")}</span></h1>
   <div class="bio2-hero">
-    <figure class="bio2-photo"><img src="../assets/ana-martinez.jpg" alt="Retrato de Ana Martínez"></figure>
+    <figure class="bio2-photo"><img src="../assets/ana-martinez.jpg"{foto(fijo="assets/ana-martinez.jpg")} alt="Retrato de Ana Martínez"></figure>
     <div class="bio2-intro">
-      <h2>Biografía <span class="en-sub" lang="en">Biography</span></h2>
+      <h2>{t("bio_titulo")} <span class="en-sub" lang="en">{t("bio_titulo_en")}</span></h2>
       <p class="bio2-lead"><strong{ed(["bio.json", "lead_es"])}>{e(bio["lead_es"])}</strong></p>
       <p class="bio2-lead-en" lang="en"{ed(["bio.json", "lead_en"])}>{e(bio["lead_en"])}</p>
       {cv_btn}
@@ -370,7 +377,7 @@ def build():
 
     # Contacto
     write("contacto/index.html", page("../", "Contacto", f"""<section class="contacto">
-  <h1>CONTACTO</h1>
+  <h1>{t("contacto_titulo")}</h1>
   <div class="bi bi-intro"><p lang="es"{ed(["sitio.json", "contacto_es"])}>{e(SITIO["contacto_es"])}</p><p lang="en"{ed(["sitio.json", "contacto_en"])}>{e(SITIO["contacto_en"])}</p></div>
   <p class="contacto-mail"><a href="mailto:{EMAIL}">{EMAIL}</a></p>
   <p class="contacto-redes"><a href="{INSTAGRAM}" rel="noopener">Instagram</a> · <a href="{YOUTUBE}" rel="noopener">YouTube</a></p>
@@ -407,7 +414,7 @@ def build_tienda():
             p["obra"]["_cartela"] = c
     (OUT / "assets" / "products.js").write_text(tienda.products_js(ed, productos))
     for clave, titulo, _ in tienda.FILTROS:
-        write(f"{clave}/index.html", page("../", "Ediciones" if clave == "ediciones" else titulo,
+        write(f"{clave}/index.html", page("../", tx("tienda_titulo") if clave == "ediciones" else tx(titulo),
                                           tienda.listado("../", ed, productos, clave), current="ediciones",
                                           desc="Pañuelos de seda y láminas de Ana Martínez, nacidos de su pintura."))
     for p in productos:

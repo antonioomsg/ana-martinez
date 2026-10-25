@@ -31,6 +31,18 @@
 .am-pop input:invalid { border-color: #b00020; background: #fff3f4; }
 .am-pop button { min-height: 40px; padding: 0 14px; border: 1px solid #111; background: #111; color: #fff; font: inherit; cursor: pointer; }
 .am-pop .am-pop-no { background: #fff; color: #111; }
+.am-editando [data-e].am-vacio::before { content: "Párrafo vacío: se quitará al guardar"; color: #b00020; font-style: italic; }
+.am-lapiz { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; margin-left: 4px; padding: 0; border: 1px solid #00788c; border-radius: 50%; background: #fff; color: #00788c; font: 13px/1 system-ui, sans-serif; letter-spacing: 0; text-transform: none; vertical-align: middle; cursor: pointer; }
+.am-lapiz:hover { background: #00788c; color: #fff; }
+.am-editando [data-e-lapiz].am-cambiado { background: rgba(255,214,0,.28); }
+.am-foto-host { position: relative; }
+.am-fotobar { position: absolute; z-index: 5; left: 8px; top: 8px; display: flex; flex-wrap: wrap; gap: 6px; }
+.hero > .am-fotobar { top: auto; bottom: 24px; left: 24px; }
+.am-fotobar button { min-height: 34px; padding: 0 12px; border: 0; background: rgba(17,17,17,.88); color: #fff; font: 13px Jost, system-ui, sans-serif; letter-spacing: .5px; cursor: pointer; }
+.am-fotobar button:hover { background: #00788c; }
+.am-foto-quitada > :not(.am-fotobar) { opacity: .25; }
+.am-foto-quitada::after { content: "Se quitará al guardar"; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); padding: 6px 12px; background: #b00020; color: #fff; font: 14px Jost, system-ui, sans-serif; }
+.am-foto-nueva, .am-foto-cambiada { outline: 3px solid #f0c800; outline-offset: -3px; }
 .am-dlg .am-ayuda { margin: -6px 0 16px; color: #666; font-size: 13px; }
 .am-barra { position: fixed; z-index: 9999; left: 50%; bottom: 16px; transform: translateX(-50%); display: flex; flex-wrap: wrap; align-items: center; gap: 8px; max-width: calc(100vw - 32px); padding: 10px 12px; background: #111; color: #fff; font: 14px/1.3 Jost, system-ui, sans-serif; box-shadow: 0 6px 24px rgba(0,0,0,.25); }
 .am-barra b { font-weight: 500; letter-spacing: 1px; margin-right: 4px; }
@@ -53,7 +65,9 @@
   const texto = (el) => (el.hasAttribute("hidden") ? el.dataset.v : el.innerText)
     .replace(/\r/g, "").replace(/ /g, " ").replace(/[ \t]+\n/g, "\n").replace(/\n{3,}/g, "\n\n").trim();
 
-  const pendientes = new Map(); // clave -> { ruta, valor }
+  const pendientes = new Map(); // clave -> { ruta, valor, op? }
+  const archivos = new Map(); // ruta en el repo -> base64 de la foto nueva
+  let orden = 0; // para que varias fotos añadidas detrás de la misma queden en el orden en que se añadieron
   let barra, estado, botonGuardar;
 
   function dialogo(html) {
@@ -95,7 +109,7 @@
         try {
           const r = await llamar({ accion: "entrar", usuario: f.usuario.value.trim(), contrasena: f.contrasena.value });
           if (!r.ok) { err.textContent = r.error || "No se ha podido entrar."; return; }
-          guardarLocal(K_TOKEN, { token: r.token, exp: r.exp });
+          guardarLocal(K_TOKEN, { token: r.token, exp: r.exp, version: r.version || 1 });
           d.close();
           ok(true);
         } catch (_) {
@@ -105,9 +119,14 @@
     });
   }
 
+  // Párrafo de una lista (text, es, texto…): si se vacía, se quita al guardar
+  const LISTAS = ["text", "text_en", "es", "en", "texto", "texto_en"];
+  const esParrafo = (ruta) => typeof ruta[ruta.length - 1] === "number" && LISTAS.includes(String(ruta[ruta.length - 2]));
+
   function marcar(el) {
     const k = clave(el);
     const valor = texto(el);
+    if (!el.hidden) el.classList.toggle("am-vacio", valor === "" && esParrafo(JSON.parse(k)));
     const iguales = document.querySelectorAll(`[data-e="${CSS.escape(k)}"]`);
     if (valor === el.dataset.amOrig) pendientes.delete(k);
     else pendientes.set(k, { ruta: JSON.parse(k), valor: el.dataset.eTipo === "num" ? Number(valor) : valor });
@@ -116,9 +135,10 @@
   }
 
   function pintarEstado(msg) {
-    const n = pendientes.size;
+    const n = pendientes.size + [...archivos.keys()].filter((r) => !/^assets\/(subidas|panuelos|laminas)\//.test(r)).length;
     estado.textContent = msg || (n ? `${n} ${n === 1 ? "cambio" : "cambios"} sin guardar` : "Pulsa un texto para cambiarlo");
     botonGuardar.disabled = !n;
+    return n;
   }
 
   function aplicarRecientes() {
@@ -140,14 +160,14 @@
   }
 
   async function guardar() {
-    if (!pendientes.size) return;
+    if (!pendientes.size && !archivos.size) return;
     if (!tokenValido() && !(await entrar())) return;
     botonGuardar.disabled = true;
-    pintarEstado("Guardando…");
-    const cambios = [...pendientes.values()];
+    pintarEstado(archivos.size ? "Guardando (subiendo fotos)…" : "Guardando…");
+    const cambios = [...pendientes.values()].sort((a, b) => (b.orden || 0) - (a.orden || 0)).map(({ orden: _, ...c }) => c);
     let r;
     try {
-      r = await llamar({ accion: "guardar", token: tokenValido(), cambios });
+      r = await llamar({ accion: "guardar", token: tokenValido(), cambios, archivos: [...archivos].map(([ruta, base64]) => ({ ruta, base64 })) });
     } catch (_) {
       pintarEstado("No se ha podido guardar (sin conexión). Vuelve a pulsar Guardar.");
       botonGuardar.disabled = false;
@@ -156,7 +176,9 @@
     if (!r.ok && r.caducada) { guardarLocal(K_TOKEN, null); if (await entrar()) return guardar(); }
     if (!r.ok) { pintarEstado(r.error || "No se ha podido guardar."); botonGuardar.disabled = false; return; }
     const rec = leer(K_RECIENTES) || {};
+    const habiaFotos = archivos.size || [...pendientes.values()].some((c) => c.op);
     for (const [k, c] of pendientes) {
+      if (c.op || c.foto) continue; // las fotos se ven al publicarse
       rec[k] = { valor: c.valor, t: Date.now() };
       document.querySelectorAll(`[data-e="${CSS.escape(k)}"]`).forEach((el) => {
         el.dataset.amOrig = String(c.valor);
@@ -166,7 +188,13 @@
     }
     guardarLocal(K_RECIENTES, rec);
     pendientes.clear();
-    pintarEstado("Guardado ✓ Se publica en 1-2 minutos");
+    archivos.clear();
+    document.querySelectorAll(".am-foto-quitada, .am-foto-nueva, .am-foto-cambiada").forEach((f) => {
+      f.classList.remove("am-foto-nueva", "am-foto-cambiada");
+      if (f.classList.contains("am-foto-quitada")) f.remove();
+      f.querySelector?.(".am-fotobar")?.remove();
+    });
+    pintarEstado(habiaFotos ? "Guardado ✓ Fotos y textos se publican en 1-2 minutos" : "Guardado ✓ Se publica en 1-2 minutos");
   }
 
   // Datos que no son texto escrito encima (fecha, precios, colores): se cambian en un formulario
@@ -273,8 +301,174 @@
       : '<span class="dot dot-free" aria-hidden="true"></span>Disponible · <u>Consultar</u> <span lang="en">· Enquire</span>';
   }
 
+  /** Texto de un enlace o botón (✎): casilla en el sitio, sin dejar de poder navegar con el enlace. */
+  function casillaTexto(el, ancla) {
+    document.querySelector(".am-pop")?.remove();
+    const pop = document.createElement("form");
+    pop.className = "am-pop";
+    pop.innerHTML = '<input type="text" required aria-label="Texto"><button>Aplicar</button><button type="button" class="am-pop-no">✕</button>';
+    const inp = pop.querySelector("input");
+    inp.value = el.dataset.raw ?? el.textContent;
+    inp.style.width = `${Math.max(12, inp.value.length + 4)}ch`;
+    const r = ancla.getBoundingClientRect();
+    pop.style.left = `${Math.max(8, Math.min(r.left + scrollX - 120, scrollX + document.documentElement.clientWidth - 340))}px`;
+    pop.style.top = `${r.bottom + scrollY + 8}px`;
+    document.body.append(pop);
+    inp.focus();
+    inp.select();
+    const cerrar = () => { pop.remove(); document.removeEventListener("mousedown", fuera, true); };
+    const fuera = (ev) => { if (!pop.contains(ev.target)) cerrar(); };
+    document.addEventListener("mousedown", fuera, true);
+    pop.querySelector(".am-pop-no").onclick = cerrar;
+    pop.addEventListener("keydown", (ev) => { if (ev.key === "Escape") cerrar(); });
+    pop.onsubmit = (ev) => {
+      ev.preventDefault();
+      const v = inp.value.trim();
+      if (!v) return;
+      document.querySelectorAll(`[data-e="${CSS.escape(clave(el))}"]`).forEach((x) => {
+        if (x.dataset.raw != null) x.dataset.raw = v;
+        x.textContent = x.dataset.raw != null && x.textContent === x.textContent.toUpperCase() ? v.toUpperCase() : v;
+      });
+      const k = clave(el);
+      if (v === (el.dataset.amOrigRaw ??= el.dataset.amOrig)) pendientes.delete(k);
+      else pendientes.set(k, { ruta: JSON.parse(k), valor: v });
+      document.querySelectorAll(`[data-e="${CSS.escape(k)}"]`).forEach((x) => x.classList.toggle("am-cambiado", pendientes.has(k)));
+      pintarEstado();
+      cerrar();
+    };
+  }
+
+  // ---------- Fotos ----------
+  const ahora = () => `${new Date().toISOString().replace(/\D/g, "").slice(0, 14)}-${++orden}`; // único aunque se suban dos en el mismo segundo
+  const slugDe = (s) => (s || "foto").normalize("NFKD").replace(/[^\w-]+/g, "-").replace(/-+/g, "-").toLowerCase().replace(/^-|-$/g, "").slice(0, 40) || "foto";
+
+  /** Elige una foto y la prepara para la web: lado mayor 2400 px, JPEG (PNG si sustituye un .png). */
+  function elegirFoto(png) {
+    return new Promise((ok) => {
+      const inp = document.createElement("input");
+      inp.type = "file";
+      inp.accept = "image/*";
+      inp.onchange = async () => {
+        const f = inp.files[0];
+        if (!f) return ok(null);
+        try {
+          const bmp = await createImageBitmap(f);
+          const k = Math.min(1, 2400 / Math.max(bmp.width, bmp.height));
+          const c = document.createElement("canvas");
+          c.width = Math.round(bmp.width * k);
+          c.height = Math.round(bmp.height * k);
+          c.getContext("2d").drawImage(bmp, 0, 0, c.width, c.height);
+          const url = c.toDataURL(png ? "image/png" : "image/jpeg", 0.86);
+          ok({ base64: url.split(",")[1], url, nombre: f.name.replace(/\.[^.]+$/, "") });
+        } catch (_) {
+          alert("No se ha podido leer esa foto. Prueba con un JPG o PNG.");
+          ok(null);
+        }
+      };
+      inp.click();
+    });
+  }
+
+  function barraFoto(host, botones) {
+    host.classList.add("am-foto-host");
+    host.querySelector(":scope > .am-fotobar")?.remove();
+    const bar = document.createElement("div");
+    bar.className = "am-fotobar";
+    for (const [txt, fn] of botones) {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.textContent = txt;
+      b.onclick = (ev) => { ev.preventDefault(); ev.stopPropagation(); fn(); };
+      bar.append(b);
+    }
+    host.prepend(bar);
+  }
+
+  function prepararFoto(el) {
+    if (el.matches("[data-e-galeria]")) {
+      barraFoto(el, [["Sustituir", () => sustituirGaleria(el)], ["Quitar", () => quitarGaleria(el)], ["+ Añadir detrás", () => anadirGaleria(el)]]);
+    } else {
+      const host = el.closest("figure, .hero, a.card") || el.parentElement;
+      barraFoto(host, [["Sustituir foto", () => sustituirSuelta(el)]]);
+    }
+  }
+
+  const imgDe = (fig) => fig.querySelector("img");
+
+  async function sustituirGaleria(fig) {
+    const f = await elegirFoto(false);
+    if (!f) return;
+    const ruta = JSON.parse(fig.dataset.eGaleria);
+    const nueva = `assets/subidas/${fig.dataset.eSlug}/${ahora()}-${slugDe(f.nombre)}.jpg`;
+    if (fig.dataset.amArchivo) archivos.delete(fig.dataset.amArchivo);
+    archivos.set(nueva, f.base64);
+    fig.dataset.amArchivo = nueva;
+    pendientes.set(JSON.stringify([...ruta, "src"]), { ruta: [...ruta, "src"], valor: nueva, foto: true });
+    if (fig.dataset.eCartela) { // la cartela (título, técnica, medidas, estado) sigue a la foto
+      const [fichero] = JSON.parse(fig.dataset.eCartela);
+      const viejo = JSON.parse(fig.dataset.eCartela)[1];
+      if (fig.dataset.eEstado) pendientes.set(`estado|${viejo}`, { ruta: [fichero, viejo, "estado"], valor: fig.dataset.eEstado, foto: true });
+      pendientes.set(`reclave|${viejo}`, { ruta: [fichero, viejo], op: "reclave", valor: nueva });
+    }
+    imgDe(fig).src = f.url;
+    fig.classList.add("am-foto-cambiada");
+    pintarEstado();
+  }
+
+  function quitarGaleria(fig) {
+    const ruta = JSON.parse(fig.dataset.eGaleria);
+    const k = `quitar|${fig.dataset.eGaleria}`;
+    if (pendientes.has(k)) { pendientes.delete(k); fig.classList.remove("am-foto-quitada"); }
+    else { pendientes.set(k, { ruta, op: "quitar" }); fig.classList.add("am-foto-quitada"); }
+    fig.querySelector(".am-fotobar button:nth-child(2)").textContent = pendientes.has(k) ? "Deshacer" : "Quitar";
+    pintarEstado();
+  }
+
+  async function anadirGaleria(fig) {
+    const f = await elegirFoto(false);
+    if (!f) return;
+    const ruta = JSON.parse(fig.dataset.eGaleria);
+    const nueva = `assets/subidas/${fig.dataset.eSlug}/${ahora()}-${slugDe(f.nombre)}.jpg`;
+    const id = `insertar|${++orden}`;
+    archivos.set(nueva, f.base64);
+    pendientes.set(id, { ruta, op: "insertar", valor: { src: nueva, alt: "" }, orden });
+    // Se enseña justo detrás (o detrás de las ya añadidas a esa misma foto)
+    let despues = fig;
+    while (despues.nextElementSibling?.classList.contains("am-foto-nueva")) despues = despues.nextElementSibling;
+    const n = document.createElement("figure");
+    n.className = "am-foto-nueva";
+    n.innerHTML = `<img src="${f.url}" alt="">`;
+    despues.after(n);
+    barraFoto(n, [["Quitar", () => { pendientes.delete(id); archivos.delete(nueva); n.remove(); pintarEstado(); }]]);
+    pintarEstado();
+  }
+
+  async function sustituirSuelta(img) {
+    const fijo = img.dataset.eFijo;
+    const f = await elegirFoto(fijo?.endsWith(".png"));
+    if (!f) return;
+    if (fijo) {
+      archivos.set(fijo, f.base64); // misma ruta: se cambia el fichero, sin tocar los datos
+    } else if (img.dataset.eFoto) {
+      const nueva = `assets/subidas/${img.dataset.eSlug}/${ahora()}-${slugDe(f.nombre)}.jpg`;
+      archivos.set(nueva, f.base64);
+      pendientes.set(img.dataset.eFoto, { ruta: JSON.parse(img.dataset.eFoto), valor: nueva, foto: true });
+    } else { // foto de pañuelo o lámina: se guarda el nombre, sin carpeta ni .jpg, del color que se está viendo
+      const pdp = img.closest(".pdp");
+      const color = Math.max(0, [...(pdp?.querySelectorAll(".swatch") || [])].findIndex((x) => x.classList.contains("is-active")));
+      const nombre = `${slugDe(pdp?.dataset.slug)}-${img.dataset.eVista}-${ahora()}`;
+      archivos.set(`assets/${img.dataset.eDir}/${nombre}.jpg`, f.base64);
+      const ruta = [...JSON.parse(img.dataset.eProducto), "colores", color, "fotos", img.dataset.eVista];
+      pendientes.set(JSON.stringify(ruta), { ruta, valor: nombre, foto: true });
+    }
+    img.src = f.url;
+    img.srcset = "";
+    (img.closest("figure, .hero, a.card") || img).classList.add("am-foto-cambiada");
+    pintarEstado();
+  }
+
   function salir() {
-    if (pendientes.size && !confirm("Tienes cambios sin guardar. ¿Salir y perderlos?")) return;
+    if ((pendientes.size || archivos.size) && !confirm("Tienes cambios sin guardar. ¿Salir y perderlos?")) return;
     pendientes.clear();
     guardarLocal(K_TOKEN, null);
     location.href = location.pathname;
@@ -285,13 +479,24 @@
     document.body.classList.add("am-editando");
     document.querySelectorAll("[data-fold]").forEach((b) => b.classList.remove("fold"));
     document.querySelectorAll(".pdp-info details").forEach((d) => { d.open = true; });
-    document.querySelectorAll("[data-e]:not([hidden])").forEach((el) => {
+    document.querySelectorAll("[data-e]:not([hidden]):not([data-e-lapiz])").forEach((el) => {
       if (el.dataset.raw != null) el.textContent = el.dataset.raw; // se ve en mayúsculas, se guarda tal cual
       el.contentEditable = "plaintext-only";
       if (el.contentEditable !== "plaintext-only") el.contentEditable = "true";
       el.spellcheck = true;
     });
     document.querySelectorAll("[data-e]").forEach((el) => { el.dataset.amOrig = texto(el); });
+    // Menú, enlaces y botones: pulsar sigue llevando a su sitio; el lápiz ✎ cambia el texto
+    document.querySelectorAll("[data-e-lapiz]").forEach((el) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "am-lapiz";
+      b.textContent = "✎";
+      b.setAttribute("aria-label", "Cambiar este texto");
+      el.after(b);
+    });
+    // Las fotos necesitan el Apps Script nuevo (versión 2); con el antiguo no se ofrecen
+    if ((leer(K_TOKEN)?.version || 1) >= 2) document.querySelectorAll("[data-e-galeria], [data-e-foto], [data-e-fijo], [data-e-producto]").forEach(prepararFoto);
 
     barra = document.createElement("div");
     barra.className = "am-barra";
@@ -323,7 +528,9 @@
     }, true); // antes que la web: «Consultar» no abre su ventana en modo edición
     // Dentro de enlaces y botones, pulsar sirve para escribir, no para navegar
     document.addEventListener("click", (ev) => {
-      if (ev.target.closest?.("[data-e]") && ev.target.closest("a, button, summary")) ev.preventDefault();
+      const lapiz = ev.target.closest?.(".am-lapiz");
+      if (lapiz) { ev.preventDefault(); ev.stopPropagation(); casillaTexto(lapiz.previousElementSibling, lapiz); return; }
+      if (ev.target.closest?.("[data-e]:not([data-e-lapiz])") && ev.target.closest("a, button, summary")) ev.preventDefault();
     }, true);
     document.addEventListener("paste", (ev) => {
       if (!ev.target.closest?.("[data-e]")) return;
@@ -337,9 +544,9 @@
     document.addEventListener("click", (ev) => {
       const a = ev.target.closest?.("a[href]");
       if (!a || ev.defaultPrevented || a.closest("[data-e]")) return;
-      if (pendientes.size && !confirm("Tienes cambios sin guardar. ¿Cambiar de página y perderlos?")) ev.preventDefault();
+      if ((pendientes.size || archivos.size) && !confirm("Tienes cambios sin guardar. ¿Cambiar de página y perderlos?")) ev.preventDefault();
     });
-    window.addEventListener("beforeunload", (ev) => { if (pendientes.size) { ev.preventDefault(); ev.returnValue = ""; } });
+    window.addEventListener("beforeunload", (ev) => { if (pendientes.size || archivos.size) { ev.preventDefault(); ev.returnValue = ""; } });
   }
 
   document.addEventListener("DOMContentLoaded", async () => {

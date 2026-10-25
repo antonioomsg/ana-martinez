@@ -25,6 +25,27 @@ def campo(etiqueta, valor, ruta, opciones=None):
             f'data-v="{e(str(valor if valor is not None else ""))}"></span>')
 
 
+TEXTOS = {}  # data/sitio.json › textos (los carga build.py)
+
+
+def tx(clave):
+    """Texto fijo de la web (menú, títulos, botones) tal cual, para atributos o <title>."""
+    return TEXTOS[clave]
+
+
+def t(clave, lapiz=False, mayus=False):
+    """Texto fijo editable. `lapiz`: dentro de enlaces o botones, se edita con ✎ y pulsar sigue navegando."""
+    v = TEXTOS[clave]
+    marca = ed(["sitio.json", "textos", clave], raw=v if mayus else None)
+    return f'<span{marca}{" data-e-lapiz" if lapiz else ""}>{e(v.upper() if mayus else v)}</span>'
+
+
+def foto(**datos):
+    """Atributos de una foto editable: data-e-<clave> (listas y rutas en JSON)."""
+    return "".join(f' data-e-{k.replace("_", "-")}="{e(json.dumps(v, ensure_ascii=False) if isinstance(v, list) else str(v))}"'
+                   for k, v in datos.items() if v is not None)
+
+
 def cargar_lotes(carpeta):
     """Une los JSON de data/<carpeta>/ recordando en `_f` de qué fichero sale cada entrada."""
     out = {}

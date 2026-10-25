@@ -19,14 +19,14 @@
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-menu" id="nav-menu">
-      <li class="has-sub"><button class="sub-toggle" aria-expanded="false">COLECCIONES</button>
-        <div class="sub"><a href="../proyectos/">Proyectos</a><a href="../murales/">Murales</a><a href="../talleres/">Talleres</a></div></li>
-      <li class="has-sub"><button class="sub-toggle" aria-expanded="false">EDICIONES</button>
-        <div class="sub"><a href="../ediciones/">Todas</a><a href="../panuelos/">Pañuelos</a><a href="../laminas/">Láminas</a></div></li>
-      <li><a href="../sobre-mi/" aria-current="page">SOBRE MÍ</a></li>
-      <li><a href="../contacto/">CONTACTO</a></li>
+      <li class="has-sub"><button class="sub-toggle" aria-expanded="false"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;menu_colecciones&quot;]" data-e-lapiz>COLECCIONES</span></button>
+        <div class="sub"><a href="../proyectos/"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;menu_proyectos&quot;]" data-e-lapiz>Proyectos</span></a><a href="../murales/"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;menu_murales&quot;]" data-e-lapiz>Murales</span></a><a href="../talleres/"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;menu_talleres&quot;]" data-e-lapiz>Talleres</span></a></div></li>
+      <li class="has-sub"><button class="sub-toggle" aria-expanded="false"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;menu_ediciones&quot;]" data-e-lapiz>EDICIONES</span></button>
+        <div class="sub"><a href="../ediciones/"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;menu_todas&quot;]" data-e-lapiz>Todas</span></a><a href="../panuelos/"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;menu_panuelos&quot;]" data-e-lapiz>Pañuelos</span></a><a href="../laminas/"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;menu_laminas&quot;]" data-e-lapiz>Láminas</span></a></div></li>
+      <li><a href="../sobre-mi/" aria-current="page"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;menu_sobre_mi&quot;]" data-e-lapiz>SOBRE MÍ</span></a></li>
+      <li><a href="../contacto/"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;menu_contacto&quot;]" data-e-lapiz>CONTACTO</span></a></li>
     </ul>
-    <button class="cart-open" type="button" aria-label="Abrir la cesta">CESTA <span data-cart-count>0</span></button>
+    <button class="cart-open" type="button" aria-label="Abrir la cesta"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;menu_cesta&quot;]" data-e-lapiz>CESTA</span> <span data-cart-count>0</span></button>
   </nav>
 </header>
 <aside class="cart" aria-label="Cesta" hidden>
@@ -47,11 +47,11 @@
 </dialog>
 <main id="main">
 <article class="bio2">
-  <h1 class="bio2-title">Sobre mí <span class="en-sub" lang="en">About</span></h1>
+  <h1 class="bio2-title"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;sobre_titulo&quot;]">Sobre mí</span> <span class="en-sub" lang="en"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;sobre_titulo_en&quot;]">About</span></span></h1>
   <div class="bio2-hero">
-    <figure class="bio2-photo"><img src="../assets/ana-martinez.jpg" alt="Retrato de Ana Martínez"></figure>
+    <figure class="bio2-photo"><img src="../assets/ana-martinez.jpg" data-e-fijo="assets/ana-martinez.jpg" alt="Retrato de Ana Martínez"></figure>
     <div class="bio2-intro">
-      <h2>Biografía <span class="en-sub" lang="en">Biography</span></h2>
+      <h2><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;bio_titulo&quot;]">Biografía</span> <span class="en-sub" lang="en"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;bio_titulo_en&quot;]">Biography</span></span></h2>
       <p class="bio2-lead"><strong data-e="[&quot;bio.json&quot;, &quot;lead_es&quot;]">Ana Martínez (Córdoba, 1970) es pintora y muralista. Vive y trabaja en España.</strong></p>
       <p class="bio2-lead-en" lang="en" data-e="[&quot;bio.json&quot;, &quot;lead_en&quot;]">Ana Martínez (Córdoba, 1970) is a painter and muralist. She lives and works in Spain.</p>
       <a class="btn-link" href="../assets/wp/2026/05/CV-1.pdf" rel="noopener">CV ↗</a>
@@ -87,13 +87,13 @@
   <form class="footer-form" action="mailto:ana@ana-martinez.com" method="post" enctype="text/plain">
     <label class="sr-only" for="f-email">Email</label>
     <input id="f-email" name="email" type="email" placeholder="Email" required>
-    <button type="submit">ENVIAR</button>
+    <button type="submit"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;pie_enviar&quot;]" data-e-lapiz>ENVIAR</span></button>
   </form>
   <div class="footer-links">
-    <div><a href="../sobre-mi/">SOBRE MÍ</a><a href="../contacto/">CONTACTO</a></div>
-    <div><a href="https://www.instagram.com/anamartinez_studio/" rel="noopener">INSTAGRAM</a><a href="https://www.youtube.com/user/aninanona" rel="noopener">YOUTUBE</a></div>
+    <div><a href="../sobre-mi/"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;menu_sobre_mi&quot;]" data-e-lapiz>SOBRE MÍ</span></a><a href="../contacto/"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;menu_contacto&quot;]" data-e-lapiz>CONTACTO</span></a></div>
+    <div><a href="https://www.instagram.com/anamartinez_studio/" rel="noopener"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;pie_instagram&quot;]" data-e-lapiz>INSTAGRAM</span></a><a href="https://www.youtube.com/user/aninanona" rel="noopener"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;pie_youtube&quot;]" data-e-lapiz>YOUTUBE</span></a></div>
   </div>
-  <p class="copy">© 2026 ANA MARTINEZ</p>
+  <p class="copy"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;pie_copyright&quot;]">© 2026 ANA MARTINEZ</span></p>
 </footer>
 <script>window.AM_ROOT = "../"; window.AM_EDITOR = "https://script.google.com/macros/s/AKfycbztV7wefyJjiVhWpl19KTlLh5WG--1hV1pmZv6Fn-tAcA73BV9uy49k8zNC7yWOUD4wCg/exec";</script>
 <script src="../assets/products.js" defer></script>

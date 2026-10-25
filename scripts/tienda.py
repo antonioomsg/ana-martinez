@@ -8,7 +8,8 @@ Láminas: centrada · en casa · detalle del papel.
 import html
 import json
 
-from editable import campo, ed
+from editable import campo, ed, t, tx
+from editable import foto as marca_foto
 
 e = html.escape
 
@@ -25,7 +26,9 @@ LIGHTBOX = """<dialog class="lightbox" aria-label="Foto ampliada">
   <button type="button" class="lb-close" aria-label="Cerrar"><svg width="11" height="11" viewBox="0 0 11 11" aria-hidden="true" focusable="false"><path d="M.5.5l10 10M10.5.5l-10 10" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
 </dialog>"""
 
-FILTROS = [("ediciones", "Todo", "All"), ("panuelos", "Pañuelos", "Silk carrés"), ("laminas", "Láminas", "Art prints")]
+# (carpeta, clave del nombre, clave del nombre en inglés) en data/sitio.json › textos
+FILTROS = [("ediciones", "tienda_todo", "tienda_todo_en"), ("panuelos", "menu_panuelos", "tienda_panuelos_en"),
+           ("laminas", "menu_laminas", "tienda_laminas_en")]
 
 
 def foto(tipo, name):
@@ -72,12 +75,12 @@ def card(r, p, ed_):
   </div>
   <a class="shop-meta" href="{href}"><span class="shop-kind"{ed(ruta_tipo(p) + ["nombre"], raw=tipo["nombre"])}>{e(tipo["nombre"].upper())}</span>
   <span class="shop-name">{nombre_ed(p, tipo)}</span>
-  <span class="shop-price">Desde {precio(desde(tipo))}</span></a>
+  <span class="shop-price">{t("tienda_desde", lapiz=True)} {precio(desde(tipo))}</span></a>
 </div>"""
 
 
 def grupo_header(r, g, n, ruta):
-    enlace = (f'<a class="group-link" href="{r}obra/{g["obra_slug"]}/">Ver el proyecto ›</a>'
+    enlace = (f'<a class="group-link" href="{r}obra/{g["obra_slug"]}/">{t("tienda_ver_proyecto", lapiz=True)}</a>'
               if g.get("obra_slug") else "")
     fecha = f' <span class="group-date"{ed(ruta + ["fecha"])}>{e(g["fecha"])}</span>' if g.get("fecha") else ""
     return f"""<header class="group-head">
@@ -91,7 +94,7 @@ def listado(r, ed_, productos, actual):
     filtrados = [p for p in productos if actual == "ediciones" or p["tipo"] == actual]
     seg = "".join(
         f'<a class="seg{" is-active" if k == actual else ""}" href="{r}{k}/"'
-        f'{" aria-current=page" if k == actual else ""}>{es}<span lang="en">{en}</span></a>'
+        f'{" aria-current=page" if k == actual else ""}>{t(es, lapiz=True)}<span lang="en">{t(en, lapiz=True)}</span></a>'
         for k, es, en in FILTROS)
     grupos, indice = [], []
     for g in ed_["grupos"]:
@@ -115,10 +118,9 @@ def listado(r, ed_, productos, actual):
 </section>""")
     intro = ed_ if actual == "ediciones" else ed_["tipos"][actual]
     ri = ["ediciones.json"] if actual == "ediciones" else ["ediciones.json", "tipos", actual]
-    titulo = dict((k, es) for k, es, _ in FILTROS)[actual]
-    titulo = "Ediciones" if actual == "ediciones" else titulo
+    titulo = "tienda_titulo" if actual == "ediciones" else dict((k, es) for k, es, _ in FILTROS)[actual]
     return f"""<section class="shop-intro">
-  <h1>{e(titulo)}</h1>
+  <h1>{t(titulo)}</h1>
   <div class="bi bi-intro"><p lang="es"{ed(ri + ["intro_es"])}>{e(intro["intro_es"])}</p><p lang="en"{ed(ri + ["intro_en"])}>{e(intro["intro_en"])}</p></div>
   <nav class="group-index" aria-label="Proyectos">{"".join(indice)}</nav>
 </section>
@@ -172,11 +174,11 @@ def ficha(r, p, ed_, productos):
         titulo_obra = f'<a href="{href}">{titulo_obra}</a>' if href else titulo_obra
         tecnica = (" · ".join(f'<span{ed(ro + [k])}>{e(c[k])}</span>' for k in ("tecnica", "medidas") if c.get(k))
                    if c else f'<span{ed(ro + ["tecnica"])}>{e(o["tecnica"])}</span>')
-        ver = f'<p><a class="link-arrow" href="{href}">Ver la obra en su proyecto ›</a></p>' if href else ""
+        ver = f'<p><a class="link-arrow" href="{href}">{t("tienda_ver_obra", lapiz=True)}</a></p>' if href else ""
         obra = f"""<section class="pdp-obra">
   <figure>{foto_obra}</figure>
   <div>
-    <p class="eyebrow">LA OBRA · THE WORK</p>
+    <p class="eyebrow">{t("tienda_la_obra")}</p>
     <h2>{titulo_obra}</h2>
     <p class="muted">{tecnica}</p>
     <p>{e(nombre(p, tipo))} nace de esta obra de Ana Martínez.</p>
@@ -186,10 +188,10 @@ def ficha(r, p, ed_, productos):
 </section>"""
     parrafos = "".join(f'<p{ed(rg + ["texto", k])}>{e(t)}</p>' for k, t in enumerate(g["texto"]))
     parrafos_en = "".join(f'<p{ed(rg + ["texto_en", k])}>{e(t)}</p>' for k, t in enumerate(g.get("texto_en", [])))
-    enlace = (f'<p><a class="btn-link" href="{r}obra/{g["obra_slug"]}/">VER EL PROYECTO</a></p>'
+    enlace = (f'<p><a class="btn-link" href="{r}obra/{g["obra_slug"]}/">{t("tienda_ver_el_proyecto", lapiz=True)}</a></p>'
               if g.get("obra_slug") else "")
     proyecto = f"""<section class="pdp-proyecto">
-  <p class="eyebrow">EL PROYECTO · THE PROJECT</p>
+  <p class="eyebrow">{t("tienda_el_proyecto")}</p>
   <h2{ed(rg + ["titulo"])}>{e(g["titulo"])}</h2>
   {f'<p class="muted"{ed(rg + ["fecha"])}>{e(g["fecha"])}</p>' if g.get("fecha") else ""}
   <div class="bi pdp-quote"><blockquote lang="es"><p class="lang-tag">ES</p>{parrafos}</blockquote><blockquote lang="en"><p class="lang-tag">EN</p>{parrafos_en}</blockquote></div>
@@ -222,9 +224,9 @@ def ficha(r, p, ed_, productos):
   </div>
   <div class="pdp-strip">
     <div class="pdp-photos" data-gallery>
-    <figure class="pdp-flat"><button type="button" class="zoomable" data-index="0" aria-label="Ampliar foto"><img data-flat-img src="{r}{foto(tipo, f["plano"])}" alt="{e(nombre(p, tipo))}, {vistas["plano"]}"></button></figure>
-    <figure><button type="button" class="zoomable" data-index="1" aria-label="Ampliar foto"><img data-worn-img src="{r}{foto(tipo, f["modelo"])}" alt="{e(nombre(p, tipo))}, {vistas["modelo"]}"></button></figure>
-    <figure><button type="button" class="zoomable" data-index="2" aria-label="Ampliar foto"><img data-zoom-img src="{r}{foto(tipo, f["zoom"])}" alt="{e(nombre(p, tipo))}, {vistas["zoom"]}"></button></figure>
+    <figure class="pdp-flat"><button type="button" class="zoomable" data-index="0" aria-label="Ampliar foto"><img data-flat-img{marca_foto(producto=rp, vista="plano", dir=tipo["dir"])} src="{r}{foto(tipo, f["plano"])}" alt="{e(nombre(p, tipo))}, {vistas["plano"]}"></button></figure>
+    <figure><button type="button" class="zoomable" data-index="1" aria-label="Ampliar foto"><img data-worn-img{marca_foto(producto=rp, vista="modelo", dir=tipo["dir"])} src="{r}{foto(tipo, f["modelo"])}" alt="{e(nombre(p, tipo))}, {vistas["modelo"]}"></button></figure>
+    <figure><button type="button" class="zoomable" data-index="2" aria-label="Ampliar foto"><img data-zoom-img{marca_foto(producto=rp, vista="zoom", dir=tipo["dir"])} src="{r}{foto(tipo, f["zoom"])}" alt="{e(nombre(p, tipo))}, {vistas["zoom"]}"></button></figure>
     </div>
     <div class="pdp-dots" aria-hidden="true"><span class="is-on"></span><span></span><span></span></div>
     <div class="buy-card">
@@ -233,10 +235,10 @@ def ficha(r, p, ed_, productos):
       <p class="buy-price" aria-live="polite" data-e-abre="Tamaño 1 · precio">{precio(t0["precio"])}</p>
       {variantes}
       <div class="buy-field">
-        <p class="buy-label">Tamaño · Size</p>
+        <p class="buy-label">{t("tienda_tamano")}</p>
         <div class="sizes" role="group" aria-label="Tamaño">{tallas}</div>
       </div>
-      <button class="btn-buy add-to-cart" type="button" data-color="{col["id"]}" data-size="{t0["id"]}">Añadir a la cesta</button>
+      <button class="btn-buy add-to-cart" type="button" data-color="{col["id"]}" data-size="{t0["id"]}">{t("tienda_anadir", lapiz=True)}</button>
     </div>
   </div>
   <section class="pdp-info">
@@ -244,13 +246,13 @@ def ficha(r, p, ed_, productos):
       <p class="lang-tag">ES</p>
       <p{ed(rt + ["ficha"])}>{e(tipo["ficha"])}</p>
       <p{ed(rp + ["descripcion"])}>{e(p["descripcion"])}</p>
-      <p class="muted">Diseñado por Ana Martínez</p>
+      <p class="muted">{t("tienda_disenado")}</p>
     </div>
     <div lang="en">
       <p class="lang-tag">EN</p>
       <p{ed(rt + ["ficha_en"])}>{e(tipo["ficha_en"])}</p>
       <p{ed(rp + ["descripcion_en"])}>{e(p["descripcion_en"])}</p>
-      <p class="muted">Designed by Ana Martínez</p>
+      <p class="muted">{t("tienda_disenado_en")}</p>
     </div>
     <div class="accordions">{acordeon}</div>
   </section>
@@ -264,7 +266,7 @@ def ficha(r, p, ed_, productos):
   {obra}
   {proyecto}
   <section class="pdp-more">
-    <h2>Del mismo proyecto <span class="en-sub" lang="en">From the same project</span></h2>
+    <h2>{t("tienda_mismo_proyecto")} <span class="en-sub" lang="en">{t("tienda_mismo_proyecto_en")}</span></h2>
     <div class="rail-wrap" data-rail>
       <button type="button" class="rail-btn rail-prev" aria-label="Anteriores"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
       <div class="rail">{mas}</div>
