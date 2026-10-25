@@ -8,7 +8,8 @@
  *    revision/pendiente/ y un agente en la nube los aplica cada noche (revision/AGENTE.md).
  * 3. copiarADrive: sube al Drive compartido, ordenado por carpetas, las fotos, PDF y textos
  *    de la web (según archivo_drive.json, que genera build.py). Se puede repetir: solo añade
- *    lo que falta y actualiza los documentos «Textos» que hayan cambiado.
+ *    lo que falta y actualiza los documentos «Textos» que hayan cambiado. Se lanza sola 5 min
+ *    después de que Ana guarde fotos, y cada noche si se ejecuta una vez programarCopiaDiaria.
  *
  * Configuración (Configuración del proyecto ⚙ → Propiedades del script):
  *   USUARIO        usuario de Ana para entrar en modo edición
@@ -254,7 +255,9 @@ function guardar_(datos) {
   try {
     for (let intento = 0; ; intento++) {
       try {
-        return { ok: true, commit: commitCambios_(cambios, archivos), n: cambios.length + archivos.length };
+        const commit = commitCambios_(cambios, archivos);
+        if (archivos.length) copiaPronto_(); // las fotos nuevas también al Drive, en cuanto la web las publique
+        return { ok: true, commit: commit, n: cambios.length + archivos.length };
       } catch (err) {
         if (err.code === 422 && intento < 2) continue; // alguien ha publicado a la vez: se repite sobre lo último
         throw err;
@@ -437,6 +440,16 @@ function copiarADrive() {
     console.log('Subidos ' + subidos + ' ficheros y ' + textos + ' textos. Quedan ' + pendientes + ': sigue sola en 1 minuto.');
   } else {
     console.log('Archivo al día: ' + subidos + ' ficheros nuevos, ' + textos + ' textos actualizados. Carpeta: ' + raiz.getUrl());
+  }
+}
+
+/** Copia al Drive dentro de 5 minutos (lo que tarda la web en publicar). Si ya había una programada, la sustituye. */
+function copiaPronto_() {
+  try {
+    borrarDisparadores_('copiarADrive');
+    ScriptApp.newTrigger('copiarADrive').timeBased().after(5 * 60 * 1000).create();
+  } catch (err) {
+    console.warn('No se pudo programar la copia al Drive: ' + err); // la copia nocturna lo recogerá
   }
 }
 
