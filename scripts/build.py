@@ -12,7 +12,9 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
+import archivo_drive  # noqa: E402
 import tienda  # noqa: E402
+from editable import cargar_lotes, campo, ed  # noqa: E402
 
 ROOT = Path(sys.argv[1] if len(sys.argv) > 1 else ".")
 OUT = ROOT / "docs"
@@ -27,8 +29,15 @@ SECCIONES = [
 EMAIL = "ana@ana-martinez.com"
 INSTAGRAM = "https://www.instagram.com/anamartinez_studio/"
 YOUTUBE = "https://www.youtube.com/user/aninanona"
+ORIGEN = json.loads((ROOT / "data" / "fotos_origen.json").read_text())
+SITIO = json.loads((ROOT / "data" / "sitio.json").read_text())
 
 e = html.escape
+
+
+def src(r, u):
+    """Fotos del repo (assets/…) con la ruta relativa de la página; las externas o ya relativas (../) tal cual."""
+    return r + u if u.startswith("assets/") else u
 
 
 def fecha(iso):
@@ -81,8 +90,8 @@ def footer(r):
     return f"""<footer class="site-footer">
   <img class="firma" src="{r}assets/firma.png" alt="Ana Martínez" width="325" height="89">
   <div class="footer-lead bi">
-    <p lang="es">Cada pieza es única. Para recibir más información déjanos tu email y nos pondremos en contacto contigo.</p>
-    <p lang="en">Every piece is unique. Leave us your email for more information and we will get in touch.</p>
+    <p lang="es"{ed(["sitio.json", "pie_es"])}>{e(SITIO["pie_es"])}</p>
+    <p lang="en"{ed(["sitio.json", "pie_en"])}>{e(SITIO["pie_en"])}</p>
   </div>
   <form class="footer-form" action="mailto:{EMAIL}" method="post" enctype="text/plain">
     <label class="sr-only" for="f-email">Email</label>
@@ -118,10 +127,11 @@ def page(r, title, body, current="", desc="Ana Martínez, artista. Pintura, mura
 {body}
 </main>
 {footer(r)}
-<script>window.AM_ROOT = "{r}";</script>
+<script>window.AM_ROOT = "{r}"; window.AM_EDITOR = {json.dumps(SITIO.get("editor_url", ""))};</script>
 <script src="{r}assets/products.js" defer></script>
 <script src="{r}assets/site.js" defer></script>
 <script src="{r}assets/revision.js" defer></script>
+<script src="{r}assets/editor.js" defer></script>
 </body>
 </html>
 """
@@ -134,10 +144,10 @@ def write(rel, content):
 
 
 def card(r, p):
-    img = f'<img src="{e(p["cover"])}" alt="" loading="lazy">' if p["cover"] else ""
+    img = f'<img src="{e(src(r, p["cover"]))}" alt="" loading="lazy">' if p["cover"] else ""
     return f"""<a class="card" href="{r}obra/{p["slug"]}/">
   {img}<span class="card-veil"></span>
-  <span class="card-text"><span class="card-title">{e(p["title"].upper())}</span>
+  <span class="card-text"><span class="card-title"{ed(["content.json", "posts", p["_i"], "title"], raw=p["title"])}>{e(p["title"].upper())}</span>
   <span class="card-date">{fecha(p["date"])}</span></span>
 </a>"""
 
@@ -152,12 +162,13 @@ def video_embed(url):
 
 def vendido(src):
     """Estado de concepto: ~1 de cada 3 cuadros aparece vendido (fijo por imagen)."""
+    src = ORIGEN.get(src, src)  # mismo sorteo que cuando la foto estaba en el WordPress
     return int(hashlib.md5(src.encode()).hexdigest(), 16) % 100 < 35
 
 
-def figura(k, im, c, proyecto):
+def figura(r, k, im, c, proyecto):
     img = (f'<button type="button" class="zoomable" data-index="{k}" aria-label="Ampliar foto">'
-           f'<img src="{e(im["src"])}" alt="{e((c or {}).get("titulo") or im["alt"])}" loading="lazy"></button>')
+           f'<img src="{e(src(r, im["src"]))}" alt="{e((c or {}).get("titulo") or im["alt"])}" loading="lazy"></button>')
     if not c or not c.get("es_obra") or not c.get("titulo"):
         return f'<figure id="img-{k}">{img}</figure>'
     datos = " · ".join(x for x in (c.get("tecnica"), c.get("medidas")) if x)
@@ -166,13 +177,20 @@ def figura(k, im, c, proyecto):
         estado = ('<span class="estado estado-sold"><span class="dot dot-sold" aria-hidden="true"></span>'
                   'Vendido <span lang="en">· Sold</span></span>')
     else:
-        estado = (f'<button type="button" class="estado estado-free" data-inquiry data-img="{e(im["src"])}" '
+        estado = (f'<button type="button" class="estado estado-free" data-inquiry data-img="{e(src(r, im["src"]))}" '
                   f'data-titulo="{e(c["titulo"])}" data-datos="{e(datos)}" data-proyecto="{e(proyecto)}">'
                   f'<span class="dot dot-free" aria-hidden="true"></span>Disponible · <u>Consultar</u> '
                   f'<span lang="en">· Enquire</span></button>')
     return (f'<figure id="img-{k}">{img}<figcaption class="cartela"><span class="cartela-text">'
-            f'<span class="cartela-titulo">{e(c["titulo"])}</span><span class="cartela-datos">{e(datos)}</span>'
+            f'<span class="cartela-titulo"{ed([c["_f"], c["_k"], "titulo"])}>{e(c["titulo"])}</span>'
+            f'<span class="cartela-datos">{cartela_datos(c)}</span>'
             f'{estado}</span></figcaption></figure>')
+
+
+def cartela_datos(c):
+    """Técnica · medidas, cada una editable por separado."""
+    partes = [f'<span{ed([c["_f"], c["_k"], k])}>{e(c[k])}</span>' for k in ("tecnica", "medidas") if c.get(k)]
+    return " · ".join(partes)
 
 
 INQUIRY = """<dialog class="inquiry" aria-labelledby="inq-title">
@@ -195,23 +213,29 @@ INQUIRY = """<dialog class="inquiry" aria-labelledby="inq-title">
 </dialog>"""
 
 
-def documento(doc):
+def documento(doc, slug):
     """Hoja de sala / catálogo integrado en la ficha (en vez del enlace al PDF)."""
+    base = ["documentos.json", slug]
     partes = []
     if doc.get("lugar_fechas"):
-        partes.append(f'<p class="doc-lugar">{e(doc["lugar_fechas"])}</p>')
-    es = render_text(doc.get("es", []))
+        partes.append(f'<p class="doc-lugar"{ed(base + ["lugar_fechas"])}>{e(doc["lugar_fechas"])}</p>')
+    es = render_text(doc.get("es", []), base + ["es"])
     if doc.get("firma"):
-        es += f'<p class="doc-firma">{e(doc["firma"])}</p>'
-    partes.append(bilingue(es, render_text(doc.get("en", []))))
+        es += f'<p class="doc-firma"{ed(base + ["firma"])}>{e(doc["firma"])}</p>'
+    partes.append(bilingue(es, render_text(doc.get("en", []), base + ["en"])))
     return f'<section class="doc">{"".join(partes)}</section>'
 
 
-def render_text(items):
+def render_text(items, base=None, r=""):
+    """Párrafos, vídeos y enlaces. `base`: ruta JSON de la lista; con ella cada texto queda editable.
+    `items` puede ser una lista o pares (índice en la lista original, valor) si se ha filtrado."""
     out = []
-    for t in items:
+    pares = items if items and isinstance(items[0], tuple) else list(enumerate(items))
+    for j, t in pares:
+        ruta = base + [j] if base else None
         if isinstance(t, dict) and "pdf" in t:
-            out.append(f'<p><a class="btn-link" href="{e(t["pdf"])}" rel="noopener">{e(t["label"])} ↗</a></p>')
+            out.append(f'<p><a class="btn-link" href="{e(src(r, t["pdf"]))}" rel="noopener">'
+                       f'<span{ed(ruta + ["label"] if ruta else None)}>{e(t["label"])}</span> ↗</a></p>')
         elif isinstance(t, dict) and "youtube" in t:
             out.append(f'<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/{e(t["youtube"])}" '
                        'title="Vídeo" loading="lazy" allowfullscreen></iframe></div>')
@@ -219,8 +243,10 @@ def render_text(items):
             out.append(f'<div class="video"><iframe src="{e(vid)}" title="Vídeo" loading="lazy" allowfullscreen></iframe></div>')
         elif t.startswith("http"):
             out.append(f'<p><a class="btn-link" href="{e(t)}" rel="noopener">Ver documentación ↗</a></p>')
+        elif "\n\n" in t:  # varios párrafos de un mismo texto: se editan juntos
+            out.append(f'<div class="ed-bloque"{ed(ruta)}><p>' + e(t).replace("\n\n", "</p><p>").replace("\n", "<br>") + "</p></div>")
         else:
-            out.append("<p>" + e(t).replace("\n\n", "</p><p>").replace("\n", "<br>") + "</p>")
+            out.append(f"<p{ed(ruta)}>" + e(t).replace("\n", "<br>") + "</p>")
     return "\n".join(out)
 
 
@@ -239,6 +265,8 @@ def es_texto(t):
 def build():
     data = json.loads((ROOT / "data" / "content.json").read_text())
     posts = data["posts"]
+    for i, p in enumerate(posts):
+        p["_i"] = i
     if OUT.exists():
         shutil.rmtree(OUT)
     shutil.copytree(ROOT / "assets", OUT / "assets")
@@ -265,44 +293,50 @@ def build():
     traducciones = json.loads(tr_path.read_text()) if tr_path.exists() else {}
     doc_path = ROOT / "data" / "documentos.json"
     documentos = json.loads(doc_path.read_text()) if doc_path.exists() else {}
-    cuadros = {}
-    for f in sorted((ROOT / "data" / "cuadros").glob("*.json")):
-        cuadros.update(json.loads(f.read_text()))
-    curador = {}
-    for f in sorted((ROOT / "data" / "textos_curador").glob("*.json")):
-        curador.update(json.loads(f.read_text()))
+    cuadros = cargar_lotes(ROOT / "data" / "cuadros")
+    curador = cargar_lotes(ROOT / "data" / "textos_curador")
     for p in posts:
+        i_post = ["content.json", "posts", p["_i"]]
         folder, sec_title = next(((f, t) for c, f, t, _ in SECCIONES if c == p["category"]), ("proyectos", "Proyectos"))
         sib = order.get(p["category"], [])
         i = sib.index(p) if p in sib else -1
         prev_ = sib[i - 1] if i > 0 else None
         next_ = sib[i + 1] if 0 <= i < len(sib) - 1 else None
-        imgs = "\n".join(figura(k, im, cuadros.get(im["src"]), p["title"].capitalize()) for k, im in enumerate(p["images"]))
+        imgs = "\n".join(figura("../../", k, im, cuadros.get(im["src"]), p["title"].capitalize()) for k, im in enumerate(p["images"]))
         pager = '<nav class="pager">'
         pager += f'<a href="../{prev_["slug"]}/">← {e(prev_["title"])}</a>' if prev_ else "<span></span>"
         pager += f'<a href="../../{folder}/">{sec_title.upper()}</a>'
         pager += f'<a href="../{next_["slug"]}/">{e(next_["title"])} →</a>' if next_ else "<span></span>"
         pager += "</nav>"
         tr = traducciones.get(p["slug"], {})
+        slug_tr = ["translations_en.json", p["slug"]]
         title_en = tr.get("title_en") or p.get("title_en")
-        en = tr.get("text_en") or [t for t in p.get("text_en") or [] if es_texto(t)]
-        es = [t for t in p["text"] if es_texto(t)]
-        media = [t for t in p["text"] if not es_texto(t)]
+        ruta_title_en = slug_tr + ["title_en"] if tr.get("title_en") else i_post + ["title_en"]
+        if tr.get("text_en"):
+            en, ruta_en = list(enumerate(tr["text_en"])), slug_tr + ["text_en"]
+        else:
+            en, ruta_en = [(j, t) for j, t in enumerate(p.get("text_en") or []) if es_texto(t)], i_post + ["text_en"]
+        es, ruta_es = [(j, t) for j, t in enumerate(p["text"]) if es_texto(t)], i_post + ["text"]
+        media = [(j, t) for j, t in enumerate(p["text"]) if not es_texto(t)]
         doc = documentos.get(p["slug"])
         if doc:  # el PDF se integra en la página: fuera el botón de enlace
-            media = [t for t in media if not (isinstance(t, dict) and "pdf" in t)]
+            media = [(j, t) for j, t in media if not (isinstance(t, dict) and "pdf" in t)]
         if not es and p["slug"] in curador:
-            es, en = curador[p["slug"]]["es"], curador[p["slug"]]["en"]
-        sub = (f'<p class="obra-en">{e(title_en)}</p>'
-               if title_en and title_en.strip().lower() != p["title"].strip().lower() else "")
-        texto = bilingue(render_text(es), render_text(en)) if es else ""
+            c = curador[p["slug"]]
+            es, ruta_es = list(enumerate(c["es"])), [c["_f"], c["_k"], "es"]
+            en, ruta_en = list(enumerate(c["en"])), [c["_f"], c["_k"], "en"]
+        if title_en and title_en.strip().lower() != p["title"].strip().lower():
+            sub = f'<p class="obra-en"{ed(ruta_title_en)}>{e(title_en)}</p>'
+        else:  # igual que el español: no se muestra, pero se puede cambiar desde «Otros datos»
+            sub = campo("Título en inglés", title_en or "", ruta_title_en)
+        texto = bilingue(render_text(es, ruta_es), render_text(en, ruta_en)) if es else ""
         body = f"""<article class="obra">
   <header class="obra-head">
-    <h1>{e(p["title"].upper())}</h1>
+    <h1{ed(i_post + ["title"], raw=p["title"])}>{e(p["title"].upper())}</h1>
     {sub}
-    <p class="obra-date">{fecha(p["date"])}</p>
+    <p class="obra-date">{fecha(p["date"])}</p>{campo("Fecha (AAAA-MM-DD)", p["date"], i_post + ["date"])}
   </header>
-  <div class="obra-text" data-fold>{texto}{documento(doc) if doc else ""}{render_text(media)}</div>
+  <div class="obra-text" data-fold>{texto}{documento(doc, p["slug"]) if doc else ""}{render_text(media, i_post + ["text"], "../../")}</div>
   <div class="obra-gallery" data-gallery>{imgs}</div>
   {pager}
 </article>
@@ -314,37 +348,40 @@ def build():
     # Sobre mí: foto con marco en L a la izquierda, texto a la derecha; debajo ES | EN
     bio = json.loads((ROOT / "data" / "bio.json").read_text())
     cv = next((t["pdf"] for t in data["pages"]["bio"]["text"] if isinstance(t, dict) and "pdf" in t), None)
-    cv_btn = f'<a class="btn-link" href="{e(cv)}" rel="noopener">CV ↗</a>' if cv else ""
+    cv_btn = f'<a class="btn-link" href="{e(src("../", cv))}" rel="noopener">CV ↗</a>' if cv else ""
     write("sobre-mi/index.html", page("../", "Sobre mí", f"""<article class="bio2">
   <h1 class="bio2-title">Sobre mí <span class="en-sub" lang="en">About</span></h1>
   <div class="bio2-hero">
     <figure class="bio2-photo"><img src="../assets/ana-martinez.jpg" alt="Retrato de Ana Martínez"></figure>
     <div class="bio2-intro">
       <h2>Biografía <span class="en-sub" lang="en">Biography</span></h2>
-      <p class="bio2-lead"><strong>{e(bio["lead_es"])}</strong></p>
-      <p class="bio2-lead-en" lang="en">{e(bio["lead_en"])}</p>
+      <p class="bio2-lead"><strong{ed(["bio.json", "lead_es"])}>{e(bio["lead_es"])}</strong></p>
+      <p class="bio2-lead-en" lang="en"{ed(["bio.json", "lead_en"])}>{e(bio["lead_en"])}</p>
       {cv_btn}
     </div>
   </div>
-  {bilingue(render_text(bio["es"]), render_text(bio["en"]))}
+  {bilingue(render_text(bio["es"], ["bio.json", "es"]), render_text(bio["en"], ["bio.json", "en"]))}
 </article>""", current="sobre-mi"))
 
     # Contacto
     write("contacto/index.html", page("../", "Contacto", f"""<section class="contacto">
   <h1>CONTACTO</h1>
-  <div class="bi bi-intro"><p lang="es">Murales por encargo, proyectos, talleres y obra disponible.</p><p lang="en">Commissioned murals, projects, workshops and available work.</p></div>
+  <div class="bi bi-intro"><p lang="es"{ed(["sitio.json", "contacto_es"])}>{e(SITIO["contacto_es"])}</p><p lang="en"{ed(["sitio.json", "contacto_en"])}>{e(SITIO["contacto_en"])}</p></div>
   <p class="contacto-mail"><a href="mailto:{EMAIL}">{EMAIL}</a></p>
   <p class="contacto-redes"><a href="{INSTAGRAM}" rel="noopener">Instagram</a> · <a href="{YOUTUBE}" rel="noopener">YouTube</a></p>
 </section>""", current="contacto"))
 
     build_tienda()
+    (OUT / "archivo_drive.json").write_text(json.dumps(archivo_drive.generar(ROOT), ensure_ascii=False))
     print(f"OK docs/: {len(posts)} fichas + portada, 3 secciones, sobre mí, contacto")
 
 
 def build_tienda():
     ed = json.loads((ROOT / "data" / "ediciones.json").read_text())
-    productos = (json.loads((ROOT / "data" / "panuelos.json").read_text())["productos"]
-                 + json.loads((ROOT / "data" / "laminas.json").read_text())["productos"])
+    productos = []
+    for fichero in ("panuelos.json", "laminas.json"):
+        for i, p in enumerate(json.loads((ROOT / "data" / fichero).read_text())["productos"]):
+            productos.append(dict(p, _ruta=[fichero, "productos", i]))
     posts = json.loads((ROOT / "data" / "content.json").read_text())["posts"]
     donde = {}  # imagen -> [(proyecto, posición)]
     for post in posts:
@@ -356,14 +393,13 @@ def build_tienda():
         if sitios:  # preferimos el proyecto al que pertenece la pieza
             slug, k = next((x for x in sitios if x[0] == proyecto_de.get(p["grupo"])), sitios[0])
             p["obra"]["href"] = f"obra/{slug}/#img-{k}"
-    cartelas = {}
-    for f in sorted((ROOT / "data" / "cuadros").glob("*.json")):
-        cartelas.update(json.loads(f.read_text()))
+    cartelas = cargar_lotes(ROOT / "data" / "cuadros")
     for p in productos:  # misma ficha que la cartela del cuadro
         c = cartelas.get((p.get("obra") or {}).get("img"))
         if c and c.get("es_obra") and c.get("titulo"):
             p["obra"]["titulo"] = c["titulo"]
             p["obra"]["tecnica"] = " · ".join(x for x in (c.get("tecnica"), c.get("medidas")) if x)
+            p["obra"]["_cartela"] = c
     (OUT / "assets" / "products.js").write_text(tienda.products_js(ed, productos))
     for clave, titulo, _ in tienda.FILTROS:
         write(f"{clave}/index.html", page("../", "Ediciones" if clave == "ediciones" else titulo,
