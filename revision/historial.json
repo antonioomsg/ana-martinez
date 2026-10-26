@@ -39,6 +39,31 @@
       "fecha": "2026-10-26T09:07:24Z",
       "texto": "Hecho, Ana. Las letras del menú de la portada (tu nombre, Colecciones, Ediciones, Sobre mí, Contacto y la cesta) ahora van en un verde agua muy clarito, el tono de la niebla del cuadro de la selva, con una sombra suave para que se lean bien. Al pasar el ratón se aclaran a blanco. Los desplegables y el resto de páginas siguen igual. Si lo quieres más blanco o más verdoso, dímelo aquí.",
       "estado": "aplicado"
+    },
+    {
+      "id": "mvp1d4kcgnotj",
+      "tipo": "mensaje",
+      "hilo": "mvp14vhpxakqm",
+      "titulo_hilo": "Colores del header",
+      "autor": "Ana",
+      "fecha": "2026-10-26T09:10:08.988Z",
+      "texto": "ANA MARTINEZ EN MAS OCURO PARA QUE SE LEA",
+      "pagina": "/ana-martinez/",
+      "recibido": "2026-10-26T09:10:09.269Z",
+      "archivos": [],
+      "estado": "aplicado",
+      "procesado": "2026-10-26T09:11:18Z",
+      "respuesta": "Hecho: tu nombre ya va en verde oscuro para que se lea."
+    },
+    {
+      "id": "r20261026t091118z",
+      "tipo": "mensaje",
+      "hilo": "mvp14vhpxakqm",
+      "titulo_hilo": "Colores del header",
+      "autor": "Agente",
+      "fecha": "2026-10-26T09:11:18Z",
+      "texto": "Hecho. ANA MARTINEZ ahora va en el verde muy oscuro de los troncos del cuadro, un poco más gruesa y con un halo suave de niebla detrás, así se lee bien aunque pase por encima de la parte clara o de los troncos. El resto del menú sigue clarito. ¿Te gusta así?",
+      "estado": "aplicado"
     }
   ]
 }
