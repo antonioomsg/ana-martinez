@@ -132,9 +132,9 @@
    "colores": [
     {
      "id": "verde",
-     "label": "Verde / Amarillo / Rosa pálido",
+     "label": "Verde / Amarillo / Rosa muy pálido",
      "fotos": {
-      "plano": "viana_plano",
+      "plano": "viana-plano-20261026165449-1",
       "modelo": "viana_modelo",
       "zoom": "viana_zoom"
      }
