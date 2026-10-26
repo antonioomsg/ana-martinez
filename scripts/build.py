@@ -133,7 +133,7 @@ def page(r, title, body, current="", desc="Ana Martínez, artista. Pintura, mura
 {body}
 </main>
 {footer(r)}
-<script>window.AM_ROOT = "{r}"; window.AM_EDITOR = {json.dumps(SITIO.get("editor_url", ""))}; window.AM_DATOS = {json.dumps(HUELLAS)};</script>
+<script>window.AM_ROOT = "{r}"; window.AM_EDITOR = {json.dumps(SITIO.get("editor_url", ""))}; window.AM_CAPTCHA = {json.dumps(SITIO.get("captcha_clave", ""))}; window.AM_DATOS = {json.dumps(HUELLAS)};</script>
 <script src="{r}assets/products.js" defer></script>
 <script src="{r}assets/site.js" defer></script>
 <script src="{r}assets/revision.js" defer></script>

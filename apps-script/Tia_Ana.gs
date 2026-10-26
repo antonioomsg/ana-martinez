@@ -16,6 +16,8 @@
  *   CONTRASENA     su contraseña
  *   GITHUB_TOKEN   token de GitHub con permiso «Contents: read and write» solo en antonioomsg/ana-martinez
  *   DRIVE_CARPETA  (opcional) id de la unidad o carpeta de Drive; por defecto la unidad de Ana
+ *   RECAPTCHA_SECRETO (opcional) clave secreta de reCAPTCHA v2; con ella el login exige la casilla
+ *                  «No soy un robot» (la clave pública va en data/sitio.json › captcha_clave)
  * Después: ejecutar «comprobar», y Implementar → Nueva implementación → Aplicación web
  * (Ejecutar como: yo · Quién tiene acceso: cualquier usuario).
  */
@@ -25,12 +27,12 @@ const RAMA = 'main';
 const WEB = 'https://antonioomsg.github.io/ana-martinez/';
 const DRIVE_POR_DEFECTO = '0ACbqrv17fXYDUk9PVA';
 const HORAS_SESION = 12;
-const VERSION = 6; // 2: fotos y párrafos · 3: comentarios · 4: huellas · 5: Drive distingue fotos sustituidas · 6: copia a prueba de cortes
+const VERSION = 7; // 2: fotos y párrafos · 3: comentarios · 4: huellas · 5: Drive distingue fotos sustituidas · 6: copia a prueba de cortes · 7: «No soy un robot»
 const MAX_FALLOS = 8; // intentos de contraseña fallidos antes de bloquear 15 minutos
 
 // Ficheros de data/ que el editor puede tocar
 const FICHEROS = /^(content|panuelos|laminas|ediciones|bio|documentos|translations_en|sitio|cuadros\/[a-z0-9_]+|textos_curador\/[a-z0-9_]+)\.json$/i;
-const CLAVES_PROHIBIDAS = ['__proto__', 'constructor', 'prototype', 'editor_url'];
+const CLAVES_PROHIBIDAS = ['__proto__', 'constructor', 'prototype', 'editor_url', 'captcha_clave'];
 
 const props = () => PropertiesService.getScriptProperties();
 
@@ -62,6 +64,16 @@ function doPost(e) {
 
 // ---------- Sesión ----------
 
+function captchaValido_(respuestaCaptcha) {
+  const secreto = props().getProperty('RECAPTCHA_SECRETO');
+  if (!secreto) return true; // sin configurar: basta usuario y contraseña
+  if (!respuestaCaptcha) return false;
+  const r = JSON.parse(UrlFetchApp.fetch('https://www.google.com/recaptcha/api/siteverify', {
+    method: 'post', payload: { secret: secreto, response: String(respuestaCaptcha) }, muteHttpExceptions: true,
+  }).getContentText());
+  return r.success === true && ['antonioomsg.github.io', 'localhost', '127.0.0.1'].indexOf(r.hostname) >= 0;
+}
+
 function secreto_() {
   let s = props().getProperty('SECRETO');
   if (!s) {
@@ -89,6 +101,7 @@ function entrar_(datos) {
   const usuario = props().getProperty('USUARIO');
   const contrasena = props().getProperty('CONTRASENA');
   if (!usuario || !contrasena) return { ok: false, error: 'El editor no tiene usuario configurado.' };
+  if (!captchaValido_(datos.captcha)) return { ok: false, error: 'Marca otra vez la casilla «No soy un robot».' };
   if (!iguales_(String(datos.usuario || '').toLowerCase(), usuario.toLowerCase()) || !iguales_(datos.contrasena || '', contrasena)) {
     cache.put('fallos', String(fallos + 1), 15 * 60);
     Utilities.sleep(800);
@@ -530,6 +543,7 @@ function comprobar() {
   ['USUARIO', 'CONTRASENA', 'GITHUB_TOKEN'].forEach(function (k) {
     console.log(k + ': ' + (props().getProperty(k) ? 'configurado' : 'FALTA'));
   });
+  console.log('No soy un robot: ' + (props().getProperty('RECAPTCHA_SECRETO') ? 'activado' : 'sin activar (falta RECAPTCHA_SECRETO)'));
   const ref = github_('get', '/git/ref/heads/' + RAMA);
   console.log('GitHub: acceso a ' + REPO + ' OK (último commit ' + ref.object.sha.slice(0, 7) + ')');
   const permisos = github_('get', '').permissions || {};

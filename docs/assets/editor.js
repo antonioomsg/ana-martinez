@@ -3,6 +3,7 @@
 // a generar y publicar la web en 1-2 minutos. Los visitantes normales no cargan nada más.
 (() => {
   const URL_API = window.AM_EDITOR;
+  const CAPTCHA = window.AM_CAPTCHA; // clave pública de reCAPTCHA (data/sitio.json › captcha_clave); vacía = sin casilla
   const K_TOKEN = "am-editor-token";
   const K_RECIENTES = "am-editor-recientes";
   const MIN_PUBLICAR = 20; // minutos durante los que se muestran los cambios aún no publicados
@@ -52,6 +53,8 @@
 .am-barra button:disabled { opacity: .4; cursor: default; }
 .am-dlg { border: 0; padding: 28px; width: min(440px, calc(100vw - 32px)); font: 15px/1.4 Jost, system-ui, sans-serif; color: #111; }
 .am-dlg::backdrop { background: rgba(0,0,0,.4); }
+.am-dlg[open]:not(:modal) { position: fixed; inset: 0; margin: auto; height: fit-content; z-index: 9999; box-shadow: 0 0 0 100vmax rgba(0,0,0,.4); }
+.am-dlg .am-captcha { min-height: 78px; margin: 4px 0 10px; }
 .am-dlg h2 { margin: 0 0 16px; font-weight: 400; letter-spacing: 2px; font-size: 18px; }
 .am-dlg label { display: block; margin: 0 0 14px; font-size: 13px; letter-spacing: .5px; }
 .am-dlg input { display: block; width: 100%; box-sizing: border-box; margin-top: 6px; min-height: 44px; padding: 0 12px; border: 1px solid #ccc; font: inherit; font-size: 16px; }
@@ -70,19 +73,33 @@
   let orden = 0; // para que varias fotos añadidas detrás de la misma queden en el orden en que se añadieron
   let barra, estado, botonGuardar;
 
-  function dialogo(html) {
+  function dialogo(html, modal = true) {
     const d = document.createElement("dialog");
     d.className = "am-dlg";
     d.innerHTML = html;
     document.body.append(d);
     d.addEventListener("close", () => d.remove());
-    d.showModal();
+    modal ? d.showModal() : d.show();
     return d;
   }
 
   async function llamar(datos) {
     const r = await fetch(URL_API, { method: "POST", body: JSON.stringify(datos), headers: { "Content-Type": "text/plain;charset=utf-8" } });
     return r.json();
+  }
+
+  // Casilla «No soy un robot» (reCAPTCHA v2). Se carga solo al pedir la contraseña.
+  let captchaListo;
+  function cargarCaptcha() {
+    captchaListo ||= new Promise((ok, mal) => {
+      window.amCaptchaListo = () => ok(window.grecaptcha);
+      const s = document.createElement("script");
+      s.src = "https://www.google.com/recaptcha/api.js?onload=amCaptchaListo&render=explicit&hl=es";
+      s.async = true;
+      s.onerror = () => { captchaListo = null; mal(new Error("captcha")); };
+      document.head.append(s);
+    });
+    return captchaListo;
   }
 
   function entrar() {
@@ -96,19 +113,30 @@
 <form>
   <label>Usuario<input name="usuario" autocomplete="username" required autocapitalize="off"></label>
   <label>Contraseña<input name="contrasena" type="password" autocomplete="current-password" required></label>
+  ${CAPTCHA ? '<div class="am-captcha"></div>' : ""}
   <p class="am-error" aria-live="polite"></p>
   <div class="am-acciones"><button type="button" class="am-cancelar">Cancelar</button><button class="am-principal">Entrar</button></div>
-</form>`);
+</form>`, !CAPTCHA); // modal tapa la ventana de fotos del captcha: sin él, fondo oscuro con CSS
       const f = d.querySelector("form");
       const err = d.querySelector(".am-error");
+      let casilla = null;
+      if (CAPTCHA) cargarCaptcha()
+        .then((g) => { casilla = g.render(d.querySelector(".am-captcha"), { sitekey: CAPTCHA }); })
+        .catch(() => { err.textContent = "No se ha podido cargar la casilla «No soy un robot». Revisa la conexión y recarga la página."; });
       d.querySelector(".am-cancelar").onclick = () => { d.close(); ok(false); };
       d.addEventListener("cancel", () => ok(false));
       f.onsubmit = async (ev) => {
         ev.preventDefault();
+        const captcha = CAPTCHA && casilla !== null ? window.grecaptcha.getResponse(casilla) : "";
+        if (CAPTCHA && !captcha) { err.textContent = "Marca la casilla «No soy un robot»."; return; }
         err.textContent = "Comprobando…";
         try {
-          const r = await llamar({ accion: "entrar", usuario: f.usuario.value.trim(), contrasena: f.contrasena.value });
-          if (!r.ok) { err.textContent = r.error || "No se ha podido entrar."; return; }
+          const r = await llamar({ accion: "entrar", usuario: f.usuario.value.trim(), contrasena: f.contrasena.value, captcha });
+          if (!r.ok) {
+            err.textContent = r.error || "No se ha podido entrar.";
+            if (casilla !== null) window.grecaptcha.reset(casilla); // cada casilla marcada sirve para un solo intento
+            return;
+          }
           guardarLocal(K_TOKEN, { token: r.token, exp: r.exp, version: r.version || 1 });
           d.close();
           window.dispatchEvent(new Event("am-editor-sesion")); // el modo revisión (comentarios) se activa con la misma sesión
