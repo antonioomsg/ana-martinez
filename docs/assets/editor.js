@@ -73,7 +73,14 @@
   let orden = 0; // para que varias fotos añadidas detrás de la misma queden en el orden en que se añadieron
   let barra, estado, botonGuardar;
 
+  let conEstilo = false;
+  function ponerEstilo() {
+    if (!conEstilo) document.head.insertAdjacentHTML("beforeend", `<style>${ESTILO}</style>`);
+    conEstilo = true;
+  }
+
   function dialogo(html, modal = true) {
+    ponerEstilo(); // también para la ventana de entrar, antes de activar el modo edición
     const d = document.createElement("dialog");
     d.className = "am-dlg";
     d.innerHTML = html;
@@ -517,7 +524,7 @@
   }
 
   function activar() {
-    document.head.insertAdjacentHTML("beforeend", `<style>${ESTILO}</style>`);
+    ponerEstilo();
     document.body.classList.add("am-editando");
     document.querySelectorAll("[data-fold]").forEach((b) => b.classList.remove("fold"));
     document.querySelectorAll(".pdp-info details").forEach((d) => { d.open = true; });
