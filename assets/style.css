@@ -43,6 +43,11 @@ a { color: inherit; }
 .hero > img { width: 100%; height: 100%; object-fit: cover; }
 .hero-ig { position: absolute; right: 80px; bottom: 80px; }
 .home .site-footer { display: none; }
+/* Menú de portada en el tono claro de la niebla del cuadro; los desplegables (fondo blanco) siguen en tinta */
+.home { --hero-ink: #c1e2e1; }
+.home .nav-brand, .home .nav-menu > li > a, .home .nav-menu > li > button, .home .nav .cart-open { color: var(--hero-ink); text-shadow: 0 1px 12px rgba(0, 0, 0, .25); }
+.home .nav-menu > li > a:hover, .home .nav-menu > li > button:hover, .home .nav .cart-open:hover, .home .nav-brand:hover { color: #fff; }
+.home .nav-toggle span { background: var(--hero-ink); }
 
 /* Rejillas */
 .grid { display: grid; }
@@ -454,6 +459,7 @@ html { scroll-behavior: smooth; }
   .nav-toggle span { display: block; height: 2px; background: var(--ink); }
   .nav-menu { display: none; position: absolute; top: var(--header-h); left: 0; right: 0; flex-direction: column; gap: 20px; background: var(--bg); padding: 24px 16px 32px; text-align: center; }
   .nav-menu.open { display: flex; }
+  .home .nav-menu > li > a, .home .nav-menu > li > button { color: var(--ink); text-shadow: none; }
   .sub { position: static; transform: none; box-shadow: none; padding: 12px 0 0; }
   .grid.cols-3, .grid.cols-2 { grid-template-columns: 1fr 1fr; }
   .cols-2 .card, .card { aspect-ratio: 3 / 4; }
