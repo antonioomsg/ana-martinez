@@ -101,7 +101,8 @@ document.addEventListener("DOMContentLoaded", () => {
           sw.setAttribute("aria-pressed", "true");
           pdp.querySelector("[data-color-label]").textContent = sw.dataset.label;
           pdp.querySelector("[data-flat-img]").src = sw.dataset.flat;
-          pdp.querySelector("[data-worn-img]").src = sw.dataset.worn;
+          const worn = pdp.querySelector("[data-worn-img]");
+          if (worn.closest("figure")) worn.src = sw.dataset.worn;  // sin foto de modelo, el hueco sigue oculto
           pdp.querySelector("[data-zoom-img]").src = sw.dataset.zoom;
           addBtn.dataset.color = sw.dataset.color;
         });

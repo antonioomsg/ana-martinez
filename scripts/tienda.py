@@ -31,7 +31,7 @@ FILTROS = [("ediciones", "tienda_todo", "tienda_todo_en"), ("panuelos", "menu_pa
            ("laminas", "menu_laminas", "tienda_laminas_en")]
 
 
-VACIA = "data:image/gif;base64,R0lGODlhAQABAAAAACw="  # sin foto de esa vista
+VACIA = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"  # sin foto de esa vista
 
 
 def foto(tipo, name):
