@@ -92,7 +92,7 @@ def generar(root):
         ficheros.append({"carpeta": "05 Sobre mí", "nombre": f"Retrato - {f}", "fuente": f"assets/{f}"})
     for t in content["pages"]["bio"]["text"]:
         if isinstance(t, dict) and "pdf" in t and t["pdf"].startswith("assets/"):
-            ficheros.append({"carpeta": "05 Sobre mí", "nombre": "CV.pdf", "fuente": t["pdf"]})
+            ficheros.append({"carpeta": "05 Sobre mí", "nombre": f'{limpio(t.get("label", "CV"))}.pdf', "fuente": t["pdf"]})
     textos.append({"carpeta": "05 Sobre mí", "nombre": "Biografía", "texto": "\n".join(
         ["ESPAÑOL", bio["lead_es"], *bio["es"], "", "ENGLISH", bio["lead_en"], *bio["en"]]) + "\n"})
     for f, n in (("hero.png", "Portada de la web.png"), ("firma.png", "Firma.png"), ("instagram.svg", "Icono Instagram.svg")):

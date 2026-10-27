@@ -54,7 +54,7 @@
      "id": "rojo",
      "label": "Rojo coral / Gris perla",
      "fotos": {
-      "plano": "siames-plano-20261026163935-1",
+      "plano": "siames_plano_real",
       "modelo": "siames_modelo",
       "zoom": "siames-zoom-20261026164219-2"
      }
@@ -125,6 +125,197 @@
    "grupo": "flotabilidad-neutra"
   },
   {
+   "slug": "kelp-forest-2",
+   "nombre": "Kelp Forest 2",
+   "lema": "Una cinta dorada que sube hacia la luz.",
+   "descripcion": "Frondas de kelp doradas que se elevan y se entrelazan entre azules turquesa, sobre un fondo de cantos blancos. Nace de su óleo «Bosque de kelp dorado».",
+   "colores": [
+    {
+     "id": "turquesa",
+     "label": "Turquesa / Oro / Negro",
+     "fotos": {
+      "plano": "kelp2_plano",
+      "zoom": "kelp2_zoom"
+     }
+    }
+   ],
+   "obra": {
+    "titulo": "",
+    "tecnica": "",
+    "img": "assets/wp/2025/02/GOLD-KELP-FOREST-.jpg"
+   },
+   "descripcion_en": "Golden kelp fronds rising and intertwining among turquoise blues, above a bed of white pebbles. Born from her oil painting “Golden kelp forest”.",
+   "lema_en": "A golden ribbon rising towards the light.",
+   "tipo": "panuelos",
+   "grupo": "flotabilidad-neutra"
+  },
+  {
+   "slug": "ebria-de-carne-azul",
+   "nombre": "Ebria de carne azul",
+   "lema": "Ebrios de carne azul, por un rato al menos.",
+   "descripcion": "Un bosque de kelp envuelto en una bruma azul, con un pez solitario y cantos de colores en el fondo. Nace del óleo que da nombre a su exposición «Ebria de carne azul».",
+   "colores": [
+    {
+     "id": "azul",
+     "label": "Azul bruma / Ocre",
+     "fotos": {
+      "plano": "ebria_plano",
+      "zoom": "ebria_zoom"
+     }
+    }
+   ],
+   "obra": {
+    "titulo": "",
+    "tecnica": "",
+    "img": "assets/wp/2025/02/Bosque-de-Kelp_2_web.jpg"
+   },
+   "descripcion_en": "A kelp forest wrapped in blue haze, with a lone fish and coloured pebbles on the seabed. Born from the oil painting that gives its name to her exhibition “Ebria de carne azul”.",
+   "lema_en": "Drunk on blue flesh, at least for a while.",
+   "tipo": "panuelos",
+   "grupo": "flotabilidad-neutra"
+  },
+  {
+   "slug": "niebla",
+   "nombre": "Niebla",
+   "lema": "Era aquel el reino de la verticalidad.",
+   "descripcion": "Troncos de kelp que se pierden en la niebla azul del fondo marino, con algas verdes que brotan entre ellos. Con la firma de Ana en una esquina. Nace de su óleo «Bosque de kelp en la niebla».",
+   "colores": [
+    {
+     "id": "azul",
+     "label": "Azul petróleo / Verde",
+     "fotos": {
+      "plano": "niebla_plano",
+      "zoom": "niebla_zoom"
+     }
+    }
+   ],
+   "obra": {
+    "titulo": "",
+    "tecnica": "",
+    "img": "assets/wp/2026/09/KELP_IMAGEN_CARTEL_EXPO-copia.jpg"
+   },
+   "descripcion_en": "Kelp stems fading into the blue mist of the seabed, with green fronds sprouting between them. With Ana's signature in one corner. Born from her oil painting “Kelp forest in the mist”.",
+   "lema_en": "It was the kingdom of verticality.",
+   "tipo": "panuelos",
+   "grupo": "flotabilidad-neutra"
+  },
+  {
+   "slug": "hacia-la-luz",
+   "nombre": "Hacia la luz",
+   "lema": "Desde el fondo del océano, buscan la luz.",
+   "descripcion": "Mirada desde el fondo hacia la superficie: los tallos de kelp suben hacia una luz blanca entre azules profundos. Con la firma de Ana en una esquina. Nace de su óleo «Hacia la luz».",
+   "colores": [
+    {
+     "id": "azul",
+     "label": "Azul profundo / Turquesa",
+     "fotos": {
+      "plano": "hacia_la_luz_plano",
+      "zoom": "hacia_la_luz_zoom"
+     }
+    }
+   ],
+   "obra": {
+    "titulo": "",
+    "tecnica": "",
+    "img": "assets/wp/2026/09/KELP-FOREST-4-copia-1.jpg"
+   },
+   "descripcion_en": "Looking up from the seabed: kelp stems rise towards a white light through deep blues. With Ana's signature in one corner. Born from her oil painting “Towards the light”.",
+   "lema_en": "From the depths of the ocean, they reach for the light.",
+   "tipo": "panuelos",
+   "grupo": "flotabilidad-neutra"
+  },
+  {
+   "slug": "arrecife",
+   "nombre": "Arrecife",
+   "lema": "Un paisaje que respira.",
+   "descripcion": "Un arrecife de kelp lleno de vida: frondas amarillas, plumas blancas, peces y un coral naranja sobre el azul intenso del mar. Nace de su óleo «Arrecife de kelp».",
+   "colores": [
+    {
+     "id": "azul",
+     "label": "Azul / Amarillo / Naranja",
+     "fotos": {
+      "plano": "arrecife_plano",
+      "zoom": "arrecife_zoom"
+     }
+    }
+   ],
+   "obra": {
+    "titulo": "",
+    "tecnica": "",
+    "img": "assets/wp/2026/09/KELP-FOREST-1-copia.jpg"
+   },
+   "descripcion_en": "A kelp reef full of life: yellow fronds, white feathery plumes, fish and an orange coral against the deep blue sea. Born from her oil painting “Kelp reef”.",
+   "lema_en": "A breathing landscape.",
+   "tipo": "panuelos",
+   "grupo": "flotabilidad-neutra"
+  },
+  {
+   "slug": "siames-azul",
+   "nombre": "Siamés azul",
+   "lema": "Un movimiento suave y armónico.",
+   "descripcion": "Un pez siamés luchador de escamas azules despliega su cola roja como un abanico sobre un fondo gris perla. Nace de su óleo «Pez siamés luchador III».",
+   "colores": [
+    {
+     "id": "gris",
+     "label": "Gris perla / Rojo / Azul",
+     "fotos": {
+      "plano": "siames_azul_plano",
+      "zoom": "siames_azul_zoom"
+     }
+    }
+   ],
+   "obra": {
+    "titulo": "",
+    "tecnica": "",
+    "img": "assets/wp/2026/09/SFF_3.jpg"
+   },
+   "descripcion_en": "A blue-scaled Siamese fighting fish spreads its red tail like a fan against a pearl-grey ground. Born from her oil painting “Siamese fighting fish III”.",
+   "lema_en": "A gentle, harmonious movement.",
+   "tipo": "panuelos",
+   "grupo": "flotabilidad-neutra"
+  },
+  {
+   "slug": "siameses-y-medusas",
+   "nombre": "Siameses y medusas",
+   "lema": "La fauna y la flora se tocan muy de cerca.",
+   "descripcion": "Peces siameses y medusas se reflejan en espejo hasta formar un caleidoscopio, rematado con un ribete de ondas. Disponible en tres colores.",
+   "colores": [
+    {
+     "id": "menta",
+     "label": "Verde menta",
+     "fotos": {
+      "plano": "medusas_menta_plano",
+      "zoom": "medusas_menta_zoom"
+     }
+    },
+    {
+     "id": "magenta",
+     "label": "Magenta",
+     "fotos": {
+      "plano": "medusas_magenta_plano",
+      "zoom": "medusas_magenta_zoom"
+     }
+    },
+    {
+     "id": "burdeos",
+     "label": "Burdeos",
+     "fotos": {
+      "plano": "medusas_burdeos_plano",
+      "zoom": "medusas_burdeos_zoom"
+     }
+    }
+   ],
+   "obra": {
+    "titulo": "",
+    "tecnica": "",
+    "img": "assets/wp/2025/02/SIAMESE-FIGHTING-FISH_2_WEB.jpg"
+   },
+   "descripcion_en": "Siamese fighting fish and jellyfish mirrored into a kaleidoscope, finished with a border of waves. Available in three colours.",
+   "lema_en": "Fauna and flora touch very closely.",
+   "tipo": "panuelos",
+   "grupo": "flotabilidad-neutra"
+  },
+  {
    "slug": "viana",
    "nombre": "Viana",
    "lema": "Las plantas de los patios.",
@@ -159,7 +350,7 @@
      "This scarf grows out of her botanical plates: a meticulous, almost scientific drawing turned into a print."
     ]
    },
-   "descripcion_en": "Round leaves and yellow flowers drawn with the detail of a botanical plate, framed by a green chequered border. A Cordoban courtyard garden to wear.",
+   "descripcion_en": "Farfugium japonicum, commonly known as leopard plant, has round leaves and yellow flowers. For this scarf they have been painted in watercolour and drawn with the detail of a botanical plate, framed by a green border that recalls the tiles of an Andalusian dado. A Cordoban courtyard garden to wear.",
    "lema_en": "The plants of the courtyards.",
    "tipo": "panuelos",
    "grupo": "plantas-de-los-patios"

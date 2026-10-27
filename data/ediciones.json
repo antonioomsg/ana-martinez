@@ -40,15 +40,18 @@
    "acordeon": [
     [
      "MANTENIMIENTO",
-     "Lavar en seco o a mano en agua fría con jabón neutro. Planchar a temperatura baja por el revés."
+     "Lavar en seco o a mano en agua fría con jabón neutro. Planchar a temperatura baja por el revés.",
+     "Dry clean, or hand wash in cold water with a mild soap. Iron on a low setting on the reverse."
     ],
     [
      "ENVÍO Y DEVOLUCIONES",
-     "Envío en una caja de cartón rígida, listo para regalar. Devoluciones en un plazo de 30 días."
+     "Envío en una caja de cartón rígida, listo para regalar. Devoluciones en un plazo de 30 días.",
+     "Shipped in a rigid cardboard box, ready to give. Returns accepted within 30 days."
     ],
     [
      "HACER UN REGALO",
-     "Podemos incluir una tarjeta escrita a mano por la artista."
+     "Podemos incluir una tarjeta escrita a mano por la artista.",
+     "We can include a card handwritten by the artist."
     ]
    ],
    "uso": {
@@ -58,7 +61,7 @@
     "en": "Folded into a triangle over the shoulders, rolled into a ribbon and knotted at the neck or worn on the head, the carré moves with whoever wears it, like water."
    },
    "intro_es": "Carré de seda twill con bordes enrollados y cosidos a mano.\nEstampado artístico: Cada pieza funciona como un lienzo impreso con ilustraciones detalladas de las pinturas de los cuadros, y agrupados por proyectos.",
-   "intro_en": "Silk twill carrés with hand-stitched hems, born from her paintings and grouped by project."
+   "intro_en": "Silk twill carrés with hand-rolled, hand-stitched hems.\nArt prints: each piece works as a printed canvas carrying detailed illustrations of her paintings, grouped by project."
   },
   "laminas": {
    "nombre": "Láminas",
@@ -102,15 +105,18 @@
    "acordeon": [
     [
      "CUIDADOS",
-     "Enmarcar con cristal y evitar la luz solar directa para conservar los colores."
+     "Enmarcar con cristal y evitar la luz solar directa para conservar los colores.",
+     "Frame behind glass and keep out of direct sunlight to preserve the colours."
     ],
     [
      "ENVÍO Y DEVOLUCIONES",
-     "Envío protegido en tubo o carpeta rígida. Devoluciones en un plazo de 30 días."
+     "Envío protegido en tubo o carpeta rígida. Devoluciones en un plazo de 30 días.",
+     "Shipped protected in a tube or rigid folder. Returns accepted within 30 days."
     ],
     [
      "HACER UN REGALO",
-     "Podemos incluir una tarjeta escrita a mano por la artista."
+     "Podemos incluir una tarjeta escrita a mano por la artista.",
+     "We can include a card handwritten by the artist."
     ]
    ],
    "uso": {

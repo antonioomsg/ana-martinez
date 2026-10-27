@@ -2792,8 +2792,13 @@
    ],
    "text": [
     {
-     "pdf": "assets/wp/2026/05/CV-1.pdf",
+     "pdf": "assets/cv/Ana_Martinez_CV.pdf",
      "label": "CV"
+    },
+    {
+     "pdf": "assets/cv/Ana_Martinez_CV_English.pdf",
+     "label": "CV (English)",
+     "lang": "en"
     },
     "BIO",
     "Ana Martínez, Córdoba, 1970.\n\nVive y trabaja en España.",

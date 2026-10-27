@@ -31,6 +31,9 @@ FILTROS = [("ediciones", "tienda_todo", "tienda_todo_en"), ("panuelos", "menu_pa
            ("laminas", "menu_laminas", "tienda_laminas_en")]
 
 
+VACIA = "data:image/gif;base64,R0lGODlhAQABAAAAACw="  # sin foto de esa vista
+
+
 def foto(tipo, name):
     return f"assets/{tipo['dir']}/{name}.jpg"
 
@@ -66,7 +69,7 @@ def card(r, p, ed_):
     href = f"{r}{tipo['dir']}/{p['slug']}/"
     imgs = "".join(
         f'<img class="{"is-on" if i == 0 else ""}" src="{r}{foto(tipo, c[k])}" alt="{e(nombre(p, tipo))}, {alt}" loading="lazy">'
-        for i, (k, alt) in enumerate(tipo["vistas"]))
+        for i, (k, alt) in enumerate((k, alt) for k, alt in tipo["vistas"] if c.get(k)))
     return f"""<div class="shop-card">
   <div class="shop-media" data-carousel>
     <a href="{href}" tabindex="-1" aria-hidden="true">{imgs}</a>
@@ -145,7 +148,7 @@ def ficha(r, p, ed_, productos):
         sw = "".join(
             f'<button type="button" class="swatch{" is-active" if i == 0 else ""}" data-color="{c["id"]}" '
             f'data-label="{e(c["label"])}" data-flat="{r}{foto(tipo, c["fotos"]["plano"])}" '
-            f'data-worn="{r}{foto(tipo, c["fotos"]["modelo"])}" data-zoom="{r}{foto(tipo, c["fotos"]["zoom"])}" '
+            f'data-worn="{r + foto(tipo, c["fotos"]["modelo"]) if c["fotos"].get("modelo") else VACIA}" data-zoom="{r}{foto(tipo, c["fotos"]["zoom"])}" '
             f'aria-label="{e(c["label"])}" title="{e(c["label"])}" aria-pressed="{"true" if i == 0 else "false"}">'
             f'<img src="{r}{foto(tipo, c["fotos"]["plano"])}" alt=""></button>'
             for i, c in enumerate(p["colores"]))
@@ -215,20 +218,30 @@ def ficha(r, p, ed_, productos):
     hermanos = [q for q in productos if q["grupo"] == p["grupo"] and q["slug"] != p["slug"]]
     otros = [q for q in productos if q["grupo"] != p["grupo"]][: max(0, 4 - len(hermanos))]
     mas = "\n".join(card(r, q, ed_) for q in hermanos + otros)
-    acordeon = "".join(f'<details><summary{ed(rt + ["acordeon", k, 0])}>{e(a)}</summary><p{ed(rt + ["acordeon", k, 1])}>{e(b)}</p></details>'
-                       for k, (a, b) in enumerate(tipo["acordeon"]))
+    acordeon = "".join(f'<details><summary{ed(rt + ["acordeon", k, 0])}>{e(a[0])}</summary><p{ed(rt + ["acordeon", k, 1])}>{e(a[1])}</p>'
+                       + (f'<p lang="en" class="muted"{ed(rt + ["acordeon", k, 2])}>{e(a[2])}</p>' if len(a) > 2 else "")
+                       + '</details>'
+                       for k, a in enumerate(tipo["acordeon"]))
+    # Fotos de la ficha: planchado · llevado · detalle (la que falte no se muestra)
+    figs = [("plano", "data-flat-img", ' class="pdp-flat"'), ("modelo", "data-worn-img", ""), ("zoom", "data-zoom-img", "")]
+    figs = [x for x in figs if f.get(x[0])]
+    fotos = "\n    ".join(
+        f'<figure{cls}><button type="button" class="zoomable" data-index="{i}" aria-label="Ampliar foto"><img {attr}'
+        f'{marca_foto(producto=rp, vista=k, dir=tipo["dir"])} src="{r}{foto(tipo, f[k])}" alt="{e(nombre(p, tipo))}, {vistas[k]}"></button></figure>'
+        for i, (k, attr, cls) in enumerate(figs))
+    if not f.get("modelo"):  # las muestras de color esperan este elemento
+        fotos += '\n    <img data-worn-img hidden alt="">'
+    dots = "".join(f'<span{" class=\"is-on\"" if i == 0 else ""}></span>' for i in range(len(figs)))
     return f"""<article class="pdp" data-slug="{p["slug"]}">
   <div class="pdp-top">
     <nav class="crumbs" aria-label="Migas de pan"><a href="{r}ediciones/">Ediciones</a> › <a href="{r}ediciones/#{g["id"]}">{e(g["titulo"])}</a> › <span aria-current="page">{e(nombre(p, tipo))}</span></nav>
     {pager}
   </div>
   <div class="pdp-strip">
-    <div class="pdp-photos" data-gallery>
-    <figure class="pdp-flat"><button type="button" class="zoomable" data-index="0" aria-label="Ampliar foto"><img data-flat-img{marca_foto(producto=rp, vista="plano", dir=tipo["dir"])} src="{r}{foto(tipo, f["plano"])}" alt="{e(nombre(p, tipo))}, {vistas["plano"]}"></button></figure>
-    <figure><button type="button" class="zoomable" data-index="1" aria-label="Ampliar foto"><img data-worn-img{marca_foto(producto=rp, vista="modelo", dir=tipo["dir"])} src="{r}{foto(tipo, f["modelo"])}" alt="{e(nombre(p, tipo))}, {vistas["modelo"]}"></button></figure>
-    <figure><button type="button" class="zoomable" data-index="2" aria-label="Ampliar foto"><img data-zoom-img{marca_foto(producto=rp, vista="zoom", dir=tipo["dir"])} src="{r}{foto(tipo, f["zoom"])}" alt="{e(nombre(p, tipo))}, {vistas["zoom"]}"></button></figure>
+    <div class="pdp-photos pdp-photos--{len(figs)}" data-gallery>
+    {fotos}
     </div>
-    <div class="pdp-dots" aria-hidden="true"><span class="is-on"></span><span></span><span></span></div>
+    <div class="pdp-dots" aria-hidden="true">{dots}</div>
     <div class="buy-card">
       <p class="buy-kind"><a href="{r}{tipo["dir"]}/">{e(tipo["nombre"])}</a> · <a href="{r}ediciones/#{g["id"]}">{e(g["titulo"])}</a></p>
       <h1{ed(rp + ["nombre"])}>{e(p["nombre"])}</h1>{otros_datos}

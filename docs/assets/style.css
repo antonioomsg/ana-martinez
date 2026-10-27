@@ -149,6 +149,7 @@ a { color: inherit; }
 /* Pañuelos: ficha (disposición Hermès) */
 .pdp-strip { position: relative; }
 .pdp-photos { display: grid; grid-template-columns: 1fr 1fr 1fr; height: calc(100vh - var(--header-h)); min-height: 620px; }
+.pdp-photos--2 { grid-template-columns: 1fr 1fr; }
 .pdp-strip figure { margin: 0; overflow: hidden; background: var(--sand); }
 .pdp-strip img { width: 100%; height: 100%; object-fit: cover; }
 .pdp-flat img { object-fit: contain; padding: 0; transition: opacity .25s; }

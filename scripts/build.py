@@ -363,8 +363,9 @@ def build():
 
     # Sobre mí: foto con marco en L a la izquierda, texto a la derecha; debajo ES | EN
     bio = json.loads((ROOT / "data" / "bio.json").read_text())
-    cv = next((t["pdf"] for t in data["pages"]["bio"]["text"] if isinstance(t, dict) and "pdf" in t), None)
-    cv_btn = f'<a class="btn-link" href="{e(src("../", cv))}" rel="noopener">CV ↗</a>' if cv else ""
+    cvs = [t for t in data["pages"]["bio"]["text"] if isinstance(t, dict) and "pdf" in t]
+    cv_btn = " ".join(f'<a class="btn-link" href="{e(src("../", t["pdf"]))}" rel="noopener"'
+                      f'{" lang=en" if t.get("lang") == "en" else ""}>{e(t.get("label", "CV"))} ↗</a>' for t in cvs)
     write("sobre-mi/index.html", page("../", tx("sobre_titulo"), f"""<article class="bio2">
   <h1 class="bio2-title">{t("sobre_titulo")} <span class="en-sub" lang="en">{t("sobre_titulo_en")}</span></h1>
   <div class="bio2-hero">
