@@ -152,8 +152,8 @@ def write(rel, content):
 def card(r, p):
     marca = foto(foto=["content.json", "posts", p["_i"], "cover"], slug=p["slug"])
     img = f'<img src="{e(src(r, p["cover"]))}" alt="" loading="lazy"{marca}>' if p["cover"] else ""
-    return f"""<a class="card" href="{r}obra/{p["slug"]}/">
-  {img}<span class="card-veil"></span>
+    return f"""<a class="card card-cap" href="{r}obra/{p["slug"]}/">
+  <span class="card-media">{img}<span class="card-veil"></span></span>
   <span class="card-text"><span class="card-title"{ed(["content.json", "posts", p["_i"], "title"], raw=p["title"])}>{e(p["title"].upper())}</span>
   <span class="card-date">{fecha(p["date"])}</span></span>
 </a>"""

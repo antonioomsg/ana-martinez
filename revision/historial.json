@@ -383,6 +383,56 @@
       "fecha": "2026-10-27T01:56:30Z",
       "texto": "Ya están los pañuelos nuevos en Flotabilidad neutra: https://antonioomsg.github.io/ana-martinez/panuelos/#flotabilidad-neutra Kelp Forest 2, Ebria de carne azul, Niebla, Hacia la luz, Arrecife, Siamés azul y Siameses y medusas (este en menta, magenta y burdeos). Los nombres y los textos los he sacado de los cuadros de los que nacen; si alguno no te gusta, pincha en él y cámbialo. Cada uno tiene la foto extendida y la del detalle; la de la modelo no puedo hacerla yo. Las fotos 10 (Viana) y 11 (Siamés) eran de pañuelos que ya estaban.",
       "estado": "aplicado"
+    },
+    {
+      "id": "mvqfi4elmt8cl",
+      "tipo": "mensaje",
+      "hilo": "mvqfbp9rtja3f",
+      "titulo_hilo": "Exposiciones",
+      "autor": "Ana",
+      "fecha": "2026-10-27T08:33:42.861Z",
+      "texto": "En la pagina de las exposiciones aparecen las imagenes como con un filtro oscuro. me gustaría que se vieran en su tonalidad original",
+      "pagina": "/ana-martinez/proyectos/",
+      "recibido": "2026-10-27T08:33:44.118Z",
+      "archivos": [],
+      "estado": "aplicado",
+      "respuesta": "Hecho: he quitado el velo oscuro y ahora las portadas se ven con su color original. El título y la fecha van debajo de cada imagen para que se lean bien también en las obras claras.",
+      "procesado": "2026-10-28T01:51:55Z"
+    },
+    {
+      "id": "ag3lq5lzay8mc",
+      "tipo": "mensaje",
+      "hilo": "mvqfbp9rtja3f",
+      "titulo_hilo": "Exposiciones",
+      "autor": "Agente",
+      "fecha": "2026-10-28T01:51:55Z",
+      "texto": "Ya está: las portadas de Exposiciones se ven en su color original, sin el filtro oscuro. Como en las obras claras el título blanco no se leía, ahora el título y la fecha van debajo de cada imagen. He hecho el mismo cambio en Murales y Talleres para que toda la web sea igual. https://antonioomsg.github.io/ana-martinez/proyectos/",
+      "estado": "aplicado"
+    },
+    {
+      "id": "mvqflr0g7ylpg",
+      "tipo": "mensaje",
+      "hilo": "mvqfjouv1660q",
+      "titulo_hilo": "Exposiciones",
+      "autor": "Ana",
+      "fecha": "2026-10-27T08:36:32.129Z",
+      "texto": "Cuando se abre cada una de las exposiciones, las imágenes de los cuadros son tan grandes, que para verlas en su totalidad, hay que hacer scroll. Me gustará que se vieran completas en la pantalla de un ordenador genérico. Si hace falta, habrá que hacer una adaptacion responsive para el móvil",
+      "pagina": "/ana-martinez/proyectos/",
+      "recibido": "2026-10-27T08:36:33.393Z",
+      "archivos": [],
+      "estado": "aplicado",
+      "respuesta": "Hecho: ahora cada cuadro cabe entero en la pantalla del ordenador, con su cartela debajo, sin tener que hacer scroll. En el móvil se ven a lo ancho de la pantalla, como antes.",
+      "procesado": "2026-10-28T01:51:55Z"
+    },
+    {
+      "id": "aglmpd2bq29on",
+      "tipo": "mensaje",
+      "hilo": "mvqfjouv1660q",
+      "titulo_hilo": "Exposiciones",
+      "autor": "Agente",
+      "fecha": "2026-10-28T01:51:55Z",
+      "texto": "Ya está: al abrir una exposición, cada cuadro cabe entero en la pantalla del ordenador, con su título y sus medidas debajo. En el móvil siguen ocupando el ancho de la pantalla y se ven completos. Por ejemplo: https://antonioomsg.github.io/ana-martinez/obra/kelp-forest/",
+      "estado": "aplicado"
     }
   ]
 }
