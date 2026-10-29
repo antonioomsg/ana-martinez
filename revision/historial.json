@@ -433,6 +433,71 @@
       "fecha": "2026-10-28T01:51:55Z",
       "texto": "Ya está: al abrir una exposición, cada cuadro cabe entero en la pantalla del ordenador, con su título y sus medidas debajo. En el móvil siguen ocupando el ancho de la pantalla y se ven completos. Por ejemplo: https://antonioomsg.github.io/ana-martinez/obra/kelp-forest/",
       "estado": "aplicado"
+    },
+    {
+      "id": "mvsnl816kekwm",
+      "tipo": "mensaje",
+      "hilo": "mvsnipxcv71yj",
+      "titulo_hilo": "Proyectos",
+      "autor": "Ana",
+      "fecha": "2026-10-28T21:55:36.810Z",
+      "texto": "Elimona las entradas siguientes: King size bed. Ventanas públicas, cunas , y si pudiera entrar en tu cabeza aunque fuera por solo 5 minutos o haz un aartado de obras de juventud donde estén estas entradas",
+      "pagina": "/ana-martinez/proyectos/",
+      "recibido": "2026-10-28T21:55:38.661Z",
+      "archivos": [],
+      "estado": "aplicado",
+      "respuesta": "Hecho: en vez de borrarlas, he creado el apartado «Obras de juventud» al final de Proyectos con King size bed, Ventanas públicas, Cunas y Si pudiese entrar en tu cabeza. Si prefieres eliminarlas, dímelo y las quito.",
+      "procesado": "2026-10-29T01:51:04Z"
+    },
+    {
+      "id": "mvsnlyo2zlik7",
+      "tipo": "mensaje",
+      "hilo": "mvsnipxcv71yj",
+      "titulo_hilo": "Proyectos",
+      "autor": "Ana",
+      "fecha": "2026-10-28T21:56:11.331Z",
+      "texto": "Elimina las entradas siguientes: King size bed. Ventanas públicas, cunas , y si pudiera entrar en tu cabeza aunque fuera por solo 5 minutos o haz un apartado de obras de juventud donde estén estas entradas",
+      "pagina": "/ana-martinez/proyectos/",
+      "recibido": "2026-10-28T21:56:13.084Z",
+      "archivos": [],
+      "estado": "aplicado",
+      "respuesta": "Es el mismo mensaje que el anterior (corregido): está hecho con el apartado «Obras de juventud» al final de Proyectos.",
+      "procesado": "2026-10-29T01:51:04Z"
+    },
+    {
+      "id": "mvsnhj2sze0iz",
+      "tipo": "mensaje",
+      "hilo": "mvsnexixfn72z",
+      "titulo_hilo": "Proyectos",
+      "autor": "Ana",
+      "fecha": "2026-10-28T21:52:44.500Z",
+      "texto": "Me gustaba mas la s fotos de esta pagina pegadas unas a otras, y con  el nombre y la fecha superpuestos. Solamente te pedí en el anterior cambio que las imágenes fueran as luminosas porque parecía que tenían un filtro oscuro. Ponlasjuntas otra vez con el titulo encima a ver que tal quedan",
+      "pagina": "/ana-martinez/proyectos/",
+      "recibido": "2026-10-28T21:52:46.253Z",
+      "archivos": [],
+      "estado": "aplicado",
+      "respuesta": "Hecho: las fotos vuelven a ir pegadas unas a otras con el título y la fecha encima, y siguen sin el filtro oscuro. Para que el título se lea también en las obras claras, lleva solo un halo suave detrás de las letras.",
+      "procesado": "2026-10-29T01:51:04Z"
+    },
+    {
+      "id": "agzqygc32ykuq",
+      "tipo": "mensaje",
+      "hilo": "mvsnexixfn72z",
+      "titulo_hilo": "Proyectos",
+      "autor": "Agente",
+      "fecha": "2026-10-29T01:51:04Z",
+      "texto": "Ya está: las portadas vuelven a ir juntas, sin espacios, con el nombre y la fecha encima, y con su color original (sin el filtro oscuro). Solo he dejado un halo muy suave detrás de las letras para que se lean en las obras claras, como Retratos o Blanco sobre todo. Lo mismo en Murales y Talleres. https://antonioomsg.github.io/ana-martinez/proyectos/",
+      "estado": "aplicado"
+    },
+    {
+      "id": "agrpron3hlnld",
+      "tipo": "mensaje",
+      "hilo": "mvsnipxcv71yj",
+      "titulo_hilo": "Proyectos",
+      "autor": "Agente",
+      "fecha": "2026-10-29T01:51:04Z",
+      "texto": "He hecho el apartado «Obras de juventud» (en inglés «Early works») al final de la página de Proyectos, con King size bed, Ventanas públicas, Cunas y Si pudiese entrar en tu cabeza aunque fuera solo por 5 minutos. Ya no salen entre los proyectos actuales y las fichas siguen funcionando. Si al final prefieres eliminarlas del todo, dímelo. https://antonioomsg.github.io/ana-martinez/proyectos/#obras-de-juventud",
+      "estado": "aplicado"
     }
   ]
 }

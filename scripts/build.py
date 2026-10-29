@@ -27,6 +27,10 @@ SECCIONES = [
     ("PINTAMENTO", "murales", "menu_murales", 2),
     ("TALLERES", "talleres", "menu_talleres", 3),
 ]
+# Apartados al final de una sección: (categoría de la sección, categoría propia, ancla, clave del título)
+SUBSECCIONES = [
+    ("PROYECTOS", "JUVENTUD", "obras-de-juventud", "juventud_titulo"),
+]
 EMAIL = "ana@ana-martinez.com"
 INSTAGRAM = "https://www.instagram.com/anamartinez_studio/"
 YOUTUBE = "https://www.youtube.com/user/aninanona"
@@ -152,8 +156,8 @@ def write(rel, content):
 def card(r, p):
     marca = foto(foto=["content.json", "posts", p["_i"], "cover"], slug=p["slug"])
     img = f'<img src="{e(src(r, p["cover"]))}" alt="" loading="lazy"{marca}>' if p["cover"] else ""
-    return f"""<a class="card card-cap" href="{r}obra/{p["slug"]}/">
-  <span class="card-media">{img}<span class="card-veil"></span></span>
+    return f"""<a class="card" href="{r}obra/{p["slug"]}/">
+  {img}<span class="card-veil"></span>
   <span class="card-text"><span class="card-title"{ed(["content.json", "posts", p["_i"], "title"], raw=p["title"])}>{e(p["title"].upper())}</span>
   <span class="card-date">{fecha(p["date"])}</span></span>
 </a>"""
@@ -297,13 +301,25 @@ def build():
         title = tx(clave)
         items = [p for p in posts if p["category"] == cat]
         grid = "\n".join(card("../", p) for p in items)
+        extra = ""
+        for madre, sub, ancla, clave_sub in SUBSECCIONES:
+            sub_items = [p for p in posts if p["category"] == sub]
+            if madre == cat and sub_items:
+                extra += f"""
+<section class="subseccion" id="{ancla}">
+  <header class="subseccion-head"><h2>{t(clave_sub)} <span class="en-sub" lang="en">{t(clave_sub + "_en")}</span></h2></header>
+  <div class="grid cols-{cols}">
+{chr(10).join(card("../", p) for p in sub_items)}
+  </div>
+</section>"""
         write(f"{folder}/index.html", page("../", title, f"""<h1 class="sr-only">{title}</h1>
 <div class="grid cols-{cols}">
 {grid}
-</div>""", current=folder))
+</div>{extra}""", current=folder))
 
     # Fichas de obra
-    order = {cat: [p for p in posts if p["category"] == cat] for cat, *_ in SECCIONES}
+    order = {cat: [p for p in posts if p["category"] == cat]
+             for cat in [c for c, *_ in SECCIONES] + [sub for _, sub, *_ in SUBSECCIONES]}
     tr_path = ROOT / "data" / "translations_en.json"
     traducciones = json.loads(tr_path.read_text()) if tr_path.exists() else {}
     doc_path = ROOT / "data" / "documentos.json"
@@ -312,7 +328,9 @@ def build():
     curador = cargar_lotes(ROOT / "data" / "textos_curador")
     for p in posts:
         i_post = ["content.json", "posts", p["_i"]]
-        folder, sec_title = next(((f, tx(k)) for c, f, k, _ in SECCIONES if c == p["category"]), ("proyectos", tx("menu_proyectos")))
+        sub = next(((madre, ancla) for madre, c, ancla, _ in SUBSECCIONES if c == p["category"]), None)
+        cat_sec, ancla_sec = sub if sub else (p["category"], "")
+        folder, sec_title = next(((f, tx(k)) for c, f, k, _ in SECCIONES if c == cat_sec), ("proyectos", tx("menu_proyectos")))
         sib = order.get(p["category"], [])
         i = sib.index(p) if p in sib else -1
         prev_ = sib[i - 1] if i > 0 else None
@@ -321,7 +339,7 @@ def build():
                                  i_post + ["images", k], p["slug"]) for k, im in enumerate(p["images"]))
         pager = '<nav class="pager">'
         pager += f'<a href="../{prev_["slug"]}/">← {e(prev_["title"])}</a>' if prev_ else "<span></span>"
-        pager += f'<a href="../../{folder}/">{sec_title.upper()}</a>'
+        pager += f'<a href="../../{folder}/{"#" + ancla_sec if ancla_sec else ""}">{sec_title.upper()}</a>'
         pager += f'<a href="../{next_["slug"]}/">{e(next_["title"])} →</a>' if next_ else "<span></span>"
         pager += "</nav>"
         tr = traducciones.get(p["slug"], {})
