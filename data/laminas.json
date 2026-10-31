@@ -177,46 +177,6 @@
      }
     }
    ]
-  },
-  {
-   "slug": "dachshund",
-   "tipo": "laminas",
-   "grupo": "bestiario",
-   "nombre": "Dachshund",
-   "descripcion": "Tres retratos de dachshund, cada uno con su carácter. Láminas originales de Ana Martínez; elige tu favorito.",
-   "descripcion_en": "Three dachshund portraits, each with its own character. Original prints by Ana Martínez; choose your favourite.",
-   "lema": "Un gesto.",
-   "lema_en": "A gesture.",
-   "obra": null,
-   "colores": [
-    {
-     "id": "d1",
-     "label": "Dachshund I",
-     "fotos": {
-      "plano": "lam_dachshund_1_centrada",
-      "modelo": "lam_dachshund_1_casa",
-      "zoom": "lam_dachshund_1_zoom"
-     }
-    },
-    {
-     "id": "d2",
-     "label": "Dachshund II",
-     "fotos": {
-      "plano": "lam_dachshund_2_centrada",
-      "modelo": "lam_dachshund_2_casa",
-      "zoom": "lam_dachshund_2_zoom"
-     }
-    },
-    {
-     "id": "d3",
-     "label": "Dachshund III",
-     "fotos": {
-      "plano": "lam_dachshund_3_centrada",
-      "modelo": "lam_dachshund_3_casa",
-      "zoom": "lam_dachshund_3_zoom"
-     }
-    }
-   ]
   }
  ]
 }
