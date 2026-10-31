@@ -559,7 +559,7 @@ html { scroll-behavior: smooth; }
 }
 
 
-/* Apartado «Obras de juventud» al final de Proyectos */
+/* Apartado «Primeros proyectos» (early works) al final de Proyectos */
 .subseccion { padding: 88px 0 0; scroll-margin-top: var(--header-h); }
 .subseccion-head { text-align: center; margin: 0 auto 32px; padding: 0 24px; }
 .subseccion-head h2 { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 38px; margin: 0; }
