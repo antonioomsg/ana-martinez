@@ -183,8 +183,8 @@
    "tipo": "laminas",
    "grupo": "bestiario",
    "nombre": "Dachshund",
-   "descripcion": "Tres retratos de dachshund, cada uno con su carácter. Láminas originales de Ana Martínez; elige tu favorito.",
-   "descripcion_en": "Three dachshund portraits, each with its own character. Original prints by Ana Martínez; choose your favourite.",
+   "descripcion": "Siete retratos de dachshund, cada uno con su carácter. Láminas originales de Ana Martínez; elige tu favorito.",
+   "descripcion_en": "Seven dachshund portraits, each with its own character. Original prints by Ana Martínez; choose your favourite.",
    "lema": "Un gesto.",
    "lema_en": "A gesture.",
    "obra": null,
@@ -214,6 +214,42 @@
       "plano": "lam_dachshund_3_centrada",
       "modelo": "lam_dachshund_3_casa",
       "zoom": "lam_dachshund_3_zoom"
+     }
+    },
+    {
+     "id": "d4",
+     "label": "Dachshund IV",
+     "fotos": {
+      "plano": "lam_dachshund_4_centrada",
+      "modelo": "lam_dachshund_4_casa",
+      "zoom": "lam_dachshund_4_zoom"
+     }
+    },
+    {
+     "id": "d5",
+     "label": "Dachshund V",
+     "fotos": {
+      "plano": "lam_dachshund_5_centrada",
+      "modelo": "lam_dachshund_5_casa",
+      "zoom": "lam_dachshund_5_zoom"
+     }
+    },
+    {
+     "id": "d6",
+     "label": "Dachshund VI",
+     "fotos": {
+      "plano": "lam_dachshund_6_centrada",
+      "modelo": "lam_dachshund_6_casa",
+      "zoom": "lam_dachshund_6_zoom"
+     }
+    },
+    {
+     "id": "d7",
+     "label": "Dachshund VII",
+     "fotos": {
+      "plano": "lam_dachshund_7_centrada",
+      "modelo": "lam_dachshund_7_casa",
+      "zoom": "lam_dachshund_7_zoom"
      }
     }
    ]
