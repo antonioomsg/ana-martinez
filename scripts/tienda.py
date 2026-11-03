@@ -42,10 +42,6 @@ def precio(n):
     return f"{n} €"
 
 
-def desde(tipo):
-    return min(t["precio"] for t in tipo["tamanos"])
-
-
 def nombre(p, tipo):
     return f"{tipo['prefijo']} {p['nombre']}"
 
@@ -77,8 +73,7 @@ def card(r, p, ed_):
     <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
   </div>
   <a class="shop-meta" href="{href}"><span class="shop-kind"{ed(ruta_tipo(p) + ["nombre"], raw=tipo["nombre"])}>{e(tipo["nombre"].upper())}</span>
-  <span class="shop-name">{nombre_ed(p, tipo)}</span>
-  <span class="shop-price">{t("tienda_desde", lapiz=True)} {precio(desde(tipo))}</span></a>
+  <span class="shop-name">{nombre_ed(p, tipo)}</span></a>
 </div>"""
 
 
