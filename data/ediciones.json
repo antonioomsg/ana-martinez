@@ -125,8 +125,8 @@
     "es": "Un marco fino de madera clara y un paspartú blanco dejan respirar la obra. A la altura de la mirada, con luz natural lateral, el color cambia a lo largo del día, como en el agua.",
     "en": "A thin pale wood frame and a white mount let the work breathe. Hung at eye level, in soft side light, its colour shifts through the day, like water."
    },
-   "intro_es": "Láminas giclée sobre papel de algodón, firmadas a mano, nacidas de sus cuadros y agrupadas por proyecto.",
-   "intro_en": "Giclée prints on cotton paper, hand-signed, born from her paintings and grouped by project."
+   "intro_es": "Láminas giclée sobre papel de algodón, firmadas a mano, nacidas de sus cuadros y agrupadas por tema.",
+   "intro_en": "Giclée prints on cotton paper, hand-signed, born from her paintings and grouped by theme."
   }
  },
  "grupos": [
@@ -198,6 +198,28 @@
     "Dogs and fish drawn with the same attention Ana gives to her paintings: the gesture of a dachshund, the turn of carp in the water."
    ],
    "fuente": "Texto de la web"
+  }
+ ],
+ "categorias_laminas": [
+  {
+   "id": "criaturas-submarinas",
+   "titulo": "Criaturas submarinas",
+   "titulo_en": "Underwater creatures"
+  },
+  {
+   "id": "dachshund",
+   "titulo": "Dachshund",
+   "titulo_en": "Dachshund"
+  },
+  {
+   "id": "botanica",
+   "titulo": "Botánica",
+   "titulo_en": "Botanical"
+  },
+  {
+   "id": "miscelanea",
+   "titulo": "Miscelánea",
+   "titulo_en": "Miscellany"
   }
  ]
 }

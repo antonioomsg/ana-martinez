@@ -100,7 +100,25 @@ def listado(r, ed_, productos, actual):
         f'{" aria-current=page" if k == actual else ""}>{t(es, lapiz=True)}<span lang="en">{t(en, lapiz=True)}</span></a>'
         for k, es, en in FILTROS)
     grupos, indice = [], []
-    for g in ed_["grupos"]:
+    if actual == "laminas" and ed_.get("categorias_laminas"):
+        # Láminas: por tema (criaturas submarinas, dachshund…), no por proyecto
+        for i, c in enumerate(ed_["categorias_laminas"]):
+            items = [p for p in filtrados if p.get("categoria") == c["id"]]
+            if not items:
+                continue
+            rc = ["ediciones.json", "categorias_laminas", i]
+            indice.append(f'<a href="#{c["id"]}">{e(c["titulo"])}</a>')
+            n = len(items)
+            en = ("" if c["titulo_en"] == c["titulo"] else
+                  f' <span class="group-date" lang="en"{ed(rc + ["titulo_en"])}>{e(c["titulo_en"])}</span>')
+            grupos.append(f"""<section class="group" id="{c["id"]}">
+  <header class="group-head">
+    <div><h2><span{ed(rc + ["titulo"])}>{e(c["titulo"])}</span>{en}</h2>
+    <p class="group-count">{n} {"pieza" if n == 1 else "piezas"} · {n} {"piece" if n == 1 else "pieces"}</p></div>
+  </header>
+  <div class="shop-grid">{"".join(card(r, p, ed_) for p in items)}</div>
+</section>""")
+    for g in ([] if grupos else ed_["grupos"]):
         items = [p for p in filtrados if p["grupo"] == g["id"]]
         if not items:
             continue
