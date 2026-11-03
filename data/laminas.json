@@ -179,72 +179,150 @@
    ]
   },
   {
-   "slug": "dachshund",
+   "slug": "dachshund-1",
    "tipo": "laminas",
    "grupo": "bestiario",
-   "nombre": "Dachshund",
-   "descripcion": "Siete retratos de dachshund, cada uno con su carácter. Láminas originales de Ana Martínez; elige tu favorito.",
-   "descripcion_en": "Seven dachshund portraits, each with its own character. Original prints by Ana Martínez; choose your favourite.",
+   "nombre": "Dachshund I",
+   "descripcion": "Retrato de un dachshund con su propio carácter. Lámina original de Ana Martínez, primera de la serie de siete.",
+   "descripcion_en": "Portrait of a dachshund with a character all its own. Original print by Ana Martínez, number I in a series of seven.",
    "lema": "Un gesto.",
    "lema_en": "A gesture.",
    "obra": null,
    "colores": [
     {
-     "id": "d1",
+     "id": "unica",
      "label": "Dachshund I",
      "fotos": {
       "plano": "lam_dachshund_1_centrada",
       "modelo": "lam_dachshund_1_casa",
       "zoom": "lam_dachshund_1_zoom"
      }
-    },
+    }
+   ]
+  },
+  {
+   "slug": "dachshund-2",
+   "tipo": "laminas",
+   "grupo": "bestiario",
+   "nombre": "Dachshund II",
+   "descripcion": "Retrato de un dachshund con su propio carácter. Lámina original de Ana Martínez, segunda de la serie de siete.",
+   "descripcion_en": "Portrait of a dachshund with a character all its own. Original print by Ana Martínez, number II in a series of seven.",
+   "lema": "Un gesto.",
+   "lema_en": "A gesture.",
+   "obra": null,
+   "colores": [
     {
-     "id": "d2",
+     "id": "unica",
      "label": "Dachshund II",
      "fotos": {
       "plano": "lam_dachshund_2_centrada",
       "modelo": "lam_dachshund_2_casa",
       "zoom": "lam_dachshund_2_zoom"
      }
-    },
+    }
+   ]
+  },
+  {
+   "slug": "dachshund-3",
+   "tipo": "laminas",
+   "grupo": "bestiario",
+   "nombre": "Dachshund III",
+   "descripcion": "Retrato de un dachshund con su propio carácter. Lámina original de Ana Martínez, tercera de la serie de siete.",
+   "descripcion_en": "Portrait of a dachshund with a character all its own. Original print by Ana Martínez, number III in a series of seven.",
+   "lema": "Un gesto.",
+   "lema_en": "A gesture.",
+   "obra": null,
+   "colores": [
     {
-     "id": "d3",
+     "id": "unica",
      "label": "Dachshund III",
      "fotos": {
       "plano": "lam_dachshund_3_centrada",
       "modelo": "lam_dachshund_3_casa",
       "zoom": "lam_dachshund_3_zoom"
      }
-    },
+    }
+   ]
+  },
+  {
+   "slug": "dachshund-4",
+   "tipo": "laminas",
+   "grupo": "bestiario",
+   "nombre": "Dachshund IV",
+   "descripcion": "Retrato de un dachshund con su propio carácter. Lámina original de Ana Martínez, cuarta de la serie de siete.",
+   "descripcion_en": "Portrait of a dachshund with a character all its own. Original print by Ana Martínez, number IV in a series of seven.",
+   "lema": "Un gesto.",
+   "lema_en": "A gesture.",
+   "obra": null,
+   "colores": [
     {
-     "id": "d4",
+     "id": "unica",
      "label": "Dachshund IV",
      "fotos": {
       "plano": "lam_dachshund_4_centrada",
       "modelo": "lam_dachshund_4_casa",
       "zoom": "lam_dachshund_4_zoom"
      }
-    },
+    }
+   ]
+  },
+  {
+   "slug": "dachshund-5",
+   "tipo": "laminas",
+   "grupo": "bestiario",
+   "nombre": "Dachshund V",
+   "descripcion": "Retrato de un dachshund con su propio carácter. Lámina original de Ana Martínez, quinta de la serie de siete.",
+   "descripcion_en": "Portrait of a dachshund with a character all its own. Original print by Ana Martínez, number V in a series of seven.",
+   "lema": "Un gesto.",
+   "lema_en": "A gesture.",
+   "obra": null,
+   "colores": [
     {
-     "id": "d5",
+     "id": "unica",
      "label": "Dachshund V",
      "fotos": {
       "plano": "lam_dachshund_5_centrada",
       "modelo": "lam_dachshund_5_casa",
       "zoom": "lam_dachshund_5_zoom"
      }
-    },
+    }
+   ]
+  },
+  {
+   "slug": "dachshund-6",
+   "tipo": "laminas",
+   "grupo": "bestiario",
+   "nombre": "Dachshund VI",
+   "descripcion": "Retrato de un dachshund con su propio carácter. Lámina original de Ana Martínez, sexta de la serie de siete.",
+   "descripcion_en": "Portrait of a dachshund with a character all its own. Original print by Ana Martínez, number VI in a series of seven.",
+   "lema": "Un gesto.",
+   "lema_en": "A gesture.",
+   "obra": null,
+   "colores": [
     {
-     "id": "d6",
+     "id": "unica",
      "label": "Dachshund VI",
      "fotos": {
       "plano": "lam_dachshund_6_centrada",
       "modelo": "lam_dachshund_6_casa",
       "zoom": "lam_dachshund_6_zoom"
      }
-    },
+    }
+   ]
+  },
+  {
+   "slug": "dachshund-7",
+   "tipo": "laminas",
+   "grupo": "bestiario",
+   "nombre": "Dachshund VII",
+   "descripcion": "Retrato de un dachshund con su propio carácter. Lámina original de Ana Martínez, séptima de la serie de siete.",
+   "descripcion_en": "Portrait of a dachshund with a character all its own. Original print by Ana Martínez, number VII in a series of seven.",
+   "lema": "Un gesto.",
+   "lema_en": "A gesture.",
+   "obra": null,
+   "colores": [
     {
-     "id": "d7",
+     "id": "unica",
      "label": "Dachshund VII",
      "fotos": {
       "plano": "lam_dachshund_7_centrada",
