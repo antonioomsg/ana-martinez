@@ -73,7 +73,7 @@ def card(r, p, ed_):
 
 def cabecera(titulo, ruta_titulo, nota, ruta_nota, n, lang=""):
     """Encabezado común de colecciones y temas: título, nota pequeña (año o inglés) y recuento."""
-    extra = f' <span class="group-date"{lang}{ed(ruta_nota)}>{e(nota)}</span>' if nota else ""
+    extra = f' <span class="group-date"{lang}{ed(ruta_nota)}>{e(nota)}</span>' if nota and nota.lower() != titulo.lower() else ""
     return f"""<header class="group-head">
     <div><h2><span{ed(ruta_titulo)}>{e(titulo)}</span>{extra}</h2>
     <p class="group-count">{n} {"pieza" if n == 1 else "piezas"} · {n} {"piece" if n == 1 else "pieces"}</p></div>

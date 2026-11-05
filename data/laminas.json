@@ -879,7 +879,7 @@
    "slug": "kelp-forest-i",
    "tipo": "laminas",
    "grupo": "flotabilidad-neutra",
-   "categoria": "miscelanea",
+   "categoria": "kelp-forest",
    "nombre": "Kelp forest I",
    "descripcion": "Un bosque de kelp en penumbra, con los tallos altos y oscuros. Obra numerada en una edición de 30 y firmada a lápiz por Ana.",
    "descripcion_en": "A kelp forest in half-light, with tall dark stems. Numbered in an edition of 30 and signed in pencil by Ana.",
@@ -902,7 +902,7 @@
    "slug": "kelp-forest-ii",
    "tipo": "laminas",
    "grupo": "flotabilidad-neutra",
-   "categoria": "miscelanea",
+   "categoria": "kelp-forest",
    "nombre": "Kelp forest II",
    "descripcion": "El kelp visto desde abajo, con la luz azul que entra desde la superficie. Obra numerada en una edición de 30 y firmada a lápiz por Ana.",
    "descripcion_en": "Kelp seen from below, with blue light coming in from the surface. Numbered in an edition of 30 and signed in pencil by Ana.",
@@ -925,7 +925,7 @@
    "slug": "kelp-forest-iii",
    "tipo": "laminas",
    "grupo": "flotabilidad-neutra",
-   "categoria": "miscelanea",
+   "categoria": "kelp-forest",
    "nombre": "Kelp forest III",
    "descripcion": "Un fondo de kelp lleno de color, con algas doradas y peces pequeños. Obra numerada en una edición de 30 y firmada a lápiz por Ana.",
    "descripcion_en": "A kelp seabed full of colour, with golden seaweed and small fish. Numbered in an edition of 30 and signed in pencil by Ana.",
@@ -963,6 +963,137 @@
       "plano": "lam_gitana_centrada",
       "modelo": "lam_gitana_casa",
       "zoom": "lam_gitana_zoom"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "el-reino-de-la-verticalidad",
+   "tipo": "laminas",
+   "grupo": "flotabilidad-neutra",
+   "categoria": "kelp-forest",
+   "nombre": "El reino de la verticalidad",
+   "descripcion": "Tallos de kelp que suben hacia la luz en un azul profundo, con un banco de peces al fondo. El título viene de Julio Verne.",
+   "descripcion_en": "Kelp stems rising towards the light in deep blue, with a shoal of fish in the distance. The title comes from Jules Verne.",
+   "lema": "Todo sube hacia la superficie.",
+   "lema_en": "Everything rises to the surface.",
+   "obra": {
+    "titulo": "Bosque de kelp, Ciudad del Cabo / Kelp forest, Cape Town",
+    "tecnica": "Óleo sobre lienzo · Flotabilidad neutra, 2024",
+    "img": "assets/wp/2024/03/Kelp-forest_www.jpg"
+   },
+   "colores": [
+    {
+     "id": "unica",
+     "label": "El reino de la verticalidad",
+     "fotos": {
+      "plano": "lam_reino_centrada",
+      "modelo": "lam_reino_casa",
+      "zoom": "lam_reino_zoom"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "golden-kelp-forest",
+   "tipo": "laminas",
+   "grupo": "ebria-de-carne-azul",
+   "categoria": "kelp-forest",
+   "nombre": "Golden kelp forest",
+   "descripcion": "Cintas de kelp dorado que se enroscan sobre un fondo de piedras claras, bajo una copa oscura de frondas.",
+   "descripcion_en": "Ribbons of golden kelp curling over a bed of pale stones, beneath a dark canopy of fronds.",
+   "lema": "Cintas de oro.",
+   "lema_en": "Ribbons of gold.",
+   "obra": {
+    "titulo": "Bosque de kelp dorado / Golden kelp forest",
+    "tecnica": "Óleo sobre lienzo · Ebria de carne azul, 2025",
+    "img": "assets/wp/2025/02/GOLD-KELP-FOREST-.jpg"
+   },
+   "colores": [
+    {
+     "id": "unica",
+     "label": "Golden kelp forest",
+     "fotos": {
+      "plano": "lam_golden_kelp_centrada",
+      "modelo": "lam_golden_kelp_casa",
+      "zoom": "lam_golden_kelp_zoom"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "kelp-forest-big-fish",
+   "tipo": "laminas",
+   "grupo": "ebria-de-carne-azul",
+   "categoria": "kelp-forest",
+   "nombre": "Kelp forest & big fish",
+   "descripcion": "Un pez grande suspendido entre los tallos de kelp, sobre un claro de rocas y guijarros de colores.",
+   "descripcion_en": "A large fish suspended among the kelp stems, above a clearing of rocks and coloured pebbles.",
+   "lema": "Suspendido en el claro.",
+   "lema_en": "Suspended in the clearing.",
+   "obra": null,
+   "colores": [
+    {
+     "id": "unica",
+     "label": "Kelp forest & big fish",
+     "fotos": {
+      "plano": "lam_big_fish_centrada",
+      "modelo": "lam_big_fish_casa",
+      "zoom": "lam_big_fish_zoom"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "la-flora-y-la-fauna",
+   "tipo": "laminas",
+   "grupo": "ebria-de-carne-azul",
+   "categoria": "kelp-forest",
+   "nombre": "La flora y la fauna se tocan íntimamente en el mundo submarino",
+   "descripcion": "Peces plateados y rayados que atraviesan las frondas de kelp, en un azul turquesa lleno de luz.",
+   "descripcion_en": "Silver and striped fish passing through the kelp fronds, in a turquoise blue full of light.",
+   "lema": "Peces entre las frondas.",
+   "lema_en": "Fish among the fronds.",
+   "obra": {
+    "titulo": "La flora y la fauna se tocan íntimamente en el mundo submarino / Flora and fauna touch intimately in the underwater world",
+    "tecnica": "Óleo sobre lienzo · Ebria de carne azul, 2025",
+    "img": "assets/wp/2025/02/LA-FLORA-Y-LA-FAUNA-SE-TOCAN-INTIMAMENTE-EN-EL-MUNDO-SUBMARINO_WEB.jpg"
+   },
+   "colores": [
+    {
+     "id": "unica",
+     "label": "La flora y la fauna se tocan íntimamente en el mundo submarino",
+     "fotos": {
+      "plano": "lam_flora_fauna_centrada",
+      "modelo": "lam_flora_fauna_casa",
+      "zoom": "lam_flora_fauna_zoom"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "hitchcock",
+   "tipo": "laminas",
+   "grupo": "asuntos-internos",
+   "categoria": "miscelanea",
+   "nombre": "Hitchcock",
+   "descripcion": "La sombra de un árbol desnudo cubre la fachada de una casa contra un azul oscuro. La luz como protagonista, en el formato cuadrado de Asuntos internos.",
+   "descripcion_en": "The shadow of a bare tree covers the façade of a house against a dark blue sky. Light as the protagonist, in the square format of Asuntos internos.",
+   "lema": "Lo que proyecta la luz.",
+   "lema_en": "What the light casts.",
+   "obra": {
+    "titulo": "Hitchcock",
+    "tecnica": "Óleo sobre lienzo · Asuntos internos, 2026",
+    "img": "assets/wp/2026/02/HITCHCOCK-copia.jpg"
+   },
+   "colores": [
+    {
+     "id": "unica",
+     "label": "Hitchcock",
+     "fotos": {
+      "plano": "lam_hitchcock_centrada",
+      "modelo": "lam_hitchcock_casa",
+      "zoom": "lam_hitchcock_zoom"
      }
     }
    ]
