@@ -618,6 +618,7 @@ strong { font-weight: 600; }
 .pdp-proyecto > .muted { font-size: var(--fs-ui); }
 .obra-date, .doc-lugar, .cart-total { font-size: var(--fs-ui-lg); }
 .group-date, .pager { font-size: var(--fs-ui); }
+.group-date[lang="en"] { font-family: var(--serif); font-size: var(--fs-work); font-style: italic; letter-spacing: 0; }
 .pager { text-transform: uppercase; }
 .contacto-mail { font-size: var(--fs-lead); }
 .footer-lead, .seg, .size-opt, .footer-form input, .piece-count { letter-spacing: var(--tr-data); }
