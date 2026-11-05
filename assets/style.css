@@ -261,6 +261,8 @@ a { color: inherit; }
 html { scroll-behavior: smooth; }
 .shop-intro { padding-bottom: 16px; }
 .group { scroll-margin-top: 24px; }
+.group-sub { max-width: 1392px; margin: 24px auto 12px; padding: 0 24px; font: 12px var(--display); letter-spacing: 2px; text-transform: uppercase; color: #5f6f6f; font-weight: 400; }
+.group-sub span { text-transform: none; letter-spacing: 1px; }
 .group-index { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0; margin: 28px auto 0; max-width: 900px; }
 .group-index a { position: relative; display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; font-family: var(--serif); font-style: italic; font-size: 21px; color: var(--ink); text-decoration: none; }
 .group-index a + a::before { content: "·"; position: absolute; left: -3px; color: #b5aea4; font-style: normal; }

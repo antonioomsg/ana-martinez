@@ -103,12 +103,8 @@ def listado(r, ed_, productos, actual):
   <div class="shop-grid">{"".join(card(r, p, ed_) for p in items)}</div>
 </section>""")
 
-    if actual in ("ediciones", "laminas") and ed_.get("categorias_laminas"):
-        # Todos y Láminas: por tipo y tema (así buscan los clientes), no por proyecto
-        if actual == "ediciones":
-            tp = ed_["tipos"]["panuelos"]
-            seccion("panuelos", tp["nombre"], tp["nombre_en"], ["ediciones.json", "tipos", "panuelos"],
-                    "nombre", "nombre_en", [p for p in filtrados if p["tipo"] == "panuelos"])
+    if actual == "laminas" and ed_.get("categorias_laminas"):
+        # Láminas: por tema (criaturas submarinas, dachshund…), no por colección
         for i, c in enumerate(ed_["categorias_laminas"]):
             items = [p for p in filtrados if p.get("categoria") == c["id"]]
             if items:
@@ -119,9 +115,19 @@ def listado(r, ed_, productos, actual):
         if not items:
             continue
         indice.append(f'<a href="#{g["id"]}">{e(g["titulo"])}</a>')
+        bloques = []
+        for clave, tipo in ed_["tipos"].items():
+            sub = [p for p in items if p["tipo"] == clave]
+            if not sub:
+                continue
+            rt = ["ediciones.json", "tipos", clave]
+            titulo_sub = (f'<h3 class="group-sub"><span{ed(rt + ["nombre"])}>{e(tipo["nombre"])}</span> '
+                          f'<span lang="en">· <span{ed(rt + ["nombre_en"])}>{e(tipo["nombre_en"])}</span></span></h3>'
+                          if actual == "ediciones" else "")
+            bloques.append(f'{titulo_sub}<div class="shop-grid">{"".join(card(r, p, ed_) for p in sub)}</div>')
         grupos.append(f"""<section class="group" id="{g["id"]}">
   {grupo_header(r, g, len(items), ruta_grupo(ed_, g))}
-  <div class="shop-grid">{"".join(card(r, p, ed_) for p in items)}</div>
+  {"".join(bloques)}
 </section>""")
     intro = ed_ if actual == "ediciones" else ed_["tipos"][actual]
     ri = ["ediciones.json"] if actual == "ediciones" else ["ediciones.json", "tipos", actual]
@@ -236,11 +242,9 @@ def ficha(r, p, ed_, productos):
     if not f.get("modelo"):  # las muestras de color esperan este elemento
         fotos += '\n    <img data-worn-img hidden alt="">'
     dots = "".join(f'<span{" class=\"is-on\"" if i == 0 else ""}></span>' for i in range(len(figs)))
-    proyecto_kind = (f'<a href="{r}obra/{g["obra_slug"]}/">{e(g["titulo"])}</a>' if g.get("obra_slug")
-                     else e(g["titulo"]))
     return f"""<article class="pdp" data-slug="{p["slug"]}">
   <div class="pdp-top">
-    <nav class="crumbs" aria-label="Migas de pan"><a href="{r}ediciones/">Ediciones</a> › <a href="{r}{tipo["dir"]}/">{e(tipo["nombre"])}</a> › <span aria-current="page">{e(p["nombre"])}</span></nav>
+    <nav class="crumbs" aria-label="Migas de pan"><a href="{r}ediciones/">Ediciones</a> › <a href="{r}ediciones/#{g["id"]}">{e(g["titulo"])}</a> › <span aria-current="page">{e(p["nombre"])}</span></nav>
     {pager}
   </div>
   <div class="pdp-strip">
@@ -249,7 +253,7 @@ def ficha(r, p, ed_, productos):
     </div>
     <div class="pdp-dots" aria-hidden="true">{dots}</div>
     <div class="buy-card">
-      <p class="buy-kind"><a href="{r}{tipo["dir"]}/">{e(tipo["nombre"])}</a> · {proyecto_kind}</p>
+      <p class="buy-kind"><a href="{r}{tipo["dir"]}/">{e(tipo["nombre"])}</a> · <a href="{r}ediciones/#{g["id"]}">{e(g["titulo"])}</a></p>
       <h1{ed(rp + ["nombre"])}>{e(p["nombre"])}</h1>{otros_datos}
       <p class="buy-price" aria-live="polite" data-e-abre="Tamaño 1 · precio">{precio(t0["precio"])}</p>
       {variantes}
