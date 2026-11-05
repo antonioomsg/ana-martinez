@@ -71,14 +71,12 @@ def card(r, p, ed_):
 </div>"""
 
 
-def grupo_header(r, g, n, ruta):
-    enlace = (f'<a class="group-link" href="{r}obra/{g["obra_slug"]}/">{t("tienda_ver_proyecto", lapiz=True)}</a>'
-              if g.get("obra_slug") else "")
-    fecha = f' <span class="group-date"{ed(ruta + ["fecha"])}>{e(g["fecha"])}</span>' if g.get("fecha") else ""
+def cabecera(titulo, ruta_titulo, nota, ruta_nota, n, lang=""):
+    """Encabezado común de colecciones y temas: título, nota pequeña (año o inglés) y recuento."""
+    extra = f' <span class="group-date"{lang}{ed(ruta_nota)}>{e(nota)}</span>' if nota else ""
     return f"""<header class="group-head">
-    <div><h2><span{ed(ruta + ["titulo"])}>{e(g["titulo"])}</span>{fecha}</h2>
+    <div><h2><span{ed(ruta_titulo)}>{e(titulo)}</span>{extra}</h2>
     <p class="group-count">{n} {"pieza" if n == 1 else "piezas"} · {n} {"piece" if n == 1 else "pieces"}</p></div>
-    {enlace}
   </header>"""
 
 
@@ -89,17 +87,13 @@ def listado(r, ed_, productos, actual):
         f'{" aria-current=page" if k == actual else ""}>{t(es, lapiz=True)}<span lang="en">{t(en, lapiz=True)}</span></a>'
         for k, es, en in FILTROS)
     grupos, indice = [], []
+
     def seccion(id_, titulo, titulo_en, ruta, k_es, k_en, items):
         """Sección de tema: encabezado (ES, EN si difiere y recuento) y rejilla de piezas."""
         indice.append(f'<a href="#{id_}">{e(titulo)}</a>')
-        n = len(items)
-        en = ("" if titulo_en == titulo else
-              f' <span class="group-date" lang="en"{ed(ruta + [k_en])}>{e(titulo_en)}</span>')
+        nota = "" if titulo_en == titulo else titulo_en
         grupos.append(f"""<section class="group" id="{id_}">
-  <header class="group-head">
-    <div><h2><span{ed(ruta + [k_es])}>{e(titulo)}</span>{en}</h2>
-    <p class="group-count">{n} {"pieza" if n == 1 else "piezas"} · {n} {"piece" if n == 1 else "pieces"}</p></div>
-  </header>
+  {cabecera(titulo, ruta + [k_es], nota, ruta + [k_en], len(items), ' lang="en"')}
   <div class="shop-grid">{"".join(card(r, p, ed_) for p in items)}</div>
 </section>""")
 
@@ -126,7 +120,7 @@ def listado(r, ed_, productos, actual):
                           if actual == "ediciones" else "")
             bloques.append(f'{titulo_sub}<div class="shop-grid">{"".join(card(r, p, ed_) for p in sub)}</div>')
         grupos.append(f"""<section class="group" id="{g["id"]}">
-  {grupo_header(r, g, len(items), ruta_grupo(ed_, g))}
+  {cabecera(g["titulo"], ruta_grupo(ed_, g) + ["titulo"], g.get("fecha"), ruta_grupo(ed_, g) + ["fecha"], len(items))}
   {"".join(bloques)}
 </section>""")
     intro = ed_ if actual == "ediciones" else ed_["tipos"][actual]

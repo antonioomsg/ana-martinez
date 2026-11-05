@@ -244,8 +244,6 @@ a { color: inherit; }
 .group-head h2 { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 38px; margin: 0; }
 .group-date { font-family: var(--display); font-style: normal; font-size: 15px; letter-spacing: 2px; color: var(--accent); margin-left: 10px; }
 .group-count { margin: 4px 0 0; font-size: 13px; color: #7a8585; }
-.group-link { font-size: 15px; text-decoration: none; color: var(--ink); white-space: nowrap; min-height: 44px; display: inline-flex; align-items: center; }
-.group-link:hover { color: var(--accent); }
 .buy-kind { font-family: var(--display); letter-spacing: 1.5px; font-size: 12px; margin: 0 0 8px; color: #7a8585; }
 .buy-kind a { text-decoration: none; }
 .buy-kind a:hover { color: var(--accent); }
@@ -273,7 +271,6 @@ html { scroll-behavior: smooth; }
 .group-head { align-items: baseline; }
 .group-head > div { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 16px; }
 .group-count, .group-date { color: #5f6f6f; margin: 0; }
-.group-link { text-decoration: underline; text-underline-offset: 4px; }
 .swatch { border: 1px solid #cfcac2; border-radius: 8px; border-bottom-width: 1px; }
 .swatch.is-active { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
 .buy-row span:first-child, .buy-color span:first-child { font-family: var(--display); letter-spacing: 2px; font-size: 12px; color: #5f6f6f; }
@@ -514,6 +511,8 @@ html { scroll-behavior: smooth; }
   .inq-form h2 { font-size: 26px; }
   .fold { max-height: 300px; }
   .group-head { gap: 0; }
+  .group-head > div { display: block; }
+  .group-count { margin-top: 4px; }
   .pdp-photos { max-height: 72svh; }
   .pdp-strip figure { aspect-ratio: auto; height: 72svh; }
   .pdp-dots { display: flex; justify-content: center; gap: 8px; padding: 12px 0 0; }
