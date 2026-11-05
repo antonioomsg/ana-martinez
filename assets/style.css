@@ -286,7 +286,6 @@ html { scroll-behavior: smooth; }
 .crumbs a { display: inline-flex; min-height: 44px; align-items: center; text-decoration: none; }
 .crumbs a:hover { text-decoration: underline; }
 .pdp-dots { display: none; }
-@media (hover: none) { .car-btn { opacity: 1; } }
 
 /* Cartelas de galería y punto rojo / verde */
 .cartela { display: flex; gap: 12px; align-items: flex-start; margin-top: 12px; }
@@ -504,7 +503,6 @@ html { scroll-behavior: smooth; }
   .doc-obras td:last-child { white-space: normal; }
   .bio2-hero { grid-template-columns: 1fr; gap: 32px; margin-bottom: 48px; }
   .bio2-title { font-size: 26px; margin-bottom: 32px; }
-  .car-btn { opacity: 1; }
   .bi-intro { grid-template-columns: 1fr; gap: 12px; }
   .group-index { gap: 0 18px; padding: 0 16px; }
   .group-index a { font-size: 18px; padding: 0; }
@@ -539,6 +537,8 @@ html { scroll-behavior: smooth; }
 .car-btn, .car-btn:hover { background: none; }
 .car-btn svg { filter: drop-shadow(0 0 2px rgba(251,249,246,.9)); }
 .car-prev { left: 6px; } .car-next { right: 6px; }
+/* Pantallas táctiles: sin flechas sobre la foto; se pasa deslizando con el dedo */
+@media (hover: none) { .car-btn { display: none; } .shop-media { touch-action: pan-y; } }
 
 /* Pie más compacto */
 .site-footer { padding: 40px 48px 24px; }

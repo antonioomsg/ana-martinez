@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 })();
 
-// Listado: flechas para ver las 3 fotos de cada pañuelo (al pasar el ratón sale la foto llevada)
+// Listado: 3 fotos por pieza. Con ratón, flechas al pasar por encima; en táctil, deslizar con el dedo
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("[data-carousel]").forEach((box) => {
     const imgs = [...box.querySelectorAll("img")];
@@ -143,6 +143,25 @@ document.addEventListener("DOMContentLoaded", () => {
     if (fine) {
       box.addEventListener("mouseenter", () => { if (i === 0) show(1); });
       box.addEventListener("mouseleave", () => show(0));
+    } else {
+      let x0 = null, y0 = 0, desliza = false;
+      box.addEventListener("touchstart", (ev) => {
+        x0 = ev.touches[0].clientX; y0 = ev.touches[0].clientY;
+      }, { passive: true });
+      box.addEventListener("touchend", (ev) => {
+        if (x0 === null) return;
+        const t = ev.changedTouches[0], dx = t.clientX - x0, dy = t.clientY - y0;
+        x0 = null;
+        if (Math.abs(dx) > 30 && Math.abs(dx) > Math.abs(dy)) {
+          desliza = true;
+          show(i + (dx < 0 ? 1 : -1));
+          setTimeout(() => { desliza = false; }, 400);
+        }
+      }, { passive: true });
+      // Un deslizamiento no debe abrir la ficha
+      box.addEventListener("click", (ev) => {
+        if (desliza) { ev.preventDefault(); ev.stopPropagation(); }
+      }, true);
     }
     box.querySelector(".car-prev").addEventListener("click", (ev) => { ev.preventDefault(); show(i - 1); });
     box.querySelector(".car-next").addEventListener("click", (ev) => { ev.preventDefault(); show(i + 1); });
