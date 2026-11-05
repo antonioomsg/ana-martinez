@@ -126,9 +126,7 @@ def page(r, title, body, current="", desc="Ana Martínez, artista. Pintura, mura
 <title>{e(full)}</title>
 <meta name="description" content="{e(desc)}">
 <link rel="icon" href="{r}assets/firma.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Cormorant+Garamond:ital,wght@1,400&display=swap" rel="stylesheet">
+<link rel="preload" href="{r}assets/fonts/jost.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{r}assets/style.css">
 </head>
 <body class="{cls}">
