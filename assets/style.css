@@ -598,6 +598,9 @@ strong { font-weight: 600; }
 .buy-card h1, .group-head h2, .subseccion-head h2, .pdp-wear h2, .pdp-proyecto h2, .pdp-more h2, .pdp-obra h2, .bio2-intro h2, .inq-form h2, .demo-note h2 { font-family: var(--serif); font-size: var(--fs-title); font-style: italic; line-height: 1.15; }
 .shop-name, .cartela-titulo, .doc-obras td:first-child, .group-index a { font-family: var(--serif); font-size: var(--fs-work); font-style: italic; line-height: 1.25; }
 .shop-name, .cartela-titulo { text-wrap: balance; }
+.shop-card { background: none; }
+.shop-name { padding: 12px 20px 28px; font-size: 1.125rem; }
+@media (max-width: 768px) { .shop-name { padding: 10px 12px 20px; font-size: 1.0625rem; } }
 /* Título del proyecto en inglés: acompaña al título en mayúsculas, en su misma voz */
 .obra-en { font-family: var(--sans); font-size: var(--fs-ui-lg); letter-spacing: var(--tr-title); line-height: 1.35; text-transform: uppercase; text-wrap: balance; }
 /* Traducción al inglés dentro de un título: siempre igual, sea cual sea el título */
