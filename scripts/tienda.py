@@ -50,11 +50,6 @@ def ruta_tipo(p):
     return ["ediciones.json", "tipos", p["tipo"]]
 
 
-def nombre_ed(p, tipo):
-    """Nombre con el prefijo fijo del tipo («Carré») y la parte propia editable."""
-    return f'{e(tipo["prefijo"])} <span{ed(p["_ruta"] + ["nombre"])}>{e(p["nombre"])}</span>'
-
-
 def ruta_grupo(ed_, g):
     return ["ediciones.json", "grupos", ed_["grupos"].index(g)]
 
@@ -72,8 +67,7 @@ def card(r, p, ed_):
     <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
     <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
   </div>
-  <a class="shop-meta" href="{href}"><span class="shop-kind"{ed(ruta_tipo(p) + ["nombre"], raw=tipo["nombre"])}>{e(tipo["nombre"].upper())}</span>
-  <span class="shop-name">{nombre_ed(p, tipo)}</span></a>
+  <a class="shop-meta" href="{href}"><span class="shop-name"{ed(p["_ruta"] + ["nombre"])}>{e(p["nombre"])}</span></a>
 </div>"""
 
 
@@ -95,42 +89,39 @@ def listado(r, ed_, productos, actual):
         f'{" aria-current=page" if k == actual else ""}>{t(es, lapiz=True)}<span lang="en">{t(en, lapiz=True)}</span></a>'
         for k, es, en in FILTROS)
     grupos, indice = [], []
-    if actual == "laminas" and ed_.get("categorias_laminas"):
-        # Láminas: por tema (criaturas submarinas, dachshund…), no por proyecto
-        for i, c in enumerate(ed_["categorias_laminas"]):
-            items = [p for p in filtrados if p.get("categoria") == c["id"]]
-            if not items:
-                continue
-            rc = ["ediciones.json", "categorias_laminas", i]
-            indice.append(f'<a href="#{c["id"]}">{e(c["titulo"])}</a>')
-            n = len(items)
-            en = ("" if c["titulo_en"] == c["titulo"] else
-                  f' <span class="group-date" lang="en"{ed(rc + ["titulo_en"])}>{e(c["titulo_en"])}</span>')
-            grupos.append(f"""<section class="group" id="{c["id"]}">
+    def seccion(id_, titulo, titulo_en, ruta, k_es, k_en, items):
+        """Sección de tema: encabezado (ES, EN si difiere y recuento) y rejilla de piezas."""
+        indice.append(f'<a href="#{id_}">{e(titulo)}</a>')
+        n = len(items)
+        en = ("" if titulo_en == titulo else
+              f' <span class="group-date" lang="en"{ed(ruta + [k_en])}>{e(titulo_en)}</span>')
+        grupos.append(f"""<section class="group" id="{id_}">
   <header class="group-head">
-    <div><h2><span{ed(rc + ["titulo"])}>{e(c["titulo"])}</span>{en}</h2>
+    <div><h2><span{ed(ruta + [k_es])}>{e(titulo)}</span>{en}</h2>
     <p class="group-count">{n} {"pieza" if n == 1 else "piezas"} · {n} {"piece" if n == 1 else "pieces"}</p></div>
   </header>
   <div class="shop-grid">{"".join(card(r, p, ed_) for p in items)}</div>
 </section>""")
+
+    if actual in ("ediciones", "laminas") and ed_.get("categorias_laminas"):
+        # Todos y Láminas: por tipo y tema (así buscan los clientes), no por proyecto
+        if actual == "ediciones":
+            tp = ed_["tipos"]["panuelos"]
+            seccion("panuelos", tp["nombre"], tp["nombre_en"], ["ediciones.json", "tipos", "panuelos"],
+                    "nombre", "nombre_en", [p for p in filtrados if p["tipo"] == "panuelos"])
+        for i, c in enumerate(ed_["categorias_laminas"]):
+            items = [p for p in filtrados if p.get("categoria") == c["id"]]
+            if items:
+                seccion(c["id"], c["titulo"], c["titulo_en"], ["ediciones.json", "categorias_laminas", i],
+                        "titulo", "titulo_en", items)
     for g in ([] if grupos else ed_["grupos"]):
         items = [p for p in filtrados if p["grupo"] == g["id"]]
         if not items:
             continue
         indice.append(f'<a href="#{g["id"]}">{e(g["titulo"])}</a>')
-        bloques = []
-        for clave, tipo in ed_["tipos"].items():
-            sub = [p for p in items if p["tipo"] == clave]
-            if not sub:
-                continue
-            rt = ["ediciones.json", "tipos", clave]
-            titulo_sub = (f'<h3 class="group-sub"><span{ed(rt + ["nombre"])}>{e(tipo["nombre"])}</span> '
-                          f'<span lang="en">· <span{ed(rt + ["nombre_en"])}>{e(tipo["nombre_en"])}</span></span></h3>'
-                          if actual == "ediciones" else "")
-            bloques.append(f'{titulo_sub}<div class="shop-grid">{"".join(card(r, p, ed_) for p in sub)}</div>')
         grupos.append(f"""<section class="group" id="{g["id"]}">
   {grupo_header(r, g, len(items), ruta_grupo(ed_, g))}
-  {"".join(bloques)}
+  <div class="shop-grid">{"".join(card(r, p, ed_) for p in items)}</div>
 </section>""")
     intro = ed_ if actual == "ediciones" else ed_["tipos"][actual]
     ri = ["ediciones.json"] if actual == "ediciones" else ["ediciones.json", "tipos", actual]
@@ -138,7 +129,7 @@ def listado(r, ed_, productos, actual):
     return f"""<section class="shop-intro">
   <h1>{t(titulo)}</h1>
   <div class="bi bi-intro"><p lang="es"{ed(ri + ["intro_es"])}>{e(intro["intro_es"])}</p><p lang="en"{ed(ri + ["intro_en"])}>{e(intro["intro_en"])}</p></div>
-  <nav class="group-index" aria-label="Proyectos">{"".join(indice)}</nav>
+  <nav class="group-index" aria-label="Secciones">{"".join(indice)}</nav>
 </section>
 {"".join(grupos)}"""
 
@@ -220,7 +211,7 @@ def ficha(r, p, ed_, productos):
 
     def enlace_pieza(q, flecha_izq):
         tq = ed_["tipos"][q["tipo"]]
-        txt = f"‹ {e(nombre(q, tq))}" if flecha_izq else f"{e(nombre(q, tq))} ›"
+        txt = f"‹ {e(q['nombre'])}" if flecha_izq else f"{e(q['nombre'])} ›"
         return f'<a href="{r}{tq["dir"]}/{q["slug"]}/">{txt}</a>'
     pager = ""
     if len(serie) > 1:
@@ -245,9 +236,11 @@ def ficha(r, p, ed_, productos):
     if not f.get("modelo"):  # las muestras de color esperan este elemento
         fotos += '\n    <img data-worn-img hidden alt="">'
     dots = "".join(f'<span{" class=\"is-on\"" if i == 0 else ""}></span>' for i in range(len(figs)))
+    proyecto_kind = (f'<a href="{r}obra/{g["obra_slug"]}/">{e(g["titulo"])}</a>' if g.get("obra_slug")
+                     else e(g["titulo"]))
     return f"""<article class="pdp" data-slug="{p["slug"]}">
   <div class="pdp-top">
-    <nav class="crumbs" aria-label="Migas de pan"><a href="{r}ediciones/">Ediciones</a> › <a href="{r}ediciones/#{g["id"]}">{e(g["titulo"])}</a> › <span aria-current="page">{e(nombre(p, tipo))}</span></nav>
+    <nav class="crumbs" aria-label="Migas de pan"><a href="{r}ediciones/">Ediciones</a> › <a href="{r}{tipo["dir"]}/">{e(tipo["nombre"])}</a> › <span aria-current="page">{e(p["nombre"])}</span></nav>
     {pager}
   </div>
   <div class="pdp-strip">
@@ -256,7 +249,7 @@ def ficha(r, p, ed_, productos):
     </div>
     <div class="pdp-dots" aria-hidden="true">{dots}</div>
     <div class="buy-card">
-      <p class="buy-kind"><a href="{r}{tipo["dir"]}/">{e(tipo["nombre"])}</a> · <a href="{r}ediciones/#{g["id"]}">{e(g["titulo"])}</a></p>
+      <p class="buy-kind"><a href="{r}{tipo["dir"]}/">{e(tipo["nombre"])}</a> · {proyecto_kind}</p>
       <h1{ed(rp + ["nombre"])}>{e(p["nombre"])}</h1>{otros_datos}
       <p class="buy-price" aria-live="polite" data-e-abre="Tamaño 1 · precio">{precio(t0["precio"])}</p>
       {variantes}

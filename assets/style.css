@@ -246,8 +246,6 @@ a { color: inherit; }
 .group-count { margin: 4px 0 0; font-size: 13px; color: #7a8585; }
 .group-link { font-size: 15px; text-decoration: none; color: var(--ink); white-space: nowrap; min-height: 44px; display: inline-flex; align-items: center; }
 .group-link:hover { color: var(--accent); }
-.shop-kind { padding: 16px 20px 0; font-family: var(--display); letter-spacing: 2px; font-size: 11px; color: var(--accent); }
-.shop-kind + .shop-name { padding-top: 4px; }
 .buy-kind { font-family: var(--display); letter-spacing: 1.5px; font-size: 12px; margin: 0 0 8px; color: #7a8585; }
 .buy-kind a { text-decoration: none; }
 .buy-kind a:hover { color: var(--accent); }
@@ -267,9 +265,6 @@ html { scroll-behavior: smooth; }
 .group-index a { position: relative; display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; font-family: var(--serif); font-style: italic; font-size: 21px; color: var(--ink); text-decoration: none; }
 .group-index a + a::before { content: "·"; position: absolute; left: -3px; color: #b5aea4; font-style: normal; }
 .group-index a:hover { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1px; }
-.group-sub { max-width: 1392px; margin: 24px auto 12px; padding: 0 24px; font: 12px var(--display); letter-spacing: 2px; text-transform: uppercase; color: #5f6f6f; font-weight: 400; }
-.group-sub span { text-transform: none; letter-spacing: 1px; }
-.shop-kind { color: #5f6f6f; font-size: 12px; }
 .bi-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; max-width: 900px; text-align: center; align-items: start; }
 .bi-intro p { margin: 0; font-size: 15px; color: var(--ink); }
 .bi-intro p[lang="en"] { opacity: .8; }
@@ -505,8 +500,9 @@ html { scroll-behavior: smooth; }
   .bio2-hero { grid-template-columns: 1fr; gap: 32px; margin-bottom: 48px; }
   .bio2-title { font-size: 26px; margin-bottom: 32px; }
   .bi-intro { grid-template-columns: 1fr; gap: 12px; }
-  .group-index { gap: 0 18px; padding: 0 16px; }
-  .group-index a { font-size: 18px; padding: 0; }
+  .group-index { flex-wrap: nowrap; justify-content: flex-start; gap: 0 18px; padding: 0 16px; overflow-x: auto; white-space: nowrap; scrollbar-width: none; }
+  .group-index::-webkit-scrollbar { display: none; }
+  .group-index a { flex: none; font-size: 18px; padding: 0; }
   .group-index a + a::before { content: none; }
   .inquiry { width: 100vw; max-width: 100vw; height: 100dvh; max-height: 100dvh; margin: 0; }
   .inq-grid { grid-template-columns: 1fr; flex: 1; }
