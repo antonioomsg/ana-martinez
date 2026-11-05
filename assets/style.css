@@ -466,7 +466,8 @@ html { scroll-behavior: smooth; }
   .nav-toggle span { display: block; height: 2px; background: var(--ink); }
   .nav-menu { display: none; position: absolute; top: var(--header-h); left: 0; right: 0; flex-direction: column; gap: 20px; background: var(--bg); padding: 24px 16px 32px; text-align: center; }
   .nav-menu.open { display: flex; }
-  .home .nav-menu > li > a, .home .nav-menu > li > button { color: var(--ink); text-shadow: none; }
+  .home .nav-menu > li > a, .home .nav-menu > li > button,
+  .home .nav-menu > li > a:hover, .home .nav-menu > li > button:hover { color: var(--ink); text-shadow: none; }
   .sub { position: static; transform: none; box-shadow: none; padding: 12px 0 0; }
   .grid.cols-3, .grid.cols-2 { grid-template-columns: 1fr 1fr; }
   .cols-2 .card, .card { aspect-ratio: 3 / 4; }
