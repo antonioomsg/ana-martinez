@@ -28,109 +28,24 @@
    ]
   },
   {
-   "slug": "frailecillo",
+   "slug": "seahorse",
    "tipo": "laminas",
    "grupo": "flotabilidad-neutra",
    "categoria": "miscelanea",
-   "nombre": "Frailecillo",
-   "descripcion": "Retrato de un frailecillo atlántico, con su pico de colores y la mirada atenta. Una de las aves que Ana pintó al llevar la flotabilidad al mundo del aire.",
-   "descripcion_en": "Portrait of an Atlantic puffin, with its colourful beak and watchful eye. One of the birds Ana painted when she carried buoyancy into the world of the air.",
-   "lema": "Se atreven, y lo consiguen.",
-   "lema_en": "They dare, and they succeed.",
-   "obra": {
-    "titulo": "Frailecillo / Puffin",
-    "tecnica": "Óleo sobre lienzo · 36 × 39 cm",
-    "img": "assets/wp/2024/03/Puffin_portrait.jpg"
-   },
+   "nombre": "Seahorse",
+   "descripcion": "Un caballito de mar claro que flota sobre un azul profundo. Obra numerada en una edición de 30 y firmada a lápiz por Ana.",
+   "descripcion_en": "A pale seahorse floating on deep blue. Numbered in an edition of 30 and signed in pencil by Ana.",
+   "lema": "Sobre el azul.",
+   "lema_en": "On the blue.",
+   "obra": null,
    "colores": [
     {
      "id": "unica",
-     "label": "Frailecillo",
+     "label": "Seahorse",
      "fotos": {
-      "plano": "lam_frailecillo_centrada",
-      "modelo": "lam_frailecillo_casa",
-      "zoom": "lam_frailecillo_zoom"
-     }
-    }
-   ]
-  },
-  {
-   "slug": "ibis-escarlatas",
-   "tipo": "laminas",
-   "grupo": "flotabilidad-neutra",
-   "categoria": "miscelanea",
-   "nombre": "Ibis escarlatas",
-   "descripcion": "Ibis escarlatas en pleno planeo, una mancha de rojo intenso sobre el cielo. Del capítulo aéreo de Flotabilidad neutra.",
-   "descripcion_en": "Scarlet ibises gliding, a stroke of intense red against the sky. From the airborne chapter of Neutral Buoyancy.",
-   "lema": "Planear.",
-   "lema_en": "To glide.",
-   "obra": {
-    "titulo": "Ibis escarlatas / Scarlet ibis",
-    "tecnica": "Óleo sobre lienzo · 154 × 90 cm",
-    "img": "assets/wp/2024/03/flyiing-scarlet-ibis.jpg"
-   },
-   "colores": [
-    {
-     "id": "unica",
-     "label": "Ibis escarlatas",
-     "fotos": {
-      "plano": "lam_ibis_centrada",
-      "modelo": "lam_ibis_casa",
-      "zoom": "lam_ibis_zoom"
-     }
-    }
-   ]
-  },
-  {
-   "slug": "medusa",
-   "tipo": "laminas",
-   "grupo": "ebria-de-carne-azul",
-   "categoria": "criaturas-submarinas",
-   "nombre": "Medusa",
-   "descripcion": "Una medusa que flota entre frondas de kelp en la penumbra azul. Del universo submarino de Ebria de carne azul.",
-   "descripcion_en": "A jellyfish drifting among kelp fronds in the blue half-light. From the underwater world of Drunk on Blue Flesh.",
-   "lema": "Una tregua de paz.",
-   "lema_en": "A truce of peace.",
-   "obra": {
-    "titulo": "Medusa",
-    "tecnica": "Óleo sobre lienzo · Ebria de carne azul, 2025",
-    "img": "assets/wp/2025/02/MEDUSA-KELP.jpg"
-   },
-   "colores": [
-    {
-     "id": "unica",
-     "label": "Medusa",
-     "fotos": {
-      "plano": "lam_medusa_centrada",
-      "modelo": "lam_medusa_casa",
-      "zoom": "lam_medusa_zoom"
-     }
-    }
-   ]
-  },
-  {
-   "slug": "levante",
-   "tipo": "laminas",
-   "grupo": "asuntos-internos",
-   "categoria": "botanica",
-   "nombre": "Levante",
-   "descripcion": "Palmeras que se doblan bajo el viento de levante. Una de las páginas del diario visual de Asuntos internos.",
-   "descripcion_en": "Palm trees bending under the easterly wind. One of the pages of the visual diary Asuntos internos.",
-   "lema": "El viento.",
-   "lema_en": "The wind.",
-   "obra": {
-    "titulo": "Levante",
-    "tecnica": "Óleo · Asuntos internos, 2026",
-    "img": "assets/wp/2026/02/LEVANTE-copia.jpg"
-   },
-   "colores": [
-    {
-     "id": "unica",
-     "label": "Levante",
-     "fotos": {
-      "plano": "lam_levante_centrada",
-      "modelo": "lam_levante_casa",
-      "zoom": "lam_levante_zoom"
+      "plano": "lam_seahorse_centrada",
+      "modelo": "lam_seahorse_casa",
+      "zoom": "lam_seahorse_zoom"
      }
     }
    ]
@@ -163,6 +78,79 @@
    ]
   },
   {
+   "slug": "medusa",
+   "tipo": "laminas",
+   "grupo": "ebria-de-carne-azul",
+   "categoria": "criaturas-submarinas",
+   "nombre": "Medusa",
+   "descripcion": "Una medusa que flota entre frondas de kelp en la penumbra azul. Del universo submarino de Ebria de carne azul.",
+   "descripcion_en": "A jellyfish drifting among kelp fronds in the blue half-light. From the underwater world of Drunk on Blue Flesh.",
+   "lema": "Una tregua de paz.",
+   "lema_en": "A truce of peace.",
+   "obra": {
+    "titulo": "Medusa",
+    "tecnica": "Óleo sobre lienzo · Ebria de carne azul, 2025",
+    "img": "assets/wp/2025/02/MEDUSA-KELP.jpg"
+   },
+   "colores": [
+    {
+     "id": "unica",
+     "label": "Medusa",
+     "fotos": {
+      "plano": "lam_medusa_centrada",
+      "modelo": "lam_medusa_casa",
+      "zoom": "lam_medusa_zoom"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "aspidistras",
+   "tipo": "laminas",
+   "grupo": "plantas-de-los-patios",
+   "categoria": "botanica",
+   "nombre": "Aspidistras",
+   "descripcion": "Aspidistras en maceta de barro, una de las plantas clásicas de los patios.",
+   "descripcion_en": "Aspidistras in a terracotta pot, one of the classic courtyard plants.",
+   "lema": "Verde de patio.",
+   "lema_en": "Courtyard green.",
+   "obra": null,
+   "colores": [
+    {
+     "id": "unica",
+     "label": "Aspidistras",
+     "fotos": {
+      "plano": "lam_aspidistras_centrada",
+      "modelo": "lam_aspidistras_casa",
+      "zoom": "lam_aspidistras_zoom"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "seaweeds",
+   "tipo": "laminas",
+   "grupo": "flotabilidad-neutra",
+   "categoria": "miscelanea",
+   "nombre": "Seaweeds",
+   "descripcion": "Algas largas que ondulan con la corriente, en verdes y azules. Obra numerada en una edición de 30 y firmada a lápiz por Ana.",
+   "descripcion_en": "Long seaweeds swaying with the current, in greens and blues. Numbered in an edition of 30 and signed in pencil by Ana.",
+   "lema": "Con la corriente.",
+   "lema_en": "With the current.",
+   "obra": null,
+   "colores": [
+    {
+     "id": "unica",
+     "label": "Seaweeds",
+     "fotos": {
+      "plano": "lam_seaweeds_centrada",
+      "modelo": "lam_seaweeds_casa",
+      "zoom": "lam_seaweeds_zoom"
+     }
+    }
+   ]
+  },
+  {
    "slug": "carpas",
    "tipo": "laminas",
    "grupo": "bestiario",
@@ -181,190 +169,6 @@
       "plano": "lam_carpas_centrada",
       "modelo": "lam_carpas_casa",
       "zoom": "lam_carpas_zoom"
-     }
-    }
-   ]
-  },
-  {
-   "slug": "dachshund-1",
-   "tipo": "laminas",
-   "grupo": "bestiario",
-   "categoria": "dachshund",
-   "nombre": "Dachshund I",
-   "descripcion": "Retrato de un dachshund con su propio carácter. Lámina original de Ana Martínez, primera de la serie de diez.",
-   "descripcion_en": "Portrait of a dachshund with a character all its own. Original print by Ana Martínez, number I in a series of ten.",
-   "lema": "Un gesto.",
-   "lema_en": "A gesture.",
-   "obra": null,
-   "colores": [
-    {
-     "id": "unica",
-     "label": "Dachshund I",
-     "fotos": {
-      "plano": "lam_dachshund_1_centrada",
-      "modelo": "lam_dachshund_1_casa",
-      "zoom": "lam_dachshund_1_zoom"
-     }
-    }
-   ]
-  },
-  {
-   "slug": "dachshund-2",
-   "tipo": "laminas",
-   "grupo": "bestiario",
-   "categoria": "dachshund",
-   "nombre": "Dachshund II",
-   "descripcion": "Retrato de un dachshund con su propio carácter. Lámina original de Ana Martínez, segunda de la serie de diez.",
-   "descripcion_en": "Portrait of a dachshund with a character all its own. Original print by Ana Martínez, number II in a series of ten.",
-   "lema": "Un gesto.",
-   "lema_en": "A gesture.",
-   "obra": null,
-   "colores": [
-    {
-     "id": "unica",
-     "label": "Dachshund II",
-     "fotos": {
-      "plano": "lam_dachshund_2_centrada",
-      "modelo": "lam_dachshund_2_casa",
-      "zoom": "lam_dachshund_2_zoom"
-     }
-    }
-   ]
-  },
-  {
-   "slug": "dachshund-3",
-   "tipo": "laminas",
-   "grupo": "bestiario",
-   "categoria": "dachshund",
-   "nombre": "Dachshund III",
-   "descripcion": "Retrato de un dachshund con su propio carácter. Lámina original de Ana Martínez, tercera de la serie de diez.",
-   "descripcion_en": "Portrait of a dachshund with a character all its own. Original print by Ana Martínez, number III in a series of ten.",
-   "lema": "Un gesto.",
-   "lema_en": "A gesture.",
-   "obra": null,
-   "colores": [
-    {
-     "id": "unica",
-     "label": "Dachshund III",
-     "fotos": {
-      "plano": "lam_dachshund_3_centrada",
-      "modelo": "lam_dachshund_3_casa",
-      "zoom": "lam_dachshund_3_zoom"
-     }
-    }
-   ]
-  },
-  {
-   "slug": "dachshund-4",
-   "tipo": "laminas",
-   "grupo": "bestiario",
-   "categoria": "dachshund",
-   "nombre": "Dachshund IV",
-   "descripcion": "Retrato de un dachshund con su propio carácter. Lámina original de Ana Martínez, cuarta de la serie de diez.",
-   "descripcion_en": "Portrait of a dachshund with a character all its own. Original print by Ana Martínez, number IV in a series of ten.",
-   "lema": "Un gesto.",
-   "lema_en": "A gesture.",
-   "obra": null,
-   "colores": [
-    {
-     "id": "unica",
-     "label": "Dachshund IV",
-     "fotos": {
-      "plano": "lam_dachshund_4_centrada",
-      "modelo": "lam_dachshund_4_casa",
-      "zoom": "lam_dachshund_4_zoom"
-     }
-    }
-   ]
-  },
-  {
-   "slug": "dachshund-5",
-   "tipo": "laminas",
-   "grupo": "bestiario",
-   "categoria": "dachshund",
-   "nombre": "Dachshund V",
-   "descripcion": "Retrato de un dachshund con su propio carácter. Lámina original de Ana Martínez, quinta de la serie de diez.",
-   "descripcion_en": "Portrait of a dachshund with a character all its own. Original print by Ana Martínez, number V in a series of ten.",
-   "lema": "Un gesto.",
-   "lema_en": "A gesture.",
-   "obra": null,
-   "colores": [
-    {
-     "id": "unica",
-     "label": "Dachshund V",
-     "fotos": {
-      "plano": "lam_dachshund_5_centrada",
-      "modelo": "lam_dachshund_5_casa",
-      "zoom": "lam_dachshund_5_zoom"
-     }
-    }
-   ]
-  },
-  {
-   "slug": "dachshund-6",
-   "tipo": "laminas",
-   "grupo": "bestiario",
-   "categoria": "dachshund",
-   "nombre": "Dachshund VI",
-   "descripcion": "Retrato de un dachshund con su propio carácter. Lámina original de Ana Martínez, sexta de la serie de diez.",
-   "descripcion_en": "Portrait of a dachshund with a character all its own. Original print by Ana Martínez, number VI in a series of ten.",
-   "lema": "Un gesto.",
-   "lema_en": "A gesture.",
-   "obra": null,
-   "colores": [
-    {
-     "id": "unica",
-     "label": "Dachshund VI",
-     "fotos": {
-      "plano": "lam_dachshund_6_centrada",
-      "modelo": "lam_dachshund_6_casa",
-      "zoom": "lam_dachshund_6_zoom"
-     }
-    }
-   ]
-  },
-  {
-   "slug": "dachshund-7",
-   "tipo": "laminas",
-   "grupo": "bestiario",
-   "categoria": "dachshund",
-   "nombre": "Dachshund VII",
-   "descripcion": "Retrato de un dachshund con su propio carácter. Lámina original de Ana Martínez, séptima de la serie de diez.",
-   "descripcion_en": "Portrait of a dachshund with a character all its own. Original print by Ana Martínez, number VII in a series of ten.",
-   "lema": "Un gesto.",
-   "lema_en": "A gesture.",
-   "obra": null,
-   "colores": [
-    {
-     "id": "unica",
-     "label": "Dachshund VII",
-     "fotos": {
-      "plano": "lam_dachshund_7_centrada",
-      "modelo": "lam_dachshund_7_casa",
-      "zoom": "lam_dachshund_7_zoom"
-     }
-    }
-   ]
-  },
-  {
-   "slug": "dachshund-8",
-   "tipo": "laminas",
-   "grupo": "bestiario",
-   "categoria": "dachshund",
-   "nombre": "Dachshund VIII",
-   "descripcion": "Retrato de un dachshund con su propio carácter. Lámina original de Ana Martínez, octava de la serie de diez.",
-   "descripcion_en": "Portrait of a dachshund with a character all its own. Original print by Ana Martínez, number VIII in a series of ten.",
-   "lema": "Un gesto.",
-   "lema_en": "A gesture.",
-   "obra": null,
-   "colores": [
-    {
-     "id": "unica",
-     "label": "Dachshund VIII",
-     "fotos": {
-      "plano": "lam_dachshund_8_centrada",
-      "modelo": "lam_dachshund_8_casa",
-      "zoom": "lam_dachshund_8_zoom"
      }
     }
    ]
@@ -416,47 +220,185 @@
    ]
   },
   {
-   "slug": "geranio",
+   "slug": "dachshund-7",
    "tipo": "laminas",
-   "grupo": "plantas-de-los-patios",
-   "categoria": "botanica",
-   "nombre": "Geranio",
-   "descripcion": "Un geranio en flor en su maceta de barro, pintado a la acuarela con el detalle de sus láminas botánicas.",
-   "descripcion_en": "A flowering geranium in its terracotta pot, painted in watercolour with the detail of her botanical plates.",
-   "lema": "El patio en flor.",
-   "lema_en": "The courtyard in bloom.",
+   "grupo": "bestiario",
+   "categoria": "dachshund",
+   "nombre": "Dachshund VII",
+   "descripcion": "Retrato de un dachshund con su propio carácter. Lámina original de Ana Martínez, séptima de la serie de diez.",
+   "descripcion_en": "Portrait of a dachshund with a character all its own. Original print by Ana Martínez, number VII in a series of ten.",
+   "lema": "Un gesto.",
+   "lema_en": "A gesture.",
    "obra": null,
    "colores": [
     {
      "id": "unica",
-     "label": "Geranio",
+     "label": "Dachshund VII",
      "fotos": {
-      "plano": "lam_geranio_centrada",
-      "modelo": "lam_geranio_casa",
-      "zoom": "lam_geranio_zoom"
+      "plano": "lam_dachshund_7_centrada",
+      "modelo": "lam_dachshund_7_casa",
+      "zoom": "lam_dachshund_7_zoom"
      }
     }
    ]
   },
   {
-   "slug": "clivia",
+   "slug": "dachshund-3",
    "tipo": "laminas",
-   "grupo": "plantas-de-los-patios",
-   "categoria": "botanica",
-   "nombre": "Clivia",
-   "descripcion": "Una clivia en maceta de barro, con sus hojas largas y sus flores anaranjadas.",
-   "descripcion_en": "A clivia in a terracotta pot, with its long leaves and orange flowers.",
-   "lema": "Hojas largas, flor encendida.",
-   "lema_en": "Long leaves, a bright flower.",
+   "grupo": "bestiario",
+   "categoria": "dachshund",
+   "nombre": "Dachshund III",
+   "descripcion": "Retrato de un dachshund con su propio carácter. Lámina original de Ana Martínez, tercera de la serie de diez.",
+   "descripcion_en": "Portrait of a dachshund with a character all its own. Original print by Ana Martínez, number III in a series of ten.",
+   "lema": "Un gesto.",
+   "lema_en": "A gesture.",
    "obra": null,
    "colores": [
     {
      "id": "unica",
-     "label": "Clivia",
+     "label": "Dachshund III",
      "fotos": {
-      "plano": "lam_clivia_centrada",
-      "modelo": "lam_clivia_casa",
-      "zoom": "lam_clivia_zoom"
+      "plano": "lam_dachshund_3_centrada",
+      "modelo": "lam_dachshund_3_casa",
+      "zoom": "lam_dachshund_3_zoom"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "dachshund-1",
+   "tipo": "laminas",
+   "grupo": "bestiario",
+   "categoria": "dachshund",
+   "nombre": "Dachshund I",
+   "descripcion": "Retrato de un dachshund con su propio carácter. Lámina original de Ana Martínez, primera de la serie de diez.",
+   "descripcion_en": "Portrait of a dachshund with a character all its own. Original print by Ana Martínez, number I in a series of ten.",
+   "lema": "Un gesto.",
+   "lema_en": "A gesture.",
+   "obra": null,
+   "colores": [
+    {
+     "id": "unica",
+     "label": "Dachshund I",
+     "fotos": {
+      "plano": "lam_dachshund_1_centrada",
+      "modelo": "lam_dachshund_1_casa",
+      "zoom": "lam_dachshund_1_zoom"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "dachshund-6",
+   "tipo": "laminas",
+   "grupo": "bestiario",
+   "categoria": "dachshund",
+   "nombre": "Dachshund VI",
+   "descripcion": "Retrato de un dachshund con su propio carácter. Lámina original de Ana Martínez, sexta de la serie de diez.",
+   "descripcion_en": "Portrait of a dachshund with a character all its own. Original print by Ana Martínez, number VI in a series of ten.",
+   "lema": "Un gesto.",
+   "lema_en": "A gesture.",
+   "obra": null,
+   "colores": [
+    {
+     "id": "unica",
+     "label": "Dachshund VI",
+     "fotos": {
+      "plano": "lam_dachshund_6_centrada",
+      "modelo": "lam_dachshund_6_casa",
+      "zoom": "lam_dachshund_6_zoom"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "dachshund-2",
+   "tipo": "laminas",
+   "grupo": "bestiario",
+   "categoria": "dachshund",
+   "nombre": "Dachshund II",
+   "descripcion": "Retrato de un dachshund con su propio carácter. Lámina original de Ana Martínez, segunda de la serie de diez.",
+   "descripcion_en": "Portrait of a dachshund with a character all its own. Original print by Ana Martínez, number II in a series of ten.",
+   "lema": "Un gesto.",
+   "lema_en": "A gesture.",
+   "obra": null,
+   "colores": [
+    {
+     "id": "unica",
+     "label": "Dachshund II",
+     "fotos": {
+      "plano": "lam_dachshund_2_centrada",
+      "modelo": "lam_dachshund_2_casa",
+      "zoom": "lam_dachshund_2_zoom"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "dachshund-8",
+   "tipo": "laminas",
+   "grupo": "bestiario",
+   "categoria": "dachshund",
+   "nombre": "Dachshund VIII",
+   "descripcion": "Retrato de un dachshund con su propio carácter. Lámina original de Ana Martínez, octava de la serie de diez.",
+   "descripcion_en": "Portrait of a dachshund with a character all its own. Original print by Ana Martínez, number VIII in a series of ten.",
+   "lema": "Un gesto.",
+   "lema_en": "A gesture.",
+   "obra": null,
+   "colores": [
+    {
+     "id": "unica",
+     "label": "Dachshund VIII",
+     "fotos": {
+      "plano": "lam_dachshund_8_centrada",
+      "modelo": "lam_dachshund_8_casa",
+      "zoom": "lam_dachshund_8_zoom"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "dachshund-4",
+   "tipo": "laminas",
+   "grupo": "bestiario",
+   "categoria": "dachshund",
+   "nombre": "Dachshund IV",
+   "descripcion": "Retrato de un dachshund con su propio carácter. Lámina original de Ana Martínez, cuarta de la serie de diez.",
+   "descripcion_en": "Portrait of a dachshund with a character all its own. Original print by Ana Martínez, number IV in a series of ten.",
+   "lema": "Un gesto.",
+   "lema_en": "A gesture.",
+   "obra": null,
+   "colores": [
+    {
+     "id": "unica",
+     "label": "Dachshund IV",
+     "fotos": {
+      "plano": "lam_dachshund_4_centrada",
+      "modelo": "lam_dachshund_4_casa",
+      "zoom": "lam_dachshund_4_zoom"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "dachshund-5",
+   "tipo": "laminas",
+   "grupo": "bestiario",
+   "categoria": "dachshund",
+   "nombre": "Dachshund V",
+   "descripcion": "Retrato de un dachshund con su propio carácter. Lámina original de Ana Martínez, quinta de la serie de diez.",
+   "descripcion_en": "Portrait of a dachshund with a character all its own. Original print by Ana Martínez, number V in a series of ten.",
+   "lema": "Un gesto.",
+   "lema_en": "A gesture.",
+   "obra": null,
+   "colores": [
+    {
+     "id": "unica",
+     "label": "Dachshund V",
+     "fotos": {
+      "plano": "lam_dachshund_5_centrada",
+      "modelo": "lam_dachshund_5_casa",
+      "zoom": "lam_dachshund_5_zoom"
      }
     }
    ]
@@ -485,116 +427,24 @@
    ]
   },
   {
-   "slug": "pata-de-elefante-2",
+   "slug": "costilla-de-adan",
    "tipo": "laminas",
    "grupo": "plantas-de-los-patios",
    "categoria": "botanica",
-   "nombre": "Pata de elefante II",
-   "descripcion": "Dos macetas de barro con sus hojas redondas, junto a la sombra de un muro de patio.",
-   "descripcion_en": "Two terracotta pots with their round leaves, beside the shadow of a courtyard wall.",
-   "lema": "A la sombra del muro.",
-   "lema_en": "In the shade of the wall.",
+   "nombre": "Costilla de Adán",
+   "descripcion": "Las hojas recortadas de la costilla de Adán rodean una tinaja de barro.",
+   "descripcion_en": "The cut leaves of a Swiss cheese plant surround a clay jar.",
+   "lema": "Hojas recortadas.",
+   "lema_en": "Cut leaves.",
    "obra": null,
    "colores": [
     {
      "id": "unica",
-     "label": "Pata de elefante II",
+     "label": "Costilla de Adán",
      "fotos": {
-      "plano": "lam_pata_elefante_2_centrada",
-      "modelo": "lam_pata_elefante_2_casa",
-      "zoom": "lam_pata_elefante_2_zoom"
-     }
-    }
-   ]
-  },
-  {
-   "slug": "amapolas-campanillas-y-margaritas",
-   "tipo": "laminas",
-   "grupo": "plantas-de-los-patios",
-   "categoria": "botanica",
-   "nombre": "Amapolas, campanillas y margaritas",
-   "descripcion": "Un ramillete de flores de campo a la acuarela, con el rojo de las amapolas como protagonista.",
-   "descripcion_en": "A spray of wildflowers in watercolour, led by the red of the poppies.",
-   "lema": "Flores de campo.",
-   "lema_en": "Wildflowers.",
-   "obra": null,
-   "colores": [
-    {
-     "id": "unica",
-     "label": "Amapolas, campanillas y margaritas",
-     "fotos": {
-      "plano": "lam_amapolas_centrada",
-      "modelo": "lam_amapolas_casa",
-      "zoom": "lam_amapolas_zoom"
-     }
-    }
-   ]
-  },
-  {
-   "slug": "ave-del-paraiso-1",
-   "tipo": "laminas",
-   "grupo": "plantas-de-los-patios",
-   "categoria": "botanica",
-   "nombre": "Ave del paraíso I",
-   "descripcion": "La flor del ave del paraíso entre dos hojas grandes, en un dibujo limpio sobre el papel.",
-   "descripcion_en": "The bird of paradise flower between two large leaves, cleanly drawn on the paper.",
-   "lema": "La flor abierta.",
-   "lema_en": "The open flower.",
-   "obra": null,
-   "colores": [
-    {
-     "id": "unica",
-     "label": "Ave del paraíso I",
-     "fotos": {
-      "plano": "lam_ave_paraiso_1_centrada",
-      "modelo": "lam_ave_paraiso_1_casa",
-      "zoom": "lam_ave_paraiso_1_zoom"
-     }
-    }
-   ]
-  },
-  {
-   "slug": "ave-del-paraiso-2",
-   "tipo": "laminas",
-   "grupo": "plantas-de-los-patios",
-   "categoria": "botanica",
-   "nombre": "Ave del paraíso II",
-   "descripcion": "La planta del ave del paraíso entera, con sus hojas abiertas en abanico.",
-   "descripcion_en": "The whole bird of paradise plant, its leaves opening like a fan.",
-   "lema": "Hojas en abanico.",
-   "lema_en": "Leaves like a fan.",
-   "obra": null,
-   "colores": [
-    {
-     "id": "unica",
-     "label": "Ave del paraíso II",
-     "fotos": {
-      "plano": "lam_ave_paraiso_2_centrada",
-      "modelo": "lam_ave_paraiso_2_casa",
-      "zoom": "lam_ave_paraiso_2_zoom"
-     }
-    }
-   ]
-  },
-  {
-   "slug": "aspidistras",
-   "tipo": "laminas",
-   "grupo": "plantas-de-los-patios",
-   "categoria": "botanica",
-   "nombre": "Aspidistras",
-   "descripcion": "Aspidistras en maceta de barro, una de las plantas clásicas de los patios.",
-   "descripcion_en": "Aspidistras in a terracotta pot, one of the classic courtyard plants.",
-   "lema": "Verde de patio.",
-   "lema_en": "Courtyard green.",
-   "obra": null,
-   "colores": [
-    {
-     "id": "unica",
-     "label": "Aspidistras",
-     "fotos": {
-      "plano": "lam_aspidistras_centrada",
-      "modelo": "lam_aspidistras_casa",
-      "zoom": "lam_aspidistras_zoom"
+      "plano": "lam_costilla_adan_centrada",
+      "modelo": "lam_costilla_adan_casa",
+      "zoom": "lam_costilla_adan_zoom"
      }
     }
    ]
@@ -623,93 +473,24 @@
    ]
   },
   {
-   "slug": "glicinia",
+   "slug": "clivia",
    "tipo": "laminas",
    "grupo": "plantas-de-los-patios",
    "categoria": "botanica",
-   "nombre": "Glicinia",
-   "descripcion": "Una glicinia en plena floración, con sus racimos azules y malvas a la acuarela.",
-   "descripcion_en": "A wisteria in full bloom, its blue and mauve clusters in watercolour.",
-   "lema": "Racimos en flor.",
-   "lema_en": "Clusters in bloom.",
+   "nombre": "Clivia",
+   "descripcion": "Una clivia en maceta de barro, con sus hojas largas y sus flores anaranjadas.",
+   "descripcion_en": "A clivia in a terracotta pot, with its long leaves and orange flowers.",
+   "lema": "Hojas largas, flor encendida.",
+   "lema_en": "Long leaves, a bright flower.",
    "obra": null,
    "colores": [
     {
      "id": "unica",
-     "label": "Glicinia",
+     "label": "Clivia",
      "fotos": {
-      "plano": "lam_glicinia_centrada",
-      "modelo": "lam_glicinia_casa",
-      "zoom": "lam_glicinia_zoom"
-     }
-    }
-   ]
-  },
-  {
-   "slug": "costilla-de-adan",
-   "tipo": "laminas",
-   "grupo": "plantas-de-los-patios",
-   "categoria": "botanica",
-   "nombre": "Costilla de Adán",
-   "descripcion": "Las hojas recortadas de la costilla de Adán rodean una tinaja de barro.",
-   "descripcion_en": "The cut leaves of a Swiss cheese plant surround a clay jar.",
-   "lema": "Hojas recortadas.",
-   "lema_en": "Cut leaves.",
-   "obra": null,
-   "colores": [
-    {
-     "id": "unica",
-     "label": "Costilla de Adán",
-     "fotos": {
-      "plano": "lam_costilla_adan_centrada",
-      "modelo": "lam_costilla_adan_casa",
-      "zoom": "lam_costilla_adan_zoom"
-     }
-    }
-   ]
-  },
-  {
-   "slug": "hojas",
-   "tipo": "laminas",
-   "grupo": "plantas-de-los-patios",
-   "categoria": "botanica",
-   "nombre": "Hojas",
-   "descripcion": "Un estudio de hojas en blanco y negro, de trazo minucioso sobre papel de grano.",
-   "descripcion_en": "A study of leaves in black and white, finely drawn on textured paper.",
-   "lema": "Solo luz y sombra.",
-   "lema_en": "Only light and shade.",
-   "obra": null,
-   "colores": [
-    {
-     "id": "unica",
-     "label": "Hojas",
-     "fotos": {
-      "plano": "lam_hojas_centrada",
-      "modelo": "lam_hojas_casa",
-      "zoom": "lam_hojas_zoom"
-     }
-    }
-   ]
-  },
-  {
-   "slug": "buganvilla",
-   "tipo": "laminas",
-   "grupo": "plantas-de-los-patios",
-   "categoria": "botanica",
-   "nombre": "Buganvilla",
-   "descripcion": "Una buganvilla en flor envuelve un capitel, como en un rincón de patio.",
-   "descripcion_en": "A bougainvillea in bloom wraps around a capital, as in a corner of a courtyard.",
-   "lema": "Un rincón de patio.",
-   "lema_en": "A courtyard corner.",
-   "obra": null,
-   "colores": [
-    {
-     "id": "unica",
-     "label": "Buganvilla",
-     "fotos": {
-      "plano": "lam_buganvilla_centrada",
-      "modelo": "lam_buganvilla_casa",
-      "zoom": "lam_buganvilla_zoom"
+      "plano": "lam_clivia_centrada",
+      "modelo": "lam_clivia_casa",
+      "zoom": "lam_clivia_zoom"
      }
     }
    ]
@@ -738,6 +519,121 @@
    ]
   },
   {
+   "slug": "buganvilla",
+   "tipo": "laminas",
+   "grupo": "plantas-de-los-patios",
+   "categoria": "botanica",
+   "nombre": "Buganvilla",
+   "descripcion": "Una buganvilla en flor envuelve un capitel, como en un rincón de patio.",
+   "descripcion_en": "A bougainvillea in bloom wraps around a capital, as in a corner of a courtyard.",
+   "lema": "Un rincón de patio.",
+   "lema_en": "A courtyard corner.",
+   "obra": null,
+   "colores": [
+    {
+     "id": "unica",
+     "label": "Buganvilla",
+     "fotos": {
+      "plano": "lam_buganvilla_centrada",
+      "modelo": "lam_buganvilla_casa",
+      "zoom": "lam_buganvilla_zoom"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "glicinia",
+   "tipo": "laminas",
+   "grupo": "plantas-de-los-patios",
+   "categoria": "botanica",
+   "nombre": "Glicinia",
+   "descripcion": "Una glicinia en plena floración, con sus racimos azules y malvas a la acuarela.",
+   "descripcion_en": "A wisteria in full bloom, its blue and mauve clusters in watercolour.",
+   "lema": "Racimos en flor.",
+   "lema_en": "Clusters in bloom.",
+   "obra": null,
+   "colores": [
+    {
+     "id": "unica",
+     "label": "Glicinia",
+     "fotos": {
+      "plano": "lam_glicinia_centrada",
+      "modelo": "lam_glicinia_casa",
+      "zoom": "lam_glicinia_zoom"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "geranio",
+   "tipo": "laminas",
+   "grupo": "plantas-de-los-patios",
+   "categoria": "botanica",
+   "nombre": "Geranio",
+   "descripcion": "Un geranio en flor en su maceta de barro, pintado a la acuarela con el detalle de sus láminas botánicas.",
+   "descripcion_en": "A flowering geranium in its terracotta pot, painted in watercolour with the detail of her botanical plates.",
+   "lema": "El patio en flor.",
+   "lema_en": "The courtyard in bloom.",
+   "obra": null,
+   "colores": [
+    {
+     "id": "unica",
+     "label": "Geranio",
+     "fotos": {
+      "plano": "lam_geranio_centrada",
+      "modelo": "lam_geranio_casa",
+      "zoom": "lam_geranio_zoom"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "pata-de-elefante-2",
+   "tipo": "laminas",
+   "grupo": "plantas-de-los-patios",
+   "categoria": "botanica",
+   "nombre": "Macetas Viana",
+   "descripcion": "Dos macetas de barro con sus hojas redondas, junto a la sombra de un muro de patio.",
+   "descripcion_en": "Two terracotta pots with their round leaves, beside the shadow of a courtyard wall.",
+   "lema": "A la sombra del muro.",
+   "lema_en": "In the shade of the wall.",
+   "obra": null,
+   "colores": [
+    {
+     "id": "unica",
+     "label": "Macetas Viana",
+     "fotos": {
+      "plano": "lam_pata_elefante_2_centrada",
+      "modelo": "lam_pata_elefante_2_casa",
+      "zoom": "lam_pata_elefante_2_zoom"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "amapolas-campanillas-y-margaritas",
+   "tipo": "laminas",
+   "grupo": "plantas-de-los-patios",
+   "categoria": "botanica",
+   "nombre": "Silvestres",
+   "descripcion": "Un ramillete de flores de campo a la acuarela, con el rojo de las amapolas como protagonista.",
+   "descripcion_en": "A spray of wildflowers in watercolour, led by the red of the poppies.",
+   "lema": "Flores de campo.",
+   "lema_en": "Wildflowers.",
+   "obra": null,
+   "colores": [
+    {
+     "id": "unica",
+     "label": "Silvestres",
+     "fotos": {
+      "plano": "lam_amapolas_centrada",
+      "modelo": "lam_amapolas_casa",
+      "zoom": "lam_amapolas_zoom"
+     }
+    }
+   ]
+  },
+  {
    "slug": "macetas",
    "tipo": "laminas",
    "grupo": "plantas-de-los-patios",
@@ -756,6 +652,102 @@
       "plano": "lam_macetas_centrada",
       "modelo": "lam_macetas_casa",
       "zoom": "lam_macetas_zoom"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "hojas",
+   "tipo": "laminas",
+   "grupo": "plantas-de-los-patios",
+   "categoria": "botanica",
+   "nombre": "Planta negra del dinero",
+   "descripcion": "Un estudio de hojas en blanco y negro, de trazo minucioso sobre papel de grano.",
+   "descripcion_en": "A study of leaves in black and white, finely drawn on textured paper.",
+   "lema": "Solo luz y sombra.",
+   "lema_en": "Only light and shade.",
+   "obra": null,
+   "colores": [
+    {
+     "id": "unica",
+     "label": "Planta negra del dinero",
+     "fotos": {
+      "plano": "lam_hojas_centrada",
+      "modelo": "lam_hojas_casa",
+      "zoom": "lam_hojas_zoom"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "ave-del-paraiso-2",
+   "tipo": "laminas",
+   "grupo": "plantas-de-los-patios",
+   "categoria": "botanica",
+   "nombre": "Ave del paraíso II",
+   "descripcion": "La planta del ave del paraíso entera, con sus hojas abiertas en abanico.",
+   "descripcion_en": "The whole bird of paradise plant, its leaves opening like a fan.",
+   "lema": "Hojas en abanico.",
+   "lema_en": "Leaves like a fan.",
+   "obra": null,
+   "colores": [
+    {
+     "id": "unica",
+     "label": "Ave del paraíso II",
+     "fotos": {
+      "plano": "lam_ave_paraiso_2_centrada",
+      "modelo": "lam_ave_paraiso_2_casa",
+      "zoom": "lam_ave_paraiso_2_zoom"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "ave-del-paraiso-1",
+   "tipo": "laminas",
+   "grupo": "plantas-de-los-patios",
+   "categoria": "botanica",
+   "nombre": "Ave del paraíso I",
+   "descripcion": "La flor del ave del paraíso entre dos hojas grandes, en un dibujo limpio sobre el papel.",
+   "descripcion_en": "The bird of paradise flower between two large leaves, cleanly drawn on the paper.",
+   "lema": "La flor abierta.",
+   "lema_en": "The open flower.",
+   "obra": null,
+   "colores": [
+    {
+     "id": "unica",
+     "label": "Ave del paraíso I",
+     "fotos": {
+      "plano": "lam_ave_paraiso_1_centrada",
+      "modelo": "lam_ave_paraiso_1_casa",
+      "zoom": "lam_ave_paraiso_1_zoom"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "levante",
+   "tipo": "laminas",
+   "grupo": "asuntos-internos",
+   "categoria": "botanica",
+   "nombre": "Levante",
+   "descripcion": "Palmeras que se doblan bajo el viento de levante. Una de las páginas del diario visual de Asuntos internos.",
+   "descripcion_en": "Palm trees bending under the easterly wind. One of the pages of the visual diary Asuntos internos.",
+   "lema": "El viento.",
+   "lema_en": "The wind.",
+   "obra": {
+    "titulo": "Levante",
+    "tecnica": "Óleo · Asuntos internos, 2026",
+    "img": "assets/wp/2026/02/LEVANTE-copia.jpg"
+   },
+   "colores": [
+    {
+     "id": "unica",
+     "label": "Levante",
+     "fotos": {
+      "plano": "lam_levante_centrada",
+      "modelo": "lam_levante_casa",
+      "zoom": "lam_levante_zoom"
      }
     }
    ]
@@ -807,6 +799,60 @@
    ]
   },
   {
+   "slug": "frailecillo",
+   "tipo": "laminas",
+   "grupo": "flotabilidad-neutra",
+   "categoria": "miscelanea",
+   "nombre": "Puffin",
+   "descripcion": "Retrato de un frailecillo atlántico, con su pico de colores y la mirada atenta. Una de las aves que Ana pintó al llevar la flotabilidad al mundo del aire.",
+   "descripcion_en": "Portrait of an Atlantic puffin, with its colourful beak and watchful eye. One of the birds Ana painted when she carried buoyancy into the world of the air.",
+   "lema": "Se atreven, y lo consiguen.",
+   "lema_en": "They dare, and they succeed.",
+   "obra": {
+    "titulo": "Frailecillo / Puffin",
+    "tecnica": "Óleo sobre lienzo · 36 × 39 cm",
+    "img": "assets/wp/2024/03/Puffin_portrait.jpg"
+   },
+   "colores": [
+    {
+     "id": "unica",
+     "label": "Puffin",
+     "fotos": {
+      "plano": "lam_frailecillo_centrada",
+      "modelo": "lam_frailecillo_casa",
+      "zoom": "lam_frailecillo_zoom"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "ibis-escarlatas",
+   "tipo": "laminas",
+   "grupo": "flotabilidad-neutra",
+   "categoria": "miscelanea",
+   "nombre": "Ibis escarlatas",
+   "descripcion": "Ibis escarlatas en pleno planeo, una mancha de rojo intenso sobre el cielo. Del capítulo aéreo de Flotabilidad neutra.",
+   "descripcion_en": "Scarlet ibises gliding, a stroke of intense red against the sky. From the airborne chapter of Neutral Buoyancy.",
+   "lema": "Planear.",
+   "lema_en": "To glide.",
+   "obra": {
+    "titulo": "Ibis escarlatas / Scarlet ibis",
+    "tecnica": "Óleo sobre lienzo · 154 × 90 cm",
+    "img": "assets/wp/2024/03/flyiing-scarlet-ibis.jpg"
+   },
+   "colores": [
+    {
+     "id": "unica",
+     "label": "Ibis escarlatas",
+     "fotos": {
+      "plano": "lam_ibis_centrada",
+      "modelo": "lam_ibis_casa",
+      "zoom": "lam_ibis_zoom"
+     }
+    }
+   ]
+  },
+  {
    "slug": "siamese-fighting-fish-coral",
    "tipo": "laminas",
    "grupo": "flotabilidad-neutra",
@@ -825,52 +871,6 @@
       "plano": "lam_siames_coral_centrada",
       "modelo": "lam_siames_coral_casa",
       "zoom": "lam_siames_coral_zoom"
-     }
-    }
-   ]
-  },
-  {
-   "slug": "seahorse",
-   "tipo": "laminas",
-   "grupo": "flotabilidad-neutra",
-   "categoria": "miscelanea",
-   "nombre": "Seahorse",
-   "descripcion": "Un caballito de mar claro que flota sobre un azul profundo. Obra numerada en una edición de 30 y firmada a lápiz por Ana.",
-   "descripcion_en": "A pale seahorse floating on deep blue. Numbered in an edition of 30 and signed in pencil by Ana.",
-   "lema": "Sobre el azul.",
-   "lema_en": "On the blue.",
-   "obra": null,
-   "colores": [
-    {
-     "id": "unica",
-     "label": "Seahorse",
-     "fotos": {
-      "plano": "lam_seahorse_centrada",
-      "modelo": "lam_seahorse_casa",
-      "zoom": "lam_seahorse_zoom"
-     }
-    }
-   ]
-  },
-  {
-   "slug": "seaweeds",
-   "tipo": "laminas",
-   "grupo": "flotabilidad-neutra",
-   "categoria": "miscelanea",
-   "nombre": "Seaweeds",
-   "descripcion": "Algas largas que ondulan con la corriente, en verdes y azules. Obra numerada en una edición de 30 y firmada a lápiz por Ana.",
-   "descripcion_en": "Long seaweeds swaying with the current, in greens and blues. Numbered in an edition of 30 and signed in pencil by Ana.",
-   "lema": "Con la corriente.",
-   "lema_en": "With the current.",
-   "obra": null,
-   "colores": [
-    {
-     "id": "unica",
-     "label": "Seaweeds",
-     "fotos": {
-      "plano": "lam_seaweeds_centrada",
-      "modelo": "lam_seaweeds_casa",
-      "zoom": "lam_seaweeds_zoom"
      }
     }
    ]
@@ -899,29 +899,6 @@
    ]
   },
   {
-   "slug": "kelp-forest-ii",
-   "tipo": "laminas",
-   "grupo": "flotabilidad-neutra",
-   "categoria": "kelp-forest",
-   "nombre": "Kelp forest II",
-   "descripcion": "El kelp visto desde abajo, con la luz azul que entra desde la superficie. Obra numerada en una edición de 30 y firmada a lápiz por Ana.",
-   "descripcion_en": "Kelp seen from below, with blue light coming in from the surface. Numbered in an edition of 30 and signed in pencil by Ana.",
-   "lema": "Hacia la luz.",
-   "lema_en": "Towards the light.",
-   "obra": null,
-   "colores": [
-    {
-     "id": "unica",
-     "label": "Kelp forest II",
-     "fotos": {
-      "plano": "lam_kelp_2_centrada",
-      "modelo": "lam_kelp_2_casa",
-      "zoom": "lam_kelp_2_zoom"
-     }
-    }
-   ]
-  },
-  {
    "slug": "kelp-forest-iii",
    "tipo": "laminas",
    "grupo": "flotabilidad-neutra",
@@ -940,6 +917,29 @@
       "plano": "lam_kelp_3_centrada",
       "modelo": "lam_kelp_3_casa",
       "zoom": "lam_kelp_3_zoom"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "kelp-forest-ii",
+   "tipo": "laminas",
+   "grupo": "flotabilidad-neutra",
+   "categoria": "kelp-forest",
+   "nombre": "Kelp forest II",
+   "descripcion": "El kelp visto desde abajo, con la luz azul que entra desde la superficie. Obra numerada en una edición de 30 y firmada a lápiz por Ana.",
+   "descripcion_en": "Kelp seen from below, with blue light coming in from the surface. Numbered in an edition of 30 and signed in pencil by Ana.",
+   "lema": "Hacia la luz.",
+   "lema_en": "Towards the light.",
+   "obra": null,
+   "colores": [
+    {
+     "id": "unica",
+     "label": "Kelp forest II",
+     "fotos": {
+      "plano": "lam_kelp_2_centrada",
+      "modelo": "lam_kelp_2_casa",
+      "zoom": "lam_kelp_2_zoom"
      }
     }
    ]

@@ -6,9 +6,7 @@
 <title>Láminas · Ana Martínez</title>
 <meta name="description" content="Pañuelos de seda y láminas de Ana Martínez, nacidos de su pintura.">
 <link rel="icon" href="../assets/firma.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Cormorant+Garamond:ital,wght@1,400&display=swap" rel="stylesheet">
+<link rel="preload" href="../assets/fonts/jost.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body class="">
@@ -48,14 +46,13 @@
 <main id="main">
 <section class="shop-intro">
   <h1><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;menu_laminas&quot;]">Láminas</span></h1>
-  <div class="bi bi-intro"><p lang="es" data-e="[&quot;ediciones.json&quot;, &quot;tipos&quot;, &quot;laminas&quot;, &quot;intro_es&quot;]">Láminas giclée sobre papel de algodón, firmadas a mano, nacidas de sus cuadros y agrupadas por proyecto.</p><p lang="en" data-e="[&quot;ediciones.json&quot;, &quot;tipos&quot;, &quot;laminas&quot;, &quot;intro_en&quot;]">Giclée prints on cotton paper, hand-signed, born from her paintings and grouped by project.</p></div>
-  <nav class="group-index" aria-label="Proyectos"><a href="#flotabilidad-neutra">Flotabilidad neutra</a><a href="#ebria-de-carne-azul">Ebria de carne azul</a><a href="#asuntos-internos">Asuntos internos</a><a href="#bestiario">Bestiario</a></nav>
+  <div class="bi bi-intro"><p lang="es" data-e="[&quot;ediciones.json&quot;, &quot;tipos&quot;, &quot;laminas&quot;, &quot;intro_es&quot;]">Láminas giclée sobre papel de algodón, firmadas a mano, nacidas de sus cuadros y agrupadas por tema.</p><p lang="en" data-e="[&quot;ediciones.json&quot;, &quot;tipos&quot;, &quot;laminas&quot;, &quot;intro_en&quot;]">Giclée prints on cotton paper, hand-signed, born from her paintings and grouped by theme.</p></div>
+  <nav class="group-index" aria-label="Secciones"><a href="#criaturas-submarinas">Criaturas submarinas</a><a href="#kelp-forest">Kelp Forest</a><a href="#dachshund">Dachshund</a><a href="#botanica">Botánica</a><a href="#miscelanea">Miscelánea</a></nav>
 </section>
-<section class="group" id="flotabilidad-neutra">
+<section class="group" id="criaturas-submarinas">
   <header class="group-head">
-    <div><h2><span data-e="[&quot;ediciones.json&quot;, &quot;grupos&quot;, 0, &quot;titulo&quot;]">Flotabilidad neutra</span> <span class="group-date" data-e="[&quot;ediciones.json&quot;, &quot;grupos&quot;, 0, &quot;fecha&quot;]">2024</span></h2>
+    <div><h2><span data-e="[&quot;ediciones.json&quot;, &quot;categorias_laminas&quot;, 0, &quot;titulo&quot;]">Criaturas submarinas</span> <span class="group-date" lang="en" data-e="[&quot;ediciones.json&quot;, &quot;categorias_laminas&quot;, 0, &quot;titulo_en&quot;]">Underwater creatures</span></h2>
     <p class="group-count">3 piezas · 3 pieces</p></div>
-    <a class="group-link" href="../obra/flotabilidad-neutra/"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;tienda_ver_proyecto&quot;]" data-e-lapiz>Ver el proyecto ›</span></a>
   </header>
   <div class="shop-grid"><div class="shop-card">
   <div class="shop-media" data-carousel>
@@ -63,93 +60,346 @@
     <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
     <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
   </div>
-  <a class="shop-meta" href="../laminas/pez-siames/"><span class="shop-kind" data-e="[&quot;ediciones.json&quot;, &quot;tipos&quot;, &quot;laminas&quot;, &quot;nombre&quot;]" data-raw="Láminas">LÁMINAS</span>
-  <span class="shop-name">Lámina <span data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 0, &quot;nombre&quot;]">Pez siamés luchador</span></span>
-  <span class="shop-price"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;tienda_desde&quot;]" data-e-lapiz>100 €</span> 45 €</span></a>
+  <a class="shop-meta" href="../laminas/pez-siames/"><span class="shop-name" data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 0, &quot;nombre&quot;]">Pez siamés luchador</span></a>
 </div><div class="shop-card">
-  <div class="shop-media" data-carousel>
-    <a href="../laminas/frailecillo/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_frailecillo_centrada.jpg" alt="Lámina Frailecillo, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_frailecillo_casa.jpg" alt="Lámina Frailecillo, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_frailecillo_zoom.jpg" alt="Lámina Frailecillo, detalle del papel" loading="lazy"></a>
-    <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
-    <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
-  </div>
-  <a class="shop-meta" href="../laminas/frailecillo/"><span class="shop-kind" data-e="[&quot;ediciones.json&quot;, &quot;tipos&quot;, &quot;laminas&quot;, &quot;nombre&quot;]" data-raw="Láminas">LÁMINAS</span>
-  <span class="shop-name">Lámina <span data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 1, &quot;nombre&quot;]">Frailecillo</span></span>
-  <span class="shop-price"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;tienda_desde&quot;]" data-e-lapiz>100 €</span> 45 €</span></a>
-</div><div class="shop-card">
-  <div class="shop-media" data-carousel>
-    <a href="../laminas/ibis-escarlatas/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_ibis_centrada.jpg" alt="Lámina Ibis escarlatas, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_ibis_casa.jpg" alt="Lámina Ibis escarlatas, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_ibis_zoom.jpg" alt="Lámina Ibis escarlatas, detalle del papel" loading="lazy"></a>
-    <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
-    <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
-  </div>
-  <a class="shop-meta" href="../laminas/ibis-escarlatas/"><span class="shop-kind" data-e="[&quot;ediciones.json&quot;, &quot;tipos&quot;, &quot;laminas&quot;, &quot;nombre&quot;]" data-raw="Láminas">LÁMINAS</span>
-  <span class="shop-name">Lámina <span data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 2, &quot;nombre&quot;]">Ibis escarlatas</span></span>
-  <span class="shop-price"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;tienda_desde&quot;]" data-e-lapiz>100 €</span> 45 €</span></a>
-</div></div>
-</section><section class="group" id="ebria-de-carne-azul">
-  <header class="group-head">
-    <div><h2><span data-e="[&quot;ediciones.json&quot;, &quot;grupos&quot;, 1, &quot;titulo&quot;]">Ebria de carne azul</span> <span class="group-date" data-e="[&quot;ediciones.json&quot;, &quot;grupos&quot;, 1, &quot;fecha&quot;]">2025</span></h2>
-    <p class="group-count">1 pieza · 1 piece</p></div>
-    <a class="group-link" href="../obra/ebria-de-carne-azul/"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;tienda_ver_proyecto&quot;]" data-e-lapiz>Ver el proyecto ›</span></a>
-  </header>
-  <div class="shop-grid"><div class="shop-card">
   <div class="shop-media" data-carousel>
     <a href="../laminas/medusa/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_medusa_centrada.jpg" alt="Lámina Medusa, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_medusa_casa.jpg" alt="Lámina Medusa, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_medusa_zoom.jpg" alt="Lámina Medusa, detalle del papel" loading="lazy"></a>
     <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
     <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
   </div>
-  <a class="shop-meta" href="../laminas/medusa/"><span class="shop-kind" data-e="[&quot;ediciones.json&quot;, &quot;tipos&quot;, &quot;laminas&quot;, &quot;nombre&quot;]" data-raw="Láminas">LÁMINAS</span>
-  <span class="shop-name">Lámina <span data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 3, &quot;nombre&quot;]">Medusa</span></span>
-  <span class="shop-price"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;tienda_desde&quot;]" data-e-lapiz>100 €</span> 45 €</span></a>
+  <a class="shop-meta" href="../laminas/medusa/"><span class="shop-name" data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 3, &quot;nombre&quot;]">Medusa</span></a>
+</div><div class="shop-card">
+  <div class="shop-media" data-carousel>
+    <a href="../laminas/carpas/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_carpas_centrada.jpg" alt="Lámina Carpas, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_carpas_casa.jpg" alt="Lámina Carpas, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_carpas_zoom.jpg" alt="Lámina Carpas, detalle del papel" loading="lazy"></a>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+  </div>
+  <a class="shop-meta" href="../laminas/carpas/"><span class="shop-name" data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 6, &quot;nombre&quot;]">Carpas</span></a>
 </div></div>
-</section><section class="group" id="asuntos-internos">
+</section><section class="group" id="kelp-forest">
   <header class="group-head">
-    <div><h2><span data-e="[&quot;ediciones.json&quot;, &quot;grupos&quot;, 2, &quot;titulo&quot;]">Asuntos internos</span> <span class="group-date" data-e="[&quot;ediciones.json&quot;, &quot;grupos&quot;, 2, &quot;fecha&quot;]">2026</span></h2>
-    <p class="group-count">2 piezas · 2 pieces</p></div>
-    <a class="group-link" href="../obra/asuntos-internos/"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;tienda_ver_proyecto&quot;]" data-e-lapiz>Ver el proyecto ›</span></a>
+    <div><h2><span data-e="[&quot;ediciones.json&quot;, &quot;categorias_laminas&quot;, 1, &quot;titulo&quot;]">Kelp Forest</span></h2>
+    <p class="group-count">7 piezas · 7 pieces</p></div>
   </header>
   <div class="shop-grid"><div class="shop-card">
+  <div class="shop-media" data-carousel>
+    <a href="../laminas/kelp-forest-i/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_kelp_1_centrada.jpg" alt="Lámina Kelp forest I, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_kelp_1_casa.jpg" alt="Lámina Kelp forest I, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_kelp_1_zoom.jpg" alt="Lámina Kelp forest I, detalle del papel" loading="lazy"></a>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+  </div>
+  <a class="shop-meta" href="../laminas/kelp-forest-i/"><span class="shop-name" data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 37, &quot;nombre&quot;]">Kelp forest I</span></a>
+</div><div class="shop-card">
+  <div class="shop-media" data-carousel>
+    <a href="../laminas/kelp-forest-iii/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_kelp_3_centrada.jpg" alt="Lámina Kelp forest III, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_kelp_3_casa.jpg" alt="Lámina Kelp forest III, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_kelp_3_zoom.jpg" alt="Lámina Kelp forest III, detalle del papel" loading="lazy"></a>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+  </div>
+  <a class="shop-meta" href="../laminas/kelp-forest-iii/"><span class="shop-name" data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 38, &quot;nombre&quot;]">Kelp forest III</span></a>
+</div><div class="shop-card">
+  <div class="shop-media" data-carousel>
+    <a href="../laminas/kelp-forest-ii/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_kelp_2_centrada.jpg" alt="Lámina Kelp forest II, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_kelp_2_casa.jpg" alt="Lámina Kelp forest II, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_kelp_2_zoom.jpg" alt="Lámina Kelp forest II, detalle del papel" loading="lazy"></a>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+  </div>
+  <a class="shop-meta" href="../laminas/kelp-forest-ii/"><span class="shop-name" data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 39, &quot;nombre&quot;]">Kelp forest II</span></a>
+</div><div class="shop-card">
+  <div class="shop-media" data-carousel>
+    <a href="../laminas/el-reino-de-la-verticalidad/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_reino_centrada.jpg" alt="Lámina El reino de la verticalidad, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_reino_casa.jpg" alt="Lámina El reino de la verticalidad, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_reino_zoom.jpg" alt="Lámina El reino de la verticalidad, detalle del papel" loading="lazy"></a>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+  </div>
+  <a class="shop-meta" href="../laminas/el-reino-de-la-verticalidad/"><span class="shop-name" data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 41, &quot;nombre&quot;]">El reino de la verticalidad</span></a>
+</div><div class="shop-card">
+  <div class="shop-media" data-carousel>
+    <a href="../laminas/golden-kelp-forest/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_golden_kelp_centrada.jpg" alt="Lámina Golden kelp forest, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_golden_kelp_casa.jpg" alt="Lámina Golden kelp forest, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_golden_kelp_zoom.jpg" alt="Lámina Golden kelp forest, detalle del papel" loading="lazy"></a>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+  </div>
+  <a class="shop-meta" href="../laminas/golden-kelp-forest/"><span class="shop-name" data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 42, &quot;nombre&quot;]">Golden kelp forest</span></a>
+</div><div class="shop-card">
+  <div class="shop-media" data-carousel>
+    <a href="../laminas/kelp-forest-big-fish/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_big_fish_centrada.jpg" alt="Lámina Kelp forest &amp; big fish, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_big_fish_casa.jpg" alt="Lámina Kelp forest &amp; big fish, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_big_fish_zoom.jpg" alt="Lámina Kelp forest &amp; big fish, detalle del papel" loading="lazy"></a>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+  </div>
+  <a class="shop-meta" href="../laminas/kelp-forest-big-fish/"><span class="shop-name" data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 43, &quot;nombre&quot;]">Kelp forest &amp; big fish</span></a>
+</div><div class="shop-card">
+  <div class="shop-media" data-carousel>
+    <a href="../laminas/la-flora-y-la-fauna/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_flora_fauna_centrada.jpg" alt="Lámina La flora y la fauna se tocan íntimamente en el mundo submarino, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_flora_fauna_casa.jpg" alt="Lámina La flora y la fauna se tocan íntimamente en el mundo submarino, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_flora_fauna_zoom.jpg" alt="Lámina La flora y la fauna se tocan íntimamente en el mundo submarino, detalle del papel" loading="lazy"></a>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+  </div>
+  <a class="shop-meta" href="../laminas/la-flora-y-la-fauna/"><span class="shop-name" data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 44, &quot;nombre&quot;]">La flora y la fauna se tocan íntimamente en el mundo submarino</span></a>
+</div></div>
+</section><section class="group" id="dachshund">
+  <header class="group-head">
+    <div><h2><span data-e="[&quot;ediciones.json&quot;, &quot;categorias_laminas&quot;, 2, &quot;titulo&quot;]">Dachshund</span></h2>
+    <p class="group-count">10 piezas · 10 pieces</p></div>
+  </header>
+  <div class="shop-grid"><div class="shop-card">
+  <div class="shop-media" data-carousel>
+    <a href="../laminas/dachshund-9/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_dachshund_9_centrada.jpg" alt="Lámina Dachshund IX, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_dachshund_9_casa.jpg" alt="Lámina Dachshund IX, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_dachshund_9_zoom.jpg" alt="Lámina Dachshund IX, detalle del papel" loading="lazy"></a>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+  </div>
+  <a class="shop-meta" href="../laminas/dachshund-9/"><span class="shop-name" data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 7, &quot;nombre&quot;]">Dachshund IX</span></a>
+</div><div class="shop-card">
+  <div class="shop-media" data-carousel>
+    <a href="../laminas/dachshund-10/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_dachshund_10_centrada.jpg" alt="Lámina Dachshund X, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_dachshund_10_casa.jpg" alt="Lámina Dachshund X, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_dachshund_10_zoom.jpg" alt="Lámina Dachshund X, detalle del papel" loading="lazy"></a>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+  </div>
+  <a class="shop-meta" href="../laminas/dachshund-10/"><span class="shop-name" data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 8, &quot;nombre&quot;]">Dachshund X</span></a>
+</div><div class="shop-card">
+  <div class="shop-media" data-carousel>
+    <a href="../laminas/dachshund-7/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_dachshund_7_centrada.jpg" alt="Lámina Dachshund VII, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_dachshund_7_casa.jpg" alt="Lámina Dachshund VII, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_dachshund_7_zoom.jpg" alt="Lámina Dachshund VII, detalle del papel" loading="lazy"></a>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+  </div>
+  <a class="shop-meta" href="../laminas/dachshund-7/"><span class="shop-name" data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 9, &quot;nombre&quot;]">Dachshund VII</span></a>
+</div><div class="shop-card">
+  <div class="shop-media" data-carousel>
+    <a href="../laminas/dachshund-3/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_dachshund_3_centrada.jpg" alt="Lámina Dachshund III, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_dachshund_3_casa.jpg" alt="Lámina Dachshund III, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_dachshund_3_zoom.jpg" alt="Lámina Dachshund III, detalle del papel" loading="lazy"></a>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+  </div>
+  <a class="shop-meta" href="../laminas/dachshund-3/"><span class="shop-name" data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 10, &quot;nombre&quot;]">Dachshund III</span></a>
+</div><div class="shop-card">
+  <div class="shop-media" data-carousel>
+    <a href="../laminas/dachshund-1/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_dachshund_1_centrada.jpg" alt="Lámina Dachshund I, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_dachshund_1_casa.jpg" alt="Lámina Dachshund I, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_dachshund_1_zoom.jpg" alt="Lámina Dachshund I, detalle del papel" loading="lazy"></a>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+  </div>
+  <a class="shop-meta" href="../laminas/dachshund-1/"><span class="shop-name" data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 11, &quot;nombre&quot;]">Dachshund I</span></a>
+</div><div class="shop-card">
+  <div class="shop-media" data-carousel>
+    <a href="../laminas/dachshund-6/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_dachshund_6_centrada.jpg" alt="Lámina Dachshund VI, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_dachshund_6_casa.jpg" alt="Lámina Dachshund VI, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_dachshund_6_zoom.jpg" alt="Lámina Dachshund VI, detalle del papel" loading="lazy"></a>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+  </div>
+  <a class="shop-meta" href="../laminas/dachshund-6/"><span class="shop-name" data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 12, &quot;nombre&quot;]">Dachshund VI</span></a>
+</div><div class="shop-card">
+  <div class="shop-media" data-carousel>
+    <a href="../laminas/dachshund-2/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_dachshund_2_centrada.jpg" alt="Lámina Dachshund II, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_dachshund_2_casa.jpg" alt="Lámina Dachshund II, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_dachshund_2_zoom.jpg" alt="Lámina Dachshund II, detalle del papel" loading="lazy"></a>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+  </div>
+  <a class="shop-meta" href="../laminas/dachshund-2/"><span class="shop-name" data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 13, &quot;nombre&quot;]">Dachshund II</span></a>
+</div><div class="shop-card">
+  <div class="shop-media" data-carousel>
+    <a href="../laminas/dachshund-8/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_dachshund_8_centrada.jpg" alt="Lámina Dachshund VIII, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_dachshund_8_casa.jpg" alt="Lámina Dachshund VIII, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_dachshund_8_zoom.jpg" alt="Lámina Dachshund VIII, detalle del papel" loading="lazy"></a>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+  </div>
+  <a class="shop-meta" href="../laminas/dachshund-8/"><span class="shop-name" data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 14, &quot;nombre&quot;]">Dachshund VIII</span></a>
+</div><div class="shop-card">
+  <div class="shop-media" data-carousel>
+    <a href="../laminas/dachshund-4/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_dachshund_4_centrada.jpg" alt="Lámina Dachshund IV, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_dachshund_4_casa.jpg" alt="Lámina Dachshund IV, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_dachshund_4_zoom.jpg" alt="Lámina Dachshund IV, detalle del papel" loading="lazy"></a>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+  </div>
+  <a class="shop-meta" href="../laminas/dachshund-4/"><span class="shop-name" data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 15, &quot;nombre&quot;]">Dachshund IV</span></a>
+</div><div class="shop-card">
+  <div class="shop-media" data-carousel>
+    <a href="../laminas/dachshund-5/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_dachshund_5_centrada.jpg" alt="Lámina Dachshund V, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_dachshund_5_casa.jpg" alt="Lámina Dachshund V, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_dachshund_5_zoom.jpg" alt="Lámina Dachshund V, detalle del papel" loading="lazy"></a>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+  </div>
+  <a class="shop-meta" href="../laminas/dachshund-5/"><span class="shop-name" data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 16, &quot;nombre&quot;]">Dachshund V</span></a>
+</div></div>
+</section><section class="group" id="botanica">
+  <header class="group-head">
+    <div><h2><span data-e="[&quot;ediciones.json&quot;, &quot;categorias_laminas&quot;, 3, &quot;titulo&quot;]">Botánica</span> <span class="group-date" lang="en" data-e="[&quot;ediciones.json&quot;, &quot;categorias_laminas&quot;, 3, &quot;titulo_en&quot;]">Botanical</span></h2>
+    <p class="group-count">18 piezas · 18 pieces</p></div>
+  </header>
+  <div class="shop-grid"><div class="shop-card">
+  <div class="shop-media" data-carousel>
+    <a href="../laminas/aspidistras/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_aspidistras_centrada.jpg" alt="Lámina Aspidistras, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_aspidistras_casa.jpg" alt="Lámina Aspidistras, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_aspidistras_zoom.jpg" alt="Lámina Aspidistras, detalle del papel" loading="lazy"></a>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+  </div>
+  <a class="shop-meta" href="../laminas/aspidistras/"><span class="shop-name" data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 4, &quot;nombre&quot;]">Aspidistras</span></a>
+</div><div class="shop-card">
+  <div class="shop-media" data-carousel>
+    <a href="../laminas/pata-de-elefante-1/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_pata_elefante_1_centrada.jpg" alt="Lámina Pata de elefante I, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_pata_elefante_1_casa.jpg" alt="Lámina Pata de elefante I, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_pata_elefante_1_zoom.jpg" alt="Lámina Pata de elefante I, detalle del papel" loading="lazy"></a>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+  </div>
+  <a class="shop-meta" href="../laminas/pata-de-elefante-1/"><span class="shop-name" data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 17, &quot;nombre&quot;]">Pata de elefante I</span></a>
+</div><div class="shop-card">
+  <div class="shop-media" data-carousel>
+    <a href="../laminas/costilla-de-adan/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_costilla_adan_centrada.jpg" alt="Lámina Costilla de Adán, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_costilla_adan_casa.jpg" alt="Lámina Costilla de Adán, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_costilla_adan_zoom.jpg" alt="Lámina Costilla de Adán, detalle del papel" loading="lazy"></a>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+  </div>
+  <a class="shop-meta" href="../laminas/costilla-de-adan/"><span class="shop-name" data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 18, &quot;nombre&quot;]">Costilla de Adán</span></a>
+</div><div class="shop-card">
+  <div class="shop-media" data-carousel>
+    <a href="../laminas/centaurea/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_centaurea_centrada.jpg" alt="Lámina Centaurea, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_centaurea_casa.jpg" alt="Lámina Centaurea, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_centaurea_zoom.jpg" alt="Lámina Centaurea, detalle del papel" loading="lazy"></a>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+  </div>
+  <a class="shop-meta" href="../laminas/centaurea/"><span class="shop-name" data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 19, &quot;nombre&quot;]">Centaurea</span></a>
+</div><div class="shop-card">
+  <div class="shop-media" data-carousel>
+    <a href="../laminas/clivia/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_clivia_centrada.jpg" alt="Lámina Clivia, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_clivia_casa.jpg" alt="Lámina Clivia, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_clivia_zoom.jpg" alt="Lámina Clivia, detalle del papel" loading="lazy"></a>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+  </div>
+  <a class="shop-meta" href="../laminas/clivia/"><span class="shop-name" data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 20, &quot;nombre&quot;]">Clivia</span></a>
+</div><div class="shop-card">
+  <div class="shop-media" data-carousel>
+    <a href="../laminas/helecho-gigante/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_helecho_centrada.jpg" alt="Lámina Helecho gigante, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_helecho_casa.jpg" alt="Lámina Helecho gigante, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_helecho_zoom.jpg" alt="Lámina Helecho gigante, detalle del papel" loading="lazy"></a>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+  </div>
+  <a class="shop-meta" href="../laminas/helecho-gigante/"><span class="shop-name" data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 21, &quot;nombre&quot;]">Helecho gigante</span></a>
+</div><div class="shop-card">
+  <div class="shop-media" data-carousel>
+    <a href="../laminas/buganvilla/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_buganvilla_centrada.jpg" alt="Lámina Buganvilla, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_buganvilla_casa.jpg" alt="Lámina Buganvilla, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_buganvilla_zoom.jpg" alt="Lámina Buganvilla, detalle del papel" loading="lazy"></a>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+  </div>
+  <a class="shop-meta" href="../laminas/buganvilla/"><span class="shop-name" data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 22, &quot;nombre&quot;]">Buganvilla</span></a>
+</div><div class="shop-card">
+  <div class="shop-media" data-carousel>
+    <a href="../laminas/glicinia/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_glicinia_centrada.jpg" alt="Lámina Glicinia, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_glicinia_casa.jpg" alt="Lámina Glicinia, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_glicinia_zoom.jpg" alt="Lámina Glicinia, detalle del papel" loading="lazy"></a>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+  </div>
+  <a class="shop-meta" href="../laminas/glicinia/"><span class="shop-name" data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 23, &quot;nombre&quot;]">Glicinia</span></a>
+</div><div class="shop-card">
+  <div class="shop-media" data-carousel>
+    <a href="../laminas/geranio/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_geranio_centrada.jpg" alt="Lámina Geranio, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_geranio_casa.jpg" alt="Lámina Geranio, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_geranio_zoom.jpg" alt="Lámina Geranio, detalle del papel" loading="lazy"></a>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+  </div>
+  <a class="shop-meta" href="../laminas/geranio/"><span class="shop-name" data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 24, &quot;nombre&quot;]">Geranio</span></a>
+</div><div class="shop-card">
+  <div class="shop-media" data-carousel>
+    <a href="../laminas/pata-de-elefante-2/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_pata_elefante_2_centrada.jpg" alt="Lámina Macetas Viana, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_pata_elefante_2_casa.jpg" alt="Lámina Macetas Viana, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_pata_elefante_2_zoom.jpg" alt="Lámina Macetas Viana, detalle del papel" loading="lazy"></a>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+  </div>
+  <a class="shop-meta" href="../laminas/pata-de-elefante-2/"><span class="shop-name" data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 25, &quot;nombre&quot;]">Macetas Viana</span></a>
+</div><div class="shop-card">
+  <div class="shop-media" data-carousel>
+    <a href="../laminas/amapolas-campanillas-y-margaritas/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_amapolas_centrada.jpg" alt="Lámina Silvestres, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_amapolas_casa.jpg" alt="Lámina Silvestres, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_amapolas_zoom.jpg" alt="Lámina Silvestres, detalle del papel" loading="lazy"></a>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+  </div>
+  <a class="shop-meta" href="../laminas/amapolas-campanillas-y-margaritas/"><span class="shop-name" data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 26, &quot;nombre&quot;]">Silvestres</span></a>
+</div><div class="shop-card">
+  <div class="shop-media" data-carousel>
+    <a href="../laminas/macetas/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_macetas_centrada.jpg" alt="Lámina Macetas, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_macetas_casa.jpg" alt="Lámina Macetas, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_macetas_zoom.jpg" alt="Lámina Macetas, detalle del papel" loading="lazy"></a>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+  </div>
+  <a class="shop-meta" href="../laminas/macetas/"><span class="shop-name" data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 27, &quot;nombre&quot;]">Macetas</span></a>
+</div><div class="shop-card">
+  <div class="shop-media" data-carousel>
+    <a href="../laminas/hojas/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_hojas_centrada.jpg" alt="Lámina Planta negra del dinero, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_hojas_casa.jpg" alt="Lámina Planta negra del dinero, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_hojas_zoom.jpg" alt="Lámina Planta negra del dinero, detalle del papel" loading="lazy"></a>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+  </div>
+  <a class="shop-meta" href="../laminas/hojas/"><span class="shop-name" data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 28, &quot;nombre&quot;]">Planta negra del dinero</span></a>
+</div><div class="shop-card">
+  <div class="shop-media" data-carousel>
+    <a href="../laminas/ave-del-paraiso-2/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_ave_paraiso_2_centrada.jpg" alt="Lámina Ave del paraíso II, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_ave_paraiso_2_casa.jpg" alt="Lámina Ave del paraíso II, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_ave_paraiso_2_zoom.jpg" alt="Lámina Ave del paraíso II, detalle del papel" loading="lazy"></a>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+  </div>
+  <a class="shop-meta" href="../laminas/ave-del-paraiso-2/"><span class="shop-name" data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 29, &quot;nombre&quot;]">Ave del paraíso II</span></a>
+</div><div class="shop-card">
+  <div class="shop-media" data-carousel>
+    <a href="../laminas/ave-del-paraiso-1/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_ave_paraiso_1_centrada.jpg" alt="Lámina Ave del paraíso I, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_ave_paraiso_1_casa.jpg" alt="Lámina Ave del paraíso I, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_ave_paraiso_1_zoom.jpg" alt="Lámina Ave del paraíso I, detalle del papel" loading="lazy"></a>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+  </div>
+  <a class="shop-meta" href="../laminas/ave-del-paraiso-1/"><span class="shop-name" data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 30, &quot;nombre&quot;]">Ave del paraíso I</span></a>
+</div><div class="shop-card">
   <div class="shop-media" data-carousel>
     <a href="../laminas/levante/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_levante_centrada.jpg" alt="Lámina Levante, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_levante_casa.jpg" alt="Lámina Levante, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_levante_zoom.jpg" alt="Lámina Levante, detalle del papel" loading="lazy"></a>
     <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
     <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
   </div>
-  <a class="shop-meta" href="../laminas/levante/"><span class="shop-kind" data-e="[&quot;ediciones.json&quot;, &quot;tipos&quot;, &quot;laminas&quot;, &quot;nombre&quot;]" data-raw="Láminas">LÁMINAS</span>
-  <span class="shop-name">Lámina <span data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 4, &quot;nombre&quot;]">Levante</span></span>
-  <span class="shop-price"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;tienda_desde&quot;]" data-e-lapiz>100 €</span> 45 €</span></a>
+  <a class="shop-meta" href="../laminas/levante/"><span class="shop-name" data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 31, &quot;nombre&quot;]">Levante</span></a>
+</div><div class="shop-card">
+  <div class="shop-media" data-carousel>
+    <a href="../laminas/palmeras-1/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_palmeras_1_centrada.jpg" alt="Lámina Palmeras I, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_palmeras_1_casa.jpg" alt="Lámina Palmeras I, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_palmeras_1_zoom.jpg" alt="Lámina Palmeras I, detalle del papel" loading="lazy"></a>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+  </div>
+  <a class="shop-meta" href="../laminas/palmeras-1/"><span class="shop-name" data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 32, &quot;nombre&quot;]">Palmeras I</span></a>
+</div><div class="shop-card">
+  <div class="shop-media" data-carousel>
+    <a href="../laminas/palmeras-2/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_palmeras_2_centrada.jpg" alt="Lámina Palmeras II, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_palmeras_2_casa.jpg" alt="Lámina Palmeras II, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_palmeras_2_zoom.jpg" alt="Lámina Palmeras II, detalle del papel" loading="lazy"></a>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+  </div>
+  <a class="shop-meta" href="../laminas/palmeras-2/"><span class="shop-name" data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 33, &quot;nombre&quot;]">Palmeras II</span></a>
+</div></div>
+</section><section class="group" id="miscelanea">
+  <header class="group-head">
+    <div><h2><span data-e="[&quot;ediciones.json&quot;, &quot;categorias_laminas&quot;, 4, &quot;titulo&quot;]">Miscelánea</span> <span class="group-date" lang="en" data-e="[&quot;ediciones.json&quot;, &quot;categorias_laminas&quot;, 4, &quot;titulo_en&quot;]">Miscellany</span></h2>
+    <p class="group-count">8 piezas · 8 pieces</p></div>
+  </header>
+  <div class="shop-grid"><div class="shop-card">
+  <div class="shop-media" data-carousel>
+    <a href="../laminas/seahorse/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_seahorse_centrada.jpg" alt="Lámina Seahorse, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_seahorse_casa.jpg" alt="Lámina Seahorse, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_seahorse_zoom.jpg" alt="Lámina Seahorse, detalle del papel" loading="lazy"></a>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+  </div>
+  <a class="shop-meta" href="../laminas/seahorse/"><span class="shop-name" data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 1, &quot;nombre&quot;]">Seahorse</span></a>
 </div><div class="shop-card">
   <div class="shop-media" data-carousel>
     <a href="../laminas/greenland/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_greenland_centrada.jpg" alt="Lámina Greenland, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_greenland_casa.jpg" alt="Lámina Greenland, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_greenland_zoom.jpg" alt="Lámina Greenland, detalle del papel" loading="lazy"></a>
     <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
     <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
   </div>
-  <a class="shop-meta" href="../laminas/greenland/"><span class="shop-kind" data-e="[&quot;ediciones.json&quot;, &quot;tipos&quot;, &quot;laminas&quot;, &quot;nombre&quot;]" data-raw="Láminas">LÁMINAS</span>
-  <span class="shop-name">Lámina <span data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 5, &quot;nombre&quot;]">Greenland</span></span>
-  <span class="shop-price"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;tienda_desde&quot;]" data-e-lapiz>100 €</span> 45 €</span></a>
-</div></div>
-</section><section class="group" id="bestiario">
-  <header class="group-head">
-    <div><h2><span data-e="[&quot;ediciones.json&quot;, &quot;grupos&quot;, 4, &quot;titulo&quot;]">Bestiario</span></h2>
-    <p class="group-count">2 piezas · 2 pieces</p></div>
-    
-  </header>
-  <div class="shop-grid"><div class="shop-card">
-  <div class="shop-media" data-carousel>
-    <a href="../laminas/carpas/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_carpas_centrada.jpg" alt="Lámina Carpas, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_carpas_casa.jpg" alt="Lámina Carpas, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_carpas_zoom.jpg" alt="Lámina Carpas, detalle del papel" loading="lazy"></a>
-    <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
-    <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
-  </div>
-  <a class="shop-meta" href="../laminas/carpas/"><span class="shop-kind" data-e="[&quot;ediciones.json&quot;, &quot;tipos&quot;, &quot;laminas&quot;, &quot;nombre&quot;]" data-raw="Láminas">LÁMINAS</span>
-  <span class="shop-name">Lámina <span data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 6, &quot;nombre&quot;]">Carpas</span></span>
-  <span class="shop-price"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;tienda_desde&quot;]" data-e-lapiz>100 €</span> 45 €</span></a>
+  <a class="shop-meta" href="../laminas/greenland/"><span class="shop-name" data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 2, &quot;nombre&quot;]">Greenland</span></a>
 </div><div class="shop-card">
   <div class="shop-media" data-carousel>
-    <a href="../laminas/dachshund/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_dachshund_1_centrada.jpg" alt="Lámina Dachshund, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_dachshund_1_casa.jpg" alt="Lámina Dachshund, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_dachshund_1_zoom.jpg" alt="Lámina Dachshund, detalle del papel" loading="lazy"></a>
+    <a href="../laminas/seaweeds/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_seaweeds_centrada.jpg" alt="Lámina Seaweeds, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_seaweeds_casa.jpg" alt="Lámina Seaweeds, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_seaweeds_zoom.jpg" alt="Lámina Seaweeds, detalle del papel" loading="lazy"></a>
     <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
     <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
   </div>
-  <a class="shop-meta" href="../laminas/dachshund/"><span class="shop-kind" data-e="[&quot;ediciones.json&quot;, &quot;tipos&quot;, &quot;laminas&quot;, &quot;nombre&quot;]" data-raw="Láminas">LÁMINAS</span>
-  <span class="shop-name">Lámina <span data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 7, &quot;nombre&quot;]">Dachshund</span></span>
-  <span class="shop-price"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;tienda_desde&quot;]" data-e-lapiz>100 €</span> 45 €</span></a>
+  <a class="shop-meta" href="../laminas/seaweeds/"><span class="shop-name" data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 5, &quot;nombre&quot;]">Seaweeds</span></a>
+</div><div class="shop-card">
+  <div class="shop-media" data-carousel>
+    <a href="../laminas/frailecillo/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_frailecillo_centrada.jpg" alt="Lámina Puffin, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_frailecillo_casa.jpg" alt="Lámina Puffin, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_frailecillo_zoom.jpg" alt="Lámina Puffin, detalle del papel" loading="lazy"></a>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+  </div>
+  <a class="shop-meta" href="../laminas/frailecillo/"><span class="shop-name" data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 34, &quot;nombre&quot;]">Puffin</span></a>
+</div><div class="shop-card">
+  <div class="shop-media" data-carousel>
+    <a href="../laminas/ibis-escarlatas/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_ibis_centrada.jpg" alt="Lámina Ibis escarlatas, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_ibis_casa.jpg" alt="Lámina Ibis escarlatas, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_ibis_zoom.jpg" alt="Lámina Ibis escarlatas, detalle del papel" loading="lazy"></a>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+  </div>
+  <a class="shop-meta" href="../laminas/ibis-escarlatas/"><span class="shop-name" data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 35, &quot;nombre&quot;]">Ibis escarlatas</span></a>
+</div><div class="shop-card">
+  <div class="shop-media" data-carousel>
+    <a href="../laminas/siamese-fighting-fish-coral/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_siames_coral_centrada.jpg" alt="Lámina Siamese fighting fish coral, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_siames_coral_casa.jpg" alt="Lámina Siamese fighting fish coral, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_siames_coral_zoom.jpg" alt="Lámina Siamese fighting fish coral, detalle del papel" loading="lazy"></a>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+  </div>
+  <a class="shop-meta" href="../laminas/siamese-fighting-fish-coral/"><span class="shop-name" data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 36, &quot;nombre&quot;]">Siamese fighting fish coral</span></a>
+</div><div class="shop-card">
+  <div class="shop-media" data-carousel>
+    <a href="../laminas/gitana-y-buganvilla/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_gitana_centrada.jpg" alt="Lámina Gitana y buganvilla, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_gitana_casa.jpg" alt="Lámina Gitana y buganvilla, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_gitana_zoom.jpg" alt="Lámina Gitana y buganvilla, detalle del papel" loading="lazy"></a>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+  </div>
+  <a class="shop-meta" href="../laminas/gitana-y-buganvilla/"><span class="shop-name" data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 40, &quot;nombre&quot;]">Gitana y buganvilla</span></a>
+</div><div class="shop-card">
+  <div class="shop-media" data-carousel>
+    <a href="../laminas/hitchcock/" tabindex="-1" aria-hidden="true"><img class="is-on" src="../assets/laminas/lam_hitchcock_centrada.jpg" alt="Lámina Hitchcock, centrada" loading="lazy"><img class="" src="../assets/laminas/lam_hitchcock_casa.jpg" alt="Lámina Hitchcock, en casa" loading="lazy"><img class="" src="../assets/laminas/lam_hitchcock_zoom.jpg" alt="Lámina Hitchcock, detalle del papel" loading="lazy"></a>
+    <button class="car-btn car-prev" type="button" aria-label="Foto anterior"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M6.5.5L.5 7l6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+    <button class="car-btn car-next" type="button" aria-label="Foto siguiente"><svg width="7" height="14" viewBox="0 0 7 14" aria-hidden="true" focusable="false"><path d="M.5.5l6 6.5-6 6.5" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></svg></button>
+  </div>
+  <a class="shop-meta" href="../laminas/hitchcock/"><span class="shop-name" data-e="[&quot;laminas.json&quot;, &quot;productos&quot;, 45, &quot;nombre&quot;]">Hitchcock</span></a>
 </div></div>
 </section>
 </main>
@@ -170,7 +420,7 @@
   </div>
   <p class="copy"><span data-e="[&quot;sitio.json&quot;, &quot;textos&quot;, &quot;pie_copyright&quot;]">© 2026 ANA MARTINEZ</span></p>
 </footer>
-<script>window.AM_ROOT = "../"; window.AM_EDITOR = "https://script.google.com/macros/s/AKfycbztV7wefyJjiVhWpl19KTlLh5WG--1hV1pmZv6Fn-tAcA73BV9uy49k8zNC7yWOUD4wCg/exec"; window.AM_CAPTCHA = "6LfWnAEuAAAAAAR4DUpy4zXNHR6CauteLpJ8Xp-W"; window.AM_DATOS = {"bio.json": "d8a5831e9fcf88f2603cb5c9b7d860eb", "cats.json": "35ba6d9796f8d86bfcd3dde3470ecd8a", "content.json": "dc991d990b0f4f681169873301aec715", "cuadros/loteA.json": "33aee6e27ff901e1fc93f79dec352357", "cuadros/loteB.json": "b2af9131b2fd0c6231a6fe81fcd0f8e4", "cuadros/loteC.json": "431ec1593d66d07ad5d2e45c520f7b86", "documentos.json": "be56794cd83f8e6e5cd34ccedec9cf79", "ediciones.json": "5a7dd2227e680cd0db9436f5987f1027", "fotos_origen.json": "a27e997a1b1d060d3cb39a8c696886bc", "laminas.json": "fb681e86333196870ac9a1aa20404d7c", "meta.json": "e998a018884e20eca6c4510a37692a60", "pages.json": "59ed5778fbafe68c272a6fc8ae72dd3f", "pages_en.json": "f076eb87c6dc088da3b5441e1b20f13f", "panuelos.json": "7471a0ef880b9ad2d96df3a29e091220", "posts.json": "a8ca62322613e460aab75cf845a9aff3", "posts_en.json": "c8b05ee8ad43baddedc1507ae285cd8c", "sitio.json": "e1d20b097be2ead75f291d3973e84818", "textos_curador/lote1.json": "81c80de9c3be9d7b26f06aaadaed6da7", "textos_curador/lote2.json": "86ad4867760b48018ddcff95b232b711", "textos_curador/lote3.json": "1736bff49f6fad67c2db019b5a00245c", "translations_en.json": "3441917d2d948905941ae627b79d79d8"};</script>
+<script>window.AM_ROOT = "../"; window.AM_EDITOR = "https://script.google.com/macros/s/AKfycbztV7wefyJjiVhWpl19KTlLh5WG--1hV1pmZv6Fn-tAcA73BV9uy49k8zNC7yWOUD4wCg/exec"; window.AM_CAPTCHA = "6LfWnAEuAAAAAAR4DUpy4zXNHR6CauteLpJ8Xp-W"; window.AM_DATOS = {"bio.json": "cf51d5c584f02b2b4c8280dc8608030c", "cats.json": "35ba6d9796f8d86bfcd3dde3470ecd8a", "content.json": "dc991d990b0f4f681169873301aec715", "cuadros/loteA.json": "33aee6e27ff901e1fc93f79dec352357", "cuadros/loteB.json": "b2af9131b2fd0c6231a6fe81fcd0f8e4", "cuadros/loteC.json": "431ec1593d66d07ad5d2e45c520f7b86", "documentos.json": "be56794cd83f8e6e5cd34ccedec9cf79", "ediciones.json": "a0c322fb185807858aac794c71f5abcc", "fotos_origen.json": "a27e997a1b1d060d3cb39a8c696886bc", "laminas.json": "5f6461cb2df91c662222aedf2e5a5b66", "meta.json": "e998a018884e20eca6c4510a37692a60", "pages.json": "59ed5778fbafe68c272a6fc8ae72dd3f", "pages_en.json": "f076eb87c6dc088da3b5441e1b20f13f", "panuelos.json": "734262d1910e236e51684bf07643c64a", "posts.json": "a8ca62322613e460aab75cf845a9aff3", "posts_en.json": "c8b05ee8ad43baddedc1507ae285cd8c", "sitio.json": "e1d20b097be2ead75f291d3973e84818", "textos_curador/lote1.json": "81c80de9c3be9d7b26f06aaadaed6da7", "textos_curador/lote2.json": "86ad4867760b48018ddcff95b232b711", "textos_curador/lote3.json": "1736bff49f6fad67c2db019b5a00245c", "translations_en.json": "3441917d2d948905941ae627b79d79d8"};</script>
 <script src="../assets/products.js" defer></script>
 <script src="../assets/site.js" defer></script>
 <script src="../assets/revision.js" defer></script>

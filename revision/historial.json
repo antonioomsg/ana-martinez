@@ -538,6 +538,81 @@
       "fecha": "2026-10-31T01:49:25Z",
       "texto": "Hecho, Ana. He movido 2 Kates al apartado del final de Proyectos y lo he renombrado: ahora se titula «Primeros proyectos», con «Early works» debajo en inglés. Puedes verlo aquí: /ana-martinez/proyectos/#obras-de-juventud",
       "estado": "aplicado"
+    },
+    {
+      "id": "mw3oo94pfgli1",
+      "tipo": "mensaje",
+      "hilo": "mw3ol9u1fwphl",
+      "titulo_hilo": "Orden de las láminas DACHSHUND",
+      "autor": "Ana",
+      "fecha": "2026-11-05T15:11:25.754Z",
+      "texto": "IX, X, VII\nIII, I, VI\nII, VIII, IV\nV",
+      "pagina": "/ana-martinez/laminas/",
+      "recibido": "2026-11-05T15:11:27.181Z",
+      "archivos": [],
+      "estado": "aplicado",
+      "respuesta": "Hecho: los Dachshund ya van en el orden que me diste, de tres en tres.",
+      "procesado": "2026-11-06T01:50:38Z"
+    },
+    {
+      "id": "aglvfpahps1hp",
+      "tipo": "mensaje",
+      "hilo": "mw3ol9u1fwphl",
+      "titulo_hilo": "Orden de las láminas DACHSHUND",
+      "autor": "Agente",
+      "fecha": "2026-11-06T01:50:38Z",
+      "texto": "Ya están los Dachshund en tu orden: IX, X, VII / III, I, VI / II, VIII, IV / V. https://antonioomsg.github.io/ana-martinez/laminas/#dachshund",
+      "estado": "aplicado"
+    },
+    {
+      "id": "mw3oznn44xzza",
+      "tipo": "mensaje",
+      "hilo": "mw3oow7zqa57x",
+      "titulo_hilo": "Orden de las láminas BÓTANICA",
+      "autor": "Ana",
+      "fecha": "2026-11-05T15:20:17.776Z",
+      "texto": "Aspidistra, Pata de elefante, Costilla de Adán\nCentaurea, Clivia, Helecho gigante\nBuganvilla, Glicinia, Geraneo\nPata de elefante II (sustituir este nombre por \"macetas Viana\"),Amapolas, campanillas y margaritas (sustituir este nombre por silvestres), Macetas\nHojas (sustituir este nombre por planta negra del dinero),Ave del paraiso II, Ave del paraiso I, \nLevante, Palmeras I, Palmeras II",
+      "pagina": "/ana-martinez/laminas/",
+      "recibido": "2026-11-05T15:20:19.024Z",
+      "archivos": [],
+      "estado": "aplicado",
+      "respuesta": "Hecho: Botánica va en tu orden y he cambiado los nombres de Macetas Viana, Silvestres y Planta negra del dinero.",
+      "procesado": "2026-11-06T01:50:38Z"
+    },
+    {
+      "id": "agbawmnwyi4a4",
+      "tipo": "mensaje",
+      "hilo": "mw3oow7zqa57x",
+      "titulo_hilo": "Orden de las láminas BÓTANICA",
+      "autor": "Agente",
+      "fecha": "2026-11-06T01:50:38Z",
+      "texto": "Ya está Botánica en tu orden. He renombrado «Pata de elefante II» como Macetas Viana, «Amapolas, campanillas y margaritas» como Silvestres y «Hojas» como Planta negra del dinero. https://antonioomsg.github.io/ana-martinez/laminas/#botanica",
+      "estado": "aplicado"
+    },
+    {
+      "id": "mw3pbf3xoi5ik",
+      "tipo": "mensaje",
+      "hilo": "mw3p63vh6nw24",
+      "titulo_hilo": "Orden de las láminas MISCELANEA",
+      "autor": "Ana",
+      "fecha": "2026-11-05T15:29:26.592Z",
+      "texto": "KELP FOREST I, KELP FOREST III, KELP FOREST II\n\nSEAHORSE, GREENLAND, SEAWEEDS,\n\nFRAILECILLO (sustituir por PUFFIN), IBIS ESCARLATAS,  SIAMESE FIGHTING FISH CORAL,\n\nGITANA Y BUGANVILLA",
+      "pagina": "/ana-martinez/laminas/",
+      "recibido": "2026-11-05T15:29:28.102Z",
+      "archivos": [],
+      "estado": "aplicado",
+      "respuesta": "Hecho: Miscelánea va en tu orden y el Frailecillo ahora se llama Puffin. Los Kelp Forest I, III y II van, en ese orden, al principio del tema Kelp Forest.",
+      "procesado": "2026-11-06T01:50:38Z"
+    },
+    {
+      "id": "agvzq9q9vm77p",
+      "tipo": "mensaje",
+      "hilo": "mw3p63vh6nw24",
+      "titulo_hilo": "Orden de las láminas MISCELANEA",
+      "autor": "Agente",
+      "fecha": "2026-11-06T01:50:38Z",
+      "texto": "Ya está Miscelánea en tu orden: Seahorse, Greenland, Seaweeds / Puffin (antes Frailecillo), Ibis escarlatas, Siamese fighting fish coral / Gitana y buganvilla. Después de tu mensaje, los Kelp Forest pasaron a tener su propio tema, «Kelp Forest», así que allí van los primeros en el orden I, III, II. Al final de Miscelánea queda Hitchcock, que es nueva y no estaba en tu lista; si la quieres en otro sitio, dímelo. https://antonioomsg.github.io/ana-martinez/laminas/#miscelanea",
+      "estado": "aplicado"
     }
   ]
 }
