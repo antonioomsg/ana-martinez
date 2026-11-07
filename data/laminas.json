@@ -78,33 +78,6 @@
    ]
   },
   {
-   "slug": "medusa",
-   "tipo": "laminas",
-   "grupo": "ebria-de-carne-azul",
-   "categoria": "criaturas-submarinas",
-   "nombre": "Medusa",
-   "descripcion": "Una medusa que flota entre frondas de kelp en la penumbra azul. Del universo submarino de Ebria de carne azul.",
-   "descripcion_en": "A jellyfish drifting among kelp fronds in the blue half-light. From the underwater world of Drunk on Blue Flesh.",
-   "lema": "Una tregua de paz.",
-   "lema_en": "A truce of peace.",
-   "obra": {
-    "titulo": "Medusa",
-    "tecnica": "Óleo sobre lienzo · Ebria de carne azul, 2025",
-    "img": "assets/wp/2025/02/MEDUSA-KELP.jpg"
-   },
-   "colores": [
-    {
-     "id": "unica",
-     "label": "Medusa",
-     "fotos": {
-      "plano": "lam_medusa_centrada",
-      "modelo": "lam_medusa_casa",
-      "zoom": "lam_medusa_zoom"
-     }
-    }
-   ]
-  },
-  {
    "slug": "aspidistras",
    "tipo": "laminas",
    "grupo": "plantas-de-los-patios",
@@ -169,6 +142,28 @@
       "plano": "lam_carpas_centrada",
       "modelo": "lam_carpas_casa",
       "zoom": "lam_carpas_zoom"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "siamese-fighting-fish-mara",
+   "tipo": "laminas",
+   "grupo": "bestiario",
+   "categoria": "criaturas-submarinas",
+   "nombre": "Siamese Fighting Fish Mara",
+   "descripcion": "Un pez siamés luchador que se eleva en vertical, con las aletas desplegadas en capas de rojo, coral, malva y azul. Lámina firmada a lápiz por Ana.",
+   "descripcion_en": "A Siamese fighting fish rising upright, its fins unfolding in layers of red, coral, mauve and blue. Hand-signed in pencil by Ana.",
+   "lema": "Aletas en capas.",
+   "lema_en": "Fins in layers.",
+   "obra": null,
+   "colores": [
+    {
+     "id": "unica",
+     "label": "Siamese Fighting Fish Mara",
+     "fotos": {
+      "plano": "lam_siames_mara_centrada",
+      "zoom": "lam_siames_mara_zoom"
      }
     }
    ]
@@ -726,33 +721,6 @@
    ]
   },
   {
-   "slug": "levante",
-   "tipo": "laminas",
-   "grupo": "asuntos-internos",
-   "categoria": "botanica",
-   "nombre": "Levante",
-   "descripcion": "Palmeras que se doblan bajo el viento de levante. Una de las páginas del diario visual de Asuntos internos.",
-   "descripcion_en": "Palm trees bending under the easterly wind. One of the pages of the visual diary Asuntos internos.",
-   "lema": "El viento.",
-   "lema_en": "The wind.",
-   "obra": {
-    "titulo": "Levante",
-    "tecnica": "Óleo · Asuntos internos, 2026",
-    "img": "assets/wp/2026/02/LEVANTE-copia.jpg"
-   },
-   "colores": [
-    {
-     "id": "unica",
-     "label": "Levante",
-     "fotos": {
-      "plano": "lam_levante_centrada",
-      "modelo": "lam_levante_casa",
-      "zoom": "lam_levante_zoom"
-     }
-    }
-   ]
-  },
-  {
    "slug": "palmeras-1",
    "tipo": "laminas",
    "grupo": "plantas-de-los-patios",
@@ -1072,6 +1040,33 @@
    ]
   },
   {
+   "slug": "medusa",
+   "tipo": "laminas",
+   "grupo": "ebria-de-carne-azul",
+   "categoria": "kelp-forest",
+   "nombre": "Medusa",
+   "descripcion": "Una medusa que flota entre frondas de kelp en la penumbra azul. Del universo submarino de Ebria de carne azul.",
+   "descripcion_en": "A jellyfish drifting among kelp fronds in the blue half-light. From the underwater world of Drunk on Blue Flesh.",
+   "lema": "Una tregua de paz.",
+   "lema_en": "A truce of peace.",
+   "obra": {
+    "titulo": "Medusa",
+    "tecnica": "Óleo sobre lienzo · Ebria de carne azul, 2025",
+    "img": "assets/wp/2025/02/MEDUSA-KELP.jpg"
+   },
+   "colores": [
+    {
+     "id": "unica",
+     "label": "Medusa",
+     "fotos": {
+      "plano": "lam_medusa_centrada",
+      "modelo": "lam_medusa_casa",
+      "zoom": "lam_medusa_zoom"
+     }
+    }
+   ]
+  },
+  {
    "slug": "hitchcock",
    "tipo": "laminas",
    "grupo": "asuntos-internos",
@@ -1094,6 +1089,33 @@
       "plano": "lam_hitchcock_centrada",
       "modelo": "lam_hitchcock_casa",
       "zoom": "lam_hitchcock_zoom"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "levante",
+   "tipo": "laminas",
+   "grupo": "asuntos-internos",
+   "categoria": "miscelanea",
+   "nombre": "Levante",
+   "descripcion": "Palmeras que se doblan bajo el viento de levante. Una de las páginas del diario visual de Asuntos internos.",
+   "descripcion_en": "Palm trees bending under the easterly wind. One of the pages of the visual diary Asuntos internos.",
+   "lema": "El viento.",
+   "lema_en": "The wind.",
+   "obra": {
+    "titulo": "Levante",
+    "tecnica": "Óleo · Asuntos internos, 2026",
+    "img": "assets/wp/2026/02/LEVANTE-copia.jpg"
+   },
+   "colores": [
+    {
+     "id": "unica",
+     "label": "Levante",
+     "fotos": {
+      "plano": "lam_levante_centrada",
+      "modelo": "lam_levante_casa",
+      "zoom": "lam_levante_zoom"
      }
     }
    ]

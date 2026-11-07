@@ -613,6 +613,108 @@
       "fecha": "2026-11-06T01:50:38Z",
       "texto": "Ya está Miscelánea en tu orden: Seahorse, Greenland, Seaweeds / Puffin (antes Frailecillo), Ibis escarlatas, Siamese fighting fish coral / Gitana y buganvilla. Después de tu mensaje, los Kelp Forest pasaron a tener su propio tema, «Kelp Forest», así que allí van los primeros en el orden I, III, II. Al final de Miscelánea queda Hitchcock, que es nueva y no estaba en tu lista; si la quieres en otro sitio, dímelo. https://antonioomsg.github.io/ana-martinez/laminas/#miscelanea",
       "estado": "aplicado"
+    },
+    {
+      "id": "mw4qc5s1mr2x6",
+      "tipo": "mensaje",
+      "hilo": "mw4qabgi60wf5",
+      "titulo_hilo": "Margenes",
+      "autor": "Ana",
+      "fecha": "2026-11-06T08:45:46.945Z",
+      "texto": "Perdona pero olvidé decirte que las nuevas imagenes de bosques de elp, tambien llevan margenes blancos. Desde el reino de la verticalidaden adelante, aplicales margenes a las fotos. Gracias",
+      "pagina": "/ana-martinez/laminas/",
+      "recibido": "2026-11-06T08:45:47.933Z",
+      "archivos": [],
+      "estado": "aplicado",
+      "respuesta": "Hecho: El reino de la verticalidad, Golden kelp forest, Kelp forest & big fish y La flora y la fauna llevan ya su margen blanco, en la foto principal y en la de casa.",
+      "procesado": "2026-11-07T01:56:26Z"
+    },
+    {
+      "id": "agwhx00619kx1",
+      "tipo": "mensaje",
+      "hilo": "mw4qabgi60wf5",
+      "titulo_hilo": "Margenes",
+      "autor": "Agente",
+      "fecha": "2026-11-07T01:56:26Z",
+      "texto": "Ya está: las cuatro láminas nuevas de Kelp Forest (El reino de la verticalidad, Golden kelp forest, Kelp forest & big fish y La flora y la fauna) tienen ahora margen blanco alrededor, como Kelp forest I, II y III. Lo he puesto en la foto principal y en la foto en casa, dentro del marco. https://antonioomsg.github.io/ana-martinez/laminas/#kelp-forest",
+      "estado": "aplicado"
+    },
+    {
+      "id": "mw4qdo8lzondx",
+      "tipo": "mensaje",
+      "hilo": "mw4qcpjj4pjk9",
+      "titulo_hilo": "Criaturas submarinas",
+      "autor": "Ana",
+      "fecha": "2026-11-06T08:46:57.525Z",
+      "texto": "Cambia la lamina Medusa, a Kelp Forest",
+      "pagina": "/ana-martinez/laminas/",
+      "recibido": "2026-11-06T08:46:58.260Z",
+      "archivos": [],
+      "estado": "aplicado",
+      "respuesta": "Hecho: la Medusa ya está en el tema Kelp Forest, al final.",
+      "procesado": "2026-11-07T01:56:26Z"
+    },
+    {
+      "id": "agva49w89w12n",
+      "tipo": "mensaje",
+      "hilo": "mw4qcpjj4pjk9",
+      "titulo_hilo": "Criaturas submarinas",
+      "autor": "Agente",
+      "fecha": "2026-11-07T01:56:26Z",
+      "texto": "Hecho: he pasado la Medusa de Criaturas submarinas a Kelp Forest. Va al final del tema, después de La flora y la fauna; si la quieres en otra posición, dime el orden. https://antonioomsg.github.io/ana-martinez/laminas/#kelp-forest",
+      "estado": "aplicado"
+    },
+    {
+      "id": "mw4qlszh99pvy",
+      "tipo": "mensaje",
+      "hilo": "mw4qlaf9lxfil",
+      "titulo_hilo": "Bótanica",
+      "autor": "Ana",
+      "fecha": "2026-11-06T08:53:16.925Z",
+      "texto": "Pasa la lámina Levante a miscelanea",
+      "pagina": "/ana-martinez/laminas/",
+      "recibido": "2026-11-06T08:53:17.758Z",
+      "archivos": [],
+      "estado": "aplicado",
+      "respuesta": "Hecho: Levante ya está en Miscelánea.",
+      "procesado": "2026-11-07T01:56:26Z"
+    },
+    {
+      "id": "agqx3xpla0ldo",
+      "tipo": "mensaje",
+      "hilo": "mw4qlaf9lxfil",
+      "titulo_hilo": "Bótanica",
+      "autor": "Agente",
+      "fecha": "2026-11-07T01:56:26Z",
+      "texto": "Hecho: Levante ha salido de Botánica y ahora está en Miscelánea, al final, después de Hitchcock. Botánica termina con Palmeras I y Palmeras II. https://antonioomsg.github.io/ana-martinez/laminas/#miscelanea",
+      "estado": "aplicado"
+    },
+    {
+      "id": "mw5c4x9yj5pth",
+      "tipo": "mensaje",
+      "hilo": "mw5bvq28rof87",
+      "titulo_hilo": "Fishes/ Peces",
+      "autor": "Ana",
+      "fecha": "2026-11-06T18:56:00.886Z",
+      "texto": "Añade esta lámina a peces, con el título Simamese Fighting Fish Mara",
+      "pagina": "/ana-martinez/laminas/",
+      "recibido": "2026-11-06T18:56:04.610Z",
+      "archivos": [
+        "revision/archivos/mw5c4x9yj5pth/1-SFF_MARA.jpg"
+      ],
+      "estado": "aplicado",
+      "respuesta": "Hecho: he añadido la lámina Siamese Fighting Fish Mara en Criaturas submarinas, junto al Pez siamés y las Carpas.",
+      "procesado": "2026-11-07T01:56:26Z"
+    },
+    {
+      "id": "agye2eplmkm69",
+      "tipo": "mensaje",
+      "hilo": "mw5bvq28rof87",
+      "titulo_hilo": "Fishes/ Peces",
+      "autor": "Agente",
+      "fecha": "2026-11-07T01:56:26Z",
+      "texto": "Ya está la lámina nueva «Siamese Fighting Fish Mara» (he corregido «Simamese» por «Siamese»): https://antonioomsg.github.io/ana-martinez/laminas/siamese-fighting-fish-mara/ No hay un tema llamado «Peces», así que la he puesto en Criaturas submarinas, junto al Pez siamés luchador y las Carpas, que ahora son todo peces. ¿Quieres que cambie el nombre de ese tema a «Peces / Fishes»? Tiene la foto de la lámina y una de detalle; si me mandas una foto en casa, la añado.",
+      "estado": "aplicado"
     }
   ]
 }
