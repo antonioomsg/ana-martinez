@@ -15,14 +15,6 @@
   "medidas": "80 x 100 cm",
   "fuente": "inventado"
  },
- "assets/wp/2026/09/KELP-FOREST-1-copia.jpg": {
-  "slug": "kelp-forest",
-  "es_obra": true,
-  "titulo": "Arrecife de kelp / Kelp reef",
-  "tecnica": "Óleo sobre lienzo / Oil on canvas",
-  "medidas": "100 x 80 cm",
-  "fuente": "inventado"
- },
  "assets/wp/2026/09/KELP-FOREST-2-copia.jpg": {
   "slug": "kelp-forest",
   "es_obra": true,
@@ -430,5 +422,14 @@
   "tecnica": "Óleo sobre lienzo / Oil on canvas",
   "medidas": "39 x 36 cm",
   "fuente": "catalogo"
+ },
+ "assets/subidas/kelp-forest/20261110104144-1-kelp-forest-1_mejorado-photshop.jpg": {
+  "slug": "kelp-forest",
+  "es_obra": true,
+  "titulo": "Arrecife de kelp / Kelp reef",
+  "tecnica": "Óleo sobre lienzo / Oil on canvas",
+  "medidas": "100 x 80 cm",
+  "fuente": "inventado",
+  "estado": "vendido"
  }
 }
