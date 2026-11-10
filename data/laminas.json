@@ -169,6 +169,29 @@
    ]
   },
   {
+   "slug": "siamese-fighting-fish-coral",
+   "tipo": "laminas",
+   "grupo": "flotabilidad-neutra",
+   "categoria": "criaturas-submarinas",
+   "nombre": "Siamese fighting fish coral",
+   "descripcion": "Un pez siamés luchador con la cola abierta en abanico de líneas coral. Obra numerada en una edición de 30 y firmada a lápiz por Ana.",
+   "descripcion_en": "A Siamese fighting fish, its tail opening in a fan of coral lines. Numbered in an edition of 30 and signed in pencil by Ana.",
+   "lema": "Un abanico de coral.",
+   "lema_en": "A fan of coral.",
+   "obra": null,
+   "colores": [
+    {
+     "id": "unica",
+     "label": "Siamese fighting fish coral",
+     "fotos": {
+      "plano": "lam_siames_coral_centrada",
+      "modelo": "lam_siames_coral_casa",
+      "zoom": "lam_siames_coral_zoom"
+     }
+    }
+   ]
+  },
+  {
    "slug": "dachshund-9",
    "tipo": "laminas",
    "grupo": "bestiario",
@@ -816,29 +839,6 @@
       "plano": "lam_ibis_centrada",
       "modelo": "lam_ibis_casa",
       "zoom": "lam_ibis_zoom"
-     }
-    }
-   ]
-  },
-  {
-   "slug": "siamese-fighting-fish-coral",
-   "tipo": "laminas",
-   "grupo": "flotabilidad-neutra",
-   "categoria": "miscelanea",
-   "nombre": "Siamese fighting fish coral",
-   "descripcion": "Un pez siamés luchador con la cola abierta en abanico de líneas coral. Obra numerada en una edición de 30 y firmada a lápiz por Ana.",
-   "descripcion_en": "A Siamese fighting fish, its tail opening in a fan of coral lines. Numbered in an edition of 30 and signed in pencil by Ana.",
-   "lema": "Un abanico de coral.",
-   "lema_en": "A fan of coral.",
-   "obra": null,
-   "colores": [
-    {
-     "id": "unica",
-     "label": "Siamese fighting fish coral",
-     "fotos": {
-      "plano": "lam_siames_coral_centrada",
-      "modelo": "lam_siames_coral_casa",
-      "zoom": "lam_siames_coral_zoom"
      }
     }
    ]

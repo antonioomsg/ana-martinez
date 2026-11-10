@@ -715,6 +715,83 @@
       "fecha": "2026-11-07T01:56:26Z",
       "texto": "Ya está la lámina nueva «Siamese Fighting Fish Mara» (he corregido «Simamese» por «Siamese»): https://antonioomsg.github.io/ana-martinez/laminas/siamese-fighting-fish-mara/ No hay un tema llamado «Peces», así que la he puesto en Criaturas submarinas, junto al Pez siamés luchador y las Carpas, que ahora son todo peces. ¿Quieres que cambie el nombre de ese tema a «Peces / Fishes»? Tiene la foto de la lámina y una de detalle; si me mandas una foto en casa, la añado.",
       "estado": "aplicado"
+    },
+    {
+      "id": "mw9gaf0yj1m86",
+      "tipo": "mensaje",
+      "hilo": "mw9g8d1ed5vdv",
+      "titulo_hilo": "Criaturas submarinas",
+      "autor": "Ana",
+      "fecha": "2026-11-09T16:03:20.338Z",
+      "texto": "Lámina Medusa pasa a Kelp forest, y añade esta lámina, adjunta SFF Mara, a Ciaturas submarinas",
+      "pagina": "/ana-martinez/laminas/",
+      "recibido": "2026-11-09T16:03:24.373Z",
+      "archivos": [
+        "revision/archivos/mw9gaf0yj1m86/1-SFF_MARA.jpg"
+      ],
+      "estado": "aplicado",
+      "respuesta": "Ya estaba hecho: la Medusa está en Kelp Forest y Siamese Fighting Fish Mara en Criaturas submarinas. El 7 la web no llegó a publicarse por un fallo de GitHub y por eso no lo veías; ya está en línea.",
+      "procesado": "2026-11-10T01:50:40Z"
+    },
+    {
+      "id": "ag3rhd0gmpi5o",
+      "tipo": "mensaje",
+      "hilo": "mw9g8d1ed5vdv",
+      "titulo_hilo": "Criaturas submarinas",
+      "autor": "Agente",
+      "fecha": "2026-11-10T01:50:40Z",
+      "texto": "Las dos cosas ya están en la web: la Medusa está en Kelp Forest (al final) y la lámina Siamese Fighting Fish Mara, con la foto que adjuntas, está en Criaturas submarinas. Lo dejé hecho el día 7, pero la publicación de esa noche falló en GitHub y no se vio hasta el día 9 por la tarde, cuando se volvió a publicar. Si recargas la página deberías verlo: https://antonioomsg.github.io/ana-martinez/laminas/#criaturas-submarinas",
+      "estado": "aplicado"
+    },
+    {
+      "id": "mw9gc6q1nj65d",
+      "tipo": "mensaje",
+      "hilo": "mw9gb8po7sicp",
+      "titulo_hilo": "Kelp Forest",
+      "autor": "Ana",
+      "fecha": "2026-11-09T16:04:42.890Z",
+      "texto": "Todas las láminas de esta sección llevan márgenes, como las tres primeras",
+      "pagina": "/ana-martinez/laminas/",
+      "recibido": "2026-11-09T16:04:44.358Z",
+      "archivos": [],
+      "estado": "aplicado",
+      "respuesta": "Ya estaba hecho: las ocho láminas de Kelp Forest, Medusa incluida, tienen margen blanco. No se veía porque la publicación del día 7 falló; ya está en línea.",
+      "procesado": "2026-11-10T01:50:40Z"
+    },
+    {
+      "id": "ag48l8wue1ezp",
+      "tipo": "mensaje",
+      "hilo": "mw9gb8po7sicp",
+      "titulo_hilo": "Kelp Forest",
+      "autor": "Agente",
+      "fecha": "2026-11-10T01:50:40Z",
+      "texto": "Las ocho láminas de Kelp Forest (también la Medusa) ya llevan margen blanco, como Kelp forest I, II y III. Estaba hecho desde el día 7, pero aquella publicación falló en GitHub y no se vio hasta la tarde del 9. Recarga la página para verlo: https://antonioomsg.github.io/ana-martinez/laminas/#kelp-forest . Si alguna todavía te parece distinta de las tres primeras, dime cuál y la igualo.",
+      "estado": "aplicado"
+    },
+    {
+      "id": "mw9gfn5p83nub",
+      "tipo": "mensaje",
+      "hilo": "mw9ged22jb18h",
+      "titulo_hilo": "Lamina Siamese fighting fish",
+      "autor": "Ana",
+      "fecha": "2026-11-09T16:07:24.157Z",
+      "texto": "Siamese fighting fish pasa a criaturas submarinas",
+      "pagina": "/ana-martinez/laminas/",
+      "recibido": "2026-11-09T16:07:25.488Z",
+      "archivos": [],
+      "estado": "aplicado",
+      "respuesta": "Hecho: Siamese fighting fish coral pasa de Miscelánea a Criaturas submarinas, junto a los otros siameses.",
+      "procesado": "2026-11-10T01:50:40Z"
+    },
+    {
+      "id": "agoa40trd2yud",
+      "tipo": "mensaje",
+      "hilo": "mw9ged22jb18h",
+      "titulo_hilo": "Lamina Siamese fighting fish",
+      "autor": "Agente",
+      "fecha": "2026-11-10T01:50:40Z",
+      "texto": "Hecho: he pasado Siamese fighting fish coral de Miscelánea a Criaturas submarinas; va al final, después de Siamese Fighting Fish Mara. El Pez siamés luchador ya estaba en Criaturas submarinas, así que he entendido que te referías al coral; si era otro, dímelo. https://antonioomsg.github.io/ana-martinez/laminas/#criaturas-submarinas",
+      "estado": "aplicado"
     }
   ]
 }
