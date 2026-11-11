@@ -792,6 +792,31 @@
       "fecha": "2026-11-10T01:50:40Z",
       "texto": "Hecho: he pasado Siamese fighting fish coral de Miscelánea a Criaturas submarinas; va al final, después de Siamese Fighting Fish Mara. El Pez siamés luchador ya estaba en Criaturas submarinas, así que he entendido que te referías al coral; si era otro, dímelo. https://antonioomsg.github.io/ana-martinez/laminas/#criaturas-submarinas",
       "estado": "aplicado"
+    },
+    {
+      "id": "mwakc15gvx1z6",
+      "tipo": "mensaje",
+      "hilo": "mwakb44z6xmj2",
+      "titulo_hilo": "Proyectos",
+      "autor": "Ana",
+      "fecha": "2026-11-10T10:44:20.309Z",
+      "texto": "Quitar las coma detras del mes de cada uno de los títulos de los proyectos, antes del año",
+      "pagina": "/ana-martinez/proyectos/",
+      "recibido": "2026-11-10T10:44:21.485Z",
+      "archivos": [],
+      "estado": "aplicado",
+      "procesado": "2026-11-11T01:50:04Z",
+      "respuesta": "Hecho: he quitado la coma entre el mes y el año en todas las fechas de los proyectos (ahora pone «septiembre 2026»)."
+    },
+    {
+      "id": "agmhg0ylh500p",
+      "tipo": "mensaje",
+      "hilo": "mwakb44z6xmj2",
+      "titulo_hilo": "Proyectos",
+      "autor": "Agente",
+      "fecha": "2026-11-11T01:50:04Z",
+      "texto": "Hecho, Ana: ya no hay coma entre el mes y el año. En la rejilla de Proyectos y en cada ficha ahora se lee, por ejemplo, «septiembre 2026». Lo he cambiado en la regla común, así que también se aplica a Murales y Talleres para que todo quede igual.",
+      "estado": "aplicado"
     }
   ]
 }

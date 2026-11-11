@@ -52,7 +52,7 @@ def src(r, u):
 
 def fecha(iso):
     y, m, _ = iso.split("-")
-    return f"{MESES[int(m) - 1]}, {y}"
+    return f"{MESES[int(m) - 1]} {y}"
 
 
 def nav(r, current=""):
