@@ -2,7 +2,7 @@
  "assets/wp/2026/09/KELP_IMAGEN_CARTEL_EXPO-copia.jpg": {
   "slug": "kelp-forest",
   "es_obra": true,
-  "titulo": "Bosque de kelp en la niebla / Kelp forest in the mist",
+  "titulo": "Bosque de kelp I / Kelp forest I",
   "tecnica": "Óleo sobre lienzo / Oil on canvas",
   "medidas": "80 x 100 cm",
   "fuente": "inventado"
@@ -20,15 +20,16 @@
   "es_obra": true,
   "titulo": "Cinta dorada / Golden ribbon",
   "tecnica": "Óleo sobre lienzo / Oil on canvas",
-  "medidas": "100 x 100 cm",
-  "fuente": "inventado"
+  "medidas": "110 x 110 cm",
+  "fuente": "inventado",
+  "estado": "vendido"
  },
  "assets/wp/2026/09/KELP-FOREST-6-copia.jpg": {
   "slug": "kelp-forest",
   "es_obra": true,
   "titulo": "Frondas en suspensión / Suspended fronds",
   "tecnica": "Óleo sobre lienzo / Oil on canvas",
-  "medidas": "46 x 36 cm",
+  "medidas": "50 x 40 cm",
   "fuente": "inventado"
  },
  "assets/wp/2026/09/KELP-FOREST-5-copia.jpg": {
@@ -45,7 +46,8 @@
   "titulo": "Bajo el bosque de kelp / Beneath the kelp forest",
   "tecnica": "Óleo sobre lienzo / Oil on canvas",
   "medidas": "50 x 40 cm",
-  "fuente": "inventado"
+  "fuente": "inventado",
+  "estado": "vendido"
  },
  "assets/wp/2026/09/KELP-FOREST-7-copia.jpg": {
   "slug": "kelp-forest",
@@ -53,14 +55,15 @@
   "titulo": "Banco de peces / Shoal of fish",
   "tecnica": "Óleo sobre lienzo / Oil on canvas",
   "medidas": "40 x 50 cm",
-  "fuente": "inventado"
+  "fuente": "inventado",
+  "estado": "disponible"
  },
  "assets/wp/2026/09/SFF_3.jpg": {
   "slug": "kelp-forest",
   "es_obra": true,
   "titulo": "Pez siamés luchador III / Siamese fighting fish III",
   "tecnica": "Óleo sobre lienzo / Oil on canvas",
-  "medidas": "100 x 100 cm",
+  "medidas": "110 x 110 cm",
   "fuente": "inferido"
  },
  "assets/wp/2026/09/SEAHORSE-copia.jpg": {
@@ -68,7 +71,7 @@
   "es_obra": true,
   "titulo": "Caballito de mar / Seahorse",
   "tecnica": "Óleo sobre lienzo / Oil on canvas",
-  "medidas": "40 x 40 cm",
+  "medidas": "30 x 30 cm",
   "fuente": "inferido"
  },
  "assets/wp/2026/09/Medusa_OK-copia.jpg": {
@@ -77,7 +80,8 @@
   "titulo": "Medusa / Jellyfish",
   "tecnica": "Óleo sobre lienzo / Oil on canvas",
   "medidas": "46 x 100 cm",
-  "fuente": "inferido"
+  "fuente": "inferido",
+  "estado": "disponible"
  },
  "assets/wp/2026/09/Sesion2-2-copia.jpg": {
   "slug": "ed-e-subito-sera",
