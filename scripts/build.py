@@ -24,7 +24,7 @@ MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio",
 SECCIONES = [
     # (categoría WP, carpeta, clave del título en sitio.json › textos, columnas de la rejilla)
     ("PROYECTOS", "proyectos", "menu_proyectos", 3),
-    ("PINTAMENTO", "murales", "menu_murales", 2),
+    ("PINTAMENTO", "murales", "menu_murales", 3),
     ("TALLERES", "talleres", "menu_talleres", 3),
 ]
 # Apartados al final de una sección: (categoría de la sección, categoría propia, ancla, clave del título)

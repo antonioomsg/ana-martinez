@@ -817,6 +817,31 @@
       "fecha": "2026-11-11T01:50:04Z",
       "texto": "Hecho, Ana: ya no hay coma entre el mes y el año. En la rejilla de Proyectos y en cada ficha ahora se lee, por ejemplo, «septiembre 2026». Lo he cambiado en la regla común, así que también se aplica a Murales y Talleres para que todo quede igual.",
       "estado": "aplicado"
+    },
+    {
+      "id": "mwdaf7fg7j2i3",
+      "tipo": "mensaje",
+      "hilo": "mwdadqg48b8hy",
+      "titulo_hilo": "Murales",
+      "autor": "Ana",
+      "fecha": "2026-11-12T08:30:10.780Z",
+      "texto": "Me gustaría que al abrir esta página hubiese tres imágenes en cala linea  en lugar de dos. Tal y como lo has hecho en PROYECTOS",
+      "pagina": "/ana-martinez/murales/",
+      "recibido": "2026-11-12T08:30:10.853Z",
+      "archivos": [],
+      "estado": "aplicado",
+      "procesado": "2026-11-13T01:49:02Z",
+      "respuesta": "Hecho: Murales ya muestra tres imágenes por línea en escritorio, igual que Proyectos."
+    },
+    {
+      "id": "ag4oc1tovlmyf",
+      "tipo": "mensaje",
+      "hilo": "mwdadqg48b8hy",
+      "titulo_hilo": "Murales",
+      "autor": "Agente",
+      "fecha": "2026-11-13T01:49:02Z",
+      "texto": "Hecho, Ana: al abrir Murales ahora se ven tres murales por línea, con el mismo tamaño y proporción que las tarjetas de Proyectos. En el móvil siguen siendo dos por línea, como en Proyectos, para que se lean bien. https://antonioomsg.github.io/ana-martinez/murales/",
+      "estado": "aplicado"
     }
   ]
 }
