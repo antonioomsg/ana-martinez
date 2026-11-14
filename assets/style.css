@@ -135,6 +135,8 @@ a { color: inherit; }
 /* Cesta */
 .nav .cart-open { position: absolute; right: 40px; top: 52px; background: none; border: 0; color: var(--ink); cursor: pointer; }
 .cart-open:hover { color: var(--accent); }
+.cart-open.cart-vacia { display: none; }
+.am-editando .cart-open.cart-vacia { display: inline-block; }
 .cart { position: fixed; inset: 0; z-index: 50; background: rgba(0,0,0,.35); display: flex; justify-content: flex-end; }
 .cart[hidden] { display: none; }
 .cart-panel { width: min(420px, 100%); height: 100%; background: #fff; display: flex; flex-direction: column; padding: 28px; }
