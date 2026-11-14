@@ -842,6 +842,31 @@
       "fecha": "2026-11-13T01:49:02Z",
       "texto": "Hecho, Ana: al abrir Murales ahora se ven tres murales por línea, con el mismo tamaño y proporción que las tarjetas de Proyectos. En el móvil siguen siendo dos por línea, como en Proyectos, para que se lean bien. https://antonioomsg.github.io/ana-martinez/murales/",
       "estado": "aplicado"
+    },
+    {
+      "id": "mwewnbryfgllp",
+      "tipo": "mensaje",
+      "hilo": "mwewmcqbf8eqc",
+      "titulo_hilo": "Láminas",
+      "autor": "Ana",
+      "fecha": "2026-11-13T11:40:07.391Z",
+      "texto": "Pon la imagen Costilla de Adán en esta página igual que el resto",
+      "pagina": "/ana-martinez/laminas/",
+      "recibido": "2026-11-13T11:40:06.698Z",
+      "archivos": [],
+      "estado": "aplicado",
+      "procesado": "2026-11-14T01:49:14Z",
+      "respuesta": "Hecho: la Costilla de Adán ya sale en Láminas como las demás, con tu nueva foto sobre el fondo arena y la sombra suave."
+    },
+    {
+      "id": "ag8xk2v6ecmd3",
+      "tipo": "mensaje",
+      "hilo": "mwewmcqbf8eqc",
+      "titulo_hilo": "Láminas",
+      "autor": "Agente",
+      "fecha": "2026-11-14T01:49:14Z",
+      "texto": "Hecho, Ana: he colocado tu nueva foto de la Costilla de Adán igual que el resto de láminas, centrada sobre el fondo arena, al mismo tamaño y con la misma sombra suave. La foto de detalle también sale ahora de tu imagen nueva, encuadrada en la tinaja como antes. Puedes verla en https://antonioomsg.github.io/ana-martinez/laminas/costilla-de-adan/. Si quieres, hago lo mismo con la nueva foto de la Glicinia, que ahora se ve recortada y sin fondo; solo dímelo.",
+      "estado": "aplicado"
     }
   ]
 }
