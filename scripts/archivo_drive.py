@@ -82,9 +82,9 @@ def generar(root):
                                      "nombre": limpio(f'{c["label"]} - {vistas.get(vista, vista)}') + ".jpg",
                                      "fuente": f'assets/{tipo["dir"]}/{foto}.jpg'})
             textos.append({"carpeta": carpeta, "nombre": "Textos", "texto": "\n".join([
-                f'{tipo["prefijo"]} {p["nombre"]}', "", p["lema"], p["descripcion"], "", p["lema_en"], p["descripcion_en"],
+                (p["nombre"] if p.get("prefijo") else f'{tipo["prefijo"]} {p["nombre"]}'), "", p["lema"], p["descripcion"], "", p["lema_en"], p["descripcion_en"],
                 "", "Colores: " + ", ".join(c["label"] for c in p["colores"]),
-                "Tamaños: " + ", ".join(f'{t["label"]} ({t["precio"]} €)' for t in tipo["tamanos"]),
+                "Tamaños: " + ", ".join(f'{t["label"]} ({t["precio"]} €)' for t in (p.get("tamanos") or tipo["tamanos"])),
             ]) + "\n"})
 
     bio = leer("bio.json")

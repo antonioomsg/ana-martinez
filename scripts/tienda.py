@@ -43,7 +43,13 @@ def precio(n):
 
 
 def nombre(p, tipo):
-    return f"{tipo['prefijo']} {p['nombre']}"
+    pre = p.get('prefijo', tipo['prefijo'])
+    return p['nombre'] if p['nombre'].startswith(pre) else f"{pre} {p['nombre']}"
+
+
+def tamanos(p, tipo):
+    """Tamaños del producto: los suyos si los tiene (p. ej. un fular), si no los del tipo. Devuelve (lista, ruta editable)."""
+    return (p["tamanos"], p["_ruta"]) if p.get("tamanos") else (tipo["tamanos"], ruta_tipo(p))
 
 
 def ruta_tipo(p):
@@ -138,10 +144,13 @@ def ficha(r, p, ed_, productos):
     tipo = ed_["tipos"][p["tipo"]]
     g = next(x for x in ed_["grupos"] if x["id"] == p["grupo"])
     rp, rt, rg = p["_ruta"], ruta_tipo(p), ruta_grupo(ed_, g)
+    tams, rtam = tamanos(p, tipo)
+    rfi = rp if p.get("ficha") else rt
+    fi = p if p.get("ficha") else tipo
     otros_datos = "".join(
-        campo(f"Tamaño {k + 1} · nombre", t["label"], rt + ["tamanos", k, "label"])
-        + campo(f"Tamaño {k + 1} · precio (€)", t["precio"], rt + ["tamanos", k, "precio"])
-        for k, t in enumerate(tipo["tamanos"]))
+        campo(f"Tamaño {k + 1} · nombre", t["label"], rtam + ["tamanos", k, "label"])
+        + campo(f"Tamaño {k + 1} · precio (€)", t["precio"], rtam + ["tamanos", k, "precio"])
+        for k, t in enumerate(tams))
     otros_datos += "".join(campo(f"Color {k + 1}", c["label"], rp + ["colores", k, "label"])
                            for k, c in enumerate(p["colores"]))
     col = p["colores"][0]
@@ -160,12 +169,12 @@ def ficha(r, p, ed_, productos):
                      f'<div class="swatches">{sw}</div></div>')
     elif p["tipo"] == "panuelos":
         variantes = f'<p class="buy-label buy-static">{etiqueta}: <span data-e-abre="Color">{e(col["label"])}</span></p>'
-    t0 = tipo["tamanos"][0]
+    t0 = tams[0]
     tallas = "".join(
         f'<button type="button" class="size-opt{" is-active" if i == 0 else ""}" data-size="{t["id"]}" '
         f'data-price="{t["precio"]}" aria-pressed="{"true" if i == 0 else "false"}">'
         f'{e(t["label"])}</button>'
-        for i, t in enumerate(tipo["tamanos"]))
+        for i, t in enumerate(tams))
     vistas = dict(tipo["vistas"])
     obra = ""
     if p.get("obra"):
@@ -189,7 +198,7 @@ def ficha(r, p, ed_, productos):
     <h2>{titulo_obra}</h2>
     <p class="muted">{tecnica}</p>
     <p>{e(nombre(p, tipo))} nace de esta obra de Ana Martínez.</p>
-    <p lang="en" class="muted">{e(tipo["prefijo"])} {e(p["nombre"])} is born from this work by Ana Martínez.</p>
+    <p lang="en" class="muted">{e(nombre(p, tipo))} is born from this work by Ana Martínez.</p>
     {ver}
   </div>
 </section>"""
@@ -261,13 +270,13 @@ def ficha(r, p, ed_, productos):
   <section class="pdp-info">
     <div lang="es">
       <p class="lang-tag">ES</p>
-      <p{ed(rt + ["ficha"])}>{e(tipo["ficha"])}</p>
+      <p{ed(rfi + ["ficha"])}>{e(fi["ficha"])}</p>
       <p{ed(rp + ["descripcion"])}>{e(p["descripcion"])}</p>
       <p class="muted">{t("tienda_disenado")}</p>
     </div>
     <div lang="en">
       <p class="lang-tag">EN</p>
-      <p{ed(rt + ["ficha_en"])}>{e(tipo["ficha_en"])}</p>
+      <p{ed(rfi + ["ficha_en"])}>{e(fi["ficha_en"])}</p>
       <p{ed(rp + ["descripcion_en"])}>{e(p["descripcion_en"])}</p>
       <p class="muted">{t("tienda_disenado_en")}</p>
     </div>
@@ -299,6 +308,6 @@ def products_js(ed_, productos):
     for p in productos:
         tipo = ed_["tipos"][p["tipo"]]
         m[p["slug"]] = {"nombre": nombre(p, tipo),
-                        "tamanos": {t["id"]: {"label": t["label"], "precio": t["precio"]} for t in tipo["tamanos"]},
+                        "tamanos": {t["id"]: {"label": t["label"], "precio": t["precio"]} for t in tamanos(p, tipo)[0]},
                         "colores": {c["id"]: {"label": c["label"], "img": foto(tipo, c["fotos"]["plano"])} for c in p["colores"]}}
     return "window.AM_PRODUCTS = " + json.dumps(m, ensure_ascii=False) + ";\n"

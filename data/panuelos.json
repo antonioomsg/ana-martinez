@@ -54,9 +54,9 @@
      "id": "rojo",
      "label": "Rojo coral / Gris perla",
      "fotos": {
-      "plano": "siames-plano-20261113090824-1",
-      "modelo": "siames_modelo",
-      "zoom": "siames-zoom-20261026164219-2"
+      "plano": "siames_plano_ana",
+      "modelo": "siames_modelo_ia",
+      "zoom": "siames_zoom_ana"
      }
     }
    ],
@@ -135,6 +135,7 @@
      "label": "Turquesa / Oro / Negro",
      "fotos": {
       "plano": "kelp2_plano",
+      "modelo": "kelp2_modelo_ia",
       "zoom": "kelp2_zoom"
      }
     }
@@ -160,6 +161,7 @@
      "label": "Azul bruma / Ocre",
      "fotos": {
       "plano": "ebria_plano",
+      "modelo": "ebria_modelo_ia",
       "zoom": "ebria_zoom"
      }
     }
@@ -184,8 +186,9 @@
      "id": "azul",
      "label": "Azul petróleo / Verde",
      "fotos": {
-      "plano": "niebla_plano",
-      "zoom": "niebla_zoom"
+      "plano": "niebla_plano_ana",
+      "modelo": "niebla_modelo_ia",
+      "zoom": "niebla_zoom_ana"
      }
     }
    ],
@@ -209,8 +212,9 @@
      "id": "azul",
      "label": "Azul profundo / Turquesa",
      "fotos": {
-      "plano": "hacia_la_luz_plano",
-      "zoom": "hacia_la_luz_zoom"
+      "plano": "hacia_la_luz_plano_ana",
+      "modelo": "hacia_la_luz_modelo_ia",
+      "zoom": "hacia_la_luz_zoom_ana"
      }
     }
    ],
@@ -235,6 +239,7 @@
      "label": "Azul / Amarillo / Naranja",
      "fotos": {
       "plano": "arrecife_plano",
+      "modelo": "arrecife_modelo_ia",
       "zoom": "arrecife_zoom"
      }
     }
@@ -260,6 +265,7 @@
      "label": "Gris perla / Rojo / Azul",
      "fotos": {
       "plano": "siames_azul_plano",
+      "modelo": "siames_azul_modelo_ia",
       "zoom": "siames_azul_zoom"
      }
     }
@@ -284,8 +290,9 @@
      "id": "menta",
      "label": "Verde menta",
      "fotos": {
-      "plano": "medusas_menta_plano",
-      "zoom": "medusas_menta_zoom"
+      "plano": "medusas_menta_plano_ana",
+      "modelo": "medusas_menta_modelo_ia",
+      "zoom": "medusas_menta_zoom_ana"
      }
     },
     {
@@ -293,6 +300,7 @@
      "label": "Magenta",
      "fotos": {
       "plano": "medusas_magenta_plano",
+      "modelo": "medusas_magenta_modelo_ia",
       "zoom": "medusas_magenta_zoom"
      }
     },
@@ -301,6 +309,7 @@
      "label": "Burdeos",
      "fotos": {
       "plano": "medusas_burdeos_plano",
+      "modelo": "medusas_burdeos_modelo_ia",
       "zoom": "medusas_burdeos_zoom"
      }
     }
@@ -406,6 +415,78 @@
    "lema_en": "A gentle expanding wave.",
    "tipo": "panuelos",
    "grupo": "ebria-de-carne-azul"
+  },
+  {
+   "slug": "fular-siames",
+   "prefijo": "Fular",
+   "nombre": "Fular Siamés",
+   "lema": "La fauna y la flora se tocan muy de cerca.",
+   "descripcion": "Fular largo de seda en gris perla con dobladillo rojo: un pez siamés luchador nada entre algas rojas que recorren el fular de punta a punta.",
+   "lema_en": "Fauna and flora touch very closely.",
+   "descripcion_en": "Long silk scarf in pearl grey with a red hem: a Siamese fighting fish swims among red seaweed that runs from end to end.",
+   "colores": [
+    {
+     "id": "rojo",
+     "label": "Rojo coral / Gris perla",
+     "fotos": {
+      "plano": "fular_siames_plano_ana",
+      "modelo": "fular_siames_modelo_ia",
+      "zoom": "fular_siames_zoom_ana"
+     }
+    }
+   ],
+   "obra": {
+    "titulo": "Pez siamés luchador / Siamese fighting fish",
+    "tecnica": "Óleo sobre lienzo · 113 × 147 cm",
+    "img": "assets/wp/2024/03/Pez-Siames-luchador.jpg"
+   },
+   "tipo": "panuelos",
+   "grupo": "flotabilidad-neutra",
+   "tamanos": [
+    {
+     "id": "fular",
+     "label": "Fular",
+     "precio": 100
+    }
+   ],
+   "ficha": "Seda twill 100 %, bordes enrollados y cosidos a mano. Fular largo; al estar el dobladillo hecho a mano, las dimensiones pueden variar ligeramente.",
+   "ficha_en": "100% silk twill, hand-rolled and hand-stitched hem. Long scarf; as the hem is finished by hand, dimensions may vary slightly."
+  },
+  {
+   "slug": "fular-pata-de-elefante",
+   "prefijo": "Fular",
+   "nombre": "Fular Pata de elefante",
+   "lema": "Las plantas de los patios.",
+   "descripcion": "Fular largo de seda: hojas de pata de elefante en verdes con flores amarillas, enmarcadas por el borde ajedrezado verde y blanco de los patios.",
+   "lema_en": "The plants of the courtyards.",
+   "descripcion_en": "Long silk scarf: elephant's-foot leaves in greens with yellow flowers, framed by the green and white chequered border of the courtyards.",
+   "colores": [
+    {
+     "id": "verde",
+     "label": "Verde / Amarillo",
+     "fotos": {
+      "plano": "fular_pata_plano_ana",
+      "modelo": "fular_pata_modelo_ia",
+      "zoom": "fular_pata_zoom_ana"
+     }
+    }
+   ],
+   "obra": {
+    "titulo": "Láminas botánicas",
+    "tecnica": "Dibujo y acuarela",
+    "img": "assets/panuelos/viana_diseno.jpg"
+   },
+   "tipo": "panuelos",
+   "grupo": "plantas-de-los-patios",
+   "tamanos": [
+    {
+     "id": "fular",
+     "label": "Fular",
+     "precio": 100
+    }
+   ],
+   "ficha": "Seda twill 100 %, bordes enrollados y cosidos a mano. Fular largo; al estar el dobladillo hecho a mano, las dimensiones pueden variar ligeramente.",
+   "ficha_en": "100% silk twill, hand-rolled and hand-stitched hem. Long scarf; as the hem is finished by hand, dimensions may vary slightly."
   }
  ],
  "ficha_en": "100% silk twill, hand-rolled and hand-stitched hem. 90 × 90 cm; as the hem is finished by hand, dimensions may vary slightly."
