@@ -1,5 +1,5 @@
 {
- "_nota": "TIENDA DE DEMOSTRACIÓN. Ficha y medidas según los correos de Ana (06/12/2024 y 08/01/2025). Fotos: planchado = foto real mejorada con IA; modelo y detalle = generadas con IA a partir del pañuelo real. Siamés y Ballena son diseños propuestos a partir de sus cuadros.",
+ "_nota": "TIENDA DE DEMOSTRACIÓN. Ficha y medidas según los correos de Ana (06/12/2024 y 08/01/2025). Fotos: planchado = foto real mejorada con IA; modelo y detalle = generadas con IA a partir del pañuelo real. Siamés es un diseño propuesto a partir de sus cuadros.",
  "precio": 100,
  "medida": "90 × 90 cm",
  "ficha": "Seda twill 100 %, bordes cosidos a mano. Medida 90 × 90 cm; al estar el dobladillo hecho a mano, las dimensiones pueden variar ligeramente.",
@@ -81,46 +81,6 @@
    },
    "descripcion_en": "The Siamese fighting fish suspended in the water, its red fins spread like a silk fan. A scarf that carries Ana's painterly gesture onto the skin.",
    "lema_en": "A gentle, harmonious movement.",
-   "tipo": "panuelos",
-   "grupo": "flotabilidad-neutra"
-  },
-  {
-   "slug": "ballena",
-   "nombre": "Ballena",
-   "lema": "Una tregua de paz.",
-   "descripcion": "Una yubarta flotando en el azul profundo, en ese silencio obligado que solo existe bajo el agua. El cuadro se convierte en carré para envolver los hombros o anudarse al cuello.",
-   "colores": [
-    {
-     "id": "azul",
-     "label": "Azul profundo / Blanco",
-     "fotos": {
-      "plano": "ballena_plano",
-      "modelo": "ballena_modelo",
-      "zoom": "ballena_zoom"
-     }
-    }
-   ],
-   "obra": {
-    "titulo": "Humpback",
-    "tecnica": "Óleo · serie de yubartas de «Flotabilidad neutra»",
-    "img": "assets/wp/2024/03/floating-humpback.jpg"
-   },
-   "proyecto": {
-    "titulo": "Flotabilidad neutra",
-    "slug": "flotabilidad-neutra",
-    "fecha": "Sevilla, del 12 de marzo al 12 de abril de 2024",
-    "texto": [
-     "El silencio obligado, la imposibilidad de hablar dentro del agua, se sustituye por el lenguaje de signos. La respiración submarina, profunda, serena y continua, es una plataforma ideal para descubrir otras maneras de estar y de ser.",
-     "Un salirse del mapa de complejidades del mundo en que vivimos, ebrios de carne azul, por un rato al menos. Un estado parecido a lo que sucede cuando meditamos. Un reseteo necesario. Una tregua de paz."
-    ],
-    "fuente": "Ana Martínez, catálogo de «Ebria de carne azul», enero de 2025",
-    "texto_en": [
-     "The enforced silence, the impossibility of speaking underwater, is replaced by sign language. Deep, calm and continuous underwater breathing is an ideal platform for discovering other ways of being.",
-     "Stepping off the map of complexities of the world we live in, drunk on blue flesh, at least for a while. A state close to meditation. A necessary reset. A truce of peace."
-    ]
-   },
-   "descripcion_en": "A humpback whale floating in deep blue, in the enforced silence that only exists underwater. The painting becomes a carré to wrap around the shoulders or tie at the neck.",
-   "lema_en": "A truce of peace.",
    "tipo": "panuelos",
    "grupo": "flotabilidad-neutra"
   },

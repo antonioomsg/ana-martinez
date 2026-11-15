@@ -45,6 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const products = window.AM_PRODUCTS || {};
     const count = items.reduce((n, it) => n + it.qty, 0);
     document.querySelectorAll("[data-cart-count]").forEach((el) => { el.textContent = count; });
+    document.querySelectorAll(".cart-open").forEach((el) => { el.classList.toggle("cart-vacia", count === 0); });
     const list = document.querySelector("[data-cart-items]");
     if (!list) return;
     let total = 0;

@@ -867,6 +867,31 @@
       "fecha": "2026-11-14T01:49:14Z",
       "texto": "Hecho, Ana: he colocado tu nueva foto de la Costilla de Adán igual que el resto de láminas, centrada sobre el fondo arena, al mismo tamaño y con la misma sombra suave. La foto de detalle también sale ahora de tu imagen nueva, encuadrada en la tinaja como antes. Puedes verla en https://antonioomsg.github.io/ana-martinez/laminas/costilla-de-adan/. Si quieres, hago lo mismo con la nueva foto de la Glicinia, que ahora se ve recortada y sin fondo; solo dímelo.",
       "estado": "aplicado"
+    },
+    {
+      "id": "mwh2jk6l0c4rs",
+      "tipo": "mensaje",
+      "hilo": "mwh2iv8mldntf",
+      "titulo_hilo": "Pañuelos",
+      "autor": "Ana",
+      "fecha": "2026-11-15T00:00:41.709Z",
+      "texto": "Elimina pañuelo ballena",
+      "pagina": "/ana-martinez/panuelos/ballena/",
+      "recibido": "2026-11-15T00:00:42.016Z",
+      "archivos": [],
+      "estado": "aplicado",
+      "procesado": "2026-11-15T01:49:14Z",
+      "respuesta": "Hecho: he quitado el pañuelo Ballena de la tienda; ya no sale en Pañuelos ni en Ediciones."
+    },
+    {
+      "id": "ag4zoeq8sz9wb",
+      "tipo": "mensaje",
+      "hilo": "mwh2iv8mldntf",
+      "titulo_hilo": "Pañuelos",
+      "autor": "Agente",
+      "fecha": "2026-11-15T01:49:14Z",
+      "texto": "Hecho, Ana: he eliminado el pañuelo Ballena. Ya no aparece en https://antonioomsg.github.io/ana-martinez/panuelos/ ni en Ediciones, y la serie Flotabilidad neutra queda con 10 piezas. He guardado sus fotos por si algún día quieres recuperarlo; solo dímelo.",
+      "estado": "aplicado"
     }
   ]
 }
