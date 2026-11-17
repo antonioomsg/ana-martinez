@@ -328,7 +328,7 @@
    "slug": "ondas",
    "nombre": "Ondas",
    "lema": "Una suave onda expansiva.",
-   "descripcion": "Un dibujo de líneas que se ondulan como el agua al moverse. Disponible en varios colores, con la firma de Ana en una esquina.",
+   "descripcion": "Un dibujo de líneas que se ondulan como el agua al moverse. Pañuelo pequeño de cuello, en siete colores, con la firma de Ana en una esquina.",
    "colores": [
     {
      "id": "magenta",
@@ -336,7 +336,7 @@
      "fotos": {
       "plano": "ondas_plano_magenta",
       "modelo": "ondas_modelo",
-      "zoom": "ondas_zoom"
+      "zoom": "ondas_zoom_magenta"
      }
     },
     {
@@ -344,8 +344,40 @@
      "label": "Azul / Blanco",
      "fotos": {
       "plano": "ondas_plano_azul",
-      "modelo": "ondas_modelo_azul",
       "zoom": "ondas_zoom_azul"
+     }
+    },
+    {
+     "id": "turquesa",
+     "label": "Turquesa / Blanco",
+     "fotos": {
+      "plano": "ondas_plano_turquesa",
+      "zoom": "ondas_zoom_turquesa"
+     }
+    },
+    {
+     "id": "mostaza",
+     "label": "Mostaza / Blanco",
+     "fotos": {
+      "plano": "ondas_plano_mostaza",
+      "modelo": "ondas_modelo_naranja",
+      "zoom": "ondas_zoom_mostaza"
+     }
+    },
+    {
+     "id": "verde",
+     "label": "Verde / Blanco",
+     "fotos": {
+      "plano": "ondas_plano_verde",
+      "zoom": "ondas_zoom_verde"
+     }
+    },
+    {
+     "id": "negro",
+     "label": "Negro / Blanco",
+     "fotos": {
+      "plano": "ondas_plano_negro",
+      "zoom": "ondas_zoom_negro"
      }
     },
     {
@@ -353,7 +385,6 @@
      "label": "Naranja / Blanco",
      "fotos": {
       "plano": "ondas_plano_naranja",
-      "modelo": "ondas_modelo_naranja",
       "zoom": "ondas_zoom_naranja"
      }
     }
@@ -371,10 +402,19 @@
      "As the limbs move they press against the water, which, displaced, carries its mass around us, creating a gentle expanding wave that keeps the movement flowing through the rest of the body. This is how aquatic beings flow through the water."
     ]
    },
-   "descripcion_en": "Lines that ripple like water in motion. Available in several colours, with Ana's signature in one corner.",
+   "descripcion_en": "Lines that ripple like water in motion. A small neck scarf in seven colours, with Ana's signature in one corner.",
    "lema_en": "A gentle expanding wave.",
    "tipo": "panuelos",
-   "grupo": "ebria-de-carne-azul"
+   "grupo": "ebria-de-carne-azul",
+   "tamanos": [
+    {
+     "id": "45",
+     "label": "45 × 45 cm",
+     "precio": 60
+    }
+   ],
+   "ficha": "Seda twill 100 %, bordes enrollados y cosidos a mano. Medidas 45 × 45 cm; al estar el dobladillo hecho a mano, las dimensiones pueden variar ligeramente.",
+   "ficha_en": "100% silk twill, hand-rolled and hand-stitched hem. 45 × 45 cm; as the hem is finished by hand, dimensions may vary slightly."
   },
   {
    "slug": "fular-siames",
