@@ -6,7 +6,7 @@
  "productos": [
   {
    "slug": "kelp-forest",
-   "nombre": "Kelp Forest 1",
+   "nombre": "Bosque de kelp 1 / Kelp Forest 1",
    "lema": "Era aquel el reino de la verticalidad.",
    "descripcion": "Un bosque de algas visto desde dentro del agua: frondas doradas que suben hacia la luz entre azules turquesa y ultramar. El pañuelo nace de su pintura sobre los bosques de kelp, donde la luz, el agua y la vida participan de una misma danza.",
    "colores": [
@@ -46,7 +46,7 @@
   },
   {
    "slug": "siames",
-   "nombre": "Siamés",
+   "nombre": "Pes Siamés luchador / Siamese fighting fish",
    "lema": "Un movimiento suave y armónico.",
    "descripcion": "El pez siamés luchador suspendido en el agua, con sus aletas rojas abiertas como un abanico de seda. Un pañuelo para llevar el gesto pictórico de Ana sobre la piel.",
    "colores": [
@@ -86,7 +86,7 @@
   },
   {
    "slug": "kelp-forest-2",
-   "nombre": "Kelp Forest 2",
+   "nombre": "Bosque de kelp 2 / Kelp Forest 2",
    "lema": "Una cinta dorada que sube hacia la luz.",
    "descripcion": "Frondas de kelp doradas que se elevan y se entrelazan entre azules turquesa, sobre un fondo de cantos blancos. Nace de su óleo «Bosque de kelp dorado».",
    "colores": [
@@ -112,7 +112,7 @@
   },
   {
    "slug": "ebria-de-carne-azul",
-   "nombre": "Ebria de carne azul",
+   "nombre": "Ebria de carne azul /\nIvre de ta chair bleue / Drunk on your blue flesh",
    "lema": "Ebrios de carne azul, por un rato al menos.",
    "descripcion": "Un bosque de kelp envuelto en una bruma azul, con un pez solitario y cantos de colores en el fondo. Nace del óleo que da nombre a su exposición «Ebria de carne azul».",
    "colores": [
@@ -138,7 +138,7 @@
   },
   {
    "slug": "niebla",
-   "nombre": "Niebla",
+   "nombre": "Bosque de kelp 3/ Kelp Forest 3",
    "lema": "Era aquel el reino de la verticalidad.",
    "descripcion": "Troncos de kelp que se pierden en la niebla azul del fondo marino, con algas verdes que brotan entre ellos. Con la firma de Ana en una esquina. Nace de su óleo «Bosque de kelp en la niebla».",
    "colores": [
@@ -164,7 +164,7 @@
   },
   {
    "slug": "hacia-la-luz",
-   "nombre": "Hacia la luz",
+   "nombre": "Bosque de kelp 4  / Kelp Forest 4",
    "lema": "Desde el fondo del océano, buscan la luz.",
    "descripcion": "Mirada desde el fondo hacia la superficie: los tallos de kelp suben hacia una luz blanca entre azules profundos. Con la firma de Ana en una esquina. Nace de su óleo «Hacia la luz».",
    "colores": [
@@ -190,7 +190,7 @@
   },
   {
    "slug": "arrecife",
-   "nombre": "Arrecife",
+   "nombre": "Bosque de kelp 5 / Kelp Forest 5",
    "lema": "Un paisaje que respira.",
    "descripcion": "Un arrecife de kelp lleno de vida: frondas amarillas, plumas blancas, peces y un coral naranja sobre el azul intenso del mar. Nace de su óleo «Arrecife de kelp».",
    "colores": [
@@ -216,7 +216,7 @@
   },
   {
    "slug": "siames-azul",
-   "nombre": "Siamés azul",
+   "nombre": "Pez siamés luchador 2 / Siamese fightng fish 2",
    "lema": "Un movimiento suave y armónico.",
    "descripcion": "Un pez siamés luchador de escamas azules despliega su cola roja como un abanico sobre un fondo gris perla. Nace de su óleo «Pez siamés luchador III».",
    "colores": [
@@ -286,7 +286,7 @@
   },
   {
    "slug": "viana",
-   "nombre": "Viana",
+   "nombre": "Farfugium japonicum / Capa de la reina",
    "lema": "Las plantas de los patios.",
    "descripcion": "Farfugium japonicum, o comunmente llamada pata de elefante, es una planta de hojas redondas y flores amarillas. Para este pañuelo, han sido pintadas con acuarela y dibujadas con el detalle de una lámina botánica. Enmarcadas por un ribete que recuerda a ls azulejos de un zócalo andaluz en verde. Un jardín de patio cordobés para llevar puesto.",
    "colores": [
@@ -379,7 +379,7 @@
   {
    "slug": "fular-siames",
    "prefijo": "Fular",
-   "nombre": "Fular Siamés",
+   "nombre": "Fular Pez siamés luchador",
    "lema": "La fauna y la flora se tocan muy de cerca.",
    "descripcion": "Fular largo de seda en gris perla con dobladillo rojo: un pez siamés luchador nada entre algas rojas que recorren el fular de punta a punta.",
    "lema_en": "Fauna and flora touch very closely.",
@@ -415,7 +415,7 @@
   {
    "slug": "fular-pata-de-elefante",
    "prefijo": "Fular",
-   "nombre": "Fular Pata de elefante",
+   "nombre": "Fular Farfugium japonicum / Capa de la reina",
    "lema": "Las plantas de los patios.",
    "descripcion": "Fular largo de seda: hojas de pata de elefante en verdes con flores amarillas, enmarcadas por el borde ajedrezado verde y blanco de los patios.",
    "lema_en": "The plants of the courtyards.",
