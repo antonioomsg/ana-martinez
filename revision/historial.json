@@ -892,6 +892,33 @@
       "fecha": "2026-11-15T01:49:14Z",
       "texto": "Hecho, Ana: he eliminado el pañuelo Ballena. Ya no aparece en https://antonioomsg.github.io/ana-martinez/panuelos/ ni en Ediciones, y la serie Flotabilidad neutra queda con 10 piezas. He guardado sus fotos por si algún día quieres recuperarlo; solo dímelo.",
       "estado": "aplicado"
+    },
+    {
+      "id": "mwkkzvnu5k8pw",
+      "tipo": "mensaje",
+      "hilo": "mwkkyzomtmgvq",
+      "titulo_hilo": "Fular siames",
+      "autor": "Ana",
+      "fecha": "2026-11-17T11:00:34.698Z",
+      "texto": "Cambai la foto de fular siaes por esta adjunta",
+      "pagina": "/ana-martinez/panuelos/fular-siames/",
+      "recibido": "2026-11-17T11:00:40.106Z",
+      "archivos": [
+        "revision/archivos/mwkkzvnu5k8pw/1-FULAR_SIAMESE-FIGHTING-FISH.jpg"
+      ],
+      "estado": "aplicado",
+      "procesado": "2026-11-18T01:50:29Z",
+      "respuesta": "Hecho: la foto que me mandas ya es la que sale en el fular. La subiste tú misma desde el modo edición unos minutos antes, así que no ha hecho falta cambiar nada más."
+    },
+    {
+      "id": "w8hyh8m50c80s",
+      "tipo": "mensaje",
+      "hilo": "mwkkyzomtmgvq",
+      "titulo_hilo": "Fular siames",
+      "autor": "Agente",
+      "fecha": "2026-11-18T01:50:29Z",
+      "texto": "Hecho, Ana: la foto que me adjuntas es la misma que ya cambiaste tú desde el modo edición, y es la que se ve ahora como primera foto del fular en https://antonioomsg.github.io/ana-martinez/panuelos/fular-siames/. Si querías cambiar otra de las fotos (la de la modelo o el detalle), dime cuál y la sustituyo.",
+      "estado": "aplicado"
     }
   ]
 }
