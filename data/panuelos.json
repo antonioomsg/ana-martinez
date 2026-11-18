@@ -54,9 +54,9 @@
      "id": "rojo",
      "label": "Rojo coral / Gris perla",
      "fotos": {
-      "plano": "siames-plano-20261116093647-1",
+      "plano": "siames_plano_ana2",
       "modelo": "siames_modelo_ia",
-      "zoom": "siames_zoom_ana"
+      "zoom": "siames_zoom_ana2"
      }
     }
    ],
@@ -268,9 +268,9 @@
      "id": "burdeos",
      "label": "Burdeos",
      "fotos": {
-      "plano": "medusas_burdeos_plano",
+      "plano": "medusas_burdeos_plano_ana",
       "modelo": "medusas_burdeos_modelo_ia",
-      "zoom": "medusas_burdeos_zoom"
+      "zoom": "medusas_burdeos_zoom_ana"
      }
     }
    ],
