@@ -335,7 +335,7 @@
      "label": "Magenta / Blanco",
      "fotos": {
       "plano": "ondas_plano_magenta",
-      "modelo": "ondas_modelo",
+      "modelo": "ondas_modelo_magenta_ia",
       "zoom": "ondas_zoom_magenta"
      }
     },
@@ -344,6 +344,7 @@
      "label": "Azul / Blanco",
      "fotos": {
       "plano": "ondas_plano_azul",
+      "modelo": "ondas_modelo_azul_ia",
       "zoom": "ondas_zoom_azul"
      }
     },
@@ -352,6 +353,7 @@
      "label": "Turquesa / Blanco",
      "fotos": {
       "plano": "ondas_plano_turquesa",
+      "modelo": "ondas_modelo_turquesa_ia",
       "zoom": "ondas_zoom_turquesa"
      }
     },
@@ -360,7 +362,7 @@
      "label": "Mostaza / Blanco",
      "fotos": {
       "plano": "ondas_plano_mostaza",
-      "modelo": "ondas_modelo_naranja",
+      "modelo": "ondas_modelo_mostaza_ia",
       "zoom": "ondas_zoom_mostaza"
      }
     },
@@ -369,6 +371,7 @@
      "label": "Verde / Blanco",
      "fotos": {
       "plano": "ondas_plano_verde",
+      "modelo": "ondas_modelo_verde_ia",
       "zoom": "ondas_zoom_verde"
      }
     },
@@ -377,6 +380,7 @@
      "label": "Negro / Blanco",
      "fotos": {
       "plano": "ondas_plano_negro",
+      "modelo": "ondas_modelo_negro_ia",
       "zoom": "ondas_zoom_negro"
      }
     },
@@ -385,6 +389,7 @@
      "label": "Naranja / Blanco",
      "fotos": {
       "plano": "ondas_plano_naranja",
+      "modelo": "ondas_modelo_naranja_ia",
       "zoom": "ondas_zoom_naranja"
      }
     }
