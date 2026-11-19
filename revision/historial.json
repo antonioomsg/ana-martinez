@@ -919,6 +919,31 @@
       "fecha": "2026-11-18T01:50:29Z",
       "texto": "Hecho, Ana: la foto que me adjuntas es la misma que ya cambiaste tú desde el modo edición, y es la que se ve ahora como primera foto del fular en https://antonioomsg.github.io/ana-martinez/panuelos/fular-siames/. Si querías cambiar otra de las fotos (la de la modelo o el detalle), dime cuál y la sustituyo.",
       "estado": "aplicado"
+    },
+    {
+      "id": "mwlwoa1r3fuk9",
+      "tipo": "mensaje",
+      "hilo": "mwlwnisn6iy72",
+      "titulo_hilo": "Pes Siamés luchador / Siamese fighting fish",
+      "autor": "Ana",
+      "fecha": "2026-11-18T09:15:15.040Z",
+      "texto": "Está mucho más grande que el resto. Por favor ponla al mismo tamaño",
+      "pagina": "/ana-martinez/panuelos/",
+      "recibido": "2026-11-18T09:15:15.800Z",
+      "archivos": [],
+      "estado": "aplicado",
+      "procesado": "2026-11-19T01:49:23Z",
+      "respuesta": "Hecho: el Pez siamés luchador ya sale al mismo tamaño que los demás pañuelos, con el mismo margen alrededor."
+    },
+    {
+      "id": "er6769x7ars5l",
+      "tipo": "mensaje",
+      "hilo": "mwlwnisn6iy72",
+      "titulo_hilo": "Pes Siamés luchador / Siamese fighting fish",
+      "autor": "Agente",
+      "fecha": "2026-11-19T01:49:23Z",
+      "texto": "Hecho, Ana: el Pez siamés luchador ya se ve al mismo tamaño que el resto, sobre el mismo fondo arena y con el mismo margen. Quedó resuelto ayer por la tarde al cambiar las fotos principales de todos los pañuelos, y esta noche lo he comprobado en móvil y en ordenador: https://antonioomsg.github.io/ana-martinez/panuelos/. Una pregunta: el Fular Siamés es ahora el único que llena todo el recuadro, con su foto sobre fondo blanco. ¿Quieres que lo ponga también sobre el fondo arena, con margen como los demás?",
+      "estado": "aplicado"
     }
   ]
 }
