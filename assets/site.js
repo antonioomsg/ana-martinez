@@ -351,3 +351,29 @@ document.addEventListener("DOMContentLoaded", () => {
     box.after(btn);
   });
 });
+
+// Botón «UP»: vuelve arriba del todo al llegar al final de una exposición, una colección…
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "to-top";
+  btn.setAttribute("aria-label", "Volver arriba / Back to top");
+  btn.innerHTML = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 13V3M3.5 7.5 8 3l4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.3"/></svg><span>UP</span>';
+  document.body.appendChild(btn);
+  if (document.querySelector(".add-to-cart")) document.body.classList.add("has-buy-bar");
+  const pie = document.querySelector(".site-footer");
+  const update = () => {
+    btn.classList.toggle("is-on", window.scrollY > window.innerHeight * 0.75);
+    // Al llegar al pie negro, el botón se queda justo encima para no tapar sus enlaces
+    const solape = pie ? Math.max(0, window.innerHeight - pie.getBoundingClientRect().top) : 0;
+    btn.style.setProperty("--sobre-pie", solape + "px");
+  };
+  window.addEventListener("resize", update);
+  window.addEventListener("scroll", update, { passive: true });
+  update();
+  btn.addEventListener("click", () => {
+    const quieto = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: quieto ? "auto" : "smooth" });
+    btn.blur();
+  });
+});
