@@ -314,7 +314,8 @@
   "titulo": "Ebria de carne azul / Ivre de ta chair bleue / Drunk on blue flesh",
   "tecnica": "Óleo sobre lienzo / Oil on canvas",
   "medidas": "110 x 80 cm",
-  "fuente": "catalogo"
+  "fuente": "catalogo",
+  "estado": "vendido"
  },
  "assets/wp/2025/02/GOLD-KELP-FOREST-.jpg": {
   "slug": "ebria-de-carne-azul",
@@ -330,7 +331,8 @@
   "titulo": "Bosque de kelp II / Kelp forest II",
   "tecnica": "Óleo sobre lienzo / Oil on canvas",
   "medidas": "49 x 42 cm",
-  "fuente": "catalogo"
+  "fuente": "catalogo",
+  "estado": "vendido"
  },
  "assets/wp/2025/02/MEDUSA-KELP.jpg": {
   "slug": "ebria-de-carne-azul",
