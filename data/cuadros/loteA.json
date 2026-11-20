@@ -270,7 +270,8 @@
   "titulo": "Sol de enero / January sun",
   "tecnica": "Óleo sobre lienzo / Oil on canvas",
   "medidas": "30 x 30 cm",
-  "fuente": "inferido"
+  "fuente": "inferido",
+  "estado": "disponible"
  },
  "assets/wp/2026/02/DOMESTICO-copia.jpg": {
   "slug": "asuntos-internos",
