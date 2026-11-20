@@ -236,7 +236,8 @@
   "titulo": "Greenland",
   "tecnica": "Óleo sobre lienzo / Oil on canvas",
   "medidas": "30 x 30 cm",
-  "fuente": "inferido"
+  "fuente": "inferido",
+  "estado": "vendido"
  },
  "assets/wp/2026/02/BOB-copia.jpg": {
   "slug": "asuntos-internos",
