@@ -45,46 +45,6 @@
    "grupo": "flotabilidad-neutra"
   },
   {
-   "slug": "siames",
-   "nombre": "Pes Siamés luchador / Siamese fighting fish",
-   "lema": "Un movimiento suave y armónico.",
-   "descripcion": "El pez siamés luchador suspendido en el agua, con sus aletas rojas abiertas como un abanico de seda. Un pañuelo para llevar el gesto pictórico de Ana sobre la piel.",
-   "colores": [
-    {
-     "id": "rojo",
-     "label": "Rojo coral / Gris perla",
-     "fotos": {
-      "plano": "siames_plano_nat",
-      "modelo": "siames_modelo_ia",
-      "zoom": "siames_zoom_ana2"
-     }
-    }
-   ],
-   "obra": {
-    "titulo": "Pez siamés luchador / Siamese fighting fish",
-    "tecnica": "Óleo sobre lienzo · 113 × 147 cm",
-    "img": "assets/wp/2024/03/Pez-Siames-luchador.jpg"
-   },
-   "proyecto": {
-    "titulo": "Flotabilidad neutra",
-    "slug": "flotabilidad-neutra",
-    "fecha": "Sevilla, del 12 de marzo al 12 de abril de 2024",
-    "texto": [
-     "El estado de ingravidez que sucede cuando se adquiere la destreza de la flotabilidad neutra no es un estado estático: existe el movimiento, pero es un movimiento suave y armónico. Es ese estar en un limbo donde nada y todo ocurre a la vez, lo que resulta sobrecogedor.",
-     "Esta exposición de cuadros al óleo bebe de todas estas experiencias y reflexiones sobre el universo que existe oculto bajo el mar y su comportamiento. Todo está en una perfecta comunión donde la luz actúa como aglutinante de esta enorme variedad de elementos."
-    ],
-    "fuente": "Ana Martínez, catálogo de «Ebria de carne azul», enero de 2025",
-    "texto_en": [
-     "The weightlessness that comes with mastering neutral buoyancy is not a static state: there is movement, but it is gentle and harmonious. It is being in a limbo where nothing and everything happens at once, and that is overwhelming.",
-     "This exhibition of oil paintings draws on all these experiences and reflections on the universe hidden beneath the sea and its behaviour. Everything is in perfect communion, with light binding together this vast variety of elements."
-    ]
-   },
-   "descripcion_en": "The Siamese fighting fish suspended in the water, its red fins spread like a silk fan. A scarf that carries Ana's painterly gesture onto the skin.",
-   "lema_en": "A gentle, harmonious movement.",
-   "tipo": "panuelos",
-   "grupo": "flotabilidad-neutra"
-  },
-  {
    "slug": "kelp-forest-2",
    "nombre": "Bosque de kelp 2 / Kelp Forest 2",
    "lema": "Una cinta dorada que sube hacia la luz.",
@@ -107,32 +67,6 @@
    },
    "descripcion_en": "Golden kelp fronds rising and intertwining among turquoise blues, above a bed of white pebbles. Born from her oil painting “Golden kelp forest”.",
    "lema_en": "A golden ribbon rising towards the light.",
-   "tipo": "panuelos",
-   "grupo": "flotabilidad-neutra"
-  },
-  {
-   "slug": "ebria-de-carne-azul",
-   "nombre": "Ebria de carne azul /\nIvre de ta chair bleue / Drunk on your blue flesh",
-   "lema": "Ebrios de carne azul, por un rato al menos.",
-   "descripcion": "Un bosque de kelp envuelto en una bruma azul, con un pez solitario y cantos de colores en el fondo. Nace del óleo que da nombre a su exposición «Ebria de carne azul».",
-   "colores": [
-    {
-     "id": "azul",
-     "label": "Azul bruma / Ocre",
-     "fotos": {
-      "plano": "ebria_plano_nat",
-      "modelo": "ebria_modelo_ia",
-      "zoom": "ebria_zoom"
-     }
-    }
-   ],
-   "obra": {
-    "titulo": "",
-    "tecnica": "",
-    "img": "assets/wp/2025/02/Bosque-de-Kelp_2_web.jpg"
-   },
-   "descripcion_en": "A kelp forest wrapped in blue haze, with a lone fish and coloured pebbles on the seabed. Born from the oil painting that gives its name to her exhibition “Ebria de carne azul”.",
-   "lema_en": "Drunk on blue flesh, at least for a while.",
    "tipo": "panuelos",
    "grupo": "flotabilidad-neutra"
   },
@@ -211,6 +145,72 @@
    },
    "descripcion_en": "A kelp reef full of life: yellow fronds, white feathery plumes, fish and an orange coral against the deep blue sea. Born from her oil painting “Kelp reef”.",
    "lema_en": "A breathing landscape.",
+   "tipo": "panuelos",
+   "grupo": "flotabilidad-neutra"
+  },
+  {
+   "slug": "ebria-de-carne-azul",
+   "nombre": "Ebria de carne azul /\nIvre de ta chair bleue / Drunk on your blue flesh",
+   "lema": "Ebrios de carne azul, por un rato al menos.",
+   "descripcion": "Un bosque de kelp envuelto en una bruma azul, con un pez solitario y cantos de colores en el fondo. Nace del óleo que da nombre a su exposición «Ebria de carne azul».",
+   "colores": [
+    {
+     "id": "azul",
+     "label": "Azul bruma / Ocre",
+     "fotos": {
+      "plano": "ebria_plano_nat",
+      "modelo": "ebria_modelo_ia",
+      "zoom": "ebria_zoom"
+     }
+    }
+   ],
+   "obra": {
+    "titulo": "",
+    "tecnica": "",
+    "img": "assets/wp/2025/02/Bosque-de-Kelp_2_web.jpg"
+   },
+   "descripcion_en": "A kelp forest wrapped in blue haze, with a lone fish and coloured pebbles on the seabed. Born from the oil painting that gives its name to her exhibition “Ebria de carne azul”.",
+   "lema_en": "Drunk on blue flesh, at least for a while.",
+   "tipo": "panuelos",
+   "grupo": "flotabilidad-neutra"
+  },
+  {
+   "slug": "siames",
+   "nombre": "Pes Siamés luchador / Siamese fighting fish",
+   "lema": "Un movimiento suave y armónico.",
+   "descripcion": "El pez siamés luchador suspendido en el agua, con sus aletas rojas abiertas como un abanico de seda. Un pañuelo para llevar el gesto pictórico de Ana sobre la piel.",
+   "colores": [
+    {
+     "id": "rojo",
+     "label": "Rojo coral / Gris perla",
+     "fotos": {
+      "plano": "siames_plano_nat",
+      "modelo": "siames_modelo_ia",
+      "zoom": "siames_zoom_ana2"
+     }
+    }
+   ],
+   "obra": {
+    "titulo": "Pez siamés luchador / Siamese fighting fish",
+    "tecnica": "Óleo sobre lienzo · 113 × 147 cm",
+    "img": "assets/wp/2024/03/Pez-Siames-luchador.jpg"
+   },
+   "proyecto": {
+    "titulo": "Flotabilidad neutra",
+    "slug": "flotabilidad-neutra",
+    "fecha": "Sevilla, del 12 de marzo al 12 de abril de 2024",
+    "texto": [
+     "El estado de ingravidez que sucede cuando se adquiere la destreza de la flotabilidad neutra no es un estado estático: existe el movimiento, pero es un movimiento suave y armónico. Es ese estar en un limbo donde nada y todo ocurre a la vez, lo que resulta sobrecogedor.",
+     "Esta exposición de cuadros al óleo bebe de todas estas experiencias y reflexiones sobre el universo que existe oculto bajo el mar y su comportamiento. Todo está en una perfecta comunión donde la luz actúa como aglutinante de esta enorme variedad de elementos."
+    ],
+    "fuente": "Ana Martínez, catálogo de «Ebria de carne azul», enero de 2025",
+    "texto_en": [
+     "The weightlessness that comes with mastering neutral buoyancy is not a static state: there is movement, but it is gentle and harmonious. It is being in a limbo where nothing and everything happens at once, and that is overwhelming.",
+     "This exhibition of oil paintings draws on all these experiences and reflections on the universe hidden beneath the sea and its behaviour. Everything is in perfect communion, with light binding together this vast variety of elements."
+    ]
+   },
+   "descripcion_en": "The Siamese fighting fish suspended in the water, its red fins spread like a silk fan. A scarf that carries Ana's painterly gesture onto the skin.",
+   "lema_en": "A gentle, harmonious movement.",
    "tipo": "panuelos",
    "grupo": "flotabilidad-neutra"
   },

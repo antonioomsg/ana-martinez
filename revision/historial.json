@@ -944,6 +944,31 @@
       "fecha": "2026-11-19T01:49:23Z",
       "texto": "Hecho, Ana: el Pez siamés luchador ya se ve al mismo tamaño que el resto, sobre el mismo fondo arena y con el mismo margen. Quedó resuelto ayer por la tarde al cambiar las fotos principales de todos los pañuelos, y esta noche lo he comprobado en móvil y en ordenador: https://antonioomsg.github.io/ana-martinez/panuelos/. Una pregunta: el Fular Siamés es ahora el único que llena todo el recuadro, con su foto sobre fondo blanco. ¿Quieres que lo ponga también sobre el fondo arena, con margen como los demás?",
       "estado": "aplicado"
+    },
+    {
+      "id": "mwnb28x660mv9",
+      "tipo": "mensaje",
+      "hilo": "mwnb10tikdvit",
+      "titulo_hilo": "Orden de los pañuelos.",
+      "autor": "Ana",
+      "fecha": "2026-11-19T08:45:47.562Z",
+      "texto": "Por favor, ordena los pañuelos de manera que los bosques de kelp vayan todos antes de los siameses fighting fishes",
+      "pagina": "/ana-martinez/panuelos/",
+      "recibido": "2026-11-19T08:45:47.793Z",
+      "archivos": [],
+      "estado": "aplicado",
+      "procesado": "2026-11-20T01:49:52Z",
+      "respuesta": "Hecho: ahora los cinco bosques de kelp salen primero y después todos los peces siameses juntos."
+    },
+    {
+      "id": "ag2l9nbeb14ip",
+      "tipo": "mensaje",
+      "hilo": "mwnb10tikdvit",
+      "titulo_hilo": "Orden de los pañuelos.",
+      "autor": "Agente",
+      "fecha": "2026-11-20T01:49:52Z",
+      "texto": "Hecho. En la página de pañuelos (https://antonioomsg.github.io/ana-martinez/panuelos/) el orden es ahora: Bosque de kelp 1 a 5, Ebria de carne azul y luego los siameses (Pez siamés luchador 1 y 2, Siameses caleidoscópicos y el fular). Los demás proyectos no cambian. Si prefieres Ebria de carne azul en otro sitio, dímelo.",
+      "estado": "aplicado"
     }
   ]
 }
