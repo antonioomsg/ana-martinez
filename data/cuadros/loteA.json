@@ -279,7 +279,8 @@
   "titulo": "Doméstico / Domestic",
   "tecnica": "Óleo sobre lienzo / Oil on canvas",
   "medidas": "30 x 30 cm",
-  "fuente": "inferido"
+  "fuente": "inferido",
+  "estado": "vendido"
  },
  "assets/wp/2026/02/BIRD-copia.jpg": {
   "slug": "asuntos-internos",
@@ -295,7 +296,8 @@
   "titulo": "In Dreams",
   "tecnica": "Óleo sobre lienzo / Oil on canvas",
   "medidas": "30 x 30 cm",
-  "fuente": "inferido"
+  "fuente": "inferido",
+  "estado": "disponible"
  },
  "assets/wp/2026/02/THE-QUARRY-copia.jpg": {
   "slug": "asuntos-internos",
@@ -303,7 +305,8 @@
   "titulo": "The Quarry (díptico / diptych)",
   "tecnica": "Óleo sobre lienzo / Oil on canvas",
   "medidas": "30 x 60 cm",
-  "fuente": "inferido"
+  "fuente": "inferido",
+  "estado": "vendido"
  },
  "assets/wp/2025/02/Bosque-de-Kelp_2_web.jpg": {
   "slug": "ebria-de-carne-azul",
