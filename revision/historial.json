@@ -969,6 +969,98 @@
       "fecha": "2026-11-20T01:49:52Z",
       "texto": "Hecho. En la página de pañuelos (https://antonioomsg.github.io/ana-martinez/panuelos/) el orden es ahora: Bosque de kelp 1 a 5, Ebria de carne azul y luego los siameses (Pez siamés luchador 1 y 2, Siameses caleidoscópicos y el fular). Los demás proyectos no cambian. Si prefieres Ebria de carne azul en otro sitio, dímelo.",
       "estado": "aplicado"
+    },
+    {
+      "id": "mwuznrfpiaf92",
+      "tipo": "mensaje",
+      "hilo": "mwuzll2qccyuo",
+      "titulo_hilo": "Tamaños láminas y precios",
+      "autor": "Ana",
+      "fecha": "2026-11-24T17:48:45.349Z",
+      "texto": "La láminas se presentan en tamaños A5, A4, y A3 con precios de 12€, 14€, y 18 € respectivamente",
+      "pagina": "/ana-martinez/laminas/pez-siames/",
+      "recibido": "2026-11-24T17:48:46.593Z",
+      "archivos": [],
+      "estado": "aplicado",
+      "procesado": "2026-11-24T18:14:16Z",
+      "respuesta": "Hecho: todas las láminas en A5, A4 y A3 a 12, 14 y 18 €."
+    },
+    {
+      "id": "mwuzo9b2uaq6m",
+      "tipo": "mensaje",
+      "hilo": "mwuzll2qccyuo",
+      "titulo_hilo": "Tamaños láminas y precios",
+      "autor": "Ana",
+      "fecha": "2026-11-24T17:49:08.510Z",
+      "texto": "Esto es aplicable a TODAS las láminas",
+      "pagina": "/ana-martinez/laminas/pez-siames/",
+      "recibido": "2026-11-24T17:49:09.664Z",
+      "archivos": [],
+      "estado": "aplicado",
+      "procesado": "2026-11-24T18:14:16Z",
+      "respuesta": "Hecho en las 47 láminas."
+    },
+    {
+      "id": "mwuzrendkvbmp",
+      "tipo": "mensaje",
+      "hilo": "mwuzpogvl0xn5",
+      "titulo_hilo": "El cuadro relacionado con la lámina Siamese fighting fish MARA es el que adjunto",
+      "autor": "Ana",
+      "fecha": "2026-11-24T17:51:35.401Z",
+      "texto": "",
+      "pagina": "/ana-martinez/laminas/siamese-fighting-fish-mara/",
+      "recibido": "2026-11-24T17:51:39.569Z",
+      "archivos": [
+        "revision/archivos/mwuzrendkvbmp/1-SIAMESE-FIGHTING-FISH_2.jpg"
+      ],
+      "estado": "aplicado",
+      "procesado": "2026-11-24T18:14:16Z",
+      "respuesta": "Hecho: la lámina Mara enlaza ahora con su cuadro, Pez siamés luchador II (146 × 114 cm)."
+    },
+    {
+      "id": "mwuztl956r3s7",
+      "tipo": "mensaje",
+      "hilo": "mwuzsuiozqztv",
+      "titulo_hilo": "Fular",
+      "autor": "Ana",
+      "fecha": "2026-11-24T17:53:17.273Z",
+      "texto": "Las medidas de los pañuelos fular son 45 x 180 cm",
+      "pagina": "/ana-martinez/panuelos/fular-siames/",
+      "recibido": "2026-11-24T17:53:18.509Z",
+      "archivos": [],
+      "estado": "aplicado",
+      "procesado": "2026-11-24T18:14:16Z",
+      "respuesta": "Hecho: el fular mide ahora 45 × 180 cm en la ficha y en el tamaño."
+    },
+    {
+      "id": "cl2401416",
+      "tipo": "mensaje",
+      "hilo": "mwuzll2qccyuo",
+      "titulo_hilo": "Tamaños láminas y precios",
+      "autor": "Agente",
+      "fecha": "2026-11-24T18:14:16Z",
+      "texto": "Hecho. Todas las láminas se venden ahora en A5 (15 × 21 cm) a 12 €, A4 (21 × 30 cm) a 14 € y A3 (30 × 42 cm) a 18 €, aquí y en la tienda nueva.",
+      "estado": "aplicado"
+    },
+    {
+      "id": "cl2411416",
+      "tipo": "mensaje",
+      "hilo": "mwuzpogvl0xn5",
+      "titulo_hilo": "El cuadro relacionado con la lámina Siamese fighting fish MARA es el que adjunto",
+      "autor": "Agente",
+      "fecha": "2026-11-24T18:14:16Z",
+      "texto": "Hecho. La lámina Siamese Fighting Fish Mara muestra ahora debajo su cuadro original, Pez siamés luchador II.",
+      "estado": "aplicado"
+    },
+    {
+      "id": "cl2421416",
+      "tipo": "mensaje",
+      "hilo": "mwuzsuiozqztv",
+      "titulo_hilo": "Fular",
+      "autor": "Agente",
+      "fecha": "2026-11-24T18:14:16Z",
+      "texto": "Hecho. El fular Pez siamés luchador pone ahora 45 × 180 cm.",
+      "estado": "aplicado"
     }
   ]
 }

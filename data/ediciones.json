@@ -87,19 +87,19 @@
    "ficha_en": "Giclée print with pigment inks on 300 g matte cotton paper. Hand-signed in pencil by the artist. Shipped unframed in a tube or rigid folder.",
    "tamanos": [
     {
-     "id": "30x40",
-     "label": "30 × 40 cm",
-     "precio": 45
+     "id": "a5",
+     "label": "A5 (15 × 21 cm)",
+     "precio": 12
     },
     {
-     "id": "50x70",
-     "label": "50 × 70 cm",
-     "precio": 85
+     "id": "a4",
+     "label": "A4 (21 × 30 cm)",
+     "precio": 14
     },
     {
-     "id": "70x100",
-     "label": "70 × 100 cm",
-     "precio": 140
+     "id": "a3",
+     "label": "A3 (30 × 42 cm)",
+     "precio": 18
     }
    ],
    "acordeon": [

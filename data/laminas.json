@@ -156,7 +156,11 @@
    "descripcion_en": "A Siamese fighting fish rising upright, its fins unfolding in layers of red, coral, mauve and blue. Hand-signed in pencil by Ana.",
    "lema": "Aletas en capas.",
    "lema_en": "Fins in layers.",
-   "obra": null,
+   "obra": {
+    "titulo": "Pez siamés luchador II / Siamese fighting fish II",
+    "tecnica": "Óleo sobre lienzo · 146 × 114 cm",
+    "img": "assets/wp/2025/02/SIAMESE-FIGHTING-FISH_2_WEB.jpg"
+   },
    "colores": [
     {
      "id": "unica",
