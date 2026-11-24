@@ -385,7 +385,8 @@
   "titulo": "Palmeras II / Palm trees II",
   "tecnica": "Óleo sobre lienzo / Oil on canvas",
   "medidas": "85 x 80 cm",
-  "fuente": "web"
+  "fuente": "web",
+  "estado": "vendido"
  },
  "assets/wp/2014/08/Zimbabwe.jpg": {
   "slug": "blanco-sobre-todo",
