@@ -324,7 +324,8 @@
   "titulo": "El viento, sobre todo / The wind, above all",
   "tecnica": "Óleo sobre lienzo / Oil on canvas",
   "medidas": "100 x 100 cm",
-  "fuente": "web"
+  "fuente": "web",
+  "estado": "disponible"
  },
  "assets/wp/2014/08/sin-titulo-I.jpg": {
   "slug": "blanco-sobre-todo",
