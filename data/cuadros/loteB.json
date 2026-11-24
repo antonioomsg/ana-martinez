@@ -376,7 +376,8 @@
   "titulo": "Palmeras I / Palm trees I",
   "tecnica": "Óleo sobre lienzo / Oil on canvas",
   "medidas": "80 x 80 cm",
-  "fuente": "web"
+  "fuente": "web",
+  "estado": "vendido"
  },
  "assets/wp/2014/08/palmeras-II.jpg": {
   "slug": "blanco-sobre-todo",
