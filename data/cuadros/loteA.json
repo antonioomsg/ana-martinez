@@ -414,7 +414,8 @@
   "titulo": "Humpback IV",
   "tecnica": "Óleo sobre lienzo / Oil on canvas",
   "medidas": "36 x 28 cm",
-  "fuente": "catalogo"
+  "fuente": "catalogo",
+  "estado": "vendido"
  },
  "assets/wp/2024/03/Kelp-forest_www.jpg": {
   "slug": "flotabilidad-neutra",
