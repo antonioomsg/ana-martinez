@@ -217,7 +217,8 @@
   "titulo": "Richard",
   "tecnica": "Lápiz sobre papel / Pencil on paper",
   "medidas": "42 x 29,7 cm",
-  "fuente": "web"
+  "fuente": "web",
+  "estado": "vendido"
  },
  "assets/wp/2017/03/Fran.jpg": {
   "slug": "manos-retratos",
