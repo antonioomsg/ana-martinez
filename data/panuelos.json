@@ -248,7 +248,7 @@
    "colores": [
     {
      "id": "menta",
-     "label": "Verde menta",
+     "label": "Verde grisalla",
      "fotos": {
       "plano": "medusas_menta_plano_nat",
       "modelo": "medusas_menta_modelo_ia",
@@ -257,7 +257,7 @@
     },
     {
      "id": "magenta",
-     "label": "Magenta",
+     "label": "Rosa fuerte",
      "fotos": {
       "plano": "medusas_magenta_plano_nat",
       "modelo": "medusas_magenta_modelo_ia",
