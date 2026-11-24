@@ -333,7 +333,8 @@
   "titulo": "Sin título I / Untitled I",
   "tecnica": "Óleo sobre lienzo / Oil on canvas",
   "medidas": "60 x 100 cm",
-  "fuente": "web"
+  "fuente": "web",
+  "estado": "disponible"
  },
  "assets/wp/2014/08/Ramona-la-nina-gaviota.jpg": {
   "slug": "blanco-sobre-todo",
