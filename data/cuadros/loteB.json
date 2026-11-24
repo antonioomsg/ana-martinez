@@ -290,7 +290,8 @@
   "titulo": "Pacheco",
   "tecnica": "Lápiz sobre papel / Pencil on paper",
   "medidas": "42 x 29,7 cm",
-  "fuente": "web"
+  "fuente": "web",
+  "estado": "disponible"
  },
  "assets/wp/2017/03/Yo.jpg": {
   "slug": "manos-retratos",
