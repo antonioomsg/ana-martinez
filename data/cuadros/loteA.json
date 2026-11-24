@@ -431,7 +431,8 @@
   "titulo": "Ibis escarlatas / Scarlet ibis",
   "tecnica": "Óleo sobre lienzo / Oil on canvas",
   "medidas": "90 x 154 cm",
-  "fuente": "catalogo"
+  "fuente": "catalogo",
+  "estado": "vendido"
  },
  "assets/wp/2024/03/flying-puffing.jpg": {
   "slug": "flotabilidad-neutra",
