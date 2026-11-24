@@ -22,6 +22,7 @@ import subprocess
 import sys
 import time
 import unicodedata
+from html import escape, unescape
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -131,10 +132,14 @@ class Shopify:
 
     def producto(self, handle):
         if handle not in self.cache_prod:
-            self.cache_prod[handle] = self.gql("""query($h:String!){productByHandle(handle:$h){id handle productType
+            self.cache_prod[handle] = self.gql("""query($h:String!){productByHandle(handle:$h){id handle title descriptionHtml productType
+              metafields(first:40, namespace:"ana"){nodes{key value}}
               options{id name optionValues{id name}}
               variants(first:100){nodes{id price selectedOptions{name value}}}}}""",
                                                {"h": handle})["productByHandle"]
+            q = self.cache_prod[handle]
+            if q:
+                q["metafields"] = {m["key"]: m["value"] for m in q["metafields"]["nodes"]}
         return self.cache_prod[handle]
 
     def invalidar(self, handle):
@@ -147,7 +152,8 @@ class Shopify:
               pageInfo{hasNextPage endCursor}
               nodes{id handle titulo:field(key:"titulo"){value} titulo_en:field(key:"titulo_en"){value}
                     tecnica:field(key:"tecnica"){value} medidas:field(key:"medidas"){value}
-                    estado:field(key:"estado"){value}}}}""", {"a": after})["metaobjects"]
+                    estado:field(key:"estado"){value}
+                    imagen:field(key:"imagen"){reference{... on MediaImage{image{url}}}}}}}""", {"a": after})["metaobjects"]
             out += r["nodes"]
             if not r["pageInfo"]["hasNextPage"]:
                 return out
@@ -180,8 +186,14 @@ def titulo_shopify(t):
     return t
 
 
-def hoja_de_ruta(p):
-    return p.lstrip("/")
+def sin_html(h):
+    return norm(unescape(re.sub(r"<[^>]+>", " ", h or "")))
+
+
+def stem_archivo(u):
+    """Nombre de archivo sin extensión ni sufijo _<uuid> que Shopify añade, en minúsculas."""
+    n = Path(urllib.parse.unquote(urllib.parse.urlparse(u).path)).stem.lower()
+    return re.sub(r"_[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$", "", n)
 
 
 def ruta_publica(p):
@@ -237,6 +249,7 @@ class Resumen:
 class Sync:
     def __init__(self, sh, dry, res):
         self.sh, self.dry, self.res = sh, dry, res
+        self._obras_img = None
 
     def mut(self, descr, query, variables):
         """Ejecuta (o simula) una mutación. Devuelve el resultado o None en dry-run."""
@@ -335,8 +348,9 @@ class Sync:
                                         ("lámina", "laminas.json", "laminas", "Láminas")):
             pa = leer_json(before, f"data/{fichero}") or {"productos": []}
             pb = leer_json(after, f"data/{fichero}") or {"productos": []}
-            tam_a = ((ed_a.get("tipos") or {}).get(tipo) or {}).get("tamanos") or []
-            tam_b = ((ed_b.get("tipos") or {}).get(tipo) or {}).get("tamanos") or []
+            tipo_a = (ed_a.get("tipos") or {}).get(tipo) or {}
+            tipo_b = (ed_b.get("tipos") or {}).get(tipo) or {}
+            tam_a, tam_b = tipo_a.get("tamanos") or [], tipo_b.get("tamanos") or []
             da = {p["slug"]: p for p in pa["productos"]}
             for p in pb["productos"]:
                 v = da.get(p["slug"])
@@ -346,26 +360,113 @@ class Sync:
                 self.tamanos(kind, pt, p["slug"], v.get("tamanos") or tam_a, p.get("tamanos") or tam_b)
                 if kind == "pañuelo":
                     self.colores(p["slug"], v, p)
+                self.protegido(f"{kind} {p['slug']} ficha", self.campos_producto, kind, pt, v, p, tipo_a, tipo_b)
                 resto = [h for h in hojas(v, p)
-                         if not h.startswith("tamanos") and not re.fullmatch(r"colores\[[^\]]+\]/label", h)]
+                         if not h.startswith(("tamanos", "obra", "nombre", "descripcion", "lema", "ficha"))
+                         and not re.fullmatch(r"colores\[[^\]]+\]/label", h)]
                 for h in resto:
                     self.res.pend(f"{kind.capitalize()} «{p['slug']}»: cambió «{h}» (sin equivalente automático)")
             for s in da:
                 if s not in {p["slug"] for p in pb["productos"]}:
                     self.res.pend(f"Producto ({kind}) «{s}» eliminado de la web; retirarlo en Shopify si procede")
             for k in ("precio", "medida", "ficha", "ficha_en", "_nota"):
-                if k in pa and k in pb and pa[k] != pb[k] and fichero == "panuelos.json":
+                if k in pa and k in pb and pa[k] != pb[k] and fichero == "panuelos.json" and k not in ("ficha", "ficha_en"):
                     self.res.pend(f"panuelos.json: cambió «{k}» global (la web ya no lo usa para precios; "
                                   "revisar si afecta a fichas en Shopify)" if k == "precio"
                                   else f"panuelos.json: cambió «{k}» global; revisar fichas en Shopify")
             resto_tipo = [h for h in hojas((ed_a.get("tipos") or {}).get(tipo), (ed_b.get("tipos") or {}).get(tipo))
-                          if not h.startswith("tamanos")]
+                          if not h.startswith(("tamanos", "ficha"))]
             for h in resto_tipo:
                 self.res.pend(f"ediciones.json › {tipo}: cambió «{h}» (sin equivalente automático)")
         otros = [h for h in hojas({k: v for k, v in ed_a.items() if k != "tipos"},
                                   {k: v for k, v in ed_b.items() if k != "tipos"})]
         for h in otros[:20]:
             self.res.pend(f"ediciones.json: cambió «{h}» (sin equivalente automático)")
+
+    def campos_producto(self, kind, pt, v, n, tipo_a, tipo_b):
+        """ficha, descripción, lema, nombre y obra de un pañuelo/lámina -> producto y metafields ana.*"""
+        ef = lambda p, t, k: p.get(k) or t.get(k)
+        cambios = {}  # clave -> (tipo de dato, valor deseado)
+        for k, tipo_mf in (("ficha", "multi_line_text_field"), ("ficha_en", "multi_line_text_field"),
+                           ("descripcion_en", "multi_line_text_field"), ("lema", "single_line_text_field"),
+                           ("lema_en", "single_line_text_field")):
+            a, b = ef(v, tipo_a, k), ef(n, tipo_b, k)
+            if a != b and b:
+                cambios[k] = (tipo_mf, b)
+        desc = n.get("descripcion") if v.get("descripcion") != n.get("descripcion") else None
+        nombre = n.get("nombre") if v.get("nombre") != n.get("nombre") else None
+        obra_img = (n.get("obra") or {}).get("img")
+        obra_cambia = bool(obra_img) and obra_img != (v.get("obra") or {}).get("img")
+        if not (cambios or desc or nombre or obra_cambia):
+            return
+        slug = n["slug"]
+        p = self.prod(kind, pt, slug)
+        if not p:
+            self.res.pend(f"{kind.capitalize()} «{slug}»: no encuentro el producto en Shopify para actualizar "
+                          f"{sorted(cambios) + (['descripcion'] if desc else []) + (['nombre'] if nombre else []) + (['obra'] if obra_cambia else [])}")
+            return
+        et = f"{kind.capitalize()} «{slug}»"
+        actual = p["metafields"]
+        mf = []
+        for k, (tipo_mf, val) in cambios.items():
+            if actual.get(k) == val:
+                self.res.nada(f"{et}: {k} ya al día")
+            else:
+                mf.append({"ownerId": p["id"], "namespace": "ana", "key": k, "type": tipo_mf, "value": val})
+        if obra_cambia:
+            oid = self.obra_por_imagen(obra_img)
+            if not oid:
+                self.res.pend(f"{et}: obra «{Path(obra_img).name}»: no hay obra en Shopify con esa imagen")
+            elif actual.get("obra") == oid:
+                self.res.nada(f"{et}: obra ya al día")
+            else:
+                mf.append({"ownerId": p["id"], "namespace": "ana", "key": "obra",
+                           "type": "metaobject_reference", "value": oid})
+        if mf:
+            self.mut(f"{et}: metafields {', '.join(m['key'] for m in mf)}",
+                     """mutation($m:[MetafieldsSetInput!]!){metafieldsSet(metafields:$m){userErrors{field message}}}""",
+                     {"m": mf})
+        if desc:
+            html_ = "".join(f"<p>{escape(x.strip())}</p>" for x in desc.split("\n") if x.strip())
+            if sin_html(p["descriptionHtml"]) == norm(desc):
+                self.res.nada(f"{et}: descripción ya al día")
+            else:
+                self.mut(f"{et}: descripción actualizada",
+                         """mutation($i:ProductInput!){productUpdate(input:$i){userErrors{field message}}}""",
+                         {"i": {"id": p["id"], "descriptionHtml": html_}})
+        if nombre:
+            self.nombre(et, p, v.get("nombre") or "", nombre)
+        self.sh.invalidar(p["handle"])
+
+    def nombre(self, et, p, viejo, nuevo):
+        """El título de Shopify lleva el nombre ES (con prefijo p. ej. «Fular»); solo se cambia si termina en el nombre viejo."""
+        (v_es, _, v_en), (n_es, _, n_en) = (viejo.partition(" / "), nuevo.partition(" / "))
+        v_es, n_es, v_en, n_en = v_es.strip(), n_es.strip(), v_en.strip(), n_en.strip()
+        t = p["title"]
+        if norm(t).endswith(norm(n_es)):
+            self.res.nada(f"{et}: título ya al día")
+        elif v_es and norm(t).endswith(norm(v_es)):
+            nuevo_t = t[:len(t) - len(v_es)] + n_es
+            self.mut(f"{et}: título «{t}» → «{nuevo_t}»",
+                     """mutation($i:ProductInput!){productUpdate(input:$i){userErrors{field message}}}""",
+                     {"i": {"id": p["id"], "title": nuevo_t}})
+        else:
+            self.res.pend(f"{et}: el nombre cambió a «{n_es}» pero el título de Shopify («{t}») no coincide; revisar")
+            return
+        te = p["metafields"].get("titulo_en") or ""
+        if n_en and not norm(te).endswith(norm(n_en)) and v_en and norm(te).endswith(norm(v_en)):
+            self.mut(f"{et}: titulo_en «{te}» → «{te[:len(te) - len(v_en)] + n_en}»",
+                     """mutation($m:[MetafieldsSetInput!]!){metafieldsSet(metafields:$m){userErrors{field message}}}""",
+                     {"m": [{"ownerId": p["id"], "namespace": "ana", "key": "titulo_en",
+                             "type": "single_line_text_field", "value": te[:len(te) - len(v_en)] + n_en}]})
+
+    def obra_por_imagen(self, img):
+        if self._obras_img is None:
+            self._obras_img = {}
+            for o in self.sh.obras():
+                u = ((o.get("imagen") or {}).get("reference") or {}).get("image", {}).get("url", "")
+                self._obras_img.setdefault(stem_archivo(u), o["id"])
+        return self._obras_img.get(stem_archivo(img))
 
     def handles(self, kind, slug):
         return [f"lamina-{slug}", slug] if kind == "lámina" else [slug]
@@ -378,14 +479,19 @@ class Sync:
         return None
 
     def tamanos(self, kind, pt, slug, ta, tb):
-        da, db = {t["id"]: t for t in ta}, {t["id"]: t for t in tb}
-        if set(da) != set(db):
-            self.res.pend(f"{kind.capitalize()} «{slug}»: cambió la lista de tamaños "
-                          f"({sorted(set(da) ^ set(db))}); añadir/quitar variantes en Shopify")
-        for i in set(da) & set(db):
-            if da[i]["label"] == db[i]["label"] and da[i]["precio"] == db[i]["precio"]:
+        if {t["id"] for t in ta} == {t["id"] for t in tb}:
+            da, db = {t["id"]: t for t in ta}, {t["id"]: t for t in tb}
+            pares = [(da[i], db[i]) for i in db]
+        elif len(ta) == len(tb):  # mismos tamaños con otros ids: se emparejan por posición
+            pares = list(zip(ta, tb))
+        else:
+            self.res.pend(f"{kind.capitalize()} «{slug}»: cambió el número de tamaños "
+                          f"({len(ta)} → {len(tb)}); añadir/quitar variantes en Shopify")
+            return
+        for v, n in pares:
+            if v["label"] == n["label"] and v["precio"] == n["precio"]:
                 continue
-            self.protegido(f"{kind} {slug} tamaño {i}", self.tamano, kind, pt, slug, da[i], db[i])
+            self.protegido(f"{kind} {slug} tamaño {n['label']}", self.tamano, kind, pt, slug, v, n)
 
     def tamano(self, kind, pt, slug, v, n):
         p = self.prod(kind, pt, slug)
@@ -544,7 +650,8 @@ def informe(res, before, after, dry):
         L.extend(f"- {i}" for i in items) if items else L.append("- ninguno")
         L.append("")
     sec("Aplicado en Shopify" if not dry else "Se aplicaría en Shopify", res.hechos)
-    sec("Ya estaba al día", res.sin_cambio)
+    sec("Ya estaba al día", res.sin_cambio if len(res.sin_cambio) <= 15 else
+        [f"{len(res.sin_cambio)} comprobaciones sin diferencias (omitidas por brevedad)"])
     sec("Pendiente manual", res.pendientes)
     sec("Informativo (sin equivalente en Shopify)", res.info)
     if res.errores:
