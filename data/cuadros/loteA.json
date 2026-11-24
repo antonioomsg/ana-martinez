@@ -440,7 +440,8 @@
   "titulo": "Frailecillo volador / Flying puffin",
   "tecnica": "Óleo sobre lienzo / Oil on canvas",
   "medidas": "36 x 29 cm",
-  "fuente": "catalogo"
+  "fuente": "catalogo",
+  "estado": "vendido"
  },
  "assets/wp/2024/03/Puffin_portrait.jpg": {
   "slug": "flotabilidad-neutra",
