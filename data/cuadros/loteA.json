@@ -449,7 +449,8 @@
   "titulo": "Frailecillo / Puffin",
   "tecnica": "Óleo sobre lienzo / Oil on canvas",
   "medidas": "39 x 36 cm",
-  "fuente": "catalogo"
+  "fuente": "catalogo",
+  "estado": "vendido"
  },
  "assets/subidas/kelp-forest/20261110104144-1-kelp-forest-1_mejorado-photshop.jpg": {
   "slug": "kelp-forest",
