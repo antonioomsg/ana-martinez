@@ -351,7 +351,8 @@
   "titulo": "Sábana para tres / A sheet for three",
   "tecnica": "Óleo sobre lienzo / Oil on canvas",
   "medidas": "100 x 140 cm",
-  "fuente": "web"
+  "fuente": "web",
+  "estado": "vendido"
  },
  "assets/wp/2014/08/Reculer-pour-sauter.jpg": {
   "slug": "blanco-sobre-todo",
