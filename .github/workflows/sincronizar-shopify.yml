@@ -1,0 +1,88 @@
+# Pasa a Shopify los cambios de data/ (un solo sentido: GitHub -> Shopify) en cada push a main.
+# Lo ejecuta scripts/sync_shopify.py (solo biblioteca estándar). Lo que no sabe mapear se
+# anota en el issue «Cambios de Ana pendientes de pasar a Shopify».
+name: Sincronizar Shopify
+
+on:
+  push:
+    branches: [main]
+    paths: ["data/**"]
+  workflow_dispatch:
+    inputs:
+      before:
+        description: "Commit anterior (vacío = el padre de «after»)"
+        required: false
+        default: ""
+      after:
+        description: "Commit final"
+        required: false
+        default: "HEAD"
+      dry_run:
+        description: "Solo simular (no escribe en Shopify)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  issues: write
+
+# Una sola ejecución a la vez y sin cancelar: cada rango de commits debe aplicarse entero.
+concurrency:
+  group: sincronizar-shopify
+  cancel-in-progress: false
+
+jobs:
+  sincronizar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      SHOPIFY_STORE: ${{ secrets.SHOPIFY_STORE }}
+      SHOPIFY_CLIENT_ID: ${{ secrets.SHOPIFY_CLIENT_ID }}
+      SHOPIFY_CLIENT_SECRET: ${{ secrets.SHOPIFY_CLIENT_SECRET }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Sincronizar
+        id: sync
+        env:
+          BEFORE: ${{ github.event_name == 'push' && github.event.before || github.event.inputs.before }}
+          AFTER: ${{ github.event_name == 'push' && github.sha || github.event.inputs.after }}
+          DRY: ${{ github.event.inputs.dry_run }}
+        run: |
+          # before vacío o todo ceros (rama nueva / forzado) -> el script usa after~1
+          [ "$BEFORE" = "0000000000000000000000000000000000000000" ] && BEFORE=""
+          EXTRA=""
+          [ "$DRY" = "true" ] && EXTRA="--dry-run"
+          set +e
+          python3 scripts/sync_shopify.py --before "$BEFORE" --after "${AFTER:-HEAD}" $EXTRA \
+            --resumen "$RUNNER_TEMP/resumen.md" --pendientes "$RUNNER_TEMP/pendientes.md"
+          echo "code=$?" >> "$GITHUB_OUTPUT"
+      - name: Resumen
+        if: always()
+        run: |
+          [ -f "$RUNNER_TEMP/resumen.md" ] && cat "$RUNNER_TEMP/resumen.md" >> "$GITHUB_STEP_SUMMARY" || true
+      - name: Issue de pendientes manuales
+        if: always() && github.event.inputs.dry_run != 'true'
+        run: |
+          [ -s "$RUNNER_TEMP/pendientes.md" ] || exit 0
+          TITULO="Cambios de Ana pendientes de pasar a Shopify"
+          {
+            echo "Commit \`${GITHUB_SHA::7}\` · [ejecución]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID)"
+            echo
+            cat "$RUNNER_TEMP/pendientes.md"
+          } > "$RUNNER_TEMP/cuerpo.md"
+          N=$(gh issue list --state open --search "\"$TITULO\" in:title" --json number,title \
+              --jq "[.[] | select(.title==\"$TITULO\")][0].number // empty")
+          if [ -n "$N" ]; then
+            gh issue comment "$N" --body-file "$RUNNER_TEMP/cuerpo.md"
+          else
+            gh issue create --title "$TITULO" --body-file "$RUNNER_TEMP/cuerpo.md"
+          fi
+      - name: Fallar si hubo errores de API
+        if: always() && steps.sync.outputs.code != '0'
+        run: exit 1

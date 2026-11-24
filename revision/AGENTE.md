@@ -27,6 +27,10 @@ Tipos de petición:
 
 Interpreta la intención, no la letra. "Me gustan más chicos" sobre un cuadro de la galería = reducir el tamaño de las imágenes de galería en toda la web manteniendo proporciones, márgenes y que en móvil sigan legibles; elige tú una medida sensata.
 
+## Sincronización automática con Shopify
+
+Los cambios en `data/` (y solo ellos) se pasan solos a la tienda Shopify de Ana: cada push a `main` que toque `data/**` lanza `.github/workflows/sincronizar-shopify.yml` (`scripts/sync_shopify.py`). Por eso las peticiones de Ana se expresan **siempre como ediciones en `data/`**: tamaños y precios de láminas en `data/ediciones.json` (`tipos.laminas.tamanos`), precios y colores de pañuelos en `data/panuelos.json` / `ediciones.json`, estados vendido/disponible en `data/cuadros/*.json`, títulos y portadas en `data/content.json`. **Nunca toques Shopify directamente.** Lo que el sincronizador no sabe mapear queda anotado en el issue «Cambios de Ana pendientes de pasar a Shopify».
+
 ## Recetas habituales
 
 - **Vendido / disponible**: en `data/cuadros/*.json`, en la entrada cuya clave es la URL de la imagen, pon `"estado": "vendido"` o `"estado": "disponible"`. Esto manda sobre el estado de concepto.
