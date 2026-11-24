@@ -402,7 +402,8 @@
   "titulo": "Cameroun",
   "tecnica": "Óleo sobre lienzo / Oil on canvas",
   "medidas": "80 x 120 cm",
-  "fuente": "web"
+  "fuente": "web",
+  "estado": "vendido"
  },
  "assets/wp/2014/08/Mocambique.jpg": {
   "slug": "blanco-sobre-todo",
