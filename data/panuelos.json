@@ -159,7 +159,7 @@
      "label": "Azul bruma / Ocre",
      "fotos": {
       "plano": "ebria_plano_ana",
-      "modelo": "ebria_modelo_ia",
+      "modelo": "ebria_modelo_v1",
       "zoom": "ebria_zoom"
      }
     }
@@ -185,7 +185,7 @@
      "label": "Rojo coral / Gris perla",
      "fotos": {
       "plano": "siames_plano_ana",
-      "modelo": "siames_modelo_ia",
+      "modelo": "siames_modelo_v1",
       "zoom": "siames_zoom_ana2"
      }
     }
@@ -251,7 +251,7 @@
      "label": "Verde grisalla",
      "fotos": {
       "plano": "medusas_menta_plano_ana",
-      "modelo": "medusas_menta_modelo_ia",
+      "modelo": "medusas_menta_modelo_v1",
       "zoom": "medusas_menta_zoom_ana"
      }
     },
