@@ -80,7 +80,7 @@
      "id": "azul",
      "label": "Azul oscuro / Verde",
      "fotos": {
-      "plano": "niebla_plano_nat",
+      "plano": "niebla_plano_ana",
       "modelo": "niebla_modelo_ia",
       "zoom": "niebla_zoom_ana"
      }
@@ -106,7 +106,7 @@
      "id": "azul",
      "label": "Azul profundo / Turquesa",
      "fotos": {
-      "plano": "hacia_la_luz_plano_nat",
+      "plano": "hacia_la_luz_plano_ana",
       "modelo": "hacia_la_luz_modelo_ia",
       "zoom": "hacia_la_luz_zoom_ana"
      }
@@ -158,7 +158,7 @@
      "id": "azul",
      "label": "Azul bruma / Ocre",
      "fotos": {
-      "plano": "ebria_plano_nat",
+      "plano": "ebria_plano_ana",
       "modelo": "ebria_modelo_ia",
       "zoom": "ebria_zoom"
      }
@@ -184,7 +184,7 @@
      "id": "rojo",
      "label": "Rojo coral / Gris perla",
      "fotos": {
-      "plano": "siames_plano_nat",
+      "plano": "siames_plano_ana",
       "modelo": "siames_modelo_ia",
       "zoom": "siames_zoom_ana2"
      }
@@ -250,7 +250,7 @@
      "id": "menta",
      "label": "Verde grisalla",
      "fotos": {
-      "plano": "medusas_menta_plano_nat",
+      "plano": "medusas_menta_plano_ana",
       "modelo": "medusas_menta_modelo_ia",
       "zoom": "medusas_menta_zoom_ana"
      }
@@ -268,7 +268,7 @@
      "id": "burdeos",
      "label": "Burdeos",
      "fotos": {
-      "plano": "medusas_burdeos_plano_nat",
+      "plano": "medusas_burdeos_plano_ana",
       "modelo": "medusas_burdeos_modelo_ia",
       "zoom": "medusas_burdeos_zoom_ana"
      }
@@ -294,7 +294,7 @@
      "id": "verde",
      "label": "Verde / Amarillo / Rosa muy pálido",
      "fotos": {
-      "plano": "viana_plano_nat",
+      "plano": "viana_plano_ana",
       "modelo": "viana_modelo",
       "zoom": "viana_zoom"
      }
